@@ -8,6 +8,8 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@types/ent": "^2.2.1",
+    "ent": "^2.2.0",
     "moment-timezone": "^0.5.23"
   },
   "devDependencies": {
