@@ -19,3 +19,8 @@ export interface Day {
   id: string
   date: moment.Moment
 }
+
+export enum ItemType {
+  speaker = "speaker",
+  session = "session"
+} 

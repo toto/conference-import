@@ -7,7 +7,7 @@ export interface MiniSpeaker {
 }
 
 export interface Speaker extends MiniSpeaker {
-  type: "speaker" 
+  type: string
   event: string
   photo: string
   url: string
