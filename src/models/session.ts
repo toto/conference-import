@@ -12,6 +12,8 @@ export interface MiniSession {
 }
 
 export interface Session extends MiniSession {
+  type: "session",
+  event: string,
   subconference?: Subconference;
   subtitle?: string
   abstract: string

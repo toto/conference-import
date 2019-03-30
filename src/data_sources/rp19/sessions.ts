@@ -7,7 +7,7 @@ interface Options {
   sessionPostProcessing?(session: Session): Session | null
   eventId: string
   sessionLinkPrefix: string
-  subconference?: Subconference
+  subconferenceFinder?(session: Session, source: any): Subconference | undefined;
 }
 
 export function sessionsFromJson(json: any, options: Options): Session[] {
@@ -32,10 +32,9 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
     utils.nameIdPairsFromCommaString(item.speaker, item.speaker_uid)
       .forEach(s => speakers.push(s));
 
-    return {
+    const result: Session = {
       type: "session",
       id: item.nid,
-      subconference: options.subconference,
       title: utils.dehtml(item.title_text),
       subtitle: undefined,
       abstract: utils.dehtml(item.short_thesis),
@@ -51,8 +50,14 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
       speakers,
       enclosures: [],
       links: [],
-      sessions: [],
     }
+
+    const { subconferenceFinder } = options;
+    if (subconferenceFinder) {
+      result.subconference = subconferenceFinder(result, item);
+    }
+
+    return result;
   });
 
   return sessions.filter(s => s !== null) as Session[];

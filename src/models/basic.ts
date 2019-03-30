@@ -12,7 +12,7 @@ export type Level = NamedElement;
 
 export interface Subconference {
   id: string
-  lable: string
+  label: string
 }
 
 export interface Day {
