@@ -9,8 +9,8 @@ describe("Import unscheduled sessions", () => {
       __dirname,
       "..",
       "fixtures",
-      "rp19",
-      "unscheduled-main-sessions.json"
+      "rp18",
+      "rp18-sessions.json"
     ),
     "utf8"
   );
@@ -18,44 +18,44 @@ describe("Import unscheduled sessions", () => {
 
   describe("basic parsing", () => {
     const sessions = sessionsFromJson(parsedJson, {
-      eventId: "rp19",
+      eventId: "rp18",
       sessionLinkPrefix: "https://example.com"
     });
     it("Should parse some session", () => {
       const [firstSession] = sessions;
       expect(firstSession).toBeTruthy();
-      expect(firstSession.id).toBe("26887");
+      expect(firstSession.id).toBe("25183");
       expect(firstSession.url).toBe(
-        "https://example.com/session/coding-initiatives-between-idealism-marketforce"
+        "https://example.com/session/rp18-comix"
       );
-      expect(firstSession.speakers.length).toBe(1);
+      expect(firstSession.speakers.length).toBe(3);
       expect(firstSession.title).toBe(
-        "Coding Initiatives: Between Idealism and Marketforce"
+        "#rp18 comix"
       );
-      expect(firstSession.track.label_en).toBe("Research & Education");
-      expect(firstSession.track.label_de).toBe("Research & Education");
-      expect(firstSession.track.id).toBe("research-education");
+      expect(firstSession.track.label_en).toBe("re:publica");
+      expect(firstSession.track.label_de).toBe("re:publica");
+      expect(firstSession.track.id).toBe("re-publica");
     });
 
     it("Should parse all sessions", () => {
-      expect(sessions.length).toBe(191);
+      expect(sessions.length).toBe(528);
     });
 
     it("Should parse multiple speakers sessions", () => {
-      const session = sessions.find(s => s.id === "27252");
+      const session = sessions.find(s => s.id === "25183");
       if (!session) {
         expect(false).toBe(true);
         return;
       }
       expect(session.speakers.length).toBe(3);
 
-      const [tori, ulrich, adriana] = session.speakers;
-      expect(tori.id).toBe("14052");
-      expect(tori.name).toBe("Tori Boeck");
-      expect(ulrich.id).toBe("20119");
-      expect(ulrich.name).toBe("Ulrich Binner");
-      expect(adriana.id).toBe("14145");
-      expect(adriana.name).toBe("Adriana Groh");
+      const [a, b, c] = session.speakers;
+      expect(a.id).toBe("4794");
+      expect(a.name).toBe("Tim Gaedke");
+      expect(b.id).toBe("2414");
+      expect(b.name).toBe("Johannes Kretzschmar");
+      expect(c.id).toBe("4795");
+      expect(c.name).toBe("Jeff Chi");
     });
   });
 
@@ -78,7 +78,7 @@ describe("Import unscheduled sessions", () => {
 
 
     it("Should parse media convention", () => {
-      const session = sessions.find(s => s.id === "32070");
+      const session = sessions.find(s => s.id === "23764");
       if (!session) {
         expect(false).toBe(true);
         return;

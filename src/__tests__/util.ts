@@ -1,4 +1,4 @@
-import * as util from '../../data_sources/rp19/utils';
+import * as util from '../data_sources/rp/utils';
 
 describe('Utilities', () => {
   it("Should parse href from link", () => {

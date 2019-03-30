@@ -34,11 +34,12 @@ interface NameAndId {
   id: string
   name: string
 }
-export function nameIdPairsFromCommaString(nameString: string, idString: string): NameAndId[] {
+
+export function nameIdPairsFromCommaString(nameString: string, idString: string, seperator = ", "): NameAndId[] {
   if (nameString === "" || idString === "") return [];
-  
-  const ids: string[] = idString.split(', ');
-  const names: string[] = nameString.split(', ');
+
+  const ids: string[] = idString.split(seperator);
+  const names: string[] = nameString.split(seperator);
   const result: NameAndId[] = [];
   ids.forEach((id, index) => {
     if (names.length > index) {
