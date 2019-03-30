@@ -16,4 +16,10 @@ describe('Utilities', () => {
     
     expect(result.url).toBe('/foo/bar?bo=aa');
   });
+
+  it('Should make some ids', () => {
+    const source = 'Some name that has a few öå';
+    const result = util.mkId(source);
+    expect(result).toBe('some-name-that-has-a-few-');
+  });
 });

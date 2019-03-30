@@ -17,5 +17,6 @@ describe('Import republica basic data', () => {
     expect(firstSpeaker.id).toBe('19252');
     expect(firstSpeaker.photo).toBe('https://example.com/images/sites/re-publica.com/files/styles/conflux_square_xs/public/pictures/d36d706f-fa92-43b6-94ed-eb7281ea0d6f.jpg?itok=kUPvs-cR');
     expect(firstSpeaker.url).toBe('https://example.com/speakers/en/user/19252');
+    expect(firstSpeaker.name).toBe('Georg Fischer');
   });
 });

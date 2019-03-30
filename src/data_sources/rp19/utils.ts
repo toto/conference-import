@@ -20,3 +20,31 @@ export function nameAndUrlFromHtmlLink(linkStr: string): NameAndUrl | null {
   }
   return null;
 }
+
+export function undefinedIfEmpty(str: string): string | undefined {
+  if (str.trim() === "") return undefined;
+  return str;
+}
+
+export function mkId(str: string): string {
+	return str.trim().replace(/[^A-Za-z0-9_\-]+/g, '-').toLowerCase();
+}
+
+interface NameAndId {
+  id: string
+  name: string
+}
+export function nameIdPairsFromCommaString(nameString: string, idString: string): NameAndId[] {
+  if (nameString === "" || idString === "") return [];
+  
+  const ids: string[] = idString.split(', ');
+  const names: string[] = nameString.split(', ');
+  const result: NameAndId[] = [];
+  ids.forEach((id, index) => {
+    if (names.length > index) {
+      const speakerName = names[index];
+      result.push({ id, name: speakerName });
+    }
+  });
+  return result;
+}
