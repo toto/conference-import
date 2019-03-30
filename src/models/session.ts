@@ -23,8 +23,8 @@ export interface Session extends MiniSession {
   day?: Day
   location?: MiniLocation
   track: MiniTrack
-  format: Format
-  level: Level 
+  format?: Format
+  level?: Level 
   lang: Language
   translated_langs?: Language[]
   speakers: MiniSpeaker[]
