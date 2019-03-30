@@ -2,6 +2,7 @@ import { sessionsFromJson } from "./../../data_sources/rp/sessions";
 import * as fs from "fs";
 import * as path from "path";
 import { Subconference } from "../../models";
+import * as moment from 'moment-timezone';
 
 describe("Import unscheduled sessions", () => {
   const json = fs.readFileSync(
@@ -19,6 +20,7 @@ describe("Import unscheduled sessions", () => {
   describe("basic parsing", () => {
     const sessions = sessionsFromJson(parsedJson, {
       eventId: "rp18",
+      timezone: 'Europe/Berlin',
       sessionLinkPrefix: "https://example.com"
     });
     it("Should parse some session", () => {
@@ -67,6 +69,7 @@ describe("Import unscheduled sessions", () => {
     const sessions = sessionsFromJson(parsedJson, {
       eventId: "rp19",
       sessionLinkPrefix: "https://example.com",
+      timezone: 'Europe/Berlin',
       subconferenceFinder: (session, source) => { 
         const { conference } = source;
         if (typeof(conference) === 'string' && conference.match(mediaConvention.label)) {
@@ -86,6 +89,36 @@ describe("Import unscheduled sessions", () => {
       const { subconference } = session;
       if (!subconference) { expect(false).toBe(true); return }
       expect(subconference.id).toBe('media-convention');
+    });
+  });
+
+  describe("Date and location parsing", () => {
+    const sessions = sessionsFromJson(parsedJson, {
+      eventId: "rp18",
+      timezone: 'Europe/Berlin',
+      sessionLinkPrefix: "https://example.com"
+    });
+
+    it('should parse date and time correctly', () => {
+      const session = sessions.find(s => s.id === "25362");
+      if (!session) {
+        expect(false).toBe(true);
+        return;
+      }
+
+      expect(session.title).toBe("Thessaloniki: An emerging (It) destination Young – Creative – Innovative");
+
+      const { begin, end, duration } = session;
+      if (!begin || !end || !duration) {
+        expect(false).toBe(true);
+        return;
+      }
+
+      const sessionBegin = moment('2018-05-02T10:15:00+0200');
+      const sessionEnd = moment('2018-05-02T10:45:00+0200');
+      expect(sessionBegin.isSame(begin)).toBe(true);
+      expect(sessionEnd.isSame(end)).toBe(true);
+      expect(duration).toEqual(30);
     });
   });
 });

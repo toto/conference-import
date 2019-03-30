@@ -19,6 +19,7 @@ describe("Import unscheduled sessions", () => {
   describe("basic parsing", () => {
     const sessions = sessionsFromJson(parsedJson, {
       eventId: "rp19",
+      timezone: 'Europe/Berlin',
       sessionLinkPrefix: "https://example.com"
     });
     it("Should parse some session", () => {
@@ -66,6 +67,7 @@ describe("Import unscheduled sessions", () => {
     }
     const sessions = sessionsFromJson(parsedJson, {
       eventId: "rp19",
+      timezone: 'Europe/Berlin',
       sessionLinkPrefix: "https://example.com",
       subconferenceFinder: (session, source) => { 
         const { conference } = source;

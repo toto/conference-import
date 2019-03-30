@@ -1,3 +1,4 @@
+import * as moment from 'moment-timezone';
 import * as utils from './utils';
 import { MiniTrack, Session, Subconference, MiniSpeaker } from '../../models';
 import { languageFromString } from './language';
@@ -7,6 +8,7 @@ interface Options {
   sessionPostProcessing?(session: Session): Session | null
   eventId: string
   sessionLinkPrefix: string
+  timezone: string
   subconferenceFinder?(session: Session, source: any): Subconference | undefined;
 }
 
@@ -32,6 +34,16 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
     utils.nameIdPairsFromCommaString(item.speaker, item.speaker_uid)
       .forEach(s => speakers.push(s));
 
+    let begin: moment.Moment | undefined;
+    let end: moment.Moment | undefined;
+    let duration: number | undefined;
+    if (item.datetime_start && item.datetime_start !== "" &&
+        item.datetime_end && item.datetime_end !== "") {
+          begin = moment.tz(item.datetime_start, options.timezone);
+          end = moment.tz(item.datetime_end, options.timezone);
+          duration = end.diff(begin, 'minute');
+    }
+
     let result: Session | null = {
       type: "session",
       id: item.nid,
@@ -42,9 +54,9 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
       url: `${options.sessionLinkPrefix}${name.url}`,
       track,
       lang,
-      begin: undefined,
-      end: undefined,
-      duration: undefined,
+      begin,
+      end,
+      duration,
       location: undefined,
       description: utils.dehtml(item.description),
       speakers,
