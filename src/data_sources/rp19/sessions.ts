@@ -6,12 +6,11 @@ import { languageFromString } from './language';
 interface Options {
   sessionPostProcessing?(session: Session): Session | null
   eventId: string
-  picturePrefix: string
   sessionLinkPrefix: string
   subconference?: Subconference
 }
 
-export function speakersFromJson(json: any, options: Options): Session[] {
+export function sessionsFromJson(json: any, options: Options): Session[] {
   if (!Array.isArray(json)) return [];
 
   const sessions: (Session | null)[] = json.map((item) => {
@@ -30,12 +29,12 @@ export function speakersFromJson(json: any, options: Options): Session[] {
 
     utils.nameIdPairsFromCommaString(item.moderator, item.moderator_uid)
       .forEach(s => speakers.push(s));
-    utils.nameIdPairsFromCommaString(item.speakers, item.speaker_uid)
+    utils.nameIdPairsFromCommaString(item.speaker, item.speaker_uid)
       .forEach(s => speakers.push(s));
 
     return {
       type: "session",
-      id: item.uid,
+      id: item.nid,
       subconference: options.subconference,
       title: utils.dehtml(item.title_text),
       subtitle: undefined,
