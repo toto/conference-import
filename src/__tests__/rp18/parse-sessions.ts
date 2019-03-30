@@ -120,5 +120,24 @@ describe("Import unscheduled sessions", () => {
       expect(sessionEnd.isSame(end)).toBe(true);
       expect(duration).toEqual(30);
     });
+
+    it('should parse location correctly', () => {
+      const session = sessions.find(s => s.id === "25362");
+      if (!session) {
+        expect(false).toBe(true);
+        return;
+      }
+
+      expect(session.title).toBe("Thessaloniki: An emerging (It) destination Young – Creative – Innovative");
+
+      const { location } = session;
+      if (!location) {
+        expect(false).toBe(true);
+        return;
+      }
+
+      expect(location.label_en).toBe("Stage 8");
+      expect(location.id).toBe("24465");
+    });
   });
 });

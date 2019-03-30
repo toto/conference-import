@@ -1,6 +1,6 @@
 import * as moment from 'moment-timezone';
 import * as utils from './utils';
-import { MiniTrack, Session, Subconference, MiniSpeaker } from '../../models';
+import { MiniTrack, Session, Subconference, MiniSpeaker, MiniLocation } from '../../models';
 import { languageFromString } from './language';
 
 
@@ -43,7 +43,14 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
       duration = end.diff(begin, 'minute');
     }
 
-    
+    let location: MiniLocation | undefined;
+    if (utils.hasValue(item.room) && utils.hasValue(item.room_nid)) {
+      location = {
+        id: item.room_nid,
+        label_en: item.room,
+        label_de: item.room,
+      }
+    }
 
     let result: Session | null = {
       type: "session",
@@ -58,7 +65,7 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
       begin,
       end,
       duration,
-      location: undefined,
+      location,
       description: utils.dehtml(item.description),
       speakers,
       enclosures: [],
