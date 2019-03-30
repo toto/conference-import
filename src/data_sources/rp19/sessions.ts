@@ -32,7 +32,7 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
     utils.nameIdPairsFromCommaString(item.speaker, item.speaker_uid)
       .forEach(s => speakers.push(s));
 
-    const result: Session = {
+    let result: Session | null = {
       type: "session",
       id: item.nid,
       title: utils.dehtml(item.title_text),
@@ -52,11 +52,15 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
       links: [],
     }
 
-    const { subconferenceFinder } = options;
+    const { subconferenceFinder, sessionPostProcessing } = options;
     if (subconferenceFinder) {
       result.subconference = subconferenceFinder(result, item);
     }
-
+    
+    if (sessionPostProcessing) {
+      result = sessionPostProcessing(result);
+    }
+    
     return result;
   });
 
