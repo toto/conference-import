@@ -26,6 +26,13 @@ export function undefinedIfEmpty(str: string): string | undefined {
   return str;
 }
 
+export function hasValue(value: any): boolean {
+  if (typeof value === "string") {
+    return value.trim() !== "";
+  }
+  return value !== undefined && value !== null;
+}
+
 export function mkId(str: string): string {
 	return str.trim().replace(/[^A-Za-z0-9_\-]+/g, '-').toLowerCase();
 }

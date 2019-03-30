@@ -37,12 +37,13 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
     let begin: moment.Moment | undefined;
     let end: moment.Moment | undefined;
     let duration: number | undefined;
-    if (item.datetime_start && item.datetime_start !== "" &&
-        item.datetime_end && item.datetime_end !== "") {
-          begin = moment.tz(item.datetime_start, options.timezone);
-          end = moment.tz(item.datetime_end, options.timezone);
-          duration = end.diff(begin, 'minute');
+    if (utils.hasValue(item.datetime_start) && utils.hasValue(item.datetime_end)) {
+      begin = moment.tz(item.datetime_start, options.timezone);
+      end = moment.tz(item.datetime_end, options.timezone);
+      duration = end.diff(begin, 'minute');
     }
+
+    
 
     let result: Session | null = {
       type: "session",
