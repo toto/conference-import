@@ -14,6 +14,7 @@ export interface RpDataSourceFormat extends DataSourceFormat {
   speakerImageBaseUrl: string;
   defaultTrack: Track;
   defaultLanguageName?: string;
+  subconferenceId?: string;
 };
 
 export function isRpDataSourceFormat(dataSource: DataSourceFormat): dataSource is RpDataSourceFormat {
@@ -48,6 +49,19 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
       timezone: firstLocation.timezone,
       defaultTrack: source.defaultTrack,
       defaultLanguageName: source.defaultLanguageName,
+      subconferenceFinder: (session, rawSession) => {
+        const { subconferenceId } = source;
+        if (subconferenceId) {
+          return subconferences.find(s => s.id === subconferenceId);
+        }
+        
+        const { conference } = rawSession;
+        if (conference && typeof conference === 'string') {
+          return subconferences.find(s => conference.toLowerCase().includes(s.label.toLowerCase()))
+        }
+
+        return undefined;
+      }
     })
   );
 
