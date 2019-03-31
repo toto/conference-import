@@ -68,8 +68,8 @@
       "speakerImageBaseUrl": "https://19.re-publica.com",
       "defaultTrack": {
         "id": "sideevents",
-        "label_en": "Side Event",
-        "label_de": "Side Event",
+        "label_en": "Sideevent",
+        "label_de": "Sideevent",
         "color": [0,0,0,1]
       },
       "defaultLanguageName": "German"

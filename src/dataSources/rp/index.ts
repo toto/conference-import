@@ -13,6 +13,7 @@ export interface RpDataSourceFormat extends DataSourceFormat {
   speakerLinkBaseUrl: string;
   speakerImageBaseUrl: string;
   defaultTrack: Track;
+  defaultLanguageName?: string;
 };
 
 export function isRpDataSourceFormat(dataSource: DataSourceFormat): dataSource is RpDataSourceFormat {
@@ -46,6 +47,7 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
       sessionLinkPrefix: source.sessionLinkBaseUrl,
       timezone: firstLocation.timezone,
       defaultTrack: source.defaultTrack,
+      defaultLanguageName: source.defaultLanguageName,
     })
   );
 
