@@ -139,5 +139,15 @@ describe("Import unscheduled sessions", () => {
       expect(location.label_en).toBe("Stage 8");
       expect(location.id).toBe("24465");
     });
+
+    it('should cancelled correctly', () => {
+      const session = sessions.find(s => s.id === "24770");
+      if (!session) {
+        expect(false).toBe(true);
+        return;
+      }
+
+      expect(session.cancelled).toBe(true);
+    });
   });
 });

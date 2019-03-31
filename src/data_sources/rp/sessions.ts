@@ -70,6 +70,7 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
       speakers,
       enclosures: [],
       links: [],
+      cancelled: item.status === "Cancelled",
     }
 
     const { subconferenceFinder, sessionPostProcessing } = options;
