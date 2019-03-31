@@ -57,7 +57,7 @@ export function processData(
     );
 
     session.day = days.find(
-      d => d.date.tz(options.timezone).format(ISO_DAY_FORMAT) === dateString
+      d => d.date === dateString
     );
 
     return session;

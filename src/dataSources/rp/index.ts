@@ -42,7 +42,7 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
   result.sessions = result.sessions.concat(
     sessionsFromJson(sessionsJSON.data, {
       eventId: event.id,
-      sessionLinkPrefix: source.speakerLinkBaseUrl,
+      sessionLinkPrefix: source.sessionLinkBaseUrl,
       timezone: firstLocation.timezone,
     })
   );

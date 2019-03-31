@@ -1,5 +1,3 @@
-import * as moment from 'moment-timezone';
-
 interface NamedElement {
   id: string
   label_en: string
@@ -19,7 +17,7 @@ export interface Subconference {
 export interface Day {
   type: "day"
   id: string
-  date: moment.Moment
+  date: string
 }
 
 export enum ItemType {

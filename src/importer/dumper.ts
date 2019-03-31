@@ -1,4 +1,3 @@
-import * as moment from 'moment-timezone';
 import { writeFileSync } from "fs";
 import { Event, Day, Subconference } from "../models";
 import { DataSourceFormat } from "../dataSources/dataSource";
@@ -28,7 +27,6 @@ export async function dumpNormalizedConference(configuration: Configuration, des
 
   event.type = "event";
   days = days.map(day => {
-    day.date = moment(day.date, 'YYYY-MM-DD', options.timezone);
     day.type = 'day';
     return day;
   });
