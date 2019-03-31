@@ -38,8 +38,8 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
     let end: moment.Moment | undefined;
     let duration: number | undefined;
     if (utils.hasValue(item.datetime_start) && utils.hasValue(item.datetime_end)) {
-      begin = moment.tz(item.datetime_start, options.timezone);
-      end = moment.tz(item.datetime_end, options.timezone);
+      begin = moment.tz(item.datetime_start, "YYYY-MM-DD'T'HH:mm:ss", options.timezone);
+      end = moment.tz(item.datetime_end, "YYYY-MM-DD'T'HH:mm:ss", options.timezone);
       duration = end.diff(begin, 'minute');
     }
 
