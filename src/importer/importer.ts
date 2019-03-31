@@ -48,7 +48,7 @@ export function process(
 
   // Process sessions for days if scheduled
   const resultSessions = sessions.map(session => {
-    const dateString = dayForSession(
+    const dateString = isoDayForSession(
       session,
       options.timezone,
       options.hourOfDayChange
@@ -85,7 +85,7 @@ export function process(
   return { event, sessions: resultSessions, speakers, tracks, days, locations };
 }
 
-export function dayForSession(
+export function isoDayForSession(
   session: ConferenceModel.Session,
   timezone: string,
   hourOfDayChange: number
