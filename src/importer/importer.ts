@@ -22,6 +22,7 @@ export interface Options {
   defaultColor: Color;
   timezone: string;
   hourOfDayChange: number;
+  nonStageLocationIds?: string[];
 }
 
 export function process(
@@ -61,7 +62,7 @@ export function process(
     return session;
   });
 
-  // Extract locations from sessions
+  // Extract locations from sessions and process them with order
   const miniLocationMap = new Map<string, ConferenceModel.MiniLocation>();
   sessions.forEach(session => {
     const { location } = session;
@@ -71,7 +72,13 @@ export function process(
   const locations = miniLocations.map((miniLocation, index) => {
     const location = miniLocation as ConferenceModel.Location;
     location.type = "location";
-    location.is_stage = false;
+    
+    const { nonStageLocationIds } = options;
+    if (nonStageLocationIds) {
+      location.is_stage = !nonStageLocationIds.includes(location.id);
+    } else {
+      location.is_stage = true;
+    }
     let orderIndex = options.locationIdOrder.indexOf(location.id);
     if (!orderIndex) {
       orderIndex = index + miniLocations.length;
@@ -79,8 +86,6 @@ export function process(
     location.order_index = orderIndex;
     return location;
   });
-
-  // 3. Process location order
 
   return { event, sessions: resultSessions, speakers, tracks, days, locations };
 }
