@@ -29,7 +29,7 @@ describe("Sessions", () => {
       id: "some-room",
       label_en: "Some Room",
     };
-
+    
     it("should determine session state as scheduled", () => {
       expect(stateForSession(scheduledSession)).toBe(SessionState.SCHEDULED);
     });

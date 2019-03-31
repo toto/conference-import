@@ -1,0 +1,50 @@
+{
+  "event": {
+    "id": "rp19",
+    "label": "re:publica 19",
+    "title": "re:publica 2019",
+    "date": ["2019-05-06", "2019-05-08"],
+    "locations": [
+      {
+        "label": "Station Berlin",
+        "coords": [52.49814, 13.374538],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "rp19",
+    "url": "https://19.re-publica.com/"
+  },
+  "days": [
+    {
+      "id": "2019-05-06",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2019-05-06"
+    },
+    {
+      "id": "2019-05-07",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2019-05-07"
+    },
+    {
+      "id": "2019-05-08",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2019-05-08"
+    }
+  ],
+  "subconferences": [
+    {
+      "id": "media-convention",
+      "label": "Media Convention"
+    }
+  ],
+  "sources": [
+    {
+      "format": "rp",
+      "speakersUrl": "https://re-publica.com/files/rest/speakers.json",
+      "sessionsUrl": "https://re-publica.com/files/rest/sessions.json"
+    }
+  ]
+}

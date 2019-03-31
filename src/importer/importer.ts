@@ -14,22 +14,23 @@ export interface ConferenceData {
   tracks: ConferenceModel.Track[];
   days: ConferenceModel.Day[];
   locations: ConferenceModel.Location[];
+  subconferences: ConferenceModel.Subconference[];
 }
 
 export interface Options {
   locationIdOrder: string[];
-  colorForTrack: Map<String, Color>;
+  colorForTrack: {[key: string]: Color};
   defaultColor: Color;
   timezone: string;
   hourOfDayChange: number;
   nonStageLocationIds?: string[];
 }
 
-export function process(
+export function processData(
   sourceData: SourceData,
   options: Options
 ): ConferenceData {
-  const { sessions, speakers, event, days } = sourceData;
+  const { sessions, speakers, event, days, subconferences } = sourceData;
 
   // Extract tracks and process color
   const miniTrackMap = new Map<string, ConferenceModel.MiniTrack>();
@@ -38,7 +39,7 @@ export function process(
   const tracks = miniTracks.map(track => {
     const result = track as ConferenceModel.Track;
     result.type = "track";
-    const color = options.colorForTrack.get(track.id);
+    const color = options.colorForTrack[track.id];
     if (color) {
       result.color = color;
     } else {
@@ -87,7 +88,15 @@ export function process(
     return location;
   });
 
-  return { event, sessions: resultSessions, speakers, tracks, days, locations };
+  // // Process cross relationships - sessions from speaker
+  // const speakerMap = new Map<string,ConferenceModel.Speaker>();
+  // speakers.forEach(s => speakerMap.set(s.id, s));
+  // const sessionMap = new Map<string,ConferenceModel.Session>();
+  // resultSessions.forEach(s => sessionMap.set(s.id, s));
+
+
+
+  return { event, sessions: resultSessions, speakers, tracks, days, locations, subconferences };
 }
 
 export function isoDayForSession(
