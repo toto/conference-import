@@ -1,6 +1,6 @@
 import * as axios from "axios";
 import { SourceData } from "../../importer/sourceData";
-import { Event, Day, Subconference } from "../../models";
+import { Event, Day, Subconference, Track } from "../../models";
 import { sessionsFromJson } from "./sessions";
 import { speakersFromJson } from "./speakers";
 import { DataSourceFormat } from "../dataSource";
@@ -12,6 +12,7 @@ export interface RpDataSourceFormat extends DataSourceFormat {
   sessionsUrl: any;
   speakerLinkBaseUrl: string;
   speakerImageBaseUrl: string;
+  defaultTrack: Track;
 };
 
 export function isRpDataSourceFormat(dataSource: DataSourceFormat): dataSource is RpDataSourceFormat {
@@ -44,6 +45,7 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
       eventId: event.id,
       sessionLinkPrefix: source.sessionLinkBaseUrl,
       timezone: firstLocation.timezone,
+      defaultTrack: source.defaultTrack,
     })
   );
 

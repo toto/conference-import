@@ -19,8 +19,14 @@ describe("Import unscheduled sessions", () => {
   describe("basic parsing", () => {
     const sessions = sessionsFromJson(parsedJson, {
       eventId: "rp19",
-      timezone: 'Europe/Berlin',
-      sessionLinkPrefix: "https://example.com"
+      timezone: "Europe/Berlin",
+      sessionLinkPrefix: "https://example.com",
+      defaultTrack: {
+        id: "track",
+        label_en: "Some Track",
+        color: [0, 0, 0, 1],
+        type: "track"
+      }
     });
     it("Should parse some session", () => {
       const [firstSession] = sessions;
@@ -62,23 +68,31 @@ describe("Import unscheduled sessions", () => {
 
   describe("subconference finding", () => {
     const mediaConvention: Subconference = {
-      id: 'media-convention',
+      id: "media-convention",
       label: "Media Convention",
-      type: "subconference",
-    }
+      type: "subconference"
+    };
     const sessions = sessionsFromJson(parsedJson, {
       eventId: "rp19",
-      timezone: 'Europe/Berlin',
+      timezone: "Europe/Berlin",
       sessionLinkPrefix: "https://example.com",
-      subconferenceFinder: (session, source) => { 
+      defaultTrack: {
+        id: "track",
+        label_en: "Some Track",
+        color: [0, 0, 0, 1],
+        type: "track"
+      },
+      subconferenceFinder: (session, source) => {
         const { conference } = source;
-        if (typeof(conference) === 'string' && conference.match(mediaConvention.label)) {
+        if (
+          typeof conference === "string" &&
+          conference.match(mediaConvention.label)
+        ) {
           return mediaConvention;
         }
-        return undefined; 
+        return undefined;
       }
     });
-
 
     it("Should parse media convention", () => {
       const session = sessions.find(s => s.id === "32070");
@@ -87,8 +101,59 @@ describe("Import unscheduled sessions", () => {
         return;
       }
       const { subconference } = session;
-      if (!subconference) { expect(false).toBe(true); return }
-      expect(subconference.id).toBe('media-convention');
+      if (!subconference) {
+        expect(false).toBe(true);
+        return;
+      }
+      expect(subconference.id).toBe("media-convention");
+    });
+  });
+});
+
+describe("Import sideevent sessions", () => {
+  const json = fs.readFileSync(
+    path.join(
+      __dirname,
+      "..",
+      "fixtures",
+      "rp19",
+      "sideevent-sessions.json"
+    ),
+    "utf8"
+  );
+  const parsedJson = JSON.parse(json);
+
+  describe("basic parsing", () => {
+    const sessions = sessionsFromJson(parsedJson, {
+      eventId: "rp19",
+      timezone: "Europe/Berlin",
+      sessionLinkPrefix: "https://example.com",
+      defaultTrack: {
+        id: "some-track",
+        label_en: "Some Track",
+        color: [0, 0, 0, 1],
+        type: "track"
+      },
+      defaultLanguageName: 'German'
+    });
+    it("Should parse some session", () => {
+      const [firstSession] = sessions;
+      expect(firstSession).toBeTruthy();
+
+      expect(firstSession.id).toBe("31790");
+      expect(firstSession.url).toBe(
+        "https://example.com/sideevent/utopologies-aka-codechoir"
+      );
+      expect(firstSession.speakers.length).toBe(6);
+      expect(firstSession.title).toBe(
+        "UTopologies a.k.a CodeChoir"
+      );
+      expect(firstSession.track.label_en).toBe("Some Track");
+      expect(firstSession.track.id).toBe("some-track");
+    });
+
+    it("Should parse all sessions", () => {
+      expect(sessions.length).toBe(33);
     });
   });
 });

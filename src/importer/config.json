@@ -38,6 +38,10 @@
     {
       "id": "media-convention",
       "label": "Media Convention"
+    },
+    {
+      "id": "rp-side-events",
+      "label": "re:publica Sideevents"
     }
   ],
   "sources": [
@@ -45,9 +49,30 @@
       "format": "rp",
       "speakersUrl": "https://re-publica.com/files/rest/speakers.json",
       "sessionsUrl": "https://re-publica.com/files/rest/sessions.json",
-      "sessionLinkBaseUrl": "https://19.re-publica.com",
+      "sessionLinkBaseUrl": "https://19.re-publica.com/de",
       "speakerLinkBaseUrl": "https://19.re-publica.com",
-      "speakerImageBaseUrl": "https://19.re-publica.com"
+      "speakerImageBaseUrl": "https://19.re-publica.com",
+      "defaultTrack": {
+        "id": "republica",
+        "label_en": "re:publica",
+        "label_de": "re:publica",
+        "color": [0,0,0,1]
+      }
+    },
+    {
+      "format": "rp",
+      "speakersUrl": "https://re-publica.com/files/rest/sideevents_speakers.json",
+      "sessionsUrl": "https://re-publica.com/files/rest/sideevents_sessions.json",
+      "sessionLinkBaseUrl": "https://19.re-publica.com/de",
+      "speakerLinkBaseUrl": "https://19.re-publica.com",
+      "speakerImageBaseUrl": "https://19.re-publica.com",
+      "defaultTrack": {
+        "id": "sideevents",
+        "label_en": "Side Event",
+        "label_de": "Side Event",
+        "color": [0,0,0,1]
+      },
+      "defaultLanguageName": "German"
     }
   ],
   "options": {

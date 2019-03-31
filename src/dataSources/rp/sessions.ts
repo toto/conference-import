@@ -1,6 +1,6 @@
 import * as moment from 'moment-timezone';
 import * as utils from './utils';
-import { MiniTrack, Session, Subconference, MiniSpeaker, MiniLocation } from '../../models';
+import { Track, MiniTrack, Session, Subconference, MiniSpeaker, MiniLocation } from '../../models';
 import { languageFromString } from './language';
 
 
@@ -10,6 +10,8 @@ interface Options {
   sessionLinkPrefix: string
   timezone: string
   subconferenceFinder?(session: Session, source: any): Subconference | undefined;
+  defaultTrack: Track
+  defaultLanguageName?: string
 }
 
 export function sessionsFromJson(json: any, options: Options): Session[] {
@@ -18,14 +20,31 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
   const sessions: (Session | null)[] = json.map((item) => {
     const name = utils.nameAndUrlFromHtmlLink(item.title) || { url: '' };
     
-    const track: MiniTrack = {
-      id: utils.mkId(utils.dehtml(item.track)),
-      label_en: utils.dehtml(item.track),
-      label_de: utils.dehtml(item.track),
+    let track: MiniTrack
+    if (utils.hasValue(item.track)) {
+      track = {
+        id: utils.mkId(utils.dehtml(item.track)),
+        label_en: utils.dehtml(item.track),
+        label_de: utils.dehtml(item.track),
+      }
+    } else {
+      track = {
+        id: options.defaultTrack.id,
+        label_en: options.defaultTrack.label_en,
+        label_de: options.defaultTrack.label_de,
+      }
+    }
+    
+
+    let lang = languageFromString(item.language);
+    const { defaultLanguageName } = options;
+    if (defaultLanguageName && !lang) {
+      lang = languageFromString(defaultLanguageName);
     }
 
-    const lang = languageFromString(item.language);
-    if (!lang) return null;
+    if (!lang || !utils.hasValue(lang)) {
+      return null;
+    }
 
     const speakers: MiniSpeaker[] = [];
 
