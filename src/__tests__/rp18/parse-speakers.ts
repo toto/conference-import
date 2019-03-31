@@ -1,4 +1,4 @@
-import { speakersFromJson } from './../../data_sources/rp/speakers';
+import { speakersFromJson } from './../../dataSources/rp/speakers';
 import * as fs from 'fs';
 import * as path from 'path';
 

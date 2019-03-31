@@ -1,4 +1,4 @@
-import { sessionsFromJson } from "./../../data_sources/rp/sessions";
+import { sessionsFromJson } from "./../../dataSources/rp/sessions";
 import * as fs from "fs";
 import * as path from "path";
 import { Subconference } from "../../models";

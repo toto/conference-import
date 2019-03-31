@@ -36,3 +36,13 @@ export interface Session extends MiniSession {
   links: Link[]
   related_sessions?: MiniSession[]
 }
+
+export enum SessionState {
+  PLANNED,
+  SCHEDULED
+}
+
+export function stateForSession(session: Session): SessionState {
+  if (session.begin && session.end && session.location) return SessionState.SCHEDULED;
+  return SessionState.PLANNED;
+}
