@@ -44,7 +44,20 @@
     {
       "format": "rp",
       "speakersUrl": "https://re-publica.com/files/rest/speakers.json",
-      "sessionsUrl": "https://re-publica.com/files/rest/sessions.json"
+      "sessionsUrl": "https://re-publica.com/files/rest/sessions.json",
+      "sessionLinkBaseUrl": "https://19.re-publica.com/en/session",
+      "speakerLinkBaseUrl": "https://19.re-publica.com/de/member/6149",
+      "speakerImageBaseUrl": "https://19.re-publica.com"
     }
-  ]
+  ],
+  "options": {
+    "locationIdOrder": [],
+    "defaultColor": [0,0,0,1],
+    "colorForTrack": {
+
+    },
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
 }

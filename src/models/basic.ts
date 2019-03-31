@@ -11,11 +11,13 @@ export type Language = NamedElement;
 export type Level = NamedElement;
 
 export interface Subconference {
+  type: "subconference"
   id: string
   label: string
 }
 
 export interface Day {
+  type: "day"
   id: string
   date: moment.Moment
 }

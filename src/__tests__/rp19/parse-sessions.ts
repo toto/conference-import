@@ -64,6 +64,7 @@ describe("Import unscheduled sessions", () => {
     const mediaConvention: Subconference = {
       id: 'media-convention',
       label: "Media Convention",
+      type: "subconference",
     }
     const sessions = sessionsFromJson(parsedJson, {
       eventId: "rp19",

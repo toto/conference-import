@@ -1,3 +1,4 @@
+import * as moment from 'moment-timezone';
 import { writeFileSync } from "fs";
 import { Event, Day, Subconference } from "../models";
 import { DataSourceFormat } from "../dataSources/dataSource";
@@ -13,7 +14,7 @@ interface ConfigurationOptions {
   nonStageLocationIds?: string[]
 }
 
-interface Configuration {
+export interface Configuration {
   event: Event
   days: Day[]
   subconferences: Subconference[]
@@ -22,22 +23,39 @@ interface Configuration {
 }
 
 export async function dumpNormalizedConference(configuration: Configuration, destinationFile: string) {
-  const { event, days, subconferences, sources } = configuration;
-  const { options } = configuration;
+  let { days, subconferences } = configuration;
+  const { event, options, sources } = configuration;
 
-  // const result: ConferenceData = {
-  //   event,
-  //   days,
-  //   subconferences,
-  //   sessions: [],
-  //   speakers: [],
-  //   tracks: [],
-  //   locations: [],
-  // };
-  const rpdata = rp.sourceData(event, days, subconferences, sources);
-  if (rpdata.sessions.length > 0) {
-    const processedData = processData(rpdata, options);
-    const string = JSON.stringify(processedData);
-    writeFileSync(destinationFile, string, 'utf8');
-  }
+  event.type = "event";
+  days = days.map(day => {
+    day.date = moment(day.date, 'YYYY-MM-DD', options.timezone);
+    day.type = 'day';
+    return day;
+  });
+  subconferences = subconferences.map(sc => {
+    sc.type = 'subconference';
+    return sc;
+  });
+
+  const result: ConferenceData = {
+    event,
+    days,
+    subconferences,
+    sessions: [],
+    speakers: [],
+    tracks: [],
+    locations: [],
+  };
+  const rpdata = await rp.sourceData(event, days, subconferences, sources);
+  rpdata.forEach(data => {
+    if (data.sessions.length === 0) return;
+    const { sessions, speakers, tracks, locations } = processData(data, options);
+    result.sessions = result.sessions.concat(sessions);
+    result.speakers = result.speakers.concat(speakers);
+    result.tracks = result.tracks.concat(tracks);
+    result.locations = result.locations.concat(locations);
+  });
+  
+  const string = JSON.stringify(result);
+  writeFileSync(destinationFile, string, 'utf8');
 }

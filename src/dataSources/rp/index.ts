@@ -1,27 +1,24 @@
+import * as axios from "axios";
 import { SourceData } from "../../importer/sourceData";
 import { Event, Day, Subconference } from "../../models";
-import { readFileSync } from "fs";
 import { sessionsFromJson } from "./sessions";
 import { speakersFromJson } from "./speakers";
 import { DataSourceFormat } from "../dataSource";
 
 export interface RpDataSourceFormat extends DataSourceFormat {
   format: "rp"
-  sessionsPath: string;
+  speakersUrl: any;
   sessionLinkBaseUrl: string;
-  speakersPath: string;
+  sessionsUrl: any;
   speakerLinkBaseUrl: string;
   speakerImageBaseUrl: string;
-  sessionBaseUrl: string;
 };
 
 export function isRpDataSourceFormat(dataSource: DataSourceFormat): dataSource is RpDataSourceFormat {
   return dataSource.format === "rp";
 }
 
-export function sourceData(event: Event, days: Day[], subconferences: Subconference[], sources: DataSourceFormat[]): SourceData {
-  const rpSources = sources.filter(s => s.format === 'rp') as RpDataSourceFormat[];
-
+async function singleSourceData(event: Event, days: Day[], subconferences: Subconference[], source: RpDataSourceFormat): Promise<SourceData> {
   const result: SourceData = {
     speakers: [],
     sessions: [],
@@ -30,25 +27,32 @@ export function sourceData(event: Event, days: Day[], subconferences: Subconfere
     subconferences,
   };
 
-  rpSources.forEach(source => {
-    const speakersJSON = JSON.parse(readFileSync(source.speakersPath, "utf8"));
-    result.speakers = result.speakers.concat(
-      speakersFromJson(speakersJSON, {
-        eventId: event.id,
-        speakerLinkPrefix: source.speakerLinkBaseUrl,
-        picturePrefix: source.speakerImageBaseUrl,
-      })
-    );
+  const speakersJSON = await axios.default.get(source.speakersUrl);
+  const sessionsJSON = await axios.default.get(source.sessionsUrl);
 
-    const sessionsJSON = JSON.parse(readFileSync(source.sessionsPath, "utf8"));
-    const [ firstLocation ] = event.locations
-    result.sessions = result.sessions.concat(
-      sessionsFromJson(sessionsJSON, {
-        eventId: event.id,
-        sessionLinkPrefix: source.speakerLinkBaseUrl,
-        timezone: firstLocation.timezone,
-      })
-    );
-  });
+  result.speakers = result.speakers.concat(
+    speakersFromJson(speakersJSON.data, {
+      eventId: event.id,
+      speakerLinkPrefix: source.speakerLinkBaseUrl,
+      picturePrefix: source.speakerImageBaseUrl,
+    })
+  );
+
+  const [ firstLocation ] = event.locations
+  result.sessions = result.sessions.concat(
+    sessionsFromJson(sessionsJSON.data, {
+      eventId: event.id,
+      sessionLinkPrefix: source.speakerLinkBaseUrl,
+      timezone: firstLocation.timezone,
+    })
+  );
+
   return result;
+}
+
+export async function sourceData(event: Event, days: Day[], subconferences: Subconference[], sources: DataSourceFormat[]) {
+  const rpSources = sources.filter(s => s.format === 'rp') as RpDataSourceFormat[];
+  
+  const promises = rpSources.map(source => singleSourceData(event, days, subconferences, source));
+  return Promise.all(promises);
 }
