@@ -80,7 +80,8 @@
     "locationIdOrder": [],
     "defaultColor": [0,0,0,1],
     "colorForTrack": {
-
+      "media-journalism": [214, 0, 126, 1],
+      "research-education": [232, 200, 144, 1]
     },
     "timezone": "Europe/Berlin",
     "hourOfDayChange": 4,
