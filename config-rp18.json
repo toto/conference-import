@@ -1,0 +1,70 @@
+{
+  "event": {
+    "id": "rp18",
+    "label": "re:publica 18",
+    "title": "re:publica 2018",
+    "date": ["2019-05-06", "2019-05-08"],
+    "locations": [
+      {
+        "label": "Station Berlin",
+        "coords": [52.49814, 13.374538],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "rp18",
+    "url": "https://18.re-publica.com/"
+  },
+  "days": [
+    {
+      "id": "2019-05-06",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2019-05-06"
+    },
+    {
+      "id": "2019-05-07",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2019-05-07"
+    },
+    {
+      "id": "2019-05-08",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2019-05-08"
+    }
+  ],
+  "subconferences": [
+    {
+      "id": "media-convention",
+      "label": "Media Convention"
+    }
+  ],
+  "sources": [
+    {
+      "format": "rp",
+      "speakersUrl": "https://re-publica.com/files/rest/speakers.json",
+      "sessionsUrl": "https://re-publica.com/files/rest/sessions.json",
+      "sessionLinkBaseUrl": "https://19.re-publica.com/de",
+      "speakerLinkBaseUrl": "https://19.re-publica.com",
+      "speakerImageBaseUrl": "https://19.re-publica.com",
+      "defaultTrack": {
+        "id": "republica",
+        "label_en": "re:publica",
+        "label_de": "re:publica",
+        "color": [0,0,0,1]
+      }
+    }
+  ],
+  "options": {
+    "locationIdOrder": [],
+    "defaultColor": [0,0,0,1],
+    "colorForTrack": {
+      "media-journalism": [214, 0, 126, 1],
+      "research-education": [232, 200, 144, 1]
+    },
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
+}
