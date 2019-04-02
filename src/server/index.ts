@@ -1,60 +1,96 @@
-import * as fs from 'fs';
-import * as express from 'express';
-import { ConferenceData } from '../importer/importer';
+import * as path from "path";
+import * as express from "express";
+import { EventDataStore } from "./eventDataStore";
 
 const PORT = 5000;
 const app = express();
 
 interface Response<T> {
-  ok: boolean
-  count: number
-  data: T[]
+  ok: boolean;
+  count: number;
+  data: T[];
 }
 
 function wrapInResponseData<T>(data: T[]): Response<T> {
-  return { ok: true, count: data.length, data }
+  return { ok: true, count: data.length, data };
 }
 
+const files: string[] = [];
 
-const data = JSON.parse(fs.readFileSync('/Users/toto/Desktop/foo.json', 'utf8')) as ConferenceData;
+if (process.argv.length <= 2) {
+  const [argv0, argv1] = process.argv;
+  console.error(`Usage: ${argv0} ${argv1} file0 file1.json...`);
+  process.exit(-1);
+}
 
-app.get('/events', (req, res) => {
-  return res.json(wrapInResponseData([data.event]));
+for (let i = 2; i < process.argv.length; i++) {
+  files.push(path.normalize(process.argv[i]));
+}
+
+const stores: Map<string, EventDataStore> = new Map();
+
+files.forEach(jsonPath => {
+  const store = EventDataStore.eventDataFromFile(jsonPath);
+  if (!store) return;
+  stores.set(store.event.id, store);
 });
 
-["sessions", "speakers", "days", "tracks", "locations", "subconferences", "pois", "maps"].forEach(resource => {
-  const anyData = data as any;
-  const path = `/${data.event.id}/${resource}`;
+app.get("/events", (req, res) => {
+  const events = Array.from(stores.values()).map(s => s.event);
+  return res.json(wrapInResponseData(events));
+});
+
+// Unimplemented
+["pois", "maps"].forEach(resource => {
+  const regexp = new RegExp(`/[a-z09A-Z]+\/${resource}`);
+  app.get(regexp, (req, res) => {
+    console.info(`Getting ${req.path} (unimplemnted)`);
+    return res.status(404).json(wrapInResponseData([]));
+  });
+});
+
+const resourceName = [
+  "sessions",
+  "speakers",
+  "days",
+  "tracks",
+  "locations",
+  "subconferences"
+];
+resourceName.forEach(resource => {
+  const detailPath = new RegExp(
+    `\/([a-z0-9A-Z_\-]+)\/${resource}\/([a-zA-Z0-9_\-]+)`
+  );
+  const allPath = new RegExp(
+    `\/([a-z0-9A-Z_\-]+)\/${resource}`
+  );
   
-  app.get(path, (req, res) => {
+  app.get([detailPath, allPath], (req, res) => {
     console.info(`Getting ${req.path}`);
-    if (anyData[resource]) {
-      return res.json(wrapInResponseData(anyData[resource] as any[]));
+
+    const eventId = req.params[0];
+    if (!eventId) return res.status(404).json(wrapInResponseData([]));
+
+    const store = stores.get(eventId);
+    if (!store) return res.status(404).json(wrapInResponseData([]));
+
+    const resourceId = req.params[1];
+    if (resourceId) {
+      const singularResource = store.resourceForId(resource as any, resourceId);
+      if (!singularResource) {
+        return res.status(404).json(wrapInResponseData([]));
+      }
+      return res.json(wrapInResponseData([singularResource]));
     } else {
-      return res.json(wrapInResponseData([]));
-    }
-  });
-
-  const detailPath = new RegExp(`/${data.event.id}/${resource}/([a-zA-Z0-9_\-]+)`);
-  app.get(detailPath, (req, res) => {
-    console.info(`Getting ${req.path}`);
-
-    const resourceId = req.params[0];
-    if (!resourceId) {
-      return res.status(404).json(wrapInResponseData([]));
-    }
-    const resourceData = anyData[resource] as {id: string}[];
-    if (!resourceData) {
-      return res.status(404).json(wrapInResponseData([]));
+      const resources = store.resources(resource as any);
+      return res.json(wrapInResponseData(resources));
     }
 
-    const singularResource = resourceData.find(r => r.id === resourceId);
-    if (!singularResource) {
-      return res.status(404).json(wrapInResponseData([]));
-    }
 
-    return res.json(wrapInResponseData([singularResource]));
+    
   });
 });
 
-app.listen(PORT, 'localhost', () => console.info(`API listening on port ${PORT}`));
+app.listen(PORT, "localhost", () =>
+  console.info(`API listening on port ${PORT}`)
+);
