@@ -7,6 +7,7 @@ export interface MiniLocation {
 export interface Location extends MiniLocation {
   id: string
   type: "location"
+  event: string
   shortlabel_en?: string
   shortlabel_de?: string
   is_stage: boolean

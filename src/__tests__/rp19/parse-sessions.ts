@@ -25,7 +25,8 @@ describe("Import unscheduled sessions", () => {
         id: "track",
         label_en: "Some Track",
         color: [0, 0, 0, 1],
-        type: "track"
+        type: "track",
+        event: "rp18", 
       }
     });
     it("Should parse some session", () => {
@@ -70,7 +71,8 @@ describe("Import unscheduled sessions", () => {
     const mediaConvention: Subconference = {
       id: "media-convention",
       label: "Media Convention",
-      type: "subconference"
+      type: "subconference",
+      event: "rp18", 
     };
     const sessions = sessionsFromJson(parsedJson, {
       eventId: "rp19",
@@ -80,7 +82,8 @@ describe("Import unscheduled sessions", () => {
         id: "track",
         label_en: "Some Track",
         color: [0, 0, 0, 1],
-        type: "track"
+        type: "track",
+        event: "rp18", 
       },
       subconferenceFinder: (session, source) => {
         const { conference } = source;
@@ -132,7 +135,8 @@ describe("Import sideevent sessions", () => {
         id: "some-track",
         label_en: "Some Track",
         color: [0, 0, 0, 1],
-        type: "track"
+        type: "track",
+        event: "rp18",
       },
       defaultLanguageName: 'German'
     });

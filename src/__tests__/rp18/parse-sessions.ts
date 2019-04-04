@@ -22,7 +22,7 @@ describe("Import unscheduled sessions", () => {
       eventId: "rp18",
       timezone: 'Europe/Berlin',
       sessionLinkPrefix: "https://example.com",
-      defaultTrack: {id: "track", label_en: "Some Track", color: [0,0,0,1], type: "track"},
+      defaultTrack: {id: "track", event: "rp18", label_en: "Some Track", color: [0,0,0,1], type: "track"},
     });
     it("Should parse some session", () => {
       const [firstSession] = sessions;
@@ -67,12 +67,13 @@ describe("Import unscheduled sessions", () => {
       id: 'media-convention',
       label: "Media Convention",
       type: "subconference",
+      event: "rp18", 
     }
     const sessions = sessionsFromJson(parsedJson, {
       eventId: "rp19",
       sessionLinkPrefix: "https://example.com",
       timezone: 'Europe/Berlin',
-      defaultTrack: {id: "track", label_en: "Some Track", color: [0,0,0,1], type: "track"},
+      defaultTrack: {id: "track", event: "rp18", label_en: "Some Track", color: [0,0,0,1], type: "track"},
       subconferenceFinder: (session, source) => { 
         const { conference } = source;
         if (typeof(conference) === 'string' && conference.match(mediaConvention.label)) {
@@ -100,7 +101,7 @@ describe("Import unscheduled sessions", () => {
       eventId: "rp18",
       timezone: 'Europe/Berlin',
       sessionLinkPrefix: "https://example.com",
-      defaultTrack: {id: "track", label_en: "Some Track", color: [0,0,0,1], type: "track"},
+      defaultTrack: {id: "track", event: "rp18", label_en: "Some Track", color: [0,0,0,1], type: "track"},
     });
 
     it('should parse date and time correctly', () => {

@@ -12,12 +12,14 @@ export interface Subconference {
   type: "subconference"
   id: string
   label: string
+  event: string
 }
 
 export interface Day {
   type: "day"
   id: string
   date: string
+  event: string
 }
 
 export enum ItemType {

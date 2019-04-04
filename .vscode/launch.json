@@ -26,8 +26,8 @@
         "${workspaceFolder}/lib/**/*.js"
       ],
       "args": [
-        "${workspaceFolder}/src/importer/config.json",
-        " ~/Desktop/foo.json"
+        "${workspaceFolder}/config-rp18-ocdata.json",
+        "/Users/toto/Desktop/foo-test.json"
       ]
     }
   ]

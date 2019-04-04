@@ -7,9 +7,9 @@ import { DataSourceFormat } from "../dataSource";
 
 export interface RpDataSourceFormat extends DataSourceFormat {
   format: "rp"
-  speakersUrl: any;
+  speakersUrl: string;
   sessionLinkBaseUrl: string;
-  sessionsUrl: any;
+  sessionsUrl: string;
   speakerLinkBaseUrl: string;
   speakerImageBaseUrl: string;
   defaultTrack: Track;
