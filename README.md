@@ -1,6 +1,6 @@
 # Conference Import
 
-Imports conference data from different sources into the unified [ocdata](/ocdata) format. Also provides a express based server to serve the unified files from the filesystem/memory. 
+Imports conference data from different sources into the unified [ocdata](https://github.com/ocdata/re-data) format. Also provides a express based server to serve the unified files from the filesystem/memory. 
 
 The idea is to avoid a database alltogether since only static data is served. 
 
