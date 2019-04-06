@@ -46,7 +46,7 @@ async function singleSourceData(event: Event, source: OcDataSourceFormat): Promi
     daysJSON,
     tracksJSON,
     locatonsJSON,
-    subconferencesJSON
+    subconferencesJSON,
   ] = await Promise.all(loadingPromises);
 
   result.speakers = converters.speakersFromJson(speakersJSON.data.data);

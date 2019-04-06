@@ -14,32 +14,8 @@
     "hashtag": "rp18",
     "url": "https://18.re-publica.com/"
   },
-  "days": [
-    {
-      "id": "2019-05-06",
-      "label_de": "Tag 1",
-      "label_en": "Day 1",
-      "date": "2019-05-06"
-    },
-    {
-      "id": "2019-05-07",
-      "label_de": "Tag 2",
-      "label_en": "Day 2",
-      "date": "2019-05-07"
-    },
-    {
-      "id": "2019-05-08",
-      "label_de": "Tag 3",
-      "label_en": "Day 3",
-      "date": "2019-05-08"
-    }
-  ],
-  "subconferences": [
-    {
-      "id": "media-convention",
-      "label": "Media Convention"
-    }
-  ],
+  "days": [],
+  "subconferences": [],
   "sources": [
     {
       "format": "ocdata",
