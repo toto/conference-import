@@ -52,9 +52,11 @@ async function singleSourceData(event: Event, source: OcDataSourceFormat): Promi
   result.speakers = converters.speakersFromJson(speakersJSON.data.data);
   result.sessions = converters.sessionsFromJson(sessionsJSON.data.data);
   result.days = converters.daysFromJson(daysJSON.data.data);
+  result.days = converters.mergeWithoutDuplication(result.sessions.map(s => s.day) , result.days);
   result.tracks = converters.tracksFromJson(tracksJSON.data.data);
   result.locations = converters.locationsFromJson(locatonsJSON.data.data);
   result.subconferences = converters.subconferencesFromJson(subconferencesJSON.data.data);
-  
+  result.subconferences = converters.mergeWithoutDuplication(result.sessions.map(s => s.subconference) , result.subconferences);
+
   return result;
 }

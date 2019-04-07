@@ -26,7 +26,7 @@ export function sessionsFromJson(json: any): Session[] {
 
   return json.filter(s => s.type === 'session').map((s) => {
     if (s.begin) s.begin = moment(s.begin);
-    if (s.end) s.begin = moment(s.end);
+    if (s.end) s.end = moment(s.end);
     return s;
   }) as Session[];
 }
@@ -35,4 +35,15 @@ function untransformedFromJson<T>(json: any, type: string): T[] {
   if (!Array.isArray(json)) return [];
 
   return json.filter(s => s.type === type) as T[];
+}
+
+export function mergeWithoutDuplication<T extends {id: string}>(source: (T | undefined)[], existing: T[]): T[] {
+  const exsistingIdSet = new Set<string>(existing.map(e => e.id));
+  const result = existing;
+  source.forEach(s => {
+    if (!s || exsistingIdSet.has(s.id)) return;
+    result.push(s);
+    exsistingIdSet.add(s.id);
+  });
+  return result;
 }
