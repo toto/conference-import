@@ -1,0 +1,34 @@
+{
+  "event": {
+    "type": "event",
+    "id": "rp14",
+    "label": "re:publica 14",
+    "title": "into the wild",
+    "date": ["2014-05-06", "2014-05-08"],
+    "locations": [
+      {
+        "label": "Station Berlin",
+        "coords": [52.49814, 13.374538],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "rp14",
+    "url": "http://14.re-publica.de/"
+  },
+  "days": [],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "ocdata",
+      "baseUrl": "https://api.conference.systems/api/rp14"
+    }
+  ],
+  "options": {
+    "locationIdOrder": [],
+    "defaultColor": [0, 0, 0, 1],
+    "colorForTrack": {},
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
+}

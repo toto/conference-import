@@ -1,0 +1,34 @@
+{
+  "event": {
+    "type": "event",
+    "id": "rpten",
+    "label": "re:publica TEN",
+    "title": "TEN",
+    "date": ["2016-05-02", "2016-05-04"],
+    "locations": [
+      {
+        "label": "Station Berlin",
+        "coords": [52.49814, 13.374538],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "rpTEN",
+    "url": "http://16.re-publica.de/"
+  },
+  "days": [],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "ocdata",
+      "baseUrl": "https://api.conference.systems/api/rpten"
+    }
+  ],
+  "options": {
+    "locationIdOrder": [],
+    "defaultColor": [0, 0, 0, 1],
+    "colorForTrack": {},
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "event": {
+    "type": "event",
+    "id": "rp17",
+    "label": "re:publica 17",
+    "title": "rp17",
+    "date": ["2017-05-08", "2017-05-10"],
+    "locations": [
+      {
+        "label": "Station Berlin",
+        "coords": [52.49814, 13.374538],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "rp17",
+    "url": "https://re-publica.com/17"
+  },
+  "days": [],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "ocdata",
+      "baseUrl": "https://api.conference.systems/api/rp17"
+    }
+  ],
+  "options": {
+    "locationIdOrder": [],
+    "defaultColor": [0, 0, 0, 1],
+    "colorForTrack": {},
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
+}
