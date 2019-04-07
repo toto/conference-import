@@ -32,6 +32,8 @@ const stores: Map<string, EventDataStore> = new Map();
 files.forEach(jsonPath => {
   const store = EventDataStore.eventDataFromFile(jsonPath);
   if (!store) return;
+  const values = Array.from(store.sessions.values());
+  console.info(`Serving ${store.event.label} (${store.event.id}, ${values.length} sessions)`);
   stores.set(store.event.id, store);
 });
 
