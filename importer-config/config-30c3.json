@@ -20,7 +20,7 @@
   "sources": [
     {
       "format": "ocdata",
-      "baseUrl": "https://api.conference.systems/api/35c3"
+      "baseUrl": "https://api.conference.systems/api/30c3"
     }
   ],
   "options": {
