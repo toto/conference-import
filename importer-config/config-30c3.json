@@ -1,0 +1,34 @@
+{
+  "event": {
+    "type": "event",
+    "id": "30c3",
+    "label": "30C3",
+    "title": "30th Chaos Communication Congress",
+    "date": ["2013-12-27", "2013-12-30"],
+    "locations": [
+      {
+        "label": "Congress Center Hamburg",
+        "coords": [53.561583, 9.985683],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "url": "http://events.ccc.de/congress/2013",
+    "hashtag": "30C3"
+  },
+  "days": [],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "ocdata",
+      "baseUrl": "https://api.conference.systems/api/35c3"
+    }
+  ],
+  "options": {
+    "locationIdOrder": [],
+    "defaultColor": [0, 0, 0, 1],
+    "colorForTrack": {},
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
+}

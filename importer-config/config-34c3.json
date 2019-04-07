@@ -1,0 +1,34 @@
+{
+  "event": {
+    "type": "event",
+    "id": "34c3",
+    "label": "34C3",
+    "title": "34th Chaos Communication Congress",
+    "date": ["2017-12-27", "2017-12-30"],
+    "locations": [
+      {
+        "label": "Messe Leipzig",
+        "coords": [51.396667, 12.402778],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "url": "http://events.ccc.de/congress/2017",
+    "hashtag": "34C3"
+  },
+  "days": [],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "ocdata",
+      "baseUrl": "https://api.conference.systems/api/34c3"
+    }
+  ],
+  "options": {
+    "locationIdOrder": [],
+    "defaultColor": [0, 0, 0, 1],
+    "colorForTrack": {},
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
+}

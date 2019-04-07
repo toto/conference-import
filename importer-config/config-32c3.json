@@ -1,0 +1,34 @@
+{
+  "event": {
+    "type": "event",
+    "id": "32c3",
+    "label": "32C3",
+    "title": "32nd Chaos Communication Congress",
+    "date": ["2015-12-27", "2015-12-30"],
+    "locations": [
+      {
+        "label": "Congress Center Hamburg",
+        "coords": [53.561583, 9.985683],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "url": "http://events.ccc.de/congress/2015",
+    "hashtag": "32C3"
+  },
+  "days": [],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "ocdata",
+      "baseUrl": "https://api.conference.systems/api/32c3"
+    }
+  ],
+  "options": {
+    "locationIdOrder": [],
+    "defaultColor": [0, 0, 0, 1],
+    "colorForTrack": {},
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
+}

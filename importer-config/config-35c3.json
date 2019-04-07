@@ -1,0 +1,39 @@
+{
+  "event": {
+    "type": "event",
+    "id": "35c3",
+    "label": "35C3",
+    "title": "35th Chaos Communication Congress",
+    "date": ["2018-12-27", "2018-12-30"],
+    "locations": [
+      {
+        "label": "Messe Leipzig",
+        "coords": [51.396667, 12.402778],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "url": "http://events.ccc.de/congress/2018",
+    "hashtag": "35C3"
+  },
+  "days": [],
+  "subconferences": [
+    {
+      "id": "media-convention",
+      "label": "Media Convention"
+    }
+  ],
+  "sources": [
+    {
+      "format": "ocdata",
+      "baseUrl": "https://api.conference.systems/api/35c3"
+    }
+  ],
+  "options": {
+    "locationIdOrder": [],
+    "defaultColor": [0, 0, 0, 1],
+    "colorForTrack": {},
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
+}
