@@ -81,7 +81,7 @@ export function processData(
       location.is_stage = true;
     }
     let orderIndex = options.locationIdOrder.indexOf(location.id);
-    if (!orderIndex) {
+    if (orderIndex === -1) {
       orderIndex = index + miniLocations.length;
     }
     location.order_index = orderIndex;

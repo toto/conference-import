@@ -56,7 +56,7 @@
         "id": "republica",
         "label_en": "re:publica",
         "label_de": "re:publica",
-        "color": [0,0,0,1]
+        "color": [0, 0, 0, 1]
       }
     },
     {
@@ -70,18 +70,43 @@
         "id": "sideevents",
         "label_en": "Sideevent",
         "label_de": "Sideevent",
-        "color": [0,0,0,1]
+        "color": [0, 0, 0, 1]
       },
       "defaultLanguageName": "German",
       "subconferenceId": "rp-side-events"
     }
   ],
   "options": {
-    "locationIdOrder": [],
-    "defaultColor": [0,0,0,1],
+    "locationIdOrder": [
+      "29938",
+      "32144",
+      "32144",
+      "32147",
+      "32148",
+      "31612",
+      "31611",
+      "32151",
+      "31613",
+      "32152",
+      "32153",
+      "32154",
+      "32155",
+      "32159",
+      "32161",
+      "32233",
+      "32234",
+      "32300"
+    ],
+    "defaultColor": [0, 0, 0, 1],
     "colorForTrack": {
       "media-journalism": [214, 0, 126, 1],
-      "research-education": [232, 200, 144, 1]
+      "research-education": [232, 200, 144, 1],
+      "arts-culture": [0, 153, 146, 1],
+      "politics-society": [242, 158, 196, 1],
+      "science-technology": [0, 0, 0, 1],
+      "mobility-city": [0, 0, 0, 1],
+      "business-innovation": [0, 0, 0, 1],
+      "sideevents": [50, 50, 50, 1]
     },
     "timezone": "Europe/Berlin",
     "hourOfDayChange": 4,
