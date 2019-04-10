@@ -1,6 +1,6 @@
 import * as moment from 'moment-timezone';
 import * as utils from './utils';
-import { Track, MiniTrack, Session, Subconference, MiniSpeaker, MiniLocation } from '../../models';
+import { Track, MiniTrack, Session, Subconference, MiniSpeaker, MiniLocation, Link } from '../../models';
 import { languageFromString } from './language';
 
 
@@ -14,12 +14,37 @@ interface Options {
   defaultLanguageName?: string
 }
 
+function videoLinkFromString(video: string, title: string): Link | null {
+  if (video === "" || !video.includes('youtube')) return null;
+  const ytregexes = [
+    /\.com\/watch\?v=([a-zA-Z0-9_\-]+)$/i,
+    /\.com\/embed\/([a-zA-Z0-9_\-]+)/i,
+  ];
+
+  for (const ytregex of ytregexes) {
+    const match = video.match(ytregex);
+    if (match && match[1]) {
+      const vid = match[1];
+      const ytrecording: Link = {
+        thumbnail: `https://img.youtube.com/vi/${vid}/hqdefault.jpg`,
+        title,
+        url: `https://www.youtube.com/v/${vid}`,
+        service: 'youtube',
+        type: 'recording',
+      };
+      return ytrecording;
+    }
+  }
+
+  return null;
+}
+
 export function sessionsFromJson(json: any, options: Options): Session[] {
   if (!Array.isArray(json)) return [];
 
   const sessions: (Session | null)[] = json.map((item) => {
     const name = utils.nameAndUrlFromHtmlLink(item.title) || { url: '' };
-    
+
     let track: MiniTrack
     if (utils.hasValue(item.track)) {
       track = {
@@ -34,7 +59,7 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
         label_de: options.defaultTrack.label_de,
       }
     }
-    
+
 
     let lang = languageFromString(item.language);
     const { defaultLanguageName } = options;
@@ -71,10 +96,18 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
       }
     }
 
+    const title = utils.dehtml(item.title_text);
+
+    const links: Link[] = [];
+    const videoLink = videoLinkFromString(item.video, title);
+    if (videoLink) {
+      links.push(videoLink);
+    }
+
     let result: Session | null = {
       type: "session",
       id: item.nid,
-      title: utils.dehtml(item.title_text),
+      title,
       subtitle: undefined,
       abstract: utils.dehtml(item.short_thesis),
       event: options.eventId,
@@ -88,7 +121,7 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
       description: utils.dehtml(item.description),
       speakers,
       enclosures: [],
-      links: [],
+      links,
       cancelled: item.status === "Cancelled",
     }
 
@@ -96,11 +129,11 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
     if (subconferenceFinder) {
       result.subconference = subconferenceFinder(result, item);
     }
-    
+
     if (sessionPostProcessing) {
       result = sessionPostProcessing(result);
     }
-    
+
     return result;
   });
 

@@ -155,4 +155,22 @@ describe("Import unscheduled sessions", () => {
       expect(session.cancelled).toBe(true);
     });
   });
+
+  describe("Enclosures", () => {
+    it("should parse the video into an enclosure", () => {
+      const sessions = sessionsFromJson(parsedJson, {
+        eventId: "rp18",
+        timezone: 'Europe/Berlin',
+        sessionLinkPrefix: "https://example.com",
+        defaultTrack: {id: "track", event: "rp18", label_en: "Some Track", color: [0,0,0,1], type: "track"},
+      });
+
+      const session = sessions.find(s => s.id === '25119');
+      if (!session) { fail(); return; }
+      expect(session.links.length).toBeGreaterThan(0);
+      const ytlink = session.links.find(l => l.type === 'recording');
+      expect(ytlink).toBeDefined();
+      expect(ytlink!.url).toBe('https://www.youtube.com/v/6iTUoyorhok');
+    });      
+  });
 });
