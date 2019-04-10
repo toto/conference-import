@@ -1,5 +1,6 @@
 import { Speaker } from './../../models/speaker';
 import * as utils from './utils';
+import { Link } from '../../models';
 
 
 interface Options {
@@ -15,6 +16,21 @@ export function speakersFromJson(json: any, options: Options): Speaker[] {
   const speakers: Speaker[] = json.map((item) => {
     const name = utils.nameAndUrlFromHtmlLink(item.name) || { url: '' };
     const organization = utils.nameAndUrlFromHtmlLink(item.organization) || { url: '' };
+
+    const links: Link[] = [];
+
+    const sourceLinks: string[] = item.links.split(', ');
+    sourceLinks.forEach(sourceLink => {
+      const result = utils.nameAndUrlFromHtmlLink(sourceLink);
+      if (!result) return;
+      links.push({
+          url: result.url,
+          title: result.name || item.name,
+          type: 'speaker-link',
+          service: 'web'
+      });
+    });
+
     return {
       id: item.uid,
       name: utils.dehtml(item.name),
@@ -25,7 +41,7 @@ export function speakersFromJson(json: any, options: Options): Speaker[] {
       organization: organization.name || "",
       position: item.position,
       biography: utils.dehtml(item.bio),
-      links: [],
+      links,
       sessions: [],
     }
   });
