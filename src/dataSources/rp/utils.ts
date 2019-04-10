@@ -42,7 +42,7 @@ interface NameAndId {
   name: string
 }
 
-export function nameIdPairsFromCommaString(nameString: string, idString: string, seperator = ", "): NameAndId[] {
+export function nameIdPairsFromCommaString(nameString: string, idString: string, seperator = ", ", dehtmlNames = true): NameAndId[] {
   if (nameString === "" || idString === "") return [];
 
   const ids: string[] = idString.split(seperator);
@@ -50,7 +50,7 @@ export function nameIdPairsFromCommaString(nameString: string, idString: string,
   const result: NameAndId[] = [];
   ids.forEach((id, index) => {
     if (names.length > index) {
-      const speakerName = names[index];
+      const speakerName = dehtmlNames ? ent.decode(names[index]) : names[index];
       result.push({ id, name: speakerName });
     }
   });

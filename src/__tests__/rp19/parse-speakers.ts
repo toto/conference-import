@@ -19,4 +19,20 @@ describe('Import republica basic data', () => {
     expect(firstSpeaker.url).toBe('https://example.com/speakers/en/user/19252');
     expect(firstSpeaker.name).toBe('Georg Fischer');
   });
+
+  it('Should decode entities', () => {
+    const speakers = speakersFromJson(
+      parsedSpeakerJson,
+      { 
+        eventId: 'rp19',
+        picturePrefix: 'https://example.com/images',
+        speakerLinkPrefix: 'https://example.com/speakers',
+      });
+
+    const speaker = speakers.find(s => s.id === '19479');
+    if (!speaker) { expect(true).toBe(false); return; }
+
+    expect(speaker.id).toBe('19479');
+    expect(speaker.name).toBe('Nora "sookee" Hantzsch');
+  });
 });

@@ -110,6 +110,17 @@ describe("Import unscheduled sessions", () => {
       }
       expect(subconference.id).toBe("media-convention");
     });
+
+    it("Should correctly de-htmlize speaker names", () => {
+      const session = sessions.find(s => s.speakers.map(sp => sp.id).includes('19479'))
+      if (!session) {
+        fail();
+        return;
+      }
+      const speaker = session.speakers.find(s => s.id === '19479');
+      expect(speaker!.name).toBe('Nora "sookee" Hantzsch');
+    });
+
   });
 });
 
