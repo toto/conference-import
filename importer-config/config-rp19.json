@@ -42,6 +42,10 @@
     {
       "id": "rp-side-events",
       "label": "re:publica Sideevents"
+    },
+    {
+      "id": "rp-fachkonferenzen",
+      "label": "Fachkonferenzen"
     }
   ],
   "sources": [
@@ -74,13 +78,31 @@
       },
       "defaultLanguageName": "German",
       "subconferenceId": "rp-side-events"
+    },
+    {
+      "format": "rp",
+      "speakersUrl": "https://re-publica.com/files/rest/fk_speakers.json",
+      "sessionsUrl": "https://re-publica.com/files/rest/fk_sessions.json",
+      "sessionLinkBaseUrl": "https://fachkonferenzen19.re-publica.com/de",
+      "speakerLinkBaseUrl": "https://fachkonferenzen19.re-publica.com",
+      "speakerImageBaseUrl": "https://fachkonferenzen19.re-publica.com",
+      "defaultTrack": {
+        "id": "fachkonferenzen",
+        "label_en": "Fachkonferenzen",
+        "label_de": "Fachkonferenzen",
+        "color": [34, 48, 121, 1]
+      },
+      "defaultLanguageName": "German",
+      "subconferenceId": "rp-fachkonferenzen",
+      "filterSpeakerNames": ["_ _"],
+      "filterSessionNames": ["Mittagspause", "Pause"]
     }
   ],
   "options": {
     "locationIdOrder": [
       "29938",
       "32144",
-      "32144",
+      "32146",
       "32147",
       "32148",
       "31612",
@@ -95,7 +117,8 @@
       "32161",
       "32233",
       "32234",
-      "32300"
+      "32300",
+      "31704"
     ],
     "defaultColor": [0, 0, 0, 1],
     "colorForTrack": {
@@ -106,7 +129,8 @@
       "science-technology": [0, 0, 0, 1],
       "mobility-city": [0, 0, 0, 1],
       "business-innovation": [0, 0, 0, 1],
-      "sideevents": [50, 50, 50, 1]
+      "sideevents": [50, 50, 50, 1],
+      "events-re-loaded": [34, 48, 121, 1]
     },
     "timezone": "Europe/Berlin",
     "hourOfDayChange": 4,

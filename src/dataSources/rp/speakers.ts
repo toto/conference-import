@@ -8,13 +8,20 @@ interface Options {
   eventId: string
   picturePrefix: string
   speakerLinkPrefix: string
+  filterSpeakerNames?: string[]
 }
 
 export function speakersFromJson(json: any, options: Options): Speaker[] {
   if (!Array.isArray(json)) return [];
 
-  const speakers: Speaker[] = json.map((item) => {
+  const speakers: (Speaker | null)[] = json.map((item) => {
     const name = utils.nameAndUrlFromHtmlLink(item.name) || { url: '' };
+    if (name.name 
+      && options.filterSpeakerNames 
+      && options.filterSpeakerNames.includes(name.name)) {
+      return null;
+    }
+    
     const organization = utils.nameAndUrlFromHtmlLink(item.organization) || { url: '' };
 
     const links: Link[] = [];
@@ -46,5 +53,5 @@ export function speakersFromJson(json: any, options: Options): Speaker[] {
     }
   });
   
-  return speakers;
+  return speakers.filter(s => s !== null) as Speaker[];
 }

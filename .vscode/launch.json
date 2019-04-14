@@ -27,7 +27,9 @@
       ],
       "args": [
         "--import",
-        "${workspaceFolder}/config-rp18-ocdata.json",
+        "--config", 
+        "${workspaceFolder}/importer-config/config-rp19.json",
+        "--out", 
         "/Users/toto/Desktop/foo-test.json"
       ]
     },

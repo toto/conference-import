@@ -12,6 +12,8 @@ interface Options {
   subconferenceFinder?(session: Session, source: any): Subconference | undefined;
   defaultTrack: Track
   defaultLanguageName?: string
+  filterSpeakerNames?: string[]
+  filterSessionNames?: string[]
 }
 
 function videoLinkFromString(video: string, title: string): Link | null {
@@ -44,7 +46,12 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
 
   const sessions: (Session | null)[] = json.map((item) => {
     const name = utils.nameAndUrlFromHtmlLink(item.title) || { url: '' };
-
+    if (name.name 
+        && options.filterSessionNames 
+        && options.filterSessionNames.includes(name.name)) {
+          return null;
+    }
+    
     let track: MiniTrack
     if (utils.hasValue(item.track)) {
       track = {
@@ -71,12 +78,16 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
       return null;
     }
 
-    const speakers: MiniSpeaker[] = [];
+    let speakers: MiniSpeaker[] = [];
 
     utils.nameIdPairsFromCommaString(item.moderator, item.moderator_uid)
       .forEach(s => speakers.push(s));
     utils.nameIdPairsFromCommaString(item.speaker, item.speaker_uid)
       .forEach(s => speakers.push(s));
+
+    if (options.filterSpeakerNames) {
+      speakers = speakers.filter(s => !options.filterSpeakerNames!.includes(s.name))
+    }
 
     let begin: moment.Moment | undefined;
     let end: moment.Moment | undefined;

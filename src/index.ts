@@ -15,15 +15,15 @@ function printHelp() {
   console.log("  -h|--help\tprint this help");
 }
 
-const argv = minimist(process.argv, {'--': true, alias: {pid: 'p', help: 'h'}});
+const argv = minimist(process.argv, {'--': true, alias: {pid: 'p', help: 'h', out: 'o'}});
 if (argv['help'] || argv._.length === 0) {
   printHelp();
   process.exit(0);
 }
 
-if (argv[COMMAND.IMPORT]) {
-  const configFile = process.argv[argv._.length - 2]
-  const exportDir = process.argv[argv._.length - 1]
+if (argv[COMMAND.IMPORT] && argv.config && argv.out) {
+  const configFile = argv.config;
+  const exportDir = argv.out;
   const config = JSON.parse(readFileSync(configFile, 'utf8')) as Configuration;
   
   dumpNormalizedConference(config, exportDir).then(() => { 

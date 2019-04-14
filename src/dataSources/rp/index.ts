@@ -15,6 +15,8 @@ export interface RpDataSourceFormat extends DataSourceFormat {
   defaultTrack: Track;
   defaultLanguageName?: string;
   subconferenceId?: string;
+  filterSpeakerNames?: string[]
+  filterSessionNames?: string[]
 };
 
 export function isRpDataSourceFormat(dataSource: DataSourceFormat): dataSource is RpDataSourceFormat {
@@ -38,6 +40,7 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
       eventId: event.id,
       speakerLinkPrefix: source.speakerLinkBaseUrl,
       picturePrefix: source.speakerImageBaseUrl,
+      filterSpeakerNames: source.filterSpeakerNames,
     })
   );
 
@@ -61,7 +64,9 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
         }
 
         return undefined;
-      }
+      },
+      filterSpeakerNames: source.filterSpeakerNames,
+      filterSessionNames: source.filterSessionNames,
     })
   );
 
