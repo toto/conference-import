@@ -1,7 +1,7 @@
 import * as process from 'process';
 import { Configuration, dumpNormalizedConference } from './importer/dumper';
 import { serveEvents } from './server';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, unlinkSync } from 'fs';
 import * as minimist from 'minimist';
 import * as path from "path";
 
@@ -33,6 +33,10 @@ if (argv[COMMAND.IMPORT]) {
 } else if (argv[COMMAND.SERVE] && argv["--"]) {
   if (argv.pid) {
     writeFileSync(argv.pid, `${process.pid}`, {flag: 'w'});
+    process.on('SIGTERM', function () {
+      unlinkSync(argv.pid);
+      process.exit(0);
+    });
     console.info(`Writing PID file to ${argv.pid}`);
   }
 
