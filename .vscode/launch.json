@@ -19,15 +19,33 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Launch Import",
       "program": "${workspaceFolder}/lib/index.js",
       "preLaunchTask": "tsc: build - tsconfig.json",
       "outFiles": [
         "${workspaceFolder}/lib/**/*.js"
       ],
       "args": [
+        "--import",
         "${workspaceFolder}/config-rp18-ocdata.json",
         "/Users/toto/Desktop/foo-test.json"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Serve",
+      "program": "${workspaceFolder}/lib/index.js",
+      "preLaunchTask": "tsc: build - tsconfig.json",
+      "outFiles": [
+        "${workspaceFolder}/lib/**/*.js"
+      ],
+      "args": [
+        "--serve",
+        "--",
+        "/Users/toto/Desktop/ocdata-repo/rp19-ocdata.json",
+        "/Users/toto/Desktop/ocdata-repo/rp18-ocdata.json",
+        "/Users/toto/Desktop/ocdata-repo/35c3-ocdata.json"
       ]
     }
   ]

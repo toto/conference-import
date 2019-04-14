@@ -10,9 +10,11 @@
   "dependencies": {
     "@types/ent": "^2.2.1",
     "@types/express": "^4.16.1",
+    "@types/minimist": "^1.2.0",
     "axios": "^0.18.0",
     "ent": "^2.2.0",
     "express": "^4.16.4",
+    "minimist": "^1.2.0",
     "moment-timezone": "^0.5.23"
   },
   "devDependencies": {
