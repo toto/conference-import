@@ -53,17 +53,23 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
       defaultTrack: source.defaultTrack,
       defaultLanguageName: source.defaultLanguageName,
       subconferenceFinder: (session, rawSession) => {
+        let subconference: Subconference | undefined;
         const { subconferenceId } = source;
         if (subconferenceId) {
-          return subconferences.find(s => s.id === subconferenceId);
+          subconference = subconferences.find(s => s.id === subconferenceId);
         }
         
         const { conference } = rawSession;
-        if (conference && typeof conference === 'string') {
-          return subconferences.find(s => conference.toLowerCase().includes(s.label.toLowerCase()))
+        if (!subconference && conference && typeof conference === 'string') {
+          subconference = subconferences.find(s => conference.toLowerCase().includes(s.label.toLowerCase()))
         }
 
-        return undefined;
+        const { topic } = rawSession;
+        if (!subconference && topic && typeof topic === 'string') {
+          subconference = subconferences.find(s => topic.toLowerCase().includes(s.label.toLowerCase()))
+        }
+
+        return subconference;
       },
       filterSpeakerNames: source.filterSpeakerNames,
       filterSessionNames: source.filterSessionNames,

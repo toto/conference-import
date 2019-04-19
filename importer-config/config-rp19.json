@@ -40,6 +40,10 @@
       "label": "Media Convention"
     },
     {
+      "id": "tincon",
+      "label": "TINCON"
+    },
+    {
       "id": "rp-side-events",
       "label": "re:publica Sideevents"
     },
@@ -111,12 +115,13 @@
       "31613",
       "32152",
       "32153",
+      "32759",
+      "32234",
+      "32233",
       "32154",
-      "32155",
+      "32155",      
       "32159",
       "32161",
-      "32233",
-      "32234",
       "32300",
       "31704"
     ],
@@ -130,7 +135,8 @@
       "mobility-city": [0, 0, 0, 1],
       "business-innovation": [0, 0, 0, 1],
       "sideevents": [50, 50, 50, 1],
-      "events-re-loaded": [34, 48, 121, 1]
+      "events-re-loaded": [34, 48, 121, 1],
+      "next-generation": [231, 0, 126, 1]
     },
     "timezone": "Europe/Berlin",
     "hourOfDayChange": 4,
