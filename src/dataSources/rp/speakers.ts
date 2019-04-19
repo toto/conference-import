@@ -46,7 +46,7 @@ export function speakersFromJson(json: any, options: Options): Speaker[] {
       photo: `${options.picturePrefix}${item.picture}`,
       url: `${options.speakerLinkPrefix}${name.url}`,
       organization: organization.name || "",
-      position: item.position,
+      position: utils.dehtml(item.position),
       biography: utils.dehtml(item.bio),
       links,
       sessions: [],

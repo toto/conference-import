@@ -15,7 +15,7 @@ export function nameAndUrlFromHtmlLink(linkStr: string): NameAndUrl | null {
   if (linkStr.match(/ href="([^"]*)".*>(.+)<\/a>/i) && RegExp.$1) {
     return {
       url: RegExp.$1,
-      name: RegExp.$2,
+      name: RegExp.$2 ? ent.decode(RegExp.$2) : undefined,
     }
   }
   return null;
