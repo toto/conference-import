@@ -115,6 +115,12 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
       links.push(videoLink);
     }
 
+    let url = name.url;
+    if (options.sessionLinkPrefix && !url.startsWith(options.sessionLinkPrefix)) {
+      url = `${options.sessionLinkPrefix}${url}`;
+    }
+
+
     let result: Session | null = {
       type: "session",
       id: item.nid,
@@ -122,7 +128,7 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
       subtitle: undefined,
       abstract: utils.dehtml(item.short_thesis),
       event: options.eventId,
-      url: `${options.sessionLinkPrefix}${name.url}`,
+      url,
       track,
       lang,
       begin,
