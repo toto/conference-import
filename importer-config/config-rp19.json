@@ -3,7 +3,7 @@
     "id": "rp19",
     "label": "re:publica 19",
     "title": "re:publica 2019",
-    "date": ["2019-05-06", "2019-05-08"],
+    "date": ["2019-05-04", "2019-05-08"],
     "locations": [
       {
         "label": "Station Berlin",
@@ -16,21 +16,33 @@
   },
   "days": [
     {
+      "id": "2019-05-04",
+      "label_de": "Samstag",
+      "label_en": "Saturday",
+      "date": "2019-05-04"
+    },
+    {
+      "id": "2019-05-05",
+      "label_de": "Sonntag",
+      "label_en": "Sunday",
+      "date": "2019-05-05"
+    },
+    {
       "id": "2019-05-06",
-      "label_de": "Tag 1",
-      "label_en": "Day 1",
+      "label_de": "Montag",
+      "label_en": "Monday",
       "date": "2019-05-06"
     },
     {
       "id": "2019-05-07",
-      "label_de": "Tag 2",
-      "label_en": "Day 2",
+      "label_de": "Dienstag",
+      "label_en": "Tuesday",
       "date": "2019-05-07"
     },
     {
       "id": "2019-05-08",
-      "label_de": "Tag 3",
-      "label_en": "Day 3",
+      "label_de": "Mittwoch",
+      "label_en": "Wednesday",
       "date": "2019-05-08"
     }
   ],
@@ -50,6 +62,10 @@
     {
       "id": "rp-fachkonferenzen",
       "label": "Fachkonferenzen"
+    },
+    {
+      "id": "netzfest",
+      "label": "Netzfest"
     }
   ],
   "sources": [
@@ -57,7 +73,7 @@
       "format": "rp",
       "speakersUrl": "https://re-publica.com/files/rest/speakers.json",
       "sessionsUrl": "https://re-publica.com/files/rest/sessions.json",
-      "sessionLinkBaseUrl": "https://19.re-publica.com/de",
+      "sessionLinkBaseUrl": "https://19.re-publica.com",
       "speakerLinkBaseUrl": "https://19.re-publica.com",
       "speakerImageBaseUrl": "https://19.re-publica.com",
       "defaultTrack": {
@@ -71,7 +87,7 @@
       "format": "rp",
       "speakersUrl": "https://re-publica.com/files/rest/sideevents_speakers.json",
       "sessionsUrl": "https://re-publica.com/files/rest/sideevents_sessions.json",
-      "sessionLinkBaseUrl": "https://19.re-publica.com/de",
+      "sessionLinkBaseUrl": "https://19.re-publica.com",
       "speakerLinkBaseUrl": "https://19.re-publica.com",
       "speakerImageBaseUrl": "https://19.re-publica.com",
       "defaultTrack": {
@@ -87,7 +103,7 @@
       "format": "rp",
       "speakersUrl": "https://re-publica.com/files/rest/fk_speakers.json",
       "sessionsUrl": "https://re-publica.com/files/rest/fk_sessions.json",
-      "sessionLinkBaseUrl": "https://fachkonferenzen19.re-publica.com/de",
+      "sessionLinkBaseUrl": "https://fachkonferenzen19.re-publica.com",
       "speakerLinkBaseUrl": "https://fachkonferenzen19.re-publica.com",
       "speakerImageBaseUrl": "https://fachkonferenzen19.re-publica.com",
       "defaultTrack": {
@@ -100,6 +116,25 @@
       "subconferenceId": "rp-fachkonferenzen",
       "filterSpeakerNames": ["_ _"],
       "filterSessionNames": ["Mittagspause", "Pause"]
+    },
+    {
+      "format": "rp",
+      "speakersUrl": "https://re-publica.com/files/rest/netzfest_speakers.json",
+      "sessionsUrl": "https://re-publica.com/files/rest/netzfest_sessions.json",
+      "sessionLinkBaseUrl": "https://19.netzfest.de",
+      "speakerLinkBaseUrl": "https://19.netzfest.de",
+      "speakerImageBaseUrl": "https://19.netzfest.de",
+      "defaultTrack": {
+        "id": "netzfest",
+        "label_en": "Netzfest",
+        "label_de": "Netzfest",
+        "color": [34, 48, 121, 1]
+      },
+      "defaultLanguageName": "German",
+      "subconferenceId": "netzfest",
+      "filterSpeakerNames": ["_ _"],
+      "filterSessionNames": ["Mittagspause", "Pause"]
+      
     }
   ],
   "options": {
@@ -123,7 +158,11 @@
       "32159",
       "32161",
       "32300",
-      "31704"
+      "31704",
+
+      "32475",
+      "32703",
+      "32476"
     ],
     "defaultColor": [0, 0, 0, 1],
     "colorForTrack": {
@@ -131,7 +170,8 @@
       "research-education": [232, 200, 144, 1],
       "arts-culture": [0, 153, 146, 1],
       "politics-society": [242, 158, 196, 1],
-      "science-technology": [0, 0, 0, 1],
+      "science-technology": [250, 82, 76, 1],
+      "science-education": [250, 82, 76, 1],
       "mobility-city": [102, 102, 221, 1],
       "business-innovation": [0, 0, 0, 1],
       "sideevents": [50, 50, 50, 1],
