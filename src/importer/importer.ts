@@ -82,6 +82,7 @@ export function processData(
     }
     let orderIndex = options.locationIdOrder.indexOf(location.id);
     if (orderIndex === -1) {
+      console.warn(`Warning: Location ${location.label_en} (${location.id}) has no order index.`);
       orderIndex = index + miniLocations.length;
     }
     location.order_index = orderIndex;
