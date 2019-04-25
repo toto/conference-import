@@ -16,7 +16,8 @@ export interface RpDataSourceFormat extends DataSourceFormat {
   defaultLanguageName?: string;
   subconferenceId?: string;
   filterSpeakerNames?: string[]
-  filterSessionNames?: string[]
+  filterSessionNames?: string[],
+  timezone?: string
 };
 
 export function isRpDataSourceFormat(dataSource: DataSourceFormat): dataSource is RpDataSourceFormat {
@@ -49,7 +50,7 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
     sessionsFromJson(sessionsJSON.data, {
       eventId: event.id,
       sessionLinkPrefix: source.sessionLinkBaseUrl,
-      timezone: firstLocation.timezone,
+      timezone: source.timezone ? source.timezone : firstLocation.timezone,
       defaultTrack: source.defaultTrack,
       defaultLanguageName: source.defaultLanguageName,
       subconferenceFinder: (session, rawSession) => {

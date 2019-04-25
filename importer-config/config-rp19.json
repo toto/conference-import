@@ -81,7 +81,8 @@
         "label_en": "re:publica",
         "label_de": "re:publica",
         "color": [0, 0, 0, 1]
-      }
+      },
+      "timezone": "Etc/UTC"
     },
     {
       "format": "rp",
@@ -97,7 +98,8 @@
         "color": [0, 0, 0, 1]
       },
       "defaultLanguageName": "German",
-      "subconferenceId": "rp-side-events"
+      "subconferenceId": "rp-side-events",
+      "timezone": "Etc/UTC"
     },
     {
       "format": "rp",
@@ -115,7 +117,8 @@
       "defaultLanguageName": "German",
       "subconferenceId": "rp-fachkonferenzen",
       "filterSpeakerNames": ["_ _"],
-      "filterSessionNames": ["Mittagspause", "Pause"]
+      "filterSessionNames": ["Mittagspause", "Pause"],
+      "timezone": "Etc/UTC"
     },
     {
       "format": "rp",
@@ -133,8 +136,8 @@
       "defaultLanguageName": "German",
       "subconferenceId": "netzfest",
       "filterSpeakerNames": ["_ _"],
-      "filterSessionNames": ["Mittagspause", "Pause"]
-      
+      "filterSessionNames": ["Mittagspause", "Pause"],
+      "timezone": "Etc/UTC"      
     }
   ],
   "options": {
