@@ -5,6 +5,7 @@ import { Track, MiniTrack } from './track';
 import { Location, MiniLocation } from './location';
 import { Link } from './link';
 import { Enclosure } from './enclosure';
+import { Map } from './map';
 import { Format, Language, Level, Day, Subconference } from './basic';
 
 
@@ -25,4 +26,5 @@ export {
   Language,
   Level,
   Subconference,
+  Map,
 };

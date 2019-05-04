@@ -1,26 +1,28 @@
 import * as fs from 'fs';
-import { Event, Session, Speaker, Day, Track, Location, Subconference } from '../models';
+import * as ConferenceModel from '../models';
 import { ConferenceData } from '../importer/importer';
 
 
 
 interface EventResources {
-  sessions: Map<string,Session>
-  speakers: Map<string,Speaker>
-  days: Map<string,Day>
-  tracks: Map<string,Track>
-  locations: Map<string,Location>
-  subconferences: Map<string,Subconference>
+  sessions: Map<string,ConferenceModel.Session>
+  speakers: Map<string,ConferenceModel.Speaker>
+  days: Map<string,ConferenceModel.Day>
+  tracks: Map<string,ConferenceModel.Track>
+  locations: Map<string,ConferenceModel.Location>
+  subconferences: Map<string,ConferenceModel.Subconference>
+  maps: Map<string,ConferenceModel.Map>
 }
 
 export class EventDataStore implements EventResources {
-  event: Event
-  sessions: Map<string,Session>
-  speakers: Map<string,Speaker>
-  days: Map<string,Day>
-  tracks: Map<string,Track>
-  locations: Map<string,Location>
-  subconferences: Map<string,Subconference>
+  event: ConferenceModel.Event
+  sessions: Map<string,ConferenceModel.Session>
+  speakers: Map<string,ConferenceModel.Speaker>
+  days: Map<string,ConferenceModel.Day>
+  tracks: Map<string,ConferenceModel.Track>
+  locations: Map<string,ConferenceModel.Location>
+  subconferences: Map<string,ConferenceModel.Subconference>
+  maps: Map<string,ConferenceModel.Map>
 
   constructor(conferenceData: ConferenceData) {
     this.event = conferenceData.event;
@@ -30,6 +32,7 @@ export class EventDataStore implements EventResources {
     this.tracks = new Map();
     this.locations = new Map();
     this.subconferences = new Map();
+    this.maps = new Map();
     this.updateResourceMaps(conferenceData);
   }
 
@@ -40,6 +43,7 @@ export class EventDataStore implements EventResources {
     data.tracks.forEach(s => this.tracks.set(s.id, s));
     data.locations.forEach(s => this.locations.set(s.id, s));
     data.subconferences.forEach(s => this.subconferences.set(s.id, s));
+    data.maps.forEach(s => this.maps.set(s.id, s));
   }
 
   resourceForId(resource: keyof EventResources, id: string) {

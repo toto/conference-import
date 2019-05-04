@@ -1,5 +1,5 @@
 import * as moment from 'moment-timezone';
-import { Speaker, Subconference, Day, Track, Location, Session } from "../../models";
+import { Map, Speaker, Subconference, Day, Track, Location, Session } from "../../models";
 
 export function speakersFromJson(json: any): Speaker[] {
   return untransformedFromJson(json, 'speaker');
@@ -15,6 +15,10 @@ export function subconferencesFromJson(json: any): Subconference[] {
 
 export function tracksFromJson(json: any): Track[] {
   return untransformedFromJson(json, 'track');
+}
+
+export function mapsFromJson(json: any): Map[] {
+  return untransformedFromJson(json, 'map');
 }
 
 export function locationsFromJson(json: any): Location[] {

@@ -30,6 +30,7 @@ async function singleSourceData(event: Event, source: OcDataSourceFormat): Promi
     subconferences: [],
     tracks: [],
     locations: [],
+    maps: [],
   };
 
   const loadingPromises = [];
@@ -39,6 +40,7 @@ async function singleSourceData(event: Event, source: OcDataSourceFormat): Promi
   loadingPromises.push(axios.default.get(`${source.baseUrl}/tracks`));
   loadingPromises.push(axios.default.get(`${source.baseUrl}/locations`));
   loadingPromises.push(axios.default.get(`${source.baseUrl}/subconferences`));
+  loadingPromises.push(axios.default.get(`${source.baseUrl}/maps`));
 
   const [ 
     speakersJSON, 
@@ -47,6 +49,7 @@ async function singleSourceData(event: Event, source: OcDataSourceFormat): Promi
     tracksJSON,
     locatonsJSON,
     subconferencesJSON,
+    mapsJSON,
   ] = await Promise.all(loadingPromises);
 
   result.speakers = converters.speakersFromJson(speakersJSON.data.data);
@@ -55,6 +58,7 @@ async function singleSourceData(event: Event, source: OcDataSourceFormat): Promi
   result.days = converters.mergeWithoutDuplication(result.sessions.map(s => s.day) , result.days);
   result.tracks = converters.tracksFromJson(tracksJSON.data.data);
   result.locations = converters.locationsFromJson(locatonsJSON.data.data);
+  result.maps = converters.mapsFromJson(mapsJSON.data.data);
   result.subconferences = converters.subconferencesFromJson(subconferencesJSON.data.data);
   result.subconferences = converters.mergeWithoutDuplication(result.sessions.map(s => s.subconference) , result.subconferences);
 

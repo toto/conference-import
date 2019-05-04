@@ -34,7 +34,7 @@ export async function serveEvents(files: string[], server='localhost', port=5000
     
     // Unimplemented
     ["pois", "maps"].forEach(resource => {
-      const regexp = new RegExp(`/[a-z09A-Z]+\/${resource}`);
+      const regexp = new RegExp(`/[a-z0-9A-Z]+\/${resource}`);
       app.get(regexp, (req, res) => {
         console.info(`Getting ${req.path} (unimplemnted)`);
         return res.status(404).json(wrapInResponseData([]));

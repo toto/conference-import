@@ -31,6 +31,7 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
     days,
     event,
     subconferences,
+    maps: []
   };
 
   const speakersJSON = await axios.default.get(source.speakersUrl);
