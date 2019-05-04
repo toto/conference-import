@@ -1,6 +1,6 @@
 import * as axios from "axios";
 import { SourceData } from "../../importer/sourceData";
-import { Event, Day, Subconference, Track } from "../../models";
+import * as ConferenceModel from "../../models";
 import { sessionsFromJson } from "./sessions";
 import { speakersFromJson } from "./speakers";
 import { DataSourceFormat } from "../dataSource";
@@ -12,11 +12,12 @@ export interface RpDataSourceFormat extends DataSourceFormat {
   sessionsUrl: string;
   speakerLinkBaseUrl: string;
   speakerImageBaseUrl: string;
-  defaultTrack: Track;
+  defaultTrack: ConferenceModel.Track;
   defaultLanguageName?: string;
   subconferenceId?: string;
   filterSpeakerNames?: string[]
   filterSessionNames?: string[],
+  maps?: ConferenceModel.Map[],
   timezone?: string
 };
 
@@ -24,7 +25,7 @@ export function isRpDataSourceFormat(dataSource: DataSourceFormat): dataSource i
   return dataSource.format === "rp";
 }
 
-async function singleSourceData(event: Event, days: Day[], subconferences: Subconference[], source: RpDataSourceFormat): Promise<SourceData> {
+async function singleSourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], source: RpDataSourceFormat): Promise<SourceData> {
   const result: SourceData = {
     speakers: [],
     sessions: [],
@@ -55,7 +56,7 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
       defaultTrack: source.defaultTrack,
       defaultLanguageName: source.defaultLanguageName,
       subconferenceFinder: (session, rawSession) => {
-        let subconference: Subconference | undefined;
+        let subconference: ConferenceModel.Subconference | undefined;
         const { subconferenceId } = source;
         if (subconferenceId) {
           subconference = subconferences.find(s => s.id === subconferenceId);
@@ -78,10 +79,16 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
     })
   );
 
+  if (source.maps) {
+    result.maps = source.maps;
+  } else {
+    result.maps = [];
+  }
+
   return result;
 }
 
-export async function sourceData(event: Event, days: Day[], subconferences: Subconference[], sources: DataSourceFormat[]) {
+export async function sourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], sources: DataSourceFormat[]) {
   const rpSources = sources.filter(s => s.format === 'rp') as RpDataSourceFormat[];
   
   const promises = rpSources.map(source => singleSourceData(event, days, subconferences, source));

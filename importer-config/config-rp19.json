@@ -99,7 +99,37 @@
       },
       "defaultLanguageName": "German",
       "subconferenceId": "rp-side-events",
-      "timezone": "Etc/UTC"
+      "timezone": "Etc/UTC",
+      "maps": [
+        {
+          "id": "rp19-map-level0",
+          "type": "map",
+          "label_de": "Station Berlin",
+          "label_en": "Station Berlin",
+          "floor_label_de": "Station Berlin",
+          "floor_label_en": "Station Berlin",
+          "is_outdoor": true,
+          "is_indoor": true,
+          "floor": 0,
+          "order_index": 0,
+          "area": {
+              "width": 2000,
+              "height": 1477
+          },
+          "tiles": {
+              "base_url": "https://bitfever.de/~toto/data/rp19map/",
+              "large_image_url": "https://bitfever.de/~toto/data/rp19map/rp19map.png",
+              "tile_size": 512,
+              "tile_file_extension": "png",
+              "size": {
+                  "width": 2000,
+                  "height": 1477
+              }
+          },
+          "pois": [
+          ]
+       }
+      ]
     },
     {
       "format": "rp",
@@ -181,7 +211,9 @@
       
       "32531",
       "32160",
-      "32162"
+      "32162",
+      "32702",
+      "33062"
     ],
     "defaultColor": [0, 0, 0, 1],
     "colorForTrack": {

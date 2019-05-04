@@ -43,7 +43,9 @@ export class EventDataStore implements EventResources {
     data.tracks.forEach(s => this.tracks.set(s.id, s));
     data.locations.forEach(s => this.locations.set(s.id, s));
     data.subconferences.forEach(s => this.subconferences.set(s.id, s));
-    data.maps.forEach(s => this.maps.set(s.id, s));
+    if (data.maps) {
+      data.maps.forEach(s => this.maps.set(s.id, s));
+    }
   }
 
   resourceForId(resource: keyof EventResources, id: string) {
