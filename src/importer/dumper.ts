@@ -4,6 +4,7 @@ import { DataSourceFormat } from "../dataSources/dataSource";
 import * as rp from "./../dataSources/rp";
 import * as ocdata from "./../dataSources/ocdata";
 import { processData, ConferenceData, Color } from './importer';
+import { enclosureOrLinkFrom, LiveStream } from "../dataSources/stream";
 
 interface ConfigurationOptions {
   locationIdOrder: string[]
@@ -20,6 +21,7 @@ export interface Configuration {
   subconferences: Subconference[]
   sources: DataSourceFormat[]
   options: ConfigurationOptions
+  livestreams?: LiveStream[]
 }
 
 export async function dumpNormalizedConference(configuration: Configuration, destinationFile: string) {
@@ -71,6 +73,18 @@ export async function dumpNormalizedConference(configuration: Configuration, des
   });
  
   result.sessions.forEach(s => s.event = event.id);
+  result.sessions.forEach(session => {
+
+    
+    if (configuration.livestreams) {
+      const streamLink = configuration.livestreams
+        .map(ls => enclosureOrLinkFrom(ls, session))
+        .find(l => l !== null);
+      if (streamLink) {
+        session.links.push(streamLink);
+      }
+    }
+  });
   result.speakers.forEach(s => s.event = event.id);
   result.tracks.forEach(s => s.event = event.id);
   result.days.forEach(s => s.event = event.id);
