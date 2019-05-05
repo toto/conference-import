@@ -80,9 +80,9 @@ export function sessionsFromJson(json: any, options: Options): Session[] {
 
     let speakers: MiniSpeaker[] = [];
 
-    utils.nameIdPairsFromCommaString(item.moderator, item.moderator_uid)
-      .forEach(s => speakers.push(s));
     utils.nameIdPairsFromCommaString(item.speaker, item.speaker_uid)
+      .forEach(s => speakers.push(s));
+    utils.nameIdPairsFromCommaString(item.moderator, item.moderator_uid)
       .forEach(s => speakers.push(s));
 
     if (options.filterSpeakerNames) {
