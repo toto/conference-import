@@ -172,6 +172,42 @@
   ],
   "livestreams": [
     {
+      "kind": "youtube",
+      "url": "https://www.youtube.com/v/g4rrjbutu6I",
+      "location": "29938",
+      "day": "2019-05-06"
+    },
+    {
+      "kind": "youtube",
+      "url": "https://www.youtube.com/v/vib6hdpore4",
+      "location": "29938",
+      "day": "2019-05-07"
+    },
+    {
+      "kind": "youtube",
+      "url": "https://www.youtube.com/v/eUHqkPIHqa0",
+      "location": "29938",
+      "day": "2019-05-08"
+    },
+    {
+      "kind": "youtube",
+      "url": "https://www.youtube.com/v/uES_vcctpjs",
+      "location": "32144",
+      "day": "2019-05-06"
+    },
+    {
+      "kind": "youtube",
+      "url": "https://www.youtube.com/v/q16C0EL8C9I",
+      "location": "32144",
+      "day": "2019-05-07"
+    },
+    {
+      "kind": "youtube",
+      "url": "https://www.youtube.com/v/QYZtoyZo6qc",
+      "location": "32144",
+      "day": "2019-05-08"
+    },
+    {
       "kind": "hls",
       "url": "https://alex-net.rosebud-media.de/event/smil:alexevent.smil/playlist.m3u8",
       "thumbnail": "https://www.alex-berlin.de/files/theme/img/livestream/tvlivestream_event.jpg",
