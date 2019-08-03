@@ -3,6 +3,7 @@ import { Event, Day, Subconference } from "../models";
 import { DataSourceFormat } from "../dataSources/dataSource";
 import * as rp from "./../dataSources/rp";
 import * as ocdata from "./../dataSources/ocdata";
+import * as pretalx from "./../dataSources/pretalx";
 import { processData, ConferenceData, Color } from './importer';
 import { linkFrom, LiveStream, enclosureFrom } from "../dataSources/stream";
 
@@ -67,6 +68,18 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
     result.locations = result.locations.concat(locations);
+    result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
+    result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
+    if (maps) result.maps = result.maps!.concat(maps);
+  });
+  const pretalxData = await pretalx.sourceData(event, days, subconferences, sources);
+  pretalxData.forEach(data => {
+    if (data.sessions.length === 0) return;
+    const { sessions, speakers, maps } = data;
+    result.sessions = result.sessions.concat(sessions);
+    result.speakers = result.speakers.concat(speakers);
+    // result.tracks = result.tracks.concat(tracks);
+    // result.locations = result.locations.concat(locations);
     result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
     result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
     if (maps) result.maps = result.maps!.concat(maps);

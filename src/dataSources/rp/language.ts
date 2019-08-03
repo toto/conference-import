@@ -17,3 +17,9 @@ export function languageFromString(str: string): Language | null {
   if (str === 'German') return german;
   return null;
 }
+
+export function languageFromIsoCode(str: string): Language | null {
+  if (str === 'en') return english;
+  if (str === 'de') return german;
+  return null;
+}

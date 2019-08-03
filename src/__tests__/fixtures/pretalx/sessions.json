@@ -1,0 +1,919 @@
+[
+    {
+      "code": "AVFU8A",
+      "speakers": [
+        {
+          "code": "JXBP8Z",
+          "name": "Peter Buschkamp",
+          "biography": "",
+          "avatar": "/media/peter-lucilens.jpg"
+        }
+      ],
+      "title": "Freifunk - The Next Generation",
+      "submission_type": {
+        "de": "Talk 20min total (etwa 5min  Q&A)",
+        "en": "talk 20min total (about 5min  Q&A)",
+        "fr": "talk 20min total (circa 5min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "FF-TNG aims at regrowing a local FF based network community by -on the one hand- going back to the 90's \"Bürgernetze\" Idea of free communication with others, (focus on VOIP, SMS, Chat, mail) but also by enabling the individual community member to offer services to others and the world (e.g. via DNS zone delegation to individual nodes). For true autonomy we envisage to not only use WIFI and VPN links but also include LORA-based communication to connect local nodes for low bitrate communication (chat, sms).",
+      "description": "A small group of FF-Munich people is currently developing a concept called FF-TNG \"Freifunk - The Next Generation\".\r\nIt came about after FFMUC had grown rapidly but a vast majority of FFMUC nodes is only using FF as a cheap pseudo-VPN gateway to the internet and after the rapid growth has put BATMAN to its limits making FF an only 'so-so' experience.\r\nThe concept aims at regrowing a local network community by -on the one hand- going back to the 90's \"Bürgernetze\" Idea of free communication with others, (e.g. VOIP, SMS, Chat) and -on the other hand- also by enabling the individual community member to offer services to others and the world (i.e. including DNS zone delegation to individual nodes and ipv6). For parts of the mesh we are looking at Babel. To get to a truly wide ranging individual network our concept includes LORA based communication for low-bitrate communication (Chat, SMS) to reach locations not reachable by simple 2.4 or 5GHz WIFI nodes.\r\nThe talk will be a ride through our first concept of how we think communication power can be put back to people so they can control their communication network. We hope for comments and input from the community - also of the kind \"das kannste schon so machen, aber dann isses halt kacke\"",
+      "duration": "00:20",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "en",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-29T12:30:00+01:00",
+        "end": "2018-12-29T12:50:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "QHXBFG",
+      "speakers": [
+        {
+          "code": "LLZPXX",
+          "name": "Maximilian Wilhelm",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "State of the InterNAT - Freifunk Rheinland Backbone Update",
+      "submission_type": {
+        "de": "Talk 50min total (etwa 15min  Q&A)",
+        "en": "talk 50min total (about 15min  Q&A)",
+        "fr": "talk 50min total (circa 15min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Was war, was ist, was wird - ein Überblick über die Events der letzten Zeit und unsere Pläne für mehr Selbstverwaltung",
+      "description": "",
+      "duration": "00:55",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-29T19:00:00+01:00",
+        "end": "2018-12-29T19:55:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "WA38FQ",
+      "speakers": [
+        {
+          "code": "X3XLVM",
+          "name": "pkoerner81929",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Freifunkinstallationen in Flüchtlingsheimen - Erfahrungsbericht, Empfehlungen",
+      "submission_type": {
+        "de": "Talk 20min total (etwa 5min  Q&A)",
+        "en": "talk 20min total (about 5min  Q&A)",
+        "fr": "talk 20min total (circa 5min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Am Beispiel einiger Freifunkinstallationen in Flüchtlingsunterkünften in München wird anhand von Best Practices beschrieben, wie am besten vorzugehen ist. Budget, Ansprache der Verantwortlichen, technische Hürden, Umsetzung, Planung, Rückbau.",
+      "description": "",
+      "duration": "00:20",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-29T18:30:00+01:00",
+        "end": "2018-12-29T18:50:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "FS7D9L",
+      "speakers": [
+        {
+          "code": "K93XDG",
+          "name": "h3rb3rn",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Vom eingestaubten Teleskop zum High Tech Lieblingsteleskop",
+      "submission_type": {
+        "de": "Talk 20min total (etwa 5min  Q&A)",
+        "en": "talk 20min total (about 5min  Q&A)",
+        "fr": "talk 20min total (circa 5min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "3D-gedruckte Open Source GOTO Steuerung für 0815 Billig Teleskope, oder wer es lieber wissenschaftlich mag die bt³s Open Source und Open Hardware Steuerung zum nachbauen",
+      "description": "Open Hardware GOTO Steuerung für Low Budget Teleskope selber bauen. Erfahrungsbericht und Live Demonstration.\r\n\r\nVorstellen der 3D gedruckten Open Hardware GOTO Steuerung für Teleskope (Entwickelt von Roman Hujer).\r\n\r\nTechnische Details zur Hardware sowie Quellen Empfehlungen zum Nachbau. Konfiguration vorstellen für die GOTO Steuerung (Firmware) und Schnittstellen Konfiguration in Stellarium.\r\n\r\nStellarium Konfiguration detailliert für GOTO Steuerung, GPS Daten via GPS/Glonas USB Stick einpflegen und Sternen und Satelliten Datenbank Repositories aktivieren und erweitern.",
+      "duration": "00:20",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": false,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-29T18:00:00+01:00",
+        "end": "2018-12-29T18:20:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "WUBRSK",
+      "speakers": [
+        {
+          "code": "USJAK9",
+          "name": "Andreas Bräu",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "GSoC 2018 - project presentations",
+      "submission_type": {
+        "de": "Talk 20min total (etwa 5min  Q&A)",
+        "en": "talk 20min total (about 5min  Q&A)",
+        "fr": "talk 20min total (circa 5min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Some students will present results of their projects",
+      "description": "* zoobab shows \"MultipathTCP and Openwrt improvements with eBPF\"\r\n* mwarning talks about the \"Meshenger App\"",
+      "duration": "00:42",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "en",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-28T14:00:00+01:00",
+        "end": "2018-12-28T14:42:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "DMQDTK",
+      "speakers": [
+        {
+          "code": "SZWSUS",
+          "name": "margau",
+          "biography": "",
+          "avatar": null
+        },
+        {
+          "code": "JGZD9Q",
+          "name": "Hibas123",
+          "biography": "",
+          "avatar": null
+        },
+        {
+          "code": "QFPHZF",
+          "name": "adnidor",
+          "biography": "",
+          "avatar": "/media/4891425.png"
+        }
+      ],
+      "title": "Freifunk IoT",
+      "submission_type": {
+        "de": "Talk 50min total (etwa 15min  Q&A)",
+        "en": "talk 50min total (about 15min  Q&A)",
+        "fr": "talk 50min total (circa 15min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Bei diesem Talk stellen wir das Freifunk-IoT Projekt sowie seine Module vor, und zeigen generelle Möglichkeiten auf, das Freifunk-Netz nicht nur als Transitnetz zu verwenden, sondern auch smarte Sensoren einzubinden.",
+      "description": "Freifunk-IoT ist ein Projekt, welches ein Framework zum Einbinden von offenen Sensoren in Freifunk-Netze entwickelt und anbietet.\r\nEs gibt Ressourcen zu Hardware-Modulen wie Anleitungen und Platinenlayouts, und fertige Software für die Sensoren.\r\n\r\nZusätzlich dazu stellt Freifunk-IoT ein serverseitiges Framework bereit, welches die Daten aggregiert, auswertet, visualisiert und wieder bereitstellt.\r\n\r\nIn diesem Talk wird der aktuelle Stand des Projektes vorgestellt, sowie im Anschluss eine Diskussion zur Weiterentwicklung angeregt.",
+      "duration": "00:50",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-27T14:00:00+01:00",
+        "end": "2018-12-27T14:50:00+01:00"
+      },
+      "image": "https://pretalx.35c3oio.freifunk.space/media/35c3oio/images/DMQDTK/pic01-small.jpg"
+    },
+    {
+      "code": "AYUMLK",
+      "speakers": [
+        {
+          "code": "KMR7N8",
+          "name": "Daniel Ehlers",
+          "biography": "",
+          "avatar": "/media/avatar-pixelart-gross.png"
+        }
+      ],
+      "title": "Distributed DHCP",
+      "submission_type": {
+        "de": "Talk 20min total (etwa 5min  Q&A)",
+        "en": "talk 20min total (about 5min  Q&A)",
+        "fr": "talk 20min total (circa 5min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "In mesh networks clients stay in separated ethernets. We developed and implemented a distributed dhcp algorithm so our mesh nodes now can serve dhcp directly while maintaining a consensus about leases of the same subnet.",
+      "description": "In mesh networks, you can either run central dhcp servers or run them on the mesh nodes and have some administrative control about the served subnets, but those then scattered dhcp servers have no consensus\r\nabout the whole lease state and thus are not able to renew leases of roamed clients.\r\n\r\nOur algorithm, implemented in the ddhcpd addresses these problems:\r\nIt coordinates the served leases automatically, so you need no administrative control entity. And\r\nit allows roamed clients to renew and keep their IP addresses, through a forwarding mechanism.\r\n\r\nThe talk will be about the theoretical concept, the state of our implementation in ddhcpd and practical experience. \r\n\r\nDDHCPD: https://github.com/sargon/ddhcpd\r\nGluon Packet: https://github.com/sargon/gluon-sargon/tree/v2018.x/ddhcpd",
+      "duration": "00:20",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "en",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-30T14:30:00+01:00",
+        "end": "2018-12-30T14:50:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "ELUSFV",
+      "speakers": [
+        {
+          "code": "TRQPDR",
+          "name": "Peter Babnik (Petergoge)",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Menschenrechte, Bildung, open infrastructure",
+      "submission_type": {
+        "de": "Talk 20min total (etwa 5min  Q&A)",
+        "en": "talk 20min total (about 5min  Q&A)",
+        "fr": "talk 20min total (circa 5min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Die 3 Begriffe werden beleutet und Zusammenhänge hergestellt",
+      "description": "Heute hat sich eindeutig das Internet durchgesetzt und es stellt sich die Frage, wie gehen wir damit um. Die AkteurInnen im Internet sind Menschen oder von Menschen gemachte Programme. Als Grundlage im Internet sollten die nun schon 70 Jahre alten Menschenrechte gelten. Auch im Bildungsbereich verändert das Internet die bisherigen Strukturen unseres Bildungssystems, mMn sogar weltweit. Menschen begegnen sich auf Augenhöhe. Die open infrastructure hilft dabei Bildung für Menschen zugänglich zu machen und Menschen ein selbstbestimmtes Leben führen zulassen. Die \"Hierachien im Kopf\" werden von dem realistischen Denken \"wir sind alle gerade jetzt auf der Oberfläche von Planet Erde auf Augenhöhe\" abgelöst. Dies ist der Prozess, den wir gerade in vielen Bereichen unserer Gesellschaft beobachten.",
+      "duration": "00:20",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-28T19:30:00+01:00",
+        "end": "2018-12-28T19:50:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "Z98HRQ",
+      "speakers": [
+        {
+          "code": "SZWSUS",
+          "name": "margau",
+          "biography": "",
+          "avatar": null
+        },
+        {
+          "code": "JGZD9Q",
+          "name": "Hibas123",
+          "biography": "",
+          "avatar": null
+        },
+        {
+          "code": "QFPHZF",
+          "name": "adnidor",
+          "biography": "",
+          "avatar": "/media/4891425.png"
+        }
+      ],
+      "title": "Freifunk IoT-Demo",
+      "submission_type": {
+        "de": "Präsentationsinsel (alle 3 Tage)",
+        "en": "presentation desk (all 3 days)",
+        "fr": "ile de presentation (3 jours)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "An dieser Präsentationsinsel wird das Konzept und verschiedene interaktive Ausstellungsstücke von Freifunk-IoT gezeigt.",
+      "description": "",
+      "duration": "12:00",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Thementisch 1",
+          "en": "OIO presentation desk 1",
+          "fr": "OIO presentation desk 1"
+        },
+        "start": "2018-12-27T11:00:00+01:00",
+        "end": "2018-12-27T23:00:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "BEWPU3",
+      "speakers": [
+        {
+          "code": "7W3VBM",
+          "name": "Nico",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Maritime Technik: How to Schiff",
+      "submission_type": {
+        "de": "Workshop 80min",
+        "en": "workshop 80min",
+        "fr": "workshop 80min"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Hier bekommt ihr eine kurze Einführung in die Welt der Nautik und der schwankenden Metallkähne. Was gibt es da für Technik an Bord, wofür wird es gebraucht und wie wird es benutzt. Überblick mit Schwerpunkt auf technischen Details.",
+      "description": "Wir fühlen uns auf Schiffen zu Hause. Wir nutzen sie als vielfältiges Mittel zum Retten und Versorgen von Menschen in Not, um Menschenrechtsverletzungen auf See zu dokumentieren oder um gegen das Aussterben von Tierarten zu kämpfen. \r\nDoch was hält eigentlich so ein Schiff zusammen? Wie steuert mensch es? Warum klingt unsere Kommunikation immer noch nach 19. Jahrhundert? Was ist eigentlich ein Ruderlagenanzeiger und wofür braucht man Stevenrohr und Stopfbuchse?\r\nTechnisch-nerdige Antworten rund ums Schiff und eure Fragen.",
+      "duration": "01:20",
+      "slot_count": 1,
+      "do_not_record": true,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Workshop-Domo",
+          "en": "OIO workshop domo"
+        },
+        "start": "2018-12-28T21:00:00+01:00",
+        "end": "2018-12-28T22:20:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "3ME8XJ",
+      "speakers": [
+        {
+          "code": "9SNQSH",
+          "name": "Daniel Fussy",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "10 Tops & Flops für den erfolgreichen Aufbau einer Community wie Freifunk München",
+      "submission_type": {
+        "de": "Talk 20min total (etwa 5min  Q&A)",
+        "en": "talk 20min total (about 5min  Q&A)",
+        "fr": "talk 20min total (circa 5min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Freifunk München wird getrieben vom Freie Netze München e.V.. Jeder Verein hat Höhen und Tiefen. Um ein stabiles Team zu halten sind einige Basics notwendig.",
+      "description": "1. Wir reden über die Größten Erfolge.\r\n2. Über die Durststrecken ... ohne Admins.\r\n3. Politik die mal will oder nicht in München und Bayern.\r\n4. NixOS ist genial aber kaum einer kann es.\r\n5. Segmentierung = Fluch oder Segen?\r\n6. Warum traut sich keiner an Babel?\r\n7. Virtualisierung Proxmox oder OpenNebula?\r\nFragen....",
+      "duration": "00:20",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-29T21:00:00+01:00",
+        "end": "2018-12-29T21:20:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "WXUJ8N",
+      "speakers": [
+        {
+          "code": "NFMZXP",
+          "name": "Richard",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Aufbau von Freifunk in Kleingartenanlagen",
+      "submission_type": {
+        "de": "Workshop 45min",
+        "en": "workshop 45min",
+        "fr": "workshop 45min"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Diskussionsrunde auf Basis einer Problemstellung (Kartendaten zu einer Anlage) ohne eine Lösung einzubringen.\r\nZiel ist: Erfahrungen einzusammeln und auszutauschen, Hinweise und Tips zu bekommen und auszutauschen.",
+      "description": "",
+      "duration": "00:45",
+      "slot_count": 1,
+      "do_not_record": true,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Workshop-Domo",
+          "en": "OIO workshop domo"
+        },
+        "start": "2018-12-29T21:00:00+01:00",
+        "end": "2018-12-29T21:45:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "M9VQA9",
+      "speakers": [
+        {
+          "code": "SB9DGB",
+          "name": "skorpy",
+          "biography": "",
+          "avatar": null
+        },
+        {
+          "code": "C9EY9L",
+          "name": "herrbett",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Why VPN? Freifunk via L2-BSA.",
+      "submission_type": {
+        "de": "Talk 20min total (etwa 5min  Q&A)",
+        "en": "talk 20min total (about 5min  Q&A)",
+        "fr": "talk 20min total (circa 5min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Why hassle with the VPN-Overhead. With the availability of commodity SV-VDSL Hardware in Gluon , it’s now possible to replace Mesh-VPN with Mesh-DSL. What we learned in the process and how major projects and wireless backbone networks in particular can benefit from a \"VPN-free\" solution.",
+      "description": "",
+      "duration": "00:20",
+      "slot_count": 1,
+      "do_not_record": true,
+      "is_featured": true,
+      "content_locale": "en",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-30T14:00:00+01:00",
+        "end": "2018-12-30T14:20:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "HYJXWE",
+      "speakers": [
+        {
+          "code": "VHNKEG",
+          "name": "tsys",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Lots of blinking stuff, Pixelflut and Intergalaktische Reisepässe",
+      "submission_type": {
+        "de": "Präsentationsinsel (alle 3 Tage)",
+        "en": "presentation desk (all 3 days)",
+        "fr": "ile de presentation (3 jours)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Lots of blinking stuff and Pixelflut. Selling Intergalaktische Reisepässe",
+      "description": "We will populate a  Presentation isle with blinking decoration and sculptures.\r\n\r\nAdditionally we will provide a 40 Gb/s Pixelflut server.",
+      "duration": "12:00",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Thementisch 3",
+          "en": "OIO presentation desk 3",
+          "fr": "OIO presentation desk 3"
+        },
+        "start": "2018-12-27T11:00:00+01:00",
+        "end": "2018-12-27T23:00:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "EGJW3F",
+      "speakers": [
+        {
+          "code": "HZ9WHF",
+          "name": "Elektra",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Independent Solar Energy Mesh System",
+      "submission_type": {
+        "de": "Talk 20min total (etwa 5min  Q&A)",
+        "en": "talk 20min total (about 5min  Q&A)",
+        "fr": "talk 20min total (circa 5min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Das Independent Solar Energy Mesh System (ISEMS) knüpft an den Freifunk-OpenMPP-Tracker an. Das System (Lua-Tool, Integration in Luci, Mikrocontroller-Firmware für den OpenMPPT, Web-App) soll es für Nicht-Experten einfacher machen, ihrer eigene drahtlosen Freifunk-Kommunikationsinfrastruktur unabhängig vom Stromnetz zu betreiben.",
+      "description": "ISEMS überwacht u.a. den Batteriestand, die Batterietemperatur und die Energiedaten des Moduls und bietet Strategien zum Energiesparen.\r\n\r\nMit der ISEMS-Software können Benutzer eine Übersicht einsehen, wie ihre Solarknoten arbeiten. Die Web-App zeigt eine Übersicht aller Knoten sowie eine Checkliste für die einzelnen Knoten. Wenn etwas aus dem Ruder läuft, liefert sie Warnungen und Hinweise zur Fehlerbehebung.\r\n\r\nDauer: 20 Minuten für unsere Präsentation mit 10 Minuten für Q + A\r\n\r\nZusätzliche Infos / Links / Referenzen:\r\n\r\nhttp://isems.de\r\nhttps://www.youtube.com/watch?v=BxFpY2tsPtU\r\nhttps://wiki.freifunk.net/Freifunk-MPP-Tracker",
+      "duration": "00:20",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-29T13:30:00+01:00",
+        "end": "2018-12-29T13:50:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "V3XY87",
+      "speakers": [
+        {
+          "code": "LWSSPE",
+          "name": "Chris Fiege und Jan Lübbe",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Project Parker: Klassisches Routing für Freifunk",
+      "submission_type": {
+        "de": "Talk 50min total (etwa 15min  Q&A)",
+        "en": "talk 50min total (about 15min  Q&A)",
+        "fr": "talk 50min total (circa 15min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Gluon mit BATMAN setzt klassisch auf ein großes Layer 2 Netz, was in den großen Freifunk Communities zu Problemen führt. Mit unseren Bemühungen in \"Project Parker\" versuchen wir diese Probleme durch den Einsatz von klassischem Routing zu umgehen. In unserem Talk stellen wir unsere Architektur vor und zeigen welchen Stand unsere Umsetzung erreicht hat.",
+      "description": "Gluon mit BATMAN setzt klassisch auf ein großes Layer 2 Netz, was in den großen Freifunk Communities zu Problemen führt. Diese Communities begegnen den Problemen i.d.R. mit der Segmentierung des Netzes in Domains. Innerhalb dieser Domains wird allerdings das klassische Netz (BATMAN) eingesetzt.\r\n\r\nMit \"Project Parker\" versuchen wir diese Probleme durch klassisches Routing in einem hierarchischem Netz zu lösen: Jeder Freifunk-Knoten mit Uplink ist Gateway für sein Netzsegment, macht DHCP und ist DNS-Cache. Das Routing mit BATMAN beschränkt sich nun auf kleine Mesh-Netze innerhalb des gesamten Netzes.\r\n\r\nWir stellen in unserem Talk unsere Architektur vor und zeigen welchen Stand unsere Umsetzung erreicht hat.",
+      "duration": "00:50",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-28T16:00:00+01:00",
+        "end": "2018-12-28T16:50:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "BRRGEK",
+      "speakers": [
+        {
+          "code": "KMKHUZ",
+          "name": "Jos Poortvliet",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "End-to-end encryption for secure, zero-knowledge file sync & share",
+      "submission_type": {
+        "de": "Talk 20min total (etwa 5min  Q&A)",
+        "en": "talk 20min total (about 5min  Q&A)",
+        "fr": "talk 20min total (circa 5min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "In this talk I'll detail the Nextcloud End-to-end Encryption design, going through the steps of creating the private/public key pair, encrypting and syncing it, encrypting files and uploading them, adding devices to the trusted circle and so on.",
+      "description": "Nextcloud's E2EE is designed to protect user data from the server. The goal was to let users sync and share folders (and their contents) as easily as possible without the server ever having the ability to access the data. That rules out a web interface and has other limitations, but that's the price for knowing your server can't spy on you. It isn't and was never meant for ALL your data, as you should use a solution purely focused on E2EE instead! The nice features of Nextcloud, from online document editing to public sharing, will work on all your files except those you put in E2EE folders.\r\n\r\nThe talk is reasonably technical - it doesn't delve in to code or algorithms but sticks to the general design and flow of data: how do we create and share public keys, how do we get the private key on another device without the server being able to access it, how do we encrypt files and share them and so on.",
+      "duration": "00:45",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "en",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-27T17:00:00+01:00",
+        "end": "2018-12-27T17:45:00+01:00"
+      },
+      "image": "https://pretalx.35c3oio.freifunk.space/media/35c3oio/images/BRRGEK/end-to-end.png"
+    },
+    {
+      "code": "KB9VRZ",
+      "speakers": [
+        {
+          "code": "KMKHUZ",
+          "name": "Jos Poortvliet",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Get your data back under control - 200 things you can do with Nextcloud",
+      "submission_type": {
+        "de": "Talk 50min total (etwa 15min  Q&A)",
+        "en": "talk 50min total (about 15min  Q&A)",
+        "fr": "talk 50min total (circa 15min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "We live in a world of data theft and broken clouds and I believe it is time to decentralize, host at home or a local provider we trust. Nextcloud is an option that can take care of many of your file sync'n'share, chat and document editing needs, and I'll show how and why!",
+      "description": "The data from many people is floating around on 'clouds', regularly stolen and traded. We need to decentralize, host ourselves or at a large number of small, local providers we can trust! Probably the most used solution for that today is Nextcloud, which through its app ecosystem of almost 200 apps can be extended to do lots of things.\r\n\r\nWith Nextcloud you can sync and share files, access your calendars and contacts, share holiday pictures with your family or play music. But also manage your passwords, track your phone through GPS, draw, read news, chat and have audio/video calls, read mail, manage tasks and much more.\r\n\r\nThe community has developed almost 200 apps that do all that and more, and loads of tutorials on how to install Nextcloud on a Nuc, in a VM, on a raspberry Pi and more. If self-hosting isn't realistic for you, we have Simple Signup which sets you up at a Nextcloud hosting provider close to you in a few clicks.\r\n\r\nThis talk is for people not yet familiar with Nextcloud!",
+      "duration": "00:50",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "en",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-28T18:30:00+01:00",
+        "end": "2018-12-28T19:20:00+01:00"
+      },
+      "image": "https://pretalx.35c3oio.freifunk.space/media/35c3oio/images/KB9VRZ/who-owns-your-data.png"
+    },
+    {
+      "code": "WCXEXU",
+      "speakers": [
+        {
+          "code": "NFL8CT",
+          "name": "just humans",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Seenotrettung und humanitäre Hilfe - was war, was ist, was wird? Kriminalisierung und der Ausblick auf 2019",
+      "submission_type": {
+        "de": "Talk 50min total (etwa 15min  Q&A)",
+        "en": "talk 50min total (about 15min  Q&A)",
+        "fr": "talk 50min total (circa 15min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Die andauernde Kriminalisierung humanitärer Hilfe hat auch in diesem Jahr unsere Arbeit massiv erschwert, Menschenleben gekostet und die europäische Abschottungspolitik vorangetrieben. In diesem Talk geben wir einen Überblick darüber, welche Auswirkungen die Kriminalisierung humanitärer Hilfe haben kann und was im kommenden Jahr zu erwarten ist.",
+      "description": "",
+      "duration": "00:50",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-29T16:00:00+01:00",
+        "end": "2018-12-29T16:50:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "Z37GSP",
+      "speakers": [
+        {
+          "code": "NFL8CT",
+          "name": "just humans",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Seenotrettung",
+      "submission_type": {
+        "de": "Präsentationsinsel (alle 3 Tage)",
+        "en": "presentation desk (all 3 days)",
+        "fr": "ile de presentation (3 jours)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Seenotrettungs-NGOs präsentieren ihre Arbeit, machen auf die Kriminalisierung von humanitärer Hilfe aufmerksam und freuen sich auf Gespräche und Austausch.",
+      "description": "",
+      "duration": "12:00",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Thementisch 2",
+          "en": "OIO presentation desk 2",
+          "fr": "OIO presentation desk 2"
+        },
+        "start": "2018-12-27T11:00:00+01:00",
+        "end": "2018-12-27T23:00:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "W9G9FB",
+      "speakers": [
+        {
+          "code": "JGBAWZ",
+          "name": "Matthias Schmidt",
+          "biography": "",
+          "avatar": "/media/Matthias-Schmidt-v3g_de.jpg"
+        }
+      ],
+      "title": "Freifunk Event Installationen und autarke Installationen",
+      "submission_type": {
+        "de": "Präsentationsinsel (alle 3 Tage)",
+        "en": "presentation desk (all 3 days)",
+        "fr": "ile de presentation (3 jours)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Freifunk temporär für kleine, mittlere und große Veranstaltungen. Freifunk kabelungebunden autark betreiben.",
+      "description": "Die Präsentation von Freifunk Düren zeigt zwei Dinge, einmal, wie Freifunk für Veranstaltungen angeboten werden kann und wie eine Versorgung ohne Kabelanbindung mit Strom und Mobilfunk möglich ist. Freifunk Düren hat vier Jahre Erfahrungen dazu sammeln können, wie auf Events bis zu 300 Clients versorgt werden und wie praxisnah Sachen funktionieren oder nicht. Ursprünglich war das Equipment groß und schwer. Wir zeigen, wie die Installationen so klein werden können, dass das Kisten schleppen entfällt und der Stromverbrauch so niedrig wird, dass mit Solarzellen kleineren Ausmaßes oder Powerbank der Betrieb funktioniert. Vom handlichen Freifunk2go mit LTE Stick für 30 Clients, um Freifunk in öffentlichen Verkehrsmitteln oder im Park mobil zu realisieren, bis zu einem mobilen LTE Offloader für 300 Clients, werden wir unserer Geräte zeigen. Auch die Aussicht, irgendwann Freifunk auf der Annakirmes anbieten zu können, einem Event in Düren mit bis zu 50.000 Menschen, die gleichzeitig auf dem Kirmesplatz sind, können wir berichten, was dafür benötigt wird. Der Stadt Düren konnten schon erste Vorschläge gemacht werden, die Orientierung dazu ist das WLAN auf dem Congress.",
+      "duration": "12:00",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Thementisch 6",
+          "en": "OIO presentation desk 6",
+          "fr": "OIO presentation desk 6"
+        },
+        "start": "2018-12-27T11:00:00+01:00",
+        "end": "2018-12-27T23:00:00+01:00"
+      },
+      "image": "https://pretalx.35c3oio.freifunk.space/media/35c3oio/images/W9G9FB/IMG_20181128_2313400.jpg"
+    },
+    {
+      "code": "8GTXCY",
+      "speakers": [
+        {
+          "code": "D8M8QM",
+          "name": "ST Kambor-Wiesenberg",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Eventphone: früher, heute, morgen.",
+      "submission_type": {
+        "de": "Talk 50min total (etwa 15min  Q&A)",
+        "en": "talk 50min total (about 15min  Q&A)",
+        "fr": "talk 50min total (circa 15min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Wir haben im letzten Jahr die Hard und Software des Phone Operation Center fast vollständig ersetzt. Der größte Schritt aus Benutzersicht war, die langen DECT Registrierungsschlangen gegen eine Selbst- oder Auto-Registrierungsfunktion zu tauschen. In einem Vortrag möchten wir zeigen was wir gemacht haben, warum wir agil arbeiten, wie eigentlich ein Minimum Viable Product (MVP) geht, welche Fehler wir gemacht haben und im Nachgang eure Fragen beantworten.",
+      "description": "",
+      "duration": "00:50",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": false,
+      "content_locale": "de",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-27T16:00:00+01:00",
+        "end": "2018-12-27T16:50:00+01:00"
+      },
+      "image": "https://pretalx.35c3oio.freifunk.space/media/35c3oio/images/8GTXCY/DECT-612d-Eventphone-2000x1200.jpg"
+    },
+    {
+      "code": "NVXWSM",
+      "speakers": [
+        {
+          "code": "KMKHUZ",
+          "name": "Jos Poortvliet",
+          "biography": "",
+          "avatar": null
+        },
+        {
+          "code": "F3SR8V",
+          "name": "shiro",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "Nextcloud",
+      "submission_type": {
+        "de": "Präsentationsinsel (alle 3 Tage)",
+        "en": "presentation desk (all 3 days)",
+        "fr": "ile de presentation (3 jours)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "We're the Nextcloud community (nextcloud.com/yourdata/) and we're here to meet people and chat about self-hosting, decentralization, federation, and many more topics! We can also show you Nextcloud demos, help you to get involved in our community, and of course, tell you everything about our new Nextcloud Include diversity program!",
+      "description": "",
+      "duration": "12:00",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": false,
+      "content_locale": "en",
+      "slot": {
+        "room": {
+          "de": "OIO Thementisch 4",
+          "en": "OIO presentation desk 4",
+          "fr": "OIO presentation desk 4"
+        },
+        "start": "2018-12-27T11:00:00+01:00",
+        "end": "2018-12-27T23:00:00+01:00"
+      },
+      "image": "https://pretalx.35c3oio.freifunk.space/media/35c3oio/images/NVXWSM/who_owns_your_data.png"
+    },
+    {
+      "code": "NXGJRN",
+      "speakers": [
+        {
+          "code": "R8T8AG",
+          "name": "GIG – Global Innovation Gathering",
+          "biography": "",
+          "avatar": "/media/hands_2pFHjQk.png"
+        }
+      ],
+      "title": "Global Innovation Gathering",
+      "submission_type": {
+        "de": "Präsentationsinsel (alle 3 Tage)",
+        "en": "presentation desk (all 3 days)",
+        "fr": "ile de presentation (3 jours)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "GIG, the global network of social and technological innovators is bringing its members and their projects to the Congress for a showcase and interactive workshops",
+      "description": "- will follow -",
+      "duration": "12:00",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": false,
+      "content_locale": "en",
+      "slot": {
+        "room": {
+          "de": "OIO Thementisch 5",
+          "en": "OIO presentation desk 5",
+          "fr": "OIO presentation desk 5"
+        },
+        "start": "2018-12-27T11:00:00+01:00",
+        "end": "2018-12-27T23:00:00+01:00"
+      },
+      "image": null
+    },
+    {
+      "code": "XCU9PD",
+      "speakers": [
+        {
+          "code": "7UUC7W",
+          "name": "Enno Boland",
+          "biography": "",
+          "avatar": null
+        }
+      ],
+      "title": "State Of The Void",
+      "submission_type": {
+        "de": "Talk 50min total (etwa 15min  Q&A)",
+        "en": "talk 50min total (about 15min  Q&A)",
+        "fr": "talk 50min total (circa 15min  Q&A)"
+      },
+      "track": null,
+      "state": "confirmed",
+      "abstract": "Void Linux is a general purpose operating system based on the Linux Kernel. In this talk we'd like to give an introduction about Void, why we think our work matters and talk about the challenges that we were faced during the last year.",
+      "description": "",
+      "duration": "00:50",
+      "slot_count": 1,
+      "do_not_record": false,
+      "is_featured": true,
+      "content_locale": "en",
+      "slot": {
+        "room": {
+          "de": "OIO Vortrags-Arena",
+          "en": "OIO lecture arena"
+        },
+        "start": "2018-12-27T19:00:00+01:00",
+        "end": "2018-12-27T19:50:00+01:00"
+      },
+      "image": "https://pretalx.35c3oio.freifunk.space/media/35c3oio/images/XCU9PD/voidcoin.svg.png"
+    }
+]

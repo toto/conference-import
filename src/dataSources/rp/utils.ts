@@ -21,7 +21,8 @@ export function nameAndUrlFromHtmlLink(linkStr: string): NameAndUrl | null {
   return null;
 }
 
-export function undefinedIfEmpty(str: string): string | undefined {
+export function undefinedIfEmpty(str?: string): string | undefined {
+  if (!str) return undefined;
   if (str.trim() === "") return undefined;
   return str;
 }
