@@ -1,0 +1,95 @@
+{
+  "event": {
+    "id": "cam[19",
+    "label": "Camp 2019",
+    "title": "Chaos Communication Camp 2019",
+    "date": ["2019-08-21", "2019-08-25"],
+    "locations": [
+      {
+        "label": "Ziegeleipark Mildenberg",
+        "coords": [53.03131, 13.30736],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "cccamp19",
+    "url": "https://events.ccc.de/camp/2019/"
+  },
+  "days": [
+    {
+      "id": "2019-08-21",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2019-08-21"
+    },
+    {
+      "id": "2019-08-22",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2019-08-22"
+    },
+    {
+      "id": "2019-08-23",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2019-08-23"
+    },
+    {
+      "id": "2019-08-24",
+      "label_de": "Tag 4",
+      "label_en": "Day 4",
+      "date": "2019-08-24"
+    },
+    {
+      "id": "2019-08-25",
+      "label_de": "Tag 5",
+      "label_en": "Day 5",
+      "date": "2019-08-25"
+    }
+  ],
+  "subconferences": [
+    {
+      "id": "thm-camp19",
+      "label": "Three Headed Monkey Stage"
+    }
+  ],
+  "sources": [
+    {
+      "format": "pretalx",
+      "baseUrl": "https://talx.thm.cloud/",
+      "conferenceCode": "thms",
+      "defaultTrack": {
+        "id": "sideevents",
+        "label_en": "Sideevent",
+        "label_de": "Sideevent",
+        "color": [0, 0, 0, 1]
+      },
+      "defaultLanguageName": "German",
+      "subconferenceId": "thm-camp19",
+      "timezone": "Europe/Berlin",
+      "maps": []
+    }
+  ],
+  "livestreams": [
+  ],
+  "options": {
+    "locationIdOrder": [
+    ],
+    "defaultColor": [0, 0, 0, 1],
+    "colorForTrack": {
+      "media-journalism": [214, 0, 126, 1],
+      "research-education": [232, 200, 144, 1],
+      "arts-culture": [0, 153, 146, 1],
+      "politics-society": [242, 158, 196, 1],
+      "science-technology": [250, 82, 76, 1],
+      "science-education": [250, 82, 76, 1],
+      "mobility-city": [102, 102, 221, 1],
+      "business-innovation": [0, 0, 0, 1],
+      "sideevents": [50, 50, 50, 1],
+      "events-re-loaded": [34, 48, 121, 1],
+      "next-generation": [231, 0, 126, 1]
+    },
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
+}
