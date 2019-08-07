@@ -27,10 +27,10 @@
       ],
       "args": [
         "--import",
-        "--config", 
-        "${workspaceFolder}/importer-config/config-rp19.json",
+        "--config",
+        "${workspaceFolder}/importer-config/config-camp19.json",
         "--out", 
-        "/Users/toto/Desktop/ocdata-repo/rp19-ocdata.json"
+        "/Users/toto/Desktop/ocdata-repo/camp19-ocdata.json"
       ]
     },
     {

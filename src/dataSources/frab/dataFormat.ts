@@ -2,7 +2,7 @@ import * as ConferenceModel from "../../models";
 import { DataSourceFormat } from "../dataSource";
 
 export function isFrabDataSourceFormat(dataSource: DataSourceFormat): dataSource is FrabDataSourceFormat {
-  return dataSource.format === "pretalx";
+  return dataSource.format === "frab";
 }
 
 export interface FrabDataSourceFormat extends DataSourceFormat {

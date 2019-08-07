@@ -19,7 +19,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   const speakers = await axios.default.get(`${source.frabBaseUrl}/speakers.json`)
   result.sessions = sessionsFromJson(schedule.data, source);
   result.speakers = speakersFromJson(speakers.data, source);
-
+  console.log(`Frab: ${result.sessions.length} sessions, ${result.speakers.length} speakers`);
   return result;
 }
 

@@ -1,6 +1,6 @@
 {
   "event": {
-    "id": "cam[19",
+    "id": "camp19",
     "label": "Camp 2019",
     "title": "Chaos Communication Camp 2019",
     "date": ["2019-08-21", "2019-08-25"],
@@ -54,20 +54,20 @@
   ],
   "sources": [
     {
-      "format": "pretalx",
-      "baseUrl": "https://talx.thm.cloud/",
-      "conferenceCode": "thms",
-      "defaultTrack": {
-        "id": "sideevents",
-        "label_en": "Sideevent",
-        "label_de": "Sideevent",
-        "color": [0, 0, 0, 1]
-      },
-      "defaultLanguageName": "German",
-      "subconferenceId": "thm-camp19",
-      "timezone": "Europe/Berlin",
-      "maps": []
-    }
+    "format": "frab",
+    "eventId": "camp19",
+    "frabBaseUrl": "https://fahrplan.events.ccc.de/camp/2019/Fahrplan",
+    "defaultLanguageCode": "de",
+    "defaultTrack": {
+      "id": "ccc",
+      "label_en": "CCC",
+      "label_de": "CCC",
+      "color": [0, 0, 0, 1]
+    },
+    "defaultLanguageName": "German",
+    "timezone": "Europe/Berlin",
+    "maps": []
+  }
   ],
   "livestreams": [
   ],

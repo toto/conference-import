@@ -22,7 +22,7 @@ function speakerFromJson(json: any, config: FrabDataSourceFormat): Speaker {
     id: config.subconferenceId ? `${config.subconferenceId}-${json.id}` : `${json.id}`,
     name: json.public_name,
     biography,
-    photo: json.image ? `${config.frabBaseUrl}/${json.image}` : undefined,
+    photo: json.image ? `${config.frabBaseUrl}${json.image}` : undefined,
     url: `${config.frabBaseUrl}/speakers/${json.id}.html`,
     links: [],
     sessions,
@@ -36,7 +36,7 @@ export function speakersFromJson(json: any, config: FrabDataSourceFormat): Speak
   const { schedule_speakers } = json;
   if (!schedule_speakers) return [];
   const { speakers } = schedule_speakers;
-  if (!speakers || Array.isArray(speakers)) return [];
+  if (!speakers || !Array.isArray(speakers)) return [];
 
   return speakers.map((s: any) => speakerFromJson(s, config));
 }
