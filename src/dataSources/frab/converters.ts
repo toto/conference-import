@@ -1,5 +1,5 @@
 import { FrabDataSourceFormat } from "./dataFormat";
-import { Session, Language, MiniSpeaker, MiniTrack, Speaker, MiniSession } from "../../models";
+import { Session, Language, MiniSpeaker, MiniTrack, Speaker, MiniSession, MiniLocation } from "../../models";
 import { mkId } from "../rp/utils";
 import { languageFromIsoCode } from "../rp/language";
 
@@ -77,6 +77,12 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     };
   }
 
+  const location: MiniLocation = {
+    id: config.subconferenceId ? `${config.subconferenceId}-${mkId(roomName)}` : mkId(roomName),
+    label_de: roomName,
+    label_en: roomName
+  };
+
   let language: Language = languageFromIsoCode(config.defaultLanguageCode)!;
   if (session.language) {
     const sessionLang = languageFromIsoCode(session.language);
@@ -101,6 +107,7 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     description: session.description,
     url: session.url,
     track,
+    location,
     lang: language,
     enclosures: [],
     speakers,

@@ -27,6 +27,11 @@ export interface Options {
   nonStageLocationIds?: string[];
 }
 
+/**
+ * Extracts data like tacks and locations from SourceData
+ * @param sourceData 
+ * @param options 
+ */
 export function processData(
   sourceData: SourceData,
   options: Options
