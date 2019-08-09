@@ -1,3 +1,4 @@
+import * as moment from 'moment-timezone';
 import { FrabDataSourceFormat } from "./dataFormat";
 import { Session, Language, MiniSpeaker, MiniTrack, Speaker, MiniSession, MiniLocation } from "../../models";
 import { mkId } from "../rp/utils";
@@ -96,6 +97,16 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     }
   });
 
+  let begin: moment.Moment | undefined;
+  let end: moment.Moment | undefined;
+  
+  if (session.date && session.duration) {
+    begin = moment(session.date);
+    const [ hoursStr, minutesStr ] = session.duration.split(':');
+    end = moment(session.date);
+    end.add(parseInt(hoursStr), 'h');
+    end.add(parseInt(minutesStr), 'm');
+  }
 
   const result: Session = {
     type: "session",
@@ -115,6 +126,8 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     links: [],
     cancelled: false,
     will_be_recorded: undefined,
+    begin,
+    end,
   };
 
   return result;

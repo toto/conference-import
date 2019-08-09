@@ -69,7 +69,7 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
     result.locations = result.locations.concat(locations);
-    result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
+    // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
     result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
     if (maps) result.maps = result.maps!.concat(maps);
   });
@@ -81,7 +81,7 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
     result.locations = result.locations.concat(locations);
-    result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
+    // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
     result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
     if (maps) result.maps = result.maps!.concat(maps);
   });
@@ -93,7 +93,7 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
     result.locations = result.locations.concat(locations);
-    result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
+    // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
     result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
     if (maps) result.maps = result.maps!.concat(maps);
   });
