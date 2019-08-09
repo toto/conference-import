@@ -1,7 +1,7 @@
 import * as moment from 'moment-timezone';
 import { FrabDataSourceFormat } from "./dataFormat";
 import { Session, Language, MiniSpeaker, MiniTrack, Speaker, MiniSession, MiniLocation } from "../../models";
-import { mkId } from "../rp/utils";
+import { mkId, dehtml } from "../rp/utils";
 import { languageFromIsoCode } from "../rp/language";
 
 function speakerFromJson(json: any, config: FrabDataSourceFormat): Speaker {
@@ -23,7 +23,7 @@ function speakerFromJson(json: any, config: FrabDataSourceFormat): Speaker {
     id: config.subconferenceId ? `${config.subconferenceId}-${json.id}` : `${json.id}`,
     name: json.public_name,
     biography,
-    photo: json.image ? `${config.frabBaseUrl}${json.image}` : undefined,
+    photo: json.image ? `${config.frabBaseUrl}${json.image}`.replace('/original/', '/large/') : undefined,
     url: `${config.frabBaseUrl}/speakers/${json.id}.html`,
     links: [],
     sessions,
@@ -115,7 +115,7 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     title: session.title,
     subtitle: session.subtitle,
     abstract: session.abstract,
-    description: session.description,
+    description: dehtml(session.description),
     url: session.url,
     track,
     location,
