@@ -16,6 +16,7 @@ export interface ConferenceData {
   locations: ConferenceModel.Location[];
   subconferences: ConferenceModel.Subconference[];
   maps?: ConferenceModel.Map[];
+  pois?: ConferenceModel.POI[];
 }
 
 export interface Options {
