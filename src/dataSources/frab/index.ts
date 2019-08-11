@@ -7,6 +7,7 @@ import { SourceData } from "../../importer/sourceData";
 
 async function singleSourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], source: FrabDataSourceFormat): Promise<SourceData> {
   const maps: ConferenceModel.Map[] = source.maps !== undefined ? source.maps : [];
+  const pois: ConferenceModel.POI[] = source.pois !== undefined ? source.pois : [];
 
   const result: SourceData = {
     speakers: [],
@@ -15,6 +16,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     event,
     subconferences,
     maps,
+    pois,
   };
 
   const schedule = await axios.default.get(`${source.frabBaseUrl}/schedule.json`);

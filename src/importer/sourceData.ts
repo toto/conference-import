@@ -7,4 +7,5 @@ export interface SourceData {
   days: ConferenceModel.Day[]
   subconferences: ConferenceModel.Subconference[]
   maps: ConferenceModel.Map[]
+  pois: ConferenceModel.POI[]
 }

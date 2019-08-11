@@ -15,6 +15,7 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
   filterSpeakerNames?: string[];
   filterSessionNames?: string[];
   maps?: ConferenceModel.Map[];
+  pois?: ConferenceModel.POI[];
   timezone?: string;
 };
 

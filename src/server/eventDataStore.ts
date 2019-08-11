@@ -12,6 +12,7 @@ interface EventResources {
   locations: Map<string,ConferenceModel.Location>
   subconferences: Map<string,ConferenceModel.Subconference>
   maps: Map<string,ConferenceModel.Map>
+  pois: Map<string,ConferenceModel.POI>
 }
 
 export class EventDataStore implements EventResources {
@@ -23,6 +24,7 @@ export class EventDataStore implements EventResources {
   locations: Map<string,ConferenceModel.Location>
   subconferences: Map<string,ConferenceModel.Subconference>
   maps: Map<string,ConferenceModel.Map>
+  pois: Map<string,ConferenceModel.POI>
 
   constructor(conferenceData: ConferenceData) {
     this.event = conferenceData.event;
@@ -33,6 +35,7 @@ export class EventDataStore implements EventResources {
     this.locations = new Map();
     this.subconferences = new Map();
     this.maps = new Map();
+    this.pois = new Map();
     this.updateResourceMaps(conferenceData);
   }
 
@@ -45,6 +48,9 @@ export class EventDataStore implements EventResources {
     data.subconferences.forEach(s => this.subconferences.set(s.id, s));
     if (data.maps) {
       data.maps.forEach(s => this.maps.set(s.id, s));
+    }
+    if (data.pois) {
+      data.pois.forEach(s => this.pois.set(s.id, s));
     }
   }
 

@@ -37,7 +37,7 @@ export function processData(
   sourceData: SourceData,
   options: Options
 ): ConferenceData {
-  const { sessions, speakers, event, days, subconferences, maps } = sourceData;
+  const { sessions, speakers, event, days, subconferences, maps, pois } = sourceData;
 
   // Extract tracks and process color
   const miniTrackMap = new Map<string, ConferenceModel.MiniTrack>();
@@ -110,7 +110,8 @@ export function processData(
     days,
     locations,
     subconferences,
-    maps
+    maps,
+    pois,
   };
 }
 

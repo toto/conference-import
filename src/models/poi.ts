@@ -17,7 +17,7 @@ export interface POI extends MiniPOI {
   event: string,	
   type: "poi",
   positions: MapPosition[],
-  geo_position: {lat: number, long: number}[],
+  geo_position: {lat: number, long: number},
   category: POICategory,
   location?: MiniLocation,
   label_en: string,

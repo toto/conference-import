@@ -28,9 +28,9 @@
       "args": [
         "--import",
         "--config",
-        "${workspaceFolder}/importer-config/config-camp19.json",
+        "${workspaceFolder}/importer-config/config-camp19-local.json",
         "--out", 
-        "/Users/toto/Desktop/ocdata-repo/camp19-ocdata.json"
+        "/Users/toto/Desktop/ocdata-repo/camp19-ocdata-local.json"
       ]
     },
     {

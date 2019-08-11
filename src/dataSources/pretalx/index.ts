@@ -41,7 +41,8 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     days,
     event,
     subconferences,
-    maps: []
+    maps: [],
+    pois: [],
   };
 
   result.sessions = await sessionsFromPretalx(source);
