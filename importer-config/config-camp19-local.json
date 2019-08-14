@@ -57,7 +57,7 @@
     {
     "format": "frab",
     "eventId": "camp19",
-    "frabBaseUrl": "https://fahrplan.events.ccc.de/camp/2019/Fahrplan",
+    "frabBaseUrl": "http://localhost:9090/",
     "defaultLanguageCode": "de",
     "defaultTrack": {
       "id": "ccc",
