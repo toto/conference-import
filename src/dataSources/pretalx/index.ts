@@ -6,7 +6,7 @@ import { sessionsFromJson } from './converters';
 import { DataSourceFormat } from "../dataSource";
 
 async function allPagesFromPretalx(config: PretalxDataSourceFormat, endpoint: "talks" | "speakers" |  "rooms") {
-  const initialUrl = `${config.baseUrl}/api/events/${config.conferenceCode}/${endpoint}/`;
+  const initialUrl = `${config.baseUrl}api/events/${config.conferenceCode}/${endpoint}/`;
   let result: any[] = [];
   let nextPage = initialUrl;
 
