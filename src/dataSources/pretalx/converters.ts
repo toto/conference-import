@@ -1,8 +1,8 @@
 import * as moment from 'moment-timezone';
-import { Session, MiniLocation, MiniTrack, Language, MiniSpeaker } from "../../models";
+import { Session, MiniLocation, MiniTrack, Language, MiniSpeaker, Speaker } from "../../models";
 import { languageFromIsoCode } from './../rp/language';
 import { PretalxDataSourceFormat } from './dataFormat';
-import { mkId } from '../rp/utils';
+import { mkId, dehtml } from '../rp/utils';
 
 function locationFromTalk(talk: any): MiniLocation | undefined {
   if (talk && talk.slot && talk.slot.room) {
@@ -75,6 +75,28 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
   return session;
 }
 
+function pretalxSpeakerToSpeaker(speaker: any, config: PretalxDataSourceFormat): Speaker | undefined {
+  const result: Speaker = {
+    event: config.eventId,
+    type: 'session',
+    id: mkId(`${config.conferenceCode}-${speaker.code}`),
+    name: speaker.name,
+    photo: speaker.avatar || undefined,
+    organization: undefined,
+    position: undefined,
+    links: [],
+    sessions: [],
+    url: `${config.baseUrl}/${config.conferenceCode}/speaker/${speaker.code}`,
+    biography: dehtml(speaker.biography),
+  };
+
+  return result;
+}
+
 export function sessionsFromJson(json: any[], config: PretalxDataSourceFormat): Session[] {
   return json.map((r: any) => talksToSession(r, config)).filter((s: Session | undefined) => s !== undefined) as Session[];
+}
+
+export function speakersFromJson(json: any[], config: PretalxDataSourceFormat): Speaker[] {
+  return json.map((r: any) => pretalxSpeakerToSpeaker(r, config)).filter((s: Speaker | undefined) => s !== undefined) as Speaker[];
 }

@@ -2,7 +2,7 @@ import * as axios from "axios";
 import { SourceData } from "../../importer/sourceData";
 import * as ConferenceModel from "../../models";
 import { PretalxDataSourceFormat, isPreTalksDataSourceFormat } from "./dataFormat";
-import { sessionsFromJson } from './converters';
+import { sessionsFromJson, speakersFromJson } from './converters';
 import { DataSourceFormat } from "../dataSource";
 
 async function allPagesFromPretalx(config: PretalxDataSourceFormat, endpoint: "talks" | "speakers" |  "rooms") {
@@ -24,9 +24,10 @@ async function sessionsFromPretalx(config: PretalxDataSourceFormat): Promise<Con
   return sessionsFromJson(talks, config);
 }
 
-// async function speakersFromPretalx(config: PretalxDataSourceFormat): Promise<ConferenceModel.Speaker[]> {
-//   return [];
-// }
+async function speakersFromPretalx(config: PretalxDataSourceFormat): Promise<ConferenceModel.Speaker[]> {
+  const speakers = await allPagesFromPretalx(config, "speakers")
+  return speakersFromJson(speakers, config);
+}
 
 // async function locationsFromPretalx(config: PretalxDataSourceFormat): Promise<ConferenceModel.Location[]> {
 //   return [];
@@ -46,6 +47,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   };
 
   result.sessions = await sessionsFromPretalx(source);
+  result.speakers = await speakersFromPretalx(source);
 
   return result;
 }

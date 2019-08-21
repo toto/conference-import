@@ -17,5 +17,6 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
   maps?: ConferenceModel.Map[];
   pois?: ConferenceModel.POI[];
   timezone?: string;
+  vocLiveSlug?: string;
 };
 
