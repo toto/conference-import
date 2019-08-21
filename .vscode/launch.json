@@ -22,6 +22,8 @@
       "name": "Launch Import",
       "program": "${workspaceFolder}/lib/index.js",
       "preLaunchTask": "tsc: build - tsconfig.json",
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
       "outFiles": [
         "${workspaceFolder}/lib/**/*.js"
       ],
