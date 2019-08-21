@@ -48,7 +48,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
 
   result.sessions = await sessionsFromPretalx(source);
   result.speakers = await speakersFromPretalx(source);
-
+  console.log(`Pretalx: ${result.sessions.length} sessions, ${result.speakers.length} speakers`);
   return result;
 }
 

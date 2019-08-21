@@ -113,6 +113,8 @@
       "meitner",
       "kemistry-lounge",
       "rockmore-booth",
+      "thms-plank",
+      "thms-workshop",
       "kids-stage"
     ],
     "defaultColor": [0, 83, 132, 1],
@@ -124,7 +126,9 @@
       "camp19-hardware-making": [111, 135, 0, 1],
       "camp19-science": [0, 118, 186, 1],
       "camp19-security": [0, 83, 132, 1],
-      "camp19-music": [255, 198, 0, 1]
+      "camp19-music": [255, 198, 0, 1],
+      "thms-workshop": [0, 83, 132, 1],
+      "thms-talk": [0, 118, 186, 1]
     },
     "timezone": "Europe/Berlin",
     "hourOfDayChange": 4,

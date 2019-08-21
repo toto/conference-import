@@ -4,7 +4,7 @@ import { languageFromIsoCode } from './../rp/language';
 import { PretalxDataSourceFormat } from './dataFormat';
 import { mkId, dehtml } from '../rp/utils';
 
-function locationFromTalk(talk: any): MiniLocation | undefined {
+function locationFromTalk(talk: any, prefix: string): MiniLocation | undefined {
   if (talk && talk.slot && talk.slot.room) {
     let roomName = talk.slot.room;
     if (typeof roomName === 'object') {
@@ -12,7 +12,7 @@ function locationFromTalk(talk: any): MiniLocation | undefined {
       roomName = roomName['en'];
     }
     return {
-      id: mkId(roomName),
+      id: mkId(`${prefix}-${roomName}`),
       label_de: roomName,
       label_en: roomName,
     }
@@ -38,13 +38,22 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
 
 
 
-  const room = locationFromTalk(talk);
+  const room = locationFromTalk(talk, config.conferenceCode);
   let track: MiniTrack = config.defaultTrack;
   if (talk.track) {
+    let trackNameEn = talk.track;
+    let trackNameDe = trackNameEn;
+    if (talk.track['en']) {
+      trackNameEn = talk.track.en;
+      trackNameDe = trackNameEn;
+    }
+    if (talk.track['de']) {
+      trackNameDe = talk.track.de;
+    }
     track = {
-      id: mkId(`${config.conferenceCode}-${talk.track}`),
-      label_en: talk.track,
-      label_de: talk.track,
+      id: mkId(`${config.conferenceCode}-${trackNameEn}`),
+      label_en: trackNameEn,
+      label_de: trackNameDe,
     };
   }
   
