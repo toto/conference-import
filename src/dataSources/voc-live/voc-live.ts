@@ -47,33 +47,11 @@ export function enclosureFromVocJson(vocJson: any, mimeType = 'video/mp4'): Encl
 
 // streamType can be hls, webm, dash, mp3, opus
 // type can be dash, video or audio
-export async function vocLiveStreams(slug: string, mediaType = 'video', streamType = 'hls') {
+export async function loadVocLiveStreams(slug: string, mediaType = 'video', streamType = 'hls') {
   const conferences = await axios.default.get('https://streaming.media.ccc.de/streams/v2.json')
-  return parseVocStreams(conferences.data, mediaType, streamType);
+  return parseVocStreams(conferences.data, slug, mediaType, streamType);
 }
 
-async function vocVodSessionVideo(url: string) {
-  const { data } = await axios.default.get(url)
-  return data;
-}
-
-export async function vocVodSessionVideos(conferenceJson: any) {
-  const { events } = conferenceJson;
-  const eventResults = [];
-  // eslint-disable-next-line
-  for (const event of events) {
-    try {
-      // eslint-disable-next-line
-      const eventResult = await vocVodSessionVideo(event.url);
-      eventResults.push(eventResult);
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('could not load', event.url, error.message);
-    }
-  }
-
-  return eventResults;
-}
 
 export function addLiveStreamEnclosures(sessions: Session[], vocVideos: VocStream[]): Session[] {
   const untranslatedVocStreams = vocVideos.filter(v => !v.translated);
@@ -100,16 +78,3 @@ export function addLiveStreamEnclosures(sessions: Session[], vocVideos: VocStrea
     return updatedSession;
   });
 }
-
-// export async function addEnclosuresFromVoc(allSession: Session[], vocJson: any, slug: string) {
-//   const videos = parseVocStreams(vocJson, slug);
-
-//   const sessions = allSession.map((session) => {
-//     const video = videos.find(v => v.link === session.url);
-//     const enclosure = enclosureFromVocJson(video);
-//     if (!video || !enclosure) return null;
-//     session.enclosures.push(enclosure);
-//     return session;
-//   });
-//   return sessions;
-// }
