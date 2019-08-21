@@ -29,12 +29,6 @@ async function speakersFromPretalx(config: PretalxDataSourceFormat): Promise<Con
   return speakersFromJson(speakers, config);
 }
 
-// async function locationsFromPretalx(config: PretalxDataSourceFormat): Promise<ConferenceModel.Location[]> {
-//   return [];
-// }
-
-
-
 async function singleSourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], source: PretalxDataSourceFormat): Promise<SourceData> {
   const result: SourceData = {
     speakers: [],
