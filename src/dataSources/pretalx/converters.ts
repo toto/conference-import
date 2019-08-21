@@ -36,8 +36,6 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
     return undefined;
   }
 
-
-
   const room = locationFromTalk(talk, config.conferenceCode);
   let track: MiniTrack = config.defaultTrack;
   if (talk.track) {

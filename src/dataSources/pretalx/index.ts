@@ -46,7 +46,15 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     pois: [],
   };
 
-  result.sessions = await sessionsFromPretalx(source);
+  const sessions = await sessionsFromPretalx(source);
+  const { subconferenceId } = source;
+  if (subconferenceId) {
+    const subconference = subconferences.find(s => s.id === subconferenceId);
+    if (subconference) {
+      sessions.forEach(session => session.subconference = subconference);
+    }
+  }
+  result.sessions = sessions;
   result.speakers = await speakersFromPretalx(source);
   console.log(`Pretalx: ${result.sessions.length} sessions, ${result.speakers.length} speakers`);
   return result;
