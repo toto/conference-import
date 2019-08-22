@@ -668,6 +668,28 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": []
+    },
+    {
+      "format": "frab",
+      "eventId": "camp19",
+      "scheduleJson": "https://data.c3voc.de/camp2019/wiki.schedule.json",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "camp19-workshop",
+        "label_en": "Workshop",
+        "label_de": "Workshop",
+        "color": [
+          0,
+          83,
+          132,
+          1
+        ]
+      },
+      "defaultLanguageName": "German",
+      "timezone": "Europe/Berlin",
+      "subconferenceId": "self-organized-sessions",
+      "maps": [],
+      "pois": []
     }
   ],
   "livestreams": [],
