@@ -8,7 +8,8 @@ export function isFrabDataSourceFormat(dataSource: DataSourceFormat): dataSource
 export interface FrabDataSourceFormat extends DataSourceFormat {
   format: "frab";
   eventId: string;
-  frabBaseUrl: string;
+  scheduleJson: string;
+  frabBaseUrl?: string;
   defaultTrack: ConferenceModel.Track;
   defaultLanguageCode: string;
   subconferenceId?: string;

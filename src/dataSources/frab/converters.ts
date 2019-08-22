@@ -4,7 +4,8 @@ import { Session, Language, MiniSpeaker, MiniTrack, Speaker, MiniSession, MiniLo
 import { mkId, dehtml } from "../rp/utils";
 import { languageFromIsoCode } from "../rp/language";
 
-function speakerFromJson(json: any, config: FrabDataSourceFormat): Speaker {
+function speakerFromJson(json: any, config: FrabDataSourceFormat): Speaker | undefined {
+  if (!config.frabBaseUrl) return undefined;
   let biography = '';
   if (json.abstract) biography += json.abstract;
   if (json.abstract && json.description) biography += "\n\n";
@@ -39,7 +40,8 @@ export function speakersFromJson(json: any, config: FrabDataSourceFormat): Speak
   const { speakers } = schedule_speakers;
   if (!speakers || !Array.isArray(speakers)) return [];
 
-  return speakers.map((s: any) => speakerFromJson(s, config));
+  const speakerResult = speakers.map((s: any) => speakerFromJson(s, config));
+  return speakerResult.filter(s => s !== undefined) as Speaker[];
 }
 
 export function sessionsFromJson(json: any, config: FrabDataSourceFormat): Session[] {

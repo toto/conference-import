@@ -23,6 +23,7 @@ describe('Import live VOC data', () => {
       format: "frab",
       eventId: "camp19",
       timezone: 'Europe/Berlin',
+      scheduleJson: "https://fahrplan.events.ccc.de/camp/2019/Fahrplan/schedule.json",
       frabBaseUrl: "https://fahrplan.events.ccc.de/camp/2019/Fahrplan",
       defaultTrack: { id: "track", event: "camp19", label_en: "Some Track", color: [0, 0, 0, 1], type: "track" },
       defaultLanguageCode: 'de',

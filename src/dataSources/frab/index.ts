@@ -19,12 +19,23 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     maps,
     pois,
   };
+  
+  const schedule = await axios.default.get(source.scheduleJson);
+  const sessions = sessionsFromJson(schedule.data, source);
+  const { subconferenceId } = source;
+  if (subconferenceId) {
+    const subconference = subconferences.find(s => s.id === subconferenceId);
+    if (subconference) {
+      sessions.forEach(session => session.subconference = subconference);
+    }
+  }
+  result.sessions = sessions;
 
-  const schedule = await axios.default.get(`${source.frabBaseUrl}/schedule.json`);
-  const speakers = await axios.default.get(`${source.frabBaseUrl}/speakers.json`);
-  result.sessions = sessionsFromJson(schedule.data, source);
-  result.speakers = speakersFromJson(speakers.data, source);
-
+  if (source.frabBaseUrl) {
+    const speakers = await axios.default.get(`${source.frabBaseUrl}/speakers.json`);
+    result.speakers = speakersFromJson(speakers.data, source);
+  }
+  
   if (source.vocLiveSlug) {
     const vocStreams = await loadVocLiveStreams(source.vocLiveSlug);
     result.sessions = addLiveStreamEnclosures(result.sessions, vocStreams);
