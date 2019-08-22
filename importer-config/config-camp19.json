@@ -689,7 +689,8 @@
       "timezone": "Europe/Berlin",
       "subconferenceId": "self-organized-sessions",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "ignoredLocationNames": ["Village:Three Headed Monkey"]
     }
   ],
   "livestreams": [],

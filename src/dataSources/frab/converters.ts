@@ -52,12 +52,18 @@ export function sessionsFromJson(json: any, config: FrabDataSourceFormat): Sessi
   const { days } = conference;
   if (!days) return [];
 
+  const { ignoredLocationNames } = config;
+
   const result: Session[] = [];
   for (const day of days) {
     const { rooms } = day;
     if (!rooms) continue;
 
     for (const roomName in rooms) {
+      if (ignoredLocationNames && ignoredLocationNames.includes(roomName)) {
+        continue;
+      }
+      
       const sessionsForRoom = rooms[roomName];
       if (!Array.isArray(sessionsForRoom)) continue;
 
