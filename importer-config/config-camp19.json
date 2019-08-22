@@ -68,7 +68,7 @@
       "format": "frab",
       "eventId": "camp19",
       "scheduleJson": "https://fahrplan.events.ccc.de/camp/2019/Fahrplan/schedule.json",
-      "speakersJson": "https://fahrplan.events.ccc.de/camp/2019/Fahrplan/speakers.json",
+      "frabBaseUrl": "https://fahrplan.events.ccc.de/camp/2019/Fahrplan",
       "defaultLanguageCode": "de",
       "defaultTrack": {
         "id": "ccc",
@@ -651,7 +651,7 @@
       "format": "frab",
       "eventId": "camp19",
       "scheduleJson": "https://fahrplan.events.ccc.de/camp/2019/Abfahrplan/schedule.json",
-      "speakersJson": "https://fahrplan.events.ccc.de/camp/2019/Abfahrplan/speakers.json",
+      "frabBaseUrl": "https://fahrplan.events.ccc.de/camp/2019/Abfahrplan",
       "defaultLanguageCode": "de",
       "defaultTrack": {
         "id": "camp19-music",
