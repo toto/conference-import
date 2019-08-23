@@ -18,7 +18,7 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
   maps?: ConferenceModel.Map[];
   pois?: ConferenceModel.POI[];
   timezone?: string;
-  vocLiveSlug?: string;
+  vocSlug?: string;
   // Any session with location names listed here will not be imported at all
   ignoredLocationNames?: string[];
 };

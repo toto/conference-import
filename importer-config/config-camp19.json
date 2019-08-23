@@ -84,7 +84,7 @@
       "defaultLanguageName": "German",
       "timezone": "Europe/Berlin",
       "maps": [],
-      "vocLiveSlug": "camp2019",
+      "vocSlug": "camp2019",
       "pois": [
         {
           "id": "camp19-26858",
@@ -707,6 +707,7 @@
       "thms-plank-stage-",
       "thms-fireplace-workshop-",
       "kids-stage",
+      "komona-stage",
       "self-organized-sessions-hackcenter",
       "self-organized-sessions-hackcenter-1",
       "self-organized-sessions-hackcenter-3",
@@ -743,11 +744,19 @@
       "self-organized-sessions-village-social-dist0rtion-protocol",
       "self-organized-sessions-village-scottish-consulate",
       "self-organized-sessions-village-ccc-ch",
+      "self-organized-sessions-village-emf",
       "self-organized-sessions-village-reclaim-club-culture",
       "self-organized-sessions-village-fri3d-camp",
       "self-organized-sessions-village-teurca",
       "self-organized-sessions-village-teurcamp",
-      "self-organized-sessions-village-singularity-city"
+      "self-organized-sessions-village-singularity-city",
+      "self-organized-sessions-village-k-niglich-bayerisches-amtsvillage",
+      "self-organized-sessions-village-italian-hackers-embassy",
+      "self-organized-sessions-village-chaos-ballett-bett-drahti-trampolin-",
+      "self-organized-sessions-village-moose-hillhackers",
+      "self-organized-sessions-village-aaaaaaaaaaaa",
+      "self-organized-sessions-village-librehosters",
+      "self-organized-sessions-village-dragon-sleep-pwn-sector"
     ],
     "defaultColor": [
       0,

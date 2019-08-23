@@ -5,6 +5,7 @@ import { sessionsFromJson, speakersFromJson } from './converters';
 import { DataSourceFormat } from "../dataSource";
 import { SourceData } from "../../importer/sourceData";
 import { loadVocLiveStreams, addLiveStreamEnclosures } from "../voc-live";
+import { addRecordingEnclosues } from "../voc-vod";
 
 async function singleSourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], source: FrabDataSourceFormat): Promise<SourceData> {
   const maps: ConferenceModel.Map[] = source.maps !== undefined ? source.maps : [];
@@ -36,9 +37,11 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     result.speakers = speakersFromJson(speakers.data, source);
   }
   
-  if (source.vocLiveSlug) {
-    const vocStreams = await loadVocLiveStreams(source.vocLiveSlug);
+  if (source.vocSlug) {
+    const vocStreams = await loadVocLiveStreams(source.vocSlug);
     result.sessions = addLiveStreamEnclosures(result.sessions, vocStreams);
+
+    result.sessions = await addRecordingEnclosues(source.vocSlug, result.sessions);
   }
 
   console.log(`Frab: ${result.sessions.length} sessions, ${result.speakers.length} speakers`);
