@@ -1,3 +1,5 @@
+import { MiniPOI } from "./basic";
+
 export interface MiniLocation {
   id: string
   label_en: string
@@ -12,4 +14,5 @@ export interface Location extends MiniLocation {
   shortlabel_de?: string
   is_stage: boolean
   order_index: number
+  point_of_interest?: MiniPOI
 }

@@ -4,6 +4,7 @@ import { DataSourceFormat } from "../dataSources/dataSource";
 import * as rp from "./../dataSources/rp";
 import * as ocdata from "./../dataSources/ocdata";
 import * as pretalx from "./../dataSources/pretalx";
+import * as frab from "./../dataSources/frab";
 import { processData, ConferenceData, Color } from './importer';
 import { linkFrom, LiveStream, enclosureFrom } from "../dataSources/stream";
 
@@ -48,43 +49,60 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     tracks: [],
     locations: [],
     maps: [],
+    pois: [],
   };
   const rpdata = await rp.sourceData(event, days, subconferences, sources);
   rpdata.forEach(data => {
     if (data.sessions.length === 0) return;
-    const { sessions, speakers, tracks, locations, maps } = processData(data, options);
+    const { sessions, speakers, tracks, locations, maps, pois } = processData(data, options);
     result.sessions = result.sessions.concat(sessions);
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
     result.locations = result.locations.concat(locations);
     if (maps) result.maps = result.maps!.concat(maps);
     result.subconferences = result.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
+    if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
   const oc = await ocdata.sourceData(event, sources);
   oc.forEach(data => {
     if (data.sessions.length === 0) return;
-    const { sessions, speakers, tracks, locations, maps } = data;
+    const { sessions, speakers, tracks, locations, maps, pois } = data;
     result.sessions = result.sessions.concat(sessions);
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
     result.locations = result.locations.concat(locations);
-    result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
+    // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
     result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
     if (maps) result.maps = result.maps!.concat(maps);
+    if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
   const pretalxData = await pretalx.sourceData(event, days, subconferences, sources);
   pretalxData.forEach(data => {
     if (data.sessions.length === 0) return;
-    const { sessions, speakers, maps } = data;
+    const { sessions, speakers, maps, tracks, locations, pois } = processData(data, options);
     result.sessions = result.sessions.concat(sessions);
     result.speakers = result.speakers.concat(speakers);
-    // result.tracks = result.tracks.concat(tracks);
-    // result.locations = result.locations.concat(locations);
-    result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
+    result.tracks = result.tracks.concat(tracks);
+    result.locations = result.locations.concat(locations);
+    // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
     result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
     if (maps) result.maps = result.maps!.concat(maps);
+    if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
- 
+  const frabData = await frab.sourceData(event, days, subconferences, sources);
+  frabData.forEach(data => {
+    if (data.sessions.length === 0) return;
+    const { sessions, speakers, maps, tracks, locations, pois } = processData(data, options);
+    result.sessions = result.sessions.concat(sessions);
+    result.speakers = result.speakers.concat(speakers);
+    result.tracks = result.tracks.concat(tracks);
+    result.locations = result.locations.concat(locations);
+    // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
+    result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
+    if (maps) result.maps = result.maps!.concat(maps);
+    if (result.pois && pois) result.pois = result.pois.concat(pois);
+  });
+
   result.sessions.forEach(s => s.event = event.id);
   result.sessions.forEach(session => {
     if (configuration.livestreams) {
@@ -109,6 +127,7 @@ export async function dumpNormalizedConference(configuration: Configuration, des
   result.locations.forEach(s => s.event = event.id);
   result.subconferences.forEach(s => s.event = event.id);
   if (result.maps) result.maps.forEach(s => s.event = event.id);
+  if (result.pois) result.pois.forEach(s => s.event = event.id);
 
   const string = JSON.stringify(result);
   writeFileSync(destinationFile, string, 'utf8');

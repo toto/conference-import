@@ -6,8 +6,8 @@ import { Location, MiniLocation } from './location';
 import { Link } from './link';
 import { Enclosure } from './enclosure';
 import { Map } from './map';
-import { Format, Language, Level, Day, Subconference } from './basic';
-
+import { Format, Language, Level, Day, Subconference, MiniPOI } from './basic';
+import { POI } from './poi'
 
 export { 
   Event,
@@ -27,4 +27,6 @@ export {
   Level,
   Subconference,
   Map,
+  MiniPOI,
+  POI,
 };

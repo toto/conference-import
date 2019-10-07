@@ -16,6 +16,7 @@ export interface ConferenceData {
   locations: ConferenceModel.Location[];
   subconferences: ConferenceModel.Subconference[];
   maps?: ConferenceModel.Map[];
+  pois?: ConferenceModel.POI[];
 }
 
 export interface Options {
@@ -27,11 +28,16 @@ export interface Options {
   nonStageLocationIds?: string[];
 }
 
+/**
+ * Extracts data like tacks and locations from SourceData
+ * @param sourceData 
+ * @param options 
+ */
 export function processData(
   sourceData: SourceData,
   options: Options
 ): ConferenceData {
-  const { sessions, speakers, event, days, subconferences, maps } = sourceData;
+  const { sessions, speakers, event, days, subconferences, maps, pois } = sourceData;
 
   // Extract tracks and process color
   const miniTrackMap = new Map<string, ConferenceModel.MiniTrack>();
@@ -104,7 +110,8 @@ export function processData(
     days,
     locations,
     subconferences,
-    maps
+    maps,
+    pois,
   };
 }
 

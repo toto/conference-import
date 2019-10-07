@@ -7,6 +7,7 @@ interface NamedElement {
 export type Format = NamedElement;
 export type Language = NamedElement;
 export type Level = NamedElement;
+export type MiniPOI = NamedElement;
 
 export interface Subconference {
   type: "subconference"

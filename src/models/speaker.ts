@@ -9,11 +9,11 @@ export interface MiniSpeaker {
 export interface Speaker extends MiniSpeaker {
   type: string
   event: string
-  photo: string
+  photo: string | undefined
   url: string
-  organization: string
-  position: string
-  biography: string
+  organization: string | undefined
+  position: string | undefined
+  biography: string | undefined
   links: Link[]
   sessions: MiniSession[]
 }

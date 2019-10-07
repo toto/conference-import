@@ -1,10 +1,10 @@
 import * as moment from 'moment-timezone';
-import { Session, MiniLocation, MiniTrack, Language, MiniSpeaker } from "../../models";
+import { Session, MiniLocation, MiniTrack, Language, MiniSpeaker, Speaker } from "../../models";
 import { languageFromIsoCode } from './../rp/language';
 import { PretalxDataSourceFormat } from './dataFormat';
-import { mkId } from '../rp/utils';
+import { mkId, dehtml } from '../rp/utils';
 
-function locationFromTalk(talk: any): MiniLocation | undefined {
+function locationFromTalk(talk: any, prefix: string): MiniLocation | undefined {
   if (talk && talk.slot && talk.slot.room) {
     let roomName = talk.slot.room;
     if (typeof roomName === 'object') {
@@ -12,7 +12,7 @@ function locationFromTalk(talk: any): MiniLocation | undefined {
       roomName = roomName['en'];
     }
     return {
-      id: mkId(roomName),
+      id: mkId(`${prefix}-${roomName}`),
       label_de: roomName,
       label_en: roomName,
     }
@@ -36,15 +36,22 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
     return undefined;
   }
 
-
-
-  const room = locationFromTalk(talk);
+  const room = locationFromTalk(talk, config.conferenceCode);
   let track: MiniTrack = config.defaultTrack;
   if (talk.track) {
+    let trackNameEn = talk.track;
+    let trackNameDe = trackNameEn;
+    if (talk.track['en']) {
+      trackNameEn = talk.track.en;
+      trackNameDe = trackNameEn;
+    }
+    if (talk.track['de']) {
+      trackNameDe = talk.track.de;
+    }
     track = {
-      id: mkId(`${config.conferenceCode}-${talk.track}`),
-      label_en: talk.track,
-      label_de: talk.track,
+      id: mkId(`${config.conferenceCode}-${trackNameEn}`),
+      label_en: trackNameEn,
+      label_de: trackNameDe,
     };
   }
   
@@ -75,6 +82,28 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
   return session;
 }
 
+function pretalxSpeakerToSpeaker(speaker: any, config: PretalxDataSourceFormat): Speaker | undefined {
+  const result: Speaker = {
+    event: config.eventId,
+    type: 'session',
+    id: mkId(`${config.conferenceCode}-${speaker.code}`),
+    name: speaker.name,
+    photo: speaker.avatar || undefined,
+    organization: undefined,
+    position: undefined,
+    links: [],
+    sessions: [],
+    url: `${config.baseUrl}/${config.conferenceCode}/speaker/${speaker.code}`,
+    biography: dehtml(speaker.biography),
+  };
+
+  return result;
+}
+
 export function sessionsFromJson(json: any[], config: PretalxDataSourceFormat): Session[] {
   return json.map((r: any) => talksToSession(r, config)).filter((s: Session | undefined) => s !== undefined) as Session[];
+}
+
+export function speakersFromJson(json: any[], config: PretalxDataSourceFormat): Speaker[] {
+  return json.map((r: any) => pretalxSpeakerToSpeaker(r, config)).filter((s: Speaker | undefined) => s !== undefined) as Speaker[];
 }

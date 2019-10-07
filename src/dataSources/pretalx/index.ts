@@ -2,11 +2,11 @@ import * as axios from "axios";
 import { SourceData } from "../../importer/sourceData";
 import * as ConferenceModel from "../../models";
 import { PretalxDataSourceFormat, isPreTalksDataSourceFormat } from "./dataFormat";
-import { sessionsFromJson } from './converters';
+import { sessionsFromJson, speakersFromJson } from './converters';
 import { DataSourceFormat } from "../dataSource";
 
 async function allPagesFromPretalx(config: PretalxDataSourceFormat, endpoint: "talks" | "speakers" |  "rooms") {
-  const initialUrl = `${config.baseUrl}/api/events/${config.conferenceCode}/${endpoint}/`;
+  const initialUrl = `${config.baseUrl}api/events/${config.conferenceCode}/${endpoint}/`;
   let result: any[] = [];
   let nextPage = initialUrl;
 
@@ -24,15 +24,10 @@ async function sessionsFromPretalx(config: PretalxDataSourceFormat): Promise<Con
   return sessionsFromJson(talks, config);
 }
 
-// async function speakersFromPretalx(config: PretalxDataSourceFormat): Promise<ConferenceModel.Speaker[]> {
-//   return [];
-// }
-
-// async function locationsFromPretalx(config: PretalxDataSourceFormat): Promise<ConferenceModel.Location[]> {
-//   return [];
-// }
-
-
+async function speakersFromPretalx(config: PretalxDataSourceFormat): Promise<ConferenceModel.Speaker[]> {
+  const speakers = await allPagesFromPretalx(config, "speakers")
+  return speakersFromJson(speakers, config);
+}
 
 async function singleSourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], source: PretalxDataSourceFormat): Promise<SourceData> {
   const result: SourceData = {
@@ -41,11 +36,21 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     days,
     event,
     subconferences,
-    maps: []
+    maps: [],
+    pois: [],
   };
 
-  result.sessions = await sessionsFromPretalx(source);
-
+  const sessions = await sessionsFromPretalx(source);
+  const { subconferenceId } = source;
+  if (subconferenceId) {
+    const subconference = subconferences.find(s => s.id === subconferenceId);
+    if (subconference) {
+      sessions.forEach(session => session.subconference = subconference);
+    }
+  }
+  result.sessions = sessions;
+  result.speakers = await speakersFromPretalx(source);
+  console.log(`Pretalx: ${result.sessions.length} sessions, ${result.speakers.length} speakers`);
   return result;
 }
 
