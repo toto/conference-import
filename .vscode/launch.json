@@ -30,7 +30,7 @@
       "args": [
         "--import",
         "--config",
-        "${workspaceFolder}/importer-config/config-camp19.json",
+        "${workspaceFolder}/importer-config/config-36c3.json",
         "--out", 
         "/Users/toto/Desktop/ocdata-repo/camp19-ocdata-local.json"
       ]
