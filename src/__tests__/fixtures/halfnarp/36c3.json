@@ -1,0 +1,2006 @@
+[{
+  "event_classifiers": {
+      "Theory - Practice": 90,
+      "Foundations": 60,
+      "Resilience": 25,
+      "Ethics, Politics + Society": 100,
+      "Entertainment": 60
+  },
+  "language": "de",
+  "title": "Das Mauern muss weg",
+  "event_id": 10496,
+  "start_time": null,
+  "speaker_names": "Arne Semsrott",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Mit immer neuen Gesetzen gewinnt die Exekutive in Deutschland an Macht und Ressourcen. Die \u00f6ffentliche Kontrolle von Ministerien und Geheimdienste ger\u00e4t ins Hintertreffen. Wir sprechen dar\u00fcber, warum dank Anfragen und Klagen nach dem Informationsfreiheitsfreiheitsgesetz in diesem Jahr der Kampf noch nicht verloren ist, wie wir gegen den BND vor Gericht gewonnen haben und wann das Zensurheberrecht endlich abgeschafft wird. Plus: Das Beste aus 100.000 Anfragen \u00fcber FragDenStaat in diesem Jahr."
+}, {
+  "event_classifiers": {
+      "Security": 100,
+      "Defense - Offense": 75
+  },
+  "language": "en",
+  "title": "Messenger Hacking: Remotely Compromising an iPhone through iMessage",
+  "event_id": 10497,
+  "start_time": null,
+  "speaker_names": "Samuel Gro\u00df",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "So called \u201c0-click\u201d exploits, in which no user interaction is required to compromise a mobile device, have become a highly interesting topic for security researchers, and not just because Apple announced a one million dollar bug bounty for such exploits against the iPhone this year. This talk will go into the details of how a single memory corruption vulnerability in iMessage was remotely exploited to compromise an iPhone. The insights gained from the exploitation process will hopefully help defend against such attacks in the future."
+}, {
+  "event_classifiers": {
+      "Security": 100,
+      "Defense - Offense": 100
+  },
+  "language": "en",
+  "title": "The Great Escape of ESXi:  Breaking Out of a Sandboxed Virtual Machine",
+  "event_id": 10505,
+  "start_time": null,
+  "speaker_names": "f1yyy, Hanqing Zhao",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "VMware ESXi is an enterprise-class, bare-metal hypervisor developed by VMware for deploying and serving virtual computers. As the hypervisor of VMware vSphere, which is the world's most prevailing, state-of-the-art private-cloud software, ESXi plays a core role in the enterprise's cloud infrastructure. Bugs in ESXi could violate the security boundary between guest and host, resulting in virtual machine escape. While a few previous attempts to escape virtual machines have targeted on VMware workstation, there has been no public VMware ESXi escape until our successful demonstration at GeekPwn 2018. This is mainly due to the sandbox mechanism that ESXi has adopted, using its customized filesystem and kernel. In this talk, we will share our study on those security enhancements in ESXi, and describe how we discover and chain multiple bugs to break out of the sandboxed guest machine."
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 70,
+      "Foundations": 90,
+      "Science": 20
+  },
+  "language": "de",
+  "title": "Warum unser Web nachhaltiger werden muss und wie wir das anstellen!",
+  "event_id": 10506,
+  "start_time": null,
+  "speaker_names": "Niklas Jordan",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Wo beginnt unsere Verantwortung bei der Gestaltung und Entwicklung einer Website und wo endet sie? Wusstest Du, dass die durch das Internet hervorgerufenen CO2-Emissionen, die der Flugindustrie \u00fcberschritten haben? Beim Design einer Website oder Web-App denken die wenigsten an CO2-Emissionen. So ist auch dieser Fakt weitgehend unbekannt. Warum wir uns dringend \u00fcber ein nachhaltigeres Web Gedanken machen sollten und wie wir das in unserem Alltag umsetzen k\u00f6nnen, erfahrt Ihr in diesem Vortrag."
+}, {
+  "event_classifiers": {
+      "Science": 100
+  },
+  "language": "de",
+  "title": "Megatons to Megawatts",
+  "event_id": 10517,
+  "start_time": null,
+  "speaker_names": "Julia Riede",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Can nuclear warheads be used as energy sources instead of exhausting resources? And if, how does this even work? "
+}, {
+  "event_classifiers": {
+      "Security": 100,
+      "Defense - Offense": 0,
+      "Entertainment": 25
+  },
+  "language": "en",
+  "title": "A systematic evaluation of OpenBSD's mitigations",
+  "event_id": 10519,
+  "start_time": null,
+  "speaker_names": "stein",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "OpenBSD markets itself as a secure operating system, but doesn't provide much evidences to back this claim. The goal of this talk is to evaluate how effective OpenBSD's security mitigation are, in a systematic, rational and comprehensive way."
+}, {
+  "event_classifiers": {},
+  "language": "en",
+  "title": "Lightning Talks Day 2",
+  "event_id": 10524,
+  "start_time": null,
+  "speaker_names": "gedsic, bigalex",
+  "track_id": 358,
+  "room_id": null,
+  "duration": 7200,
+  "abstract": "Lightning Talks are short lectures (almost) any congress participant may give! Bring your infectious enthusiasm to an audience with a short attention span! Discuss a program, system or technique! Pitch your projects and ideas or try to rally a crew of people to your party or assembly! Whatever you bring, make it quick!"
+}, {
+  "event_classifiers": {},
+  "language": "en",
+  "title": "Lightning Talks Day 3",
+  "event_id": 10525,
+  "start_time": null,
+  "speaker_names": "gedsic, bigalex",
+  "track_id": 358,
+  "room_id": null,
+  "duration": 7200,
+  "abstract": "Lightning Talks are short lectures (almost) any congress participant may give! Bring your infectious enthusiasm to an audience with a short attention span! Discuss a program, system or technique! Pitch your projects and ideas or try to rally a crew of people to your party or assembly! Whatever you bring, make it quick!"
+}, {
+  "event_classifiers": {},
+  "language": "en",
+  "title": "Lightning Talks Day 4",
+  "event_id": 10526,
+  "start_time": null,
+  "speaker_names": "gedsic, bigalex",
+  "track_id": 358,
+  "room_id": null,
+  "duration": 7200,
+  "abstract": "Lightning Talks are short lectures (almost) any congress participant may give! Bring your infectious enthusiasm to an audience with a short attention span! Discuss a program, system or technique! Pitch your projects and ideas or try to rally a crew of people to your party or assembly! Whatever you bring, make it quick!"
+}, {
+  "event_classifiers": {
+      "Foundations": 90,
+      "Security": 100
+  },
+  "language": "en",
+  "title": "All wireless communication stacks are equally broken",
+  "event_id": 10531,
+  "start_time": null,
+  "speaker_names": "jiska",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Wireless connectivity is an integral part of almost any modern device. These technologies include LTE, Wi-Fi, and Bluetooth. Attackers in wireless range can send arbitrary signals, which are then processed by the chips and operating systems of these devices. Wireless specifications and standards for those technologies are thousands of pages long, and thus pose a large attack surface."
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 50,
+      "Ethics, Politics + Society": 90,
+      "Art + Culture": 50
+  },
+  "language": "de",
+  "title": "Gefl\u00fcchtete schmuggeln, Kohlelobby unterwandern, P\u00e4sse f\u00e4lschen",
+  "event_id": 10541,
+  "start_time": null,
+  "speaker_names": "Jean Peters",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Ein lustiger R\u00fcckblick \u00fcber die Aktionen des Peng Kollektivs."
+}, {
+  "event_classifiers": {
+      "Hardware": 60,
+      "Science": 80,
+      "Theory - Practice": 40,
+      "Ethics, Politics + Society": 60,
+      "Entertainment": 30
+  },
+  "language": "de",
+  "title": "Der Pfad von 4G zu 5G",
+  "event_id": 10542,
+  "start_time": null,
+  "speaker_names": "Peter Schmidt, Heurekus",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Mit 4G wurde gegen\u00fcber fr\u00fcheren Mobilfunktechnologien das Air-Interface komplett neu gestaltet. Mit 5G wird dieses nun auf m\u00f6gliche Zukunftstechnologien erweitert.Wir stellen die Neuerungen und die M\u00f6glichkeiten auf dem 5G Air-Interface und im Core Netz gegen\u00fcber 4G vor."
+}, {
+  "event_classifiers": {
+      "Science": 50,
+      "Security": 100
+  },
+  "language": "en",
+  "title": "(Post-Quantum) Isogeny Cryptography",
+  "event_id": 10543,
+  "start_time": null,
+  "speaker_names": "naehrwert",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "There are countless post-quantum buzzwords to list: lattices, codes, multivariate polynomial systems, supersingular elliptic curve isogenies. We cannot possibly explain in one hour what each of those mean, but we will do our best to give the audience an idea about why elliptic curves and isogenies are awesome for building strong cryptosystems."
+}, {
+  "event_classifiers": {
+      "Hardware": 50,
+      "Art + Culture": 50
+  },
+  "language": "en",
+  "title": "Ms",
+  "event_id": 10548,
+  "start_time": null,
+  "speaker_names": "Helen Leigh",
+  "track_id": 357,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "I will explore the ways in which music is influenced by making and hacking, including a whistle-stop tour of some key points in music hacking history. This starts with 1940s Musique Concrete and Daphne Oram\u2019s work on early electronic music at the BBC, and blossoms into the strange and wonderful projects coming out of the modern music hacker scenes in London and Berlin, including a pipe organ made of Furbies, a sound art marble run, robotic music machines, gesture controlled moon cellos, and singing circuit sculptures. I'll also be sharing some of own work, plus my favourite new ways to make embedded instruments, including plenty of amazing Open Source hardware and software. "
+}, {
+  "event_classifiers": {
+      "Hardware": 100
+  },
+  "language": "en",
+  "title": "Linux on Open Source Hardware and Libre Silicon",
+  "event_id": 10549,
+  "start_time": null,
+  "speaker_names": "Drew Fustini",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Want to run Linux on open hardware?  This talk will explore Open Source Hardware projects capable of that task, and explore how RISC-V and free software FPGA projects can be leveraged to create libre systems."
+}, {
+  "event_classifiers": {
+      "Security": 85,
+      "Ethics, Politics + Society": 85
+  },
+  "language": "en",
+  "title": "The Eye on the Nile",
+  "event_id": 10561,
+  "start_time": null,
+  "speaker_names": "Aseel Kayal",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 1800,
+  "abstract": "What happens when we come across a surveillance operation targeting Egypt\u2019s civil society? And what happens when the attackers expose all of their backend code by mistake? This is The Eye on the Nile."
+}, {
+  "event_classifiers": {
+      "Hardware": 10,
+      "Security": 100,
+      "Defense - Offense": 10
+  },
+  "language": "en",
+  "title": "Hacking (with) a TPM",
+  "event_id": 10564,
+  "start_time": null,
+  "speaker_names": "Andreas Fuchs",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Trusted Platform Modules (TPMs) are nowadays included in all consumer-grade devices. Whilst \"the Trusted Platform Modules available for PCs are not dangerous, and there is no reason not to include one in a computer or support it in system software\" (Richard Stallman, GNU) they have yet to gain wide-ranged adoption, especially for the daily needs of your average nerd.\r\n\r\nThis talk will introduce OpenSource software and use cases that are already supported and how your everyday nerd can benefit from those by security your personal credentials, securing your system credentials, encrypting your storage and detecting BIOS manipulations. This talk is based on the https://tpm2-software.github.io contributions. It will also give a quick rundown to debunk some myths and call for participation in the OpenSource efforts for supporting more use cases via TPMs."
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 15,
+      "Foundations": 75,
+      "Security": 75,
+      "Resilience": 50,
+      "Defense - Offense": 50
+  },
+  "language": "en",
+  "title": "What's left for private messaging?",
+  "event_id": 10565,
+  "start_time": null,
+  "speaker_names": "Will Scott",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "It is easier to chat online securely today than it ever has been. Widespread adoption of signal, wire, and the private mode of WhatsApp have led a broader recognition of the importance of end-to-end encryption. There's still plenty of work to be done in finding new designs that balance privacy and usability in online communication.\r\n\r\nThis introduction to secure messaging will lay out the different risks that are present in communications, and talk about the projects and techniques under development to do better."
+}, {
+  "event_classifiers": {
+      "Hardware": 70,
+      "Security": 100
+  },
+  "language": "en",
+  "title": "Hacking Sony PlayStation Blu-ray Drives",
+  "event_id": 10567,
+  "start_time": null,
+  "speaker_names": "oct0xor",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Xbox 360 video game console had a number of widely known hacks for firmware of its optical disc drives. However, it was never the case with Blu-ray disc drives of Sony PlayStation video game consoles. In fact, up to this date there is no single information available on this subject publicly. In this presentation, I would like to change that and I will shed a light on internals and security of Sony PlayStation Blu-ray disc drives."
+}, {
+  "event_classifiers": {
+      "Science": 90,
+      "Foundations": 75
+  },
+  "language": "de",
+  "title": "Nutzung \u00f6ffentlicher Klimadaten",
+  "event_id": 10571,
+  "start_time": null,
+  "speaker_names": "manuel",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "'In meiner Jugend war mehr Schnee!' oder 'Fr\u00fcher war es auch schon hei\u00df!' k\u00f6nnte man so glauben, je nach Vehemenz des Ausrufs, oder man schaut halt nach. <insert old man jells at cloud meme>"
+}, {
+  "event_classifiers": {
+      "Security": 25,
+      "Ethics, Politics + Society": 75
+  },
+  "language": "en",
+  "title": "Human Rights at a Global Crossroads",
+  "event_id": 10574,
+  "start_time": null,
+  "speaker_names": "Robert Tibbo",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "An update on the circumstances of Mr Snowden and the Snowden Refugees will be provided at the 36C3 event and venue in December 2019. There have been many significant events and incidents during 2019."
+}, {
+  "event_classifiers": {
+      "Hardware": 90,
+      "Foundations": 70,
+      "Theory - Practice": 80,
+      "Science": 65
+  },
+  "language": "en",
+  "title": "How to Design Highly Reliable Digital Electronics",
+  "event_id": 10575,
+  "start_time": null,
+  "speaker_names": "thasti, Szymon",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "There's a variety of places - on Earth and beyond - that pose challenging conditions to the ever-shrinking digital circuits of today. Making those tiny transistors work reliably when bombarded with charged particles in the vacuum of space, in the underground tunnels of CERN or in your local hospital's X-ray machine is not an easy feat. This talk is going to shed some light on what can be done to keep particles from messing up your ones and zeroes, how errors in digital circuits can be detected and corrected, and how you may even re-purpose those flipped bits in your RAM as a particle detector."
+}, {
+  "event_classifiers": {
+      "Hardware": 75,
+      "Theory - Practice": 80,
+      "Security": 30,
+      "Foundations": 10,
+      "Entertainment": 55
+  },
+  "language": "de",
+  "title": "#mifail oder: Mit Gigaset w\u00e4re das nicht passiert!",
+  "event_id": 10576,
+  "start_time": null,
+  "speaker_names": "zivillian, ST Kambor-Wiesenberg, LaForge",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Seit 2018 betreibt Eventphone ein\u00a0neues Telefonsystem auf den chaosnahen Events. Nat\u00fcrlich wird neue Soft- und Hardware sofort zum Forschungsgegenstand. Schnell gab es die \u00fcblichen Fragen: Wie funktioniert das genau? Ist das alles an Features? Kann man das updaten? Kann man nicht kompatible Ger\u00e4te vielleicht kompatibel machen? Was kann man noch verbessern? Ist das Sicher? Und nat\u00fcrlich haben wir Antworten und m\u00f6chten unser Wissen mit euch teilen. Es gibt einen \u00dcberblick \u00fcber DECT, kaputte Crypto\u2122 und was man mit Kreativit\u00e4t daraus machen kann. Unser Anspruch ist, dass wir es so erkl\u00e4ren, dass alle Zuschauerinnen und Zuschauer ein bisschen mehr \u00fcber DECT wissen und mindestens einmal gelacht haben."
+}, {
+  "event_classifiers": {
+      "Hardware": 100,
+      "Science": 50,
+      "Ethics, Politics + Society": 100
+  },
+  "language": "en",
+  "title": "Fairtronics",
+  "event_id": 10592,
+  "start_time": null,
+  "speaker_names": "Andreas Fritsch, xian, tamdrx",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Electronic gadgets come not just with an ecological footprint, but also a human cost of bad working conditions and human rights violations. To support hardware makers who want to design fairer devices, we are building a software tool to easily discover social risk hotspots and identify measures for improvement."
+}, {
+  "event_classifiers": {
+      "Security": 100,
+      "Defense - Offense": 50,
+      "Ethics, Politics + Society": 25
+  },
+  "language": "de",
+  "title": "Die bundesweite elektronische Patientenakte",
+  "event_id": 10595,
+  "start_time": null,
+  "speaker_names": "Martin Tschirsich, cbro, Dr. Andr\u00e9 Zilch",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Wie hackt man eine Anwendung f\u00fcr 70 Millionen Krankenversicherte, die gerade entwickelt wird? Man greift das bestehende Fundament an: die hochsichere, kritische Telematik-Infrastruktur."
+}, {
+  "event_classifiers": {
+      "Hardware": 50,
+      "Security": 100
+  },
+  "language": "en",
+  "title": "TamaGo - bare metal Go framework for ARM SoCs.",
+  "event_id": 10597,
+  "start_time": null,
+  "speaker_names": "Andrea Barisani",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "TamaGo is an Open Source operating environment framework which aims to allow deployment of firmware for embedded ARM devices by using 0% C and 100% Go code. The goal is to dramatically reduce the attack surface posed by complex OSes while allowing unencumbered Go applications."
+}, {
+  "event_classifiers": {
+      "Science": 95,
+      "Ethics, Politics + Society": 5
+  },
+  "language": "de",
+  "title": "Kritikalit\u00e4t von Rohstoffen - wann platzt die Bombe?",
+  "event_id": 10598,
+  "start_time": null,
+  "speaker_names": "Martin Hillenbrand",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Einf\u00fchrung in das Forschungsfeld der Kritikalit\u00e4tsanalysen. Anhand der Rohstoffe Tantal, Wolfram, Zinn und Gold werden exemplarisch die quantitativen und qualitativen Indikatoren f\u00fcr eine Versorgungsengpassanalyse vorgestellt."
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 85,
+      "Ethics, Politics + Society": 100
+  },
+  "language": "de",
+  "title": "Was tun bevor es brennt - wie gr\u00fcnde ich eigentlich einen Betriebsrat?",
+  "event_id": 10600,
+  "start_time": null,
+  "speaker_names": "H\u00fcpno, Lissim, Ole , Thomas Weber",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Aktiv werden zur rechten Zeit - Stand up for Your Right!\r\n\r\nBetriebsrat - klingt f\u00fcr viele IT-ler*innen doch nach letztem Jahrtausend. Dabei ist dies ein hart erk\u00e4mpftes und wichtiges Instrument, um der Stimme der Besch\u00e4ftigten bei der Gesch\u00e4ftsleitung Ausdruck zu verleihen. Wir  schildern anhand eines konkreten Beispiels, wie ein Betriebsrat gegr\u00fcndet wird, ohne dass die Chefetage zwischendurch schon den Stecker zieht. "
+}, {
+  "event_classifiers": {
+      "Hardware": 55,
+      "Science": 20,
+      "Entertainment": 100,
+      "Ethics, Politics + Society": 85,
+      "Art + Culture": 35
+  },
+  "language": "en",
+  "title": "How (not) to build autonomous robots",
+  "event_id": 10601,
+  "start_time": null,
+  "speaker_names": "Sasha",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Over the past 2 years we've been building delivery robots - at first thought to be autonomous. We slowly came to the realization that it's not something we could easily do; but only after a few accidents, fires and pr disasters."
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 25,
+      "Science": 75,
+      "Entertainment": 50
+  },
+  "language": "en",
+  "title": "Grow your own planet",
+  "event_id": 10607,
+  "start_time": null,
+  "speaker_names": "miosta, caro",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "This year the Nobel prize in physics was awarded to three astronomers changing the understanding of the Universe and finding the first exoplanet.  This is a good reason to dive into astronomy,  numerics,  and programming and to learn how modern astronomy creates the pictures and models of the reality we observe in the night sky.\r\nLet\u2019s  find  out  together  how  we  can  simulate  the  Universe  and  grow  new planets \u2013 computationally!"
+}, {
+  "event_classifiers": {
+      "Security": 90,
+      "Resilience": 100,
+      "Defense - Offense": 0
+  },
+  "language": "de",
+  "title": "Das n\u00fctzlich-unbedenklich Spektrum",
+  "event_id": 10608,
+  "start_time": null,
+  "speaker_names": "Fefe",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Eine Software ist unbedenklich, wenn man sie auf ungefilterte Daten aus einem Webformular aufrufen kann, ohne pr\u00fcfen zu m\u00fcssen, ob dann etwas schlimmes passieren kann. In der Praxis l\u00e4sst sich ein Kontinuum zwischen N\u00fctzlichkeit und Unbedenklichkeit als Kontrahenten beobachten. Software f\u00e4ngt h\u00e4ufig eher unbedenklich an, und wird dann immer bedenklicher, je m\u00e4chtiger sie wird. Dieser Vortrag will a) diese Beobachtung beschreiben und b) fragen, wie man die Unbedenklichkeit beibehalten kann. Gibt es da Abstufungen? Metriken? Kriterien, die bei einer konkreten Entscheidung helfen k\u00f6nnen?"
+}, {
+  "event_classifiers": {
+      "Foundations": 90,
+      "Security": 80
+  },
+  "language": "de",
+  "title": "Kryptographie entmystifiziert",
+  "event_id": 10627,
+  "start_time": null,
+  "speaker_names": "oots",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "In diesem Vortrag m\u00f6chte ich die wichtigsten Grundbausteine der Kryptographie allgemeinverst\u00e4ndlich (und ohne Vorkenntnisse in der Mathematik oder Informatik vorauszusetzen) erkl\u00e4ren. Ich werde erkl\u00e4ren was Verschl\u00fcsselung eigentlich ist, was Verschl\u00fcsselung <em>nicht</em> ist, und was man abgesehen von Verschl\u00fcsselung sonst noch im kryptographischen Werkzeugkoffer findet."
+}, {
+  "event_classifiers": {
+      "Hardware": 75,
+      "Theory - Practice": 90
+  },
+  "language": "en",
+  "title": "Wifibroadcast",
+  "event_id": 10630,
+  "start_time": null,
+  "speaker_names": "befi",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "This talk is about modifying cheap wifi dongles to realize true unidirectional broadcast transmissions that can transport digital data like HD drone video with guaranteed latency over a range of tens of kilometers. The talk will show the necessary changes to the firmware and kernel of the wifi dongle, the forward error correction and software diversity (fuse several receivers in software) that is added to improve reliability and the most prominent use case: Flying a remote controlled drone at a distance of tens of kilometers."
+}, {
+  "event_classifiers": {
+      "Entertainment": 20,
+      "Ethics, Politics + Society": 100,
+      "Art + Culture": 50
+  },
+  "language": "de",
+  "title": "Let\u2019s play Infokrieg",
+  "event_id": 10639,
+  "start_time": null,
+  "speaker_names": "Arne Vogelgesang",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Manche Spiele will man gewinnen, andere will man einfach nur spielen. Bei vielen Spielen will man beides. Spielen macht Spa\u00df. Gewinnen auch. Warum also nicht immer und \u00fcberall spielen? Warum nicht Politik spielen wie einen Multiplayer-Shooter? Mit motivierten Kameraden und ahnungslosen Gegnern? Mit zerst\u00f6rbarer Umgebung, erfolgreichen Missionen und zu erobernden Flaggen? Teile der radikalen Rechten tun das mit Erfolg. Der Vortrag schaut sich einige Beispiele aus Deutschland und den USA n\u00e4her an."
+}, {
+  "event_classifiers": {
+      "Hardware": 10,
+      "Security": 75,
+      "Ethics, Politics + Society": 15
+  },
+  "language": "en",
+  "title": "Harry Potter and the Not-So-Smart Proxy War",
+  "event_id": 10642,
+  "start_time": null,
+  "speaker_names": "Jos Wetzels",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "In this talk we will take a look at the 'Vault 7' Protego documents, which have received very little attention so far, and challenge the assertion that Protego was a 'suspected assassination module for [a] GPS guided missile system ... used on-board Pratt & Whitney aircraft' based on system block diagrams, build instructions and a few interesting news items. In addition, we will discuss hypothetical weaknesses in systems like it."
+}, {
+  "event_classifiers": {
+      "Foundations": 75,
+      "Ethics, Politics + Society": 75,
+      "Entertainment": 75
+  },
+  "language": "de",
+  "title": "BahnMining - P\u00fcnktlichkeit ist eine Zier",
+  "event_id": 10652,
+  "start_time": null,
+  "speaker_names": "David Kriesel",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Seit Anfang 2019 hat David <i>jeden</i> einzelnen Halt <i>jeder</i> einzelnen Zugfahrt auf <i>jedem</i> einzelnen Fernbahnhof in ganz Deutschland systematisch gespeichert. Inklusive Versp\u00e4tungen und allem drum und dran. Und die werden wir in einem bunten Vortrag erforschen und endlich mal wieder ein bisschen Spa\u00df mit Daten haben.\r\n\r\n<i>Rechtlicher Hinweis: Es liegt eine schriftliche Genehmigung der Bahn vor, von ihr abgerufene Rohdaten aggregieren und f\u00fcr Vortr\u00e4ge nutzen zu d\u00fcrfen. Inhaltliche Absprachen oder gar Auflagen existieren nicht.</i>"
+}, {
+  "event_classifiers": {
+      "Science": 80
+  },
+  "language": "en",
+  "title": "Psychedelic Medicine - Hacking Psychiatry?! ",
+  "event_id": 10661,
+  "start_time": null,
+  "speaker_names": "Andrea Jungaberle",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Psychedelic research constitutes a challenge to the current paradigm of  mental healthcare. But what makes it so different? And will it be able to meet the high expectations it is facing? This talk will provide a concise answer."
+}, {
+  "event_classifiers": {
+      "Science": 50,
+      "Ethics, Politics + Society": 50
+  },
+  "language": "de",
+  "title": "Nach der Braunkohle: Li-Io Batterierecycling",
+  "event_id": 10666,
+  "start_time": null,
+  "speaker_names": "Katrin Nicke",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Weltweit verlaufen die Entwicklungstrends des Markthochlaufs der Elektromobilit\u00e4t und die Weiterentwicklung relevanter Batteriefertigungs- und Recyclingtechnologien hoch dynamisch. Ma\u00dfgebliche Faktoren f\u00fcr die Entstehung eines industriellen Batterierecycling-Marktes nehmen dabei erst langsam Gestalt an, der regulatorische Rahmen ist noch modellierbar. Zugleich ist der Technologiepfad Elektromobilit\u00e4t als eingeschlagen zu begreifen: Die Vorgaben des Klimaschutzplans der Bundes-regierung zur CO2-Reduktion begr\u00fcnden Umbr\u00fcche in der Automobilbranche, die mittelfristig zu steigenden Verkehrs-anteilen von Fahrzeugen mit rein elektrischem oder hybridem Antrieb an den PKW-Neuzulassungen f\u00fchren werden. \r\n\r\nDamit steigt der Bedarf an geeigneten Traktionsbatterien und die Nachfrage nach den zu ihrer Herstellung erforderlichen, endlichen Rohstoffen. Daraus erw\u00e4chst mit einem der Batterielebensdauer entsprechenden zeitlichen Versatz bis 2030 ein relevantes Altbatterie-Aufkommen. Da die Batterien zudem zahlreiche Gift- und Gefahrstoffe enthalten, kommt dem Aufbau einer industriellen Recyclingstrecke f\u00fcr Traktionsbatterien nicht nur \u00f6konomisch, sondern auch \u00f6kologisch eine strategische Schl\u00fcsselrolle zu. Die daf\u00fcr zuk\u00fcnftig industriell notwendigen Recyclingkapazit\u00e4ten sind derzeit weder vorhanden noch im Aufbau befindlich. \r\n\r\nMit der Zielstellung, die Lausitz als Energieregion zu erhalten und die Gleichwertigkeit der Lebensverh\u00e4ltnisse auch f\u00fcr strukturschwache Regionen herzustellen, gehen wir der Frage nach, ob durch die Errichtung einer Recyclingstrecke f\u00fcr Traktionsbatterien der Elektro-Mobilit\u00e4t ein Beitrag zur Gestaltung des Strukturwandels geleistet werden kann, der in der Region mit dem Ausstieg aus der Braunkohle in eine neue Runde geht.\r\n\r\nDies einerseits im Hinblick auf die Schaffung von Besch\u00e4ftigung, um die im Kontext des Braunkohleausstiegs drohenden Verluste von Industriearbeitspl\u00e4tzen zu kompensieren. Andererseits unter Ma\u00dfgabe der Transformation in eine nachhaltige \u201eEnergieregion der Zukunft\u201c. Um Entwicklungschancen im Zuge des Aufschwungs der Elektro-Mobilit\u00e4t aufzuzeigen, werden die endogenen Potentiale der Lausitz analysiert, der technologsche Entwicklungsstand des Batterierecycling aufgezeigt und weitere Umsetzungsvoraussetzungen gepr\u00fcft.\r\n\r\nSchlie\u00dflich werden Gestaltungsfelder aufgef\u00e4chert, worin Handlungsempfehlungen f\u00fcr ein integriertes Entwicklungskonzept formuliert sind, die u.a. auf die Etablierung einer Kreislaufwirtschaft und Bottom-up Partizipation der Bev\u00f6lkerung abstellen. Sie vermitteln Ideen, wie sich die Ansiedlung der Zukunftstechnologie industrielles Batterierecycling in der Lausitz unterst\u00fctzen lie\u00dfe und bieten Hilfestellung f\u00fcr die Gestaltung des Strukturwandels unter der Pr\u00e4misse einer \u201eJust Transition\u201c - damit \u00f6kologische nicht gegen \u00f6konomische Interessen ausgespielt und  die Menschen nicht zu den Verlierern des Strukturwandels werden. "
+}, {
+  "event_classifiers": {
+      "Hardware": 100,
+      "Science": 80,
+      "Resilience": 90
+  },
+  "language": "de",
+  "title": "Warum 3D-gedruckte Kleidung NICHT die Zukunft ist",
+  "event_id": 10672,
+  "start_time": null,
+  "speaker_names": "Kurfuerstin",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "3D-gedruckte Kleidungsst\u00fccke finden sich mittlerweile auf immer mehr Laufstegen in der Modebranche. Der Herstellungsprozess erlaubt g\u00e4nzlich neue Abl\u00e4ufe und die Chance, durch mehrfache Materialverwendung und Abfallreduzierung nachhaltiger zu produzieren. Aber wie alltagstauglich und bequem sind diese Teile eigentlich? Wann ist ein Kleidungsst\u00fcck \u00fcberhaupt bequem? Welche Funktionen k\u00f6nnen 3D-gedruckte textile Fl\u00e4chen \u00fcbernehmen \u2013 und welche nicht?"
+}, {
+  "event_classifiers": {
+      "Art + Culture": 25,
+      "Entertainment": 95
+  },
+  "language": "de",
+  "title": "Open Code Verlesung",
+  "event_id": 10677,
+  "start_time": null,
+  "speaker_names": "Foaly, Tofu",
+  "track_id": 359,
+  "room_id": null,
+  "duration": 1800,
+  "abstract": "Kommet zusammen Ihr J\u00fcngerinnen der Bits und Bytes und h\u00f6rtet die frohe Kunde des offenen Sourcecodes. Halleluhjaz!"
+}, {
+  "event_classifiers": {
+      "Entertainment": 100,
+      "Science": 50,
+      "Theory - Practice": 70,
+      "Foundations": 100,
+      "Resilience": 70,
+      "Ethics, Politics + Society": 85
+  },
+  "language": "de",
+  "title": "Das Bits&B\u00e4ume-Sporangium",
+  "event_id": 10682,
+  "start_time": null,
+  "speaker_names": "Rainer Rehak, julika, lislis",
+  "track_id": 359,
+  "room_id": null,
+  "duration": 6000,
+  "abstract": "So wie Farnpflanzen ihre Sporen aus der Kapsel mit bis zu 10m/s heraus in die Welt katapultieren, auf dass sie dort auf fruchtbaren Boden fallen, werden unsere 8 Expert*innen ihr Nerd- und Fach-Wissen weitergeben \u2013 spektakul\u00e4r, wirkungsvoll und unterhaltsam. So bunt wie die besten Slams, so dicht wie die besten Lightning Talks: 8 Antworten auf die Frage, warum Techies und \u00d6kos zusammengeh\u00f6ren."
+}, {
+  "event_classifiers": {
+      "Security": 100
+  },
+  "language": "en",
+  "title": "On the insecure nature of turbine control systems in power generation",
+  "event_id": 10689,
+  "start_time": null,
+  "speaker_names": "repdet, @_moradek_, c0rs",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "A deep dive into power generation process, industrial solutions and their security implications. Flavoured with vulnerabilities, penetration testing (security assessment) methodology and available remediation approaches."
+}, {
+  "event_classifiers": {
+      "Hardware": 100,
+      "Security": 75,
+      "Ethics, Politics + Society": 15
+  },
+  "language": "en",
+  "title": "Open Source is Insufficient to Solve Trust Problems in Hardware",
+  "event_id": 10690,
+  "start_time": null,
+  "speaker_names": "bunnie",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "While open source is necessary for trustable hardware, it is far from sufficient. This is because \u201chashing\u201d hardware \u2013 verifying its construction down to the transistor level \u2013 is typically a destructive process, so trust in hardware is a massive time-of-check/time-of-use (TOCTOU) problem. This talk helps us understand the nature of the TOCTOU problem by providing a brief overview of the supply chain security problem and various classes of hardware implants. We then shift gears to talk about ways to potentially close the TOCTOU gap, concluding with a curated set of verifiable components that we are sharing as an open source mobile communications platform  \u2013 a kind of combination hardware and software distribution \u2013 that we hope can be useful for developing and deploying all manner of open platforms that require a higher level of trust and security."
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 100
+  },
+  "language": "en",
+  "title": "No Body's Business But Mine, a dive into Menstruation Apps",
+  "event_id": 10693,
+  "start_time": null,
+  "speaker_names": "Eva Blum-Dumontet, Christopher Weatherhead",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "In September 2019, Privacy International released exclusive research on the data-sharing practices of menstruation apps. Using traffic analysis, we shed lights on the shady practices of companies that shared your most intimate data with Facebook and other third parties. In this talk we will go over the findings of this research, sharing the tools we have used and explaining why this is not just a privacy problem, but also a cybersecurity one. This talk will also be a call to action to app developers whose tools have concrete impact on the lives of their users. "
+}, {
+  "event_classifiers": {
+      "Hardware": 20,
+      "Security": 75
+  },
+  "language": "en",
+  "title": "Intel Management Engine deep dive",
+  "event_id": 10694,
+  "start_time": null,
+  "speaker_names": "Peter Bosch",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Reverse engineering a system on a chip from sparse documentation and binaries, developing an emulator from it and gathering the knowledge needed to develop a replacement for one of the more controversial binary blobs in the modern PC."
+}, {
+  "event_classifiers": {
+      "Security": 100
+  },
+  "language": "en",
+  "title": "SELECT code_execution FROM * USING SQLite;",
+  "event_id": 10701,
+  "start_time": null,
+  "speaker_names": "OmerGull",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "SQLite is one of the most deployed software in the world. However, from a security perspective, it has only been examined through the narrow lens of WebSQL and browser exploitation. We believe that this is just the tip of the iceberg.\r\nIn our long term research, we experimented with the exploitation of memory corruption issues within SQLite without relying on any environment other than the SQL language. Using our innovative techniques of Query Hijacking and Query Oriented Programming, we proved it is possible to reliably exploit memory corruptions issues in the SQLite engine. We demonstrate these techniques a couple of real-world scenarios: pwning a password stealer backend server, and achieving iOS persistency with higher privileges."
+}, {
+  "event_classifiers": {
+      "Hardware": 95
+  },
+  "language": "en",
+  "title": "The Ultimate Acorn Archimedes talk",
+  "event_id": 10703,
+  "start_time": null,
+  "speaker_names": "Matt Evans",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "This talk will cover everything about the Acorn Archimedes, a British computer first released in 1987 and (slightly) famous for being the genesis of the original ARM processor.\r\n"
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 70,
+      "Science": 70,
+      "Ethics, Politics + Society": 55,
+      "Art + Culture": 100
+  },
+  "language": "de",
+  "title": "Mensch - Kunst \u2013 Maschine",
+  "event_id": 10704,
+  "start_time": null,
+  "speaker_names": "Simon Hegelich, Florina Speth",
+  "track_id": 357,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Simon: Kann k\u00fcnstliche Intelligenz Kunst erzeugen? \r\nFlorina: K\u00f6nnen Menschen von k\u00fcnstlich intelligenten Systemen erzeugte Kunst verstehen?\r\nSimon: Ist Kunst ein Weg zu neuen Stufen eines kybernetischen Verstandes? \r\nFlorina: Wie k\u00f6nnen Mensch und Maschine sich in k\u00fcnstlerischen Prozessen einander verstehen lernen? \r\nSimon: Derr Stand der KI-Kunst ist keine Kunst oder keine KI.\r\nFlorina: Ein schwer zu bestimmender Standpunkt, da das Verst\u00e4ndnis was Kunst ist von unserer F\u00e4higkeit abh\u00e4ngt sie als solche anzunehmen.\r\nSimon: Was ist zu erwarten?\r\nFlorina: Wir werden mit unserer menschlichen Eitelkeit konfrontiert werden, nicht die Einzigen zu sein, die sch\u00f6pferisch und auch k\u00fcnstlerische Relevanz in Betrachtern ausl\u00f6sen. Dies liegt mitunter an unseren bisherigen Kunstbegriffen und -verst\u00e4ndnissen, die oftmals mit Intentionalit\u00e4t assoziiert sind.\r\nEliza: Warum?\r\nFlorina Speth und Simon Hegelich widmen sich diesen Fragen in einem dialogischen Gespr\u00e4ch, wobei sie ihre gro\u00dfen Leidenschaften;- Kunst, maschinelles Lernen, Hegelsche Dialektik, Zukunftsforschung, Science Fiction, Kybernetik und Transhumanismus- der Erweiterung durch Diskurs unterziehen."
+}, {
+  "event_classifiers": {
+      "Hardware": 30,
+      "Theory - Practice": 35,
+      "Security": 100,
+      "Defense - Offense": 75
+  },
+  "language": "en",
+  "title": "Boot2root",
+  "event_id": 10706,
+  "start_time": null,
+  "speaker_names": "Ilja van Sprundel, Joseph Tartaro",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "The Achilles heel of [your secure device] is the secure boot chain. In this presentation we will show our results from auditing commonly used boot loaders and walk through the attack surface you open yourself up to. You would be surprised at how much attack surface exists when hardening and defense in depth is ignored. From remote attack surface via network protocol parsers to local filesystems and various BUS parsing, we will walk through the common mistakes we've seen by example and showcase how realistic it is for your product's secure boot chain to be compromised. "
+}, {
+  "event_classifiers": {
+      "Security": 100,
+      "Defense - Offense": 90
+  },
+  "language": "en",
+  "title": "A Deep Dive Into Unconstrained Code Execution on Siemens S7 PLCs",
+  "event_id": 10709,
+  "start_time": null,
+  "speaker_names": "Ali Abbasi, Tobias Scharnowski",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Siemens is a leading provider of industrial automation components for critical infrastructures, and their S7 PLC series is one of the most widely used PLCs in the industry. In recent years, Siemens integrated various security measures into their PLCs. This includes, among others, firmware integrity verification at boot time using a separate bootloader code. This code is baked in a separated SPI flash, and its firmware is not accessible via Siemens' website. In this talk, we present our investigation of the code running in the Siemens S7-1200 PLC bootloader and its security implications. Specifically, we will demonstrate that this bootloader, which to the best of our knowledge was running at least on Siemens S7-1200 PLCs since 2013, contains an undocumented \"special access feature\". This special access feature can be activated when the user sends a specific command via UART within the first half-second of the PLC booting. The special access feature provides functionalities such as limited read and writes to memory at boot time via the UART interface. We discovered that a combination of those protocol features could be exploited to execute arbitrary code in the PLC and dump the entire PLC memory using a cold-boot style attack. With that, this feature can be used to violate the existing security ecosystem established by Siemens. On a positive note, once discovered by the asset owner, this feature can also be used for good, e.g., as a forensic interface for Siemens PLCs. The talk will be accompanied by the demo of our findings."
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 100
+  },
+  "language": "en",
+  "title": "5G & Net Neutrality",
+  "event_id": 10711,
+  "start_time": null,
+  "speaker_names": "Thomas Lohninger",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Three and a half years after Europe enshrined net neutrality in law, the protections for the open internet are being renegotiated. Europe finds itself in the middle of an immense lobbying battle about the legality of internet blocking, zero-rating and the internet as a common carrier for everyone. All this while the EU is also the first world region trying to fit the next mobile network standard 5G into the net neutrality framework as we currently know it. This talk will give a brief summary about the past years of regulatory enforcement, how the internet has developed in Europe and what to expect from the ongoing reform. "
+}, {
+  "event_classifiers": {
+      "Security": 30,
+      "Ethics, Politics + Society": 40,
+      "Entertainment": 50
+  },
+  "language": "de",
+  "title": "Was hat die PSD2 je f\u00fcr uns getan?",
+  "event_id": 10717,
+  "start_time": null,
+  "speaker_names": "Henryk Pl\u00f6tz",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Seit dem 14. November ist die letzte Schonfrist zur Umsetzung der Europ\u00e4ischen Richtline 2015/2366 \u00fcber Zahlungsdienste im Binnenmarkt (neudeutsch PSD2) verstrichen. Das hat erst vielen Banken viel Arbeit gemacht, und macht jetzt vielen Kunden viel \u00c4rger. Warum eigentlich?"
+}, {
+  "event_classifiers": {
+      "Science": 80,
+      "Resilience": 90
+  },
+  "language": "en",
+  "title": "How Data-driven Technology Helps the Expansion of Solar and Wind Energy in South Korea",
+  "event_id": 10720,
+  "start_time": null,
+  "speaker_names": "Heuna Kim",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Different from conventional fossil fuel power of total predictability, the power generation of volatile renewable energy (e.g., wind and solar) is intermittent and largely dependent on the weather. Because a reliable electric supply is more essential to increase the mix of volatile renewable energy, the precise prediction of its generation a key to bring forward the energy transition.\r\n\r\nThis talk will present experimental results of South Korean solar and wind power plants as a promising example of applying solar and wind power forecasting. These results will address the influence of rising environmental problems, such as micro-dusts and typhoons. A micro-dust (or fine dust, Asian dust) has been arisen as a disastrous issue in Asia due to the recent severe air pollution problems. Also the climate change has led to more frequent and stronger occurrences of typhoons in East Asia.\r\n"
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 60,
+      "Foundations": 80,
+      "Security": 100,
+      "Resilience": 30,
+      "Defense - Offense": 75
+  },
+  "language": "en",
+  "title": "Email authentication for penetration testers",
+  "event_id": 10730,
+  "start_time": null,
+  "speaker_names": "Andrew Konstantinov",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Forget look-alike domains, typosquatting and homograph attacks. In this talk we will discuss ways of forging perfect email counterfeits that (as far as recipients can tell) appear to be coming from well-known domain and successfully pass all checks on their way. Prime focus of this talk will be modern anti-spoofing strategies and the ways around them. Join us as we try to figure out answers to questions such as \"Isn't SPF enough?\", \"Do I *really* need DMARC?\" and \"Does ticking all three (SPF, DKIM, DMARC) provide the best protection possible?\" (answers to these questions are \"no\", \"yes\", \"no\" by the way)."
+}, {
+  "event_classifiers": {
+      "Hardware": 80,
+      "Security": 25
+  },
+  "language": "en",
+  "title": "SIM card technology from A-Z",
+  "event_id": 10737,
+  "start_time": null,
+  "speaker_names": "LaForge",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Billions of subscribers use SIM cards in their phones.  Yet, outside a relatively small circle, information about SIM card technology is not widely known. This talk aims to be an in-depth technical overview."
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 15,
+      "Ethics, Politics + Society": 100,
+      "Art + Culture": 15
+  },
+  "language": "de",
+  "title": "Extinction Rebellion ",
+  "event_id": 10738,
+  "start_time": null,
+  "speaker_names": "Extinction Rebellion Berlin",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Extinction Rebellion (XR) ist eine global agierende, schnell wachsende, klimaaktivistische Graswurzel-Bewegung, die mit gewaltfreien Aktionen zivilen Ungehorsams auf die drohende Klimakatastrophe hinweist und Regierungen zum Handeln bewegen will. Die Ortsgruppe Berlin pr\u00e4sentiert in einer Art Jahresr\u00fcckblick eine Auswahl an aktuellen Aktionen und stellt vor, wo wir als Bewegung gerade stehen, was wir bislang erreicht haben und was weiterhin gebraucht wird, um ein dringend notwendiges politisches Umsteuern einzuleiten. Let's act now."
+}, {
+  "event_classifiers": {
+      "Security": 100
+  },
+  "language": "en",
+  "title": "The Inside Story: There are Apps in Apps and Here is How to Break Them",
+  "event_id": 10751,
+  "start_time": null,
+  "speaker_names": "RonnyXing",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "With the rapid development of mobile internet, apps become more and more complex. However, their most used functions are limited to a few pages.\r\n\r\nEnters instant app. It has many advantages over normal apps, such as click-to-play and concise design, and it's becoming more and more popular. There is some form of instant app framework in many popular apps, such as Google Play, WeChat, TikTok, etc. In addition, many phone vendors have also embedded instant app frameworks in their pre-installed applications.\r\n\r\nHowever, there is barely any public research on attacking instant apps.\r\n\r\nIn this talk, we will dive into a common architecture of instant app framework, and demonstrate attack models for it. Based on these attack models, we have reverse engineered top instant app frameworks. We will show how to bypass various kinds of sandboxing and restriction technologies to break isolations between instant apps.\r\n\r\nThese vulnerabilities could lead to sensitive information leakage, identity theft, account takeover and other severe consequences. During the study of Google Instant app, we also bypassed component access restrictions, which greatly expands attack surface.\r\n\r\nThese vulnerabilities and attack models affects more than 60% of Android devices and at least 1 billion users.\r\n\r\nFinally, we summarize the root causes of these vulnerabilities at the architectural level and point out the potential attack points. We will also propose practical mitigation measures for specific vulnerabilities. \r\n\r\nWe hope we could make users and developers aware of the potential security risks while enjoying the convenience of instant apps. We also hope to make security community aware of this emerging new attack surface."
+}, {
+  "event_classifiers": {
+      "Science": 80,
+      "Security": 100,
+      "Defense - Offense": 95,
+      "Entertainment": 65
+  },
+  "language": "en",
+  "title": "ZombieLoad Attack",
+  "event_id": 10754,
+  "start_time": null,
+  "speaker_names": "Michael Schwarz, Moritz Lipp, Daniel Gruss",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "The ZombieLoad attack exploits a vulnerability of most Intel CPUs, which allows leaking data currently processed by other programs. ZombieLoad is extremely powerful, as it leaks data from user-processes, the kernel, secure enclaves, and even across virtual machines. Moreover, ZombieLoad also works on CPUs where Meltdown is fixed in software or hardware."
+}, {
+  "event_classifiers": {
+      "Science": 95
+  },
+  "language": "en",
+  "title": "The Large Hadron Collider Infrastructure Talk",
+  "event_id": 10760,
+  "start_time": null,
+  "speaker_names": "sev, thasti",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "The Large Hadron Collider (LHC) is the biggest particle accelerator on Earth. It was built to study matter in more detail than ever before and prove physical theories like the Standard Model of Particle Physics. This talk will focus on the engineering aspects of LHC. How was it built? What makes it tick? Which technologies are needed to create a such powerful machine? This talk will take you on a journey to explore how the most complex machine ever built by humans works."
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 0
+  },
+  "language": "de",
+  "title": "Die Zukunft grenz\u00fcberschreitenden Datenzugriffs und politischer Verfolgung",
+  "event_id": 10762,
+  "start_time": null,
+  "speaker_names": "Elisabeth Niekrenz",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "In Br\u00fcssel wird \u00fcber eine Verordnung verhandelt, die es allen EU-Staaten erm\u00f6glichen soll, Provider zur Herausgabe von Inhalten oder Metadaten zu verpflichten \u2013 egal wo die Daten gespeichert sind, egal ob die Tat, um die es geht, dort eine Straftat ist. Werden CLOUD-Act, e-Evidence und \u00e4hnliche Kodifikationen bald daf\u00fcr sorgen, dass Strafverfolgungsbeh\u00f6rden aller L\u00e4nder Daten von Providern weltweit abgreifen k\u00f6nnen?"
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 100
+  },
+  "language": "de",
+  "title": "Digitalisierte Migrationskontrolle",
+  "event_id": 10766,
+  "start_time": null,
+  "speaker_names": "Anna Biselli, Lea Beckmann",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Die sogenannten digitalen Assistenzsysteme des BAMF, \u201eintelligente Grenzen\u201c in der EU und immer gr\u00f6\u00dfer werdende Datenbanken: Wer ins Land kommt und bleiben darf, wird immer mehr von IT-Systemen bestimmt. Davon profitiert die \u00dcberwachungsindustrie, w\u00e4hrend Menschen von automatisierten Entscheidungen abh\u00e4ngig werden."
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 80,
+      "Foundations": 85,
+      "Security": 50,
+      "Resilience": 40
+  },
+  "language": "en",
+  "title": "Getting software right with properties, generated tests, and proofs",
+  "event_id": 10768,
+  "start_time": null,
+  "speaker_names": "Mike Sperber",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "How do we write software that works - or rather, how do we ensure it's correct once it's written?  We can just try it out and run it, and see if it works on a few examples.  If the program was correct to begin with, that's great - but if it's not, we're going to miss bugs.  Bugs that might crash our computer, make it vulnerable to attacks, stop the factory, endanger lives, or \"just\" leave us unsatisfied.  This talk is about techniques every programmer can use to avoid large classes of bugs.  You think about general properties of the things in your code, verify them through automatically generated tests, and (when it's particularly critical) proofs.  This is a surprisingly fun and satisfying experience, and any programmer can do it.  You need just a bit of high school math (which we'll refresh in the talk) to get started.\r\n"
+}, {
+  "event_classifiers": {
+      "Entertainment": 100
+  },
+  "language": "en",
+  "title": "Hebocon",
+  "event_id": 10776,
+  "start_time": null,
+  "speaker_names": "honky",
+  "track_id": 359,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Let's build funny robots and let them fight each other as long as we are superior to them :) Please let's dishonor high tech and celebrate everything made out of stuff we usually throw away (and blinks).\r\n"
+}, {
+  "event_classifiers": {
+      "Hardware": 100
+  },
+  "language": "en",
+  "title": "LibreSilicon's Standard Cell Library",
+  "event_id": 10784,
+  "start_time": null,
+  "speaker_names": "chipforge",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "We make Standard Cells for LibreSilicon available, which are open source and feasible. And we like to talk and demonstrate what we are doing."
+}, {
+  "event_classifiers": {
+      "Defense - Offense": 0,
+      "Science": 100,
+      "Hardware": 50,
+      "Security": 100,
+      "Resilience": 100,
+      "Ethics, Politics + Society": 50
+  },
+  "language": "en",
+  "title": "NGI Zero: A treasure trove of IT innovation",
+  "event_id": 10795,
+  "start_time": null,
+  "speaker_names": "Michiel Leenaars",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "<p>The <a href=\"https://ngi.eu\">Next Generation Internet</a> initiative is the first concerted effort in Europe to put significant public funding to hands-on work to really fix the internet. The long term <a href=\"https://ngi.eu\">vision</a> of the initiative is to make the internet what we need and expected it to be in the first place: <strong>Resilient</strong>. <strong>Trustworthy</strong>. <strong>Sustainable</strong>. The concrete mission of the Next Generation Internet initiative is to \"re-imagine and re-engineer the Internet for the third millennium and beyond\". With new projects starting all the time, the density of awesome open source, open hardware, new science and new standards in-the-making is already intense: about 200 projects are currently on their way. These range from encrypted synchronisation for calendars and address books to symbolical protocol verification, from an open hardware RISC-V SoC to removing binary seeds from operating systems, from ethical search to the Fediverse etc.\r\n\r\n<p>NGI Zero offers funding to independent researchers and FOSS developers working on free and open projects in the area of privacy and trust enhancing technologies and on search, discovery and discoverability. It also offers an elaborate 'pipeline' of supporting activities that live up to high standards (sometimes called 'walk the talk') in terms of security, privacy, accessibility, open source licensing, standardisation, packaging, etc. The talk will provide an overview of the awesome R&D that is now in the pipeline, how the programme is organised and everything you need to know about the various opportunities to 'come and work for the internet'. </p>"
+}, {
+  "event_classifiers": {
+      "Security": 100
+  },
+  "language": "en",
+  "title": "It's not safe on the streets... especially for your 3DS!",
+  "event_id": 10796,
+  "start_time": null,
+  "speaker_names": "nba::yoh",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "The 3DS is reaching end of life but has not revealed all its weaknesses yet. This talk will go through the process of reverse engineering an undocumented communication protocol and show how assessing hard-to-reach features yields dangerous results, including remote code execution exploits!"
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 50,
+      "Defense - Offense": 0,
+      "Hardware": 100,
+      "Security": 75,
+      "Resilience": 100,
+      "Ethics, Politics + Society": 70
+  },
+  "language": "en",
+  "title": "Creating Resilient and Sustainable Mobile Phones",
+  "event_id": 10800,
+  "start_time": null,
+  "speaker_names": "Paul Gardner-Stephen",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Civil society depends on the continuing ability of citizens to communicate with one another, without fear of interference, deprivation or eavesdropping. As the international political climate changes alongside that of our physical climatic environment, we must find ways to create mobile communications systems that are truly resilient and sustainable in the face of such shocks. We have therefore identified a number of freedoms that are required for resilient mobile phones: Energy, Communications, Security, Innovation, Maintenance and Scale-Dependency. These can be summarised as making it possible for people to create, maintain and develop mobile communications solutions, without requiring the capital and resources of a large company to do so. In this lecture I will explain why each of these is necessary, as well as describing how we are incorporating these principles into the MEGAphone open, resilient and secure smart-phone project."
+}, {
+  "event_classifiers": {
+      "Security": 100,
+      "Defense - Offense": 100
+  },
+  "language": "en",
+  "title": "SigOver + alpha",
+  "event_id": 10801,
+  "start_time": null,
+  "speaker_names": "CheolJun Park",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "As Long-Term Evolution (LTE) communication is based on over-the-air signaling, a legitimate signal can potentially be counterfeited by a malicious signal. Although most LTE signaling messages are protected from modification using cryptographic primitives, broadcast messages and some of the unicast messages are unprotected. In this talk, we would like to introduce a signal injection attack that exploits the fundamental weakness of unprotected messages in LTE and modifies a transmitted signal over the air.\r\nThis attack, which is referred to as signal overshadowing (named SigOver) overwrites a portion of the legitimate signal to inject manipulated signal into the victim while the victim is connected to a legitimate cellular network. In most aspects, SigOver attack is superior to FBS (Fake Bas Station) and MitM (Man-in-the-Middle) attack, in terms of Efficiency, Effectiveness, and Stealthiness. Thus, Sigover results in new attacks exploiting broadcast channel and unicast channel. For example, SigOver attack on the broadcast messages can affect a large number of nearby UEs simultaneously such as signaling storm, Denial-Of-Service, downgrading attack, location tracking, and fake emergency alert. SigOver attack on unicast channel can silently hand over victims to FBS and perform MitM attack.\r\nSigover attack is currently zero-day. Since it exploits the fundamental problems in LTE physical signal, it will remain effective until 3GPP standards change."
+}, {
+  "event_classifiers": {
+      "Hardware": 20,
+      "Security": 80
+  },
+  "language": "en",
+  "title": "KTRW: The journey to build a debuggable iPhone",
+  "event_id": 10806,
+  "start_time": null,
+  "speaker_names": "Brandon Azad",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Development-fused iPhones with hardware debugging features like JTAG are out of reach for many security researchers. This talk takes you along my journey to create a similar capability using off-the-shelf iPhones. We'll look at a way to break KTRR, a custom hardware mitigation Apple developed to prevent kernel patches, and use this capability to load a kernel extension that enables full-featured, single-step kernel debugging with LLDB on production iPhones."
+}, {
+  "event_classifiers": {
+      "Hardware": 100,
+      "Security": 65
+  },
+  "language": "en",
+  "title": "Build you own Quantum Computer @ Home - 99% of discount -  Hacker Style !",
+  "event_id": 10808,
+  "start_time": null,
+  "speaker_names": "yann@NextGenQ.com",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Quantum technologies are often only over-hyped showed as threat for cybersecurity \u2026 But they also offer some opportunities to enhance the cybersecurity landscape . As an example, you may know that a quantum computer will be able to break RSA keys but Quantum communication technologies can also provide a new way to exchange securely a cipher key. More, with Quantum networking technologies, communication eavesdropping are , by design, detectable and thus this could lead to some good opportunities to use them to enhance cybersecurity. Some even begins to build a Quantum internet ! We may also solve main security issues face by cloud computation (privacy, confidentiality etc) via the use of \"Blind quantum computation\" in the cloud.\r\n\r\nHowever few people understand & explain how such machines & technologies work. Even fewer people trying to build one. I\u2019m one of this crazy people.\r\n\r\nIn this talk, we aim to explain how this new type of much powerful digital processing works and how we build our own Quantum computer \u2026without a Phd in quantum physic. We will describe our plan to build the Quantum computer's hardware with hacker\u2019s style. Through our own experiments, we will discuss our failures, our success, our progress around this challenging goal !\r\n\r\nCome to see  part of the hardware we build at the moment. We use the \"Trapped ion technology\". We trap atoms to make powerful calculation & computing task! Be prepared to unlock your quantum brain as this new domain is really different for classical computation ;-) but it can enhance the Cybersecurity world"
+}, {
+  "event_classifiers": {
+      "Security": 100,
+      "Defense - Offense": 100
+  },
+  "language": "en",
+  "title": "Don't Ruck Us Too Hard - Owning All of Ruckus AP devices",
+  "event_id": 10816,
+  "start_time": null,
+  "speaker_names": "Gal Zror",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Ruckus Networks is a company selling wired and wireless networking equipment and software. This talk will present a vulnerability research conducted on Ruckus access points and controllers which resulted in MULTIPLE pre-auth RCE 0-days. Exploitation used various of vulnerabilities such as: information leak, authentication bypass, command injection, Jailbreak, stack overflow and arbitrary file read/write. Throughout the research 33 different access points and 2 controllers firmware were examined and ALL of them were found vulnerable. This talk will also introduce and share the framework used in this research. It includes Ghidra scripts and a dockerized full system QEMU emulation for different architectures. \r\nHere\u2019s a fun fact, Ruckus\u2019s devices were used by BlackHat USA. "
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 100
+  },
+  "language": "de",
+  "title": "Polizei-Datenbanken und Minderheiten: Staatliche Stigmatisierung und Diskriminierung von Sinti und Roma",
+  "event_id": 10828,
+  "start_time": null,
+  "speaker_names": "Lea Beckmann, Anja",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "F\u00fcr Sinti*zze und Roma*nja geh\u00f6ren Anfeindungen zum Alltag. Auch bei Ermittlungsbeh\u00f6rden stehen sie unter Generalverdacht: Es steht zu bef\u00fcrchten, dass die Polizei in unterschiedlichen Bundesl\u00e4ndern rechtswidrig Daten zu ethnischer Herkunft erhebt und ver\u00f6ffentlicht.\r\n\r\nWarum ist es so gef\u00e4hrlich, ethnische Herkunft in Polizeidatenbanken zu erfassen? Und was f\u00fcr Konsequenzen hat es, sie in Berichterstattung zu erw\u00e4hnen? Wann darf die Polizei \u00fcberhaupt Daten zu ethnischer Herkunft erheben? Und wann und mit welchen Methoden tut sie es vielleicht trotz Verbots? "
+}, {
+  "event_classifiers": {
+      "Security": 100
+  },
+  "language": "en",
+  "title": "How to Break PDFs",
+  "event_id": 10832,
+  "start_time": null,
+  "speaker_names": "Fabian Ising, Vladislav Mladenov",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "PDF is the most widely used standard for office documents. Supported by many desktop applications, email gateways and web services solutions, are used in all sectors, including government, business and private fields. For protecting sensitive information, PDFs can be encrypted and digitally signed. Assumed to be secure for 15 years, our talk reveals how to break PDF Encryption and how to break PDF Signatures. We elaborated novel attacks leading to critical vulnerabilities in all PDF viewers, most notably in Adobe, Foxit, and Okular. As a result, an attacker can retrieve the plaintext of encrypted PDFs without knowing the password and manipulate the content of digitally signed PDFs arbitrarily while a victim is unable to detect this."
+}, {
+  "event_classifiers": {
+      "Security": 100
+  },
+  "language": "en",
+  "title": "A New Era of Windows Kernel Exploitation",
+  "event_id": 10841,
+  "start_time": null,
+  "speaker_names": "Shi Qin, Wenxu Wu, Haoyu Yang",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Windows Kernel Exploitation has always been an important part of attack chains in modern browser , such as Google Chrome / Microsoft Edge.\r\nIn recent years, Microsoft has strengthen the Windows kernel vulnerability Mitigation to prevent kernel exploitation, for example , the isolation of GDI object and enable a new kernel pool algorithm which use LFH, It's much more harder to exploit kernel vulnerability, most of old kernel exploitation technology lost their powers.\r\n\r\nIn this presentation, We will start from a story about how we do reverse enginerring ,and find 0-days in Ntoskrnl Module , then share the methodology about how we bypass the kernel exploit mitigation ,this technolody don't need any module like win32k used in traditional exploit technology, It's revolutionary because all operations is finished only in Ntoskrnl module ,bypass all the mitigations that stops old exploit technology. so we could use a single bug to achieve full privilege escalation by this way.\r\n \r\nFinally, we will use an Out-Of-Bounds 0-day to show how we break the Microsoft Edge Mitigation for windows kernel in lastest Windows 10 1903, break the sandbox to get system privilege from AppContainer."
+}, {
+  "event_classifiers": {
+      "Art + Culture": 100
+  },
+  "language": "en",
+  "title": "The Sound of Surveillance",
+  "event_id": 10855,
+  "start_time": null,
+  "speaker_names": "Jasmine Guffond",
+  "track_id": 357,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "\u2018Listening Back\u2019 is an add-on for the Chrome and Firefox browsers that sonifies internet cookies in real time as one browses online. By translating internet cookies into sound, the \u2018Listening Back\u2019 browser add-on provides an audible presence for hidden infrastructures that collect personal and identifying data by storing a file on one\u2019s computer. Addressing the proliferation of ubiquitous online surveillance and the methods by which our information flows are intercepted by mechanisms of automated data collection, \u2018Listening Back\u2019 functions to expose real-time digital surveillance and consequently the ways in which our everyday relationships to being surveilled have become normalised. This lecture performance will examine Internet cookies as a significant case study for online surveillance with their invention in 1994 being historically situated at the origins of automated data collection, and the commercialisation of the World Wide Web. I will integrate online browsing to demonstrate the \u2018Listening Back\u2019 add-on and explore it\u2019s potential to reveal algorithmic data capture processes that underlie our Web experience."
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 100,
+      "Resilience": 40,
+      "Ethics, Politics + Society": 60
+  },
+  "language": "en",
+  "title": "Infrastructures in a horizontal farmers community",
+  "event_id": 10858,
+  "start_time": null,
+  "speaker_names": "Andrea Zappa",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "We will analyze the approach to tecnology (decisional method, mesh network and cloud) of a farming community near Bologna: Campi Aperti.\r\n\r\nSpeaking about: human organization, connectivity, managing of a server, resources and incidents handler, femminism, maintaining and growing in a non-gerarchical organization. Technologies involved: humans, antennas, orchestrator of containers."
+}, {
+  "event_classifiers": {
+      "Hardware": 85,
+      "Theory - Practice": 90,
+      "Security": 100,
+      "Defense - Offense": 70
+  },
+  "language": "en",
+  "title": "TrustZone-M(eh): Breaking ARMv8-M's security",
+  "event_id": 10859,
+  "start_time": null,
+  "speaker_names": "Thomas Roth",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Most modern embedded devices have something to protect: Whether it's cryptographic keys for your bitcoins, the password to your WiFi, or the integrity of the engine-control unit code for your car.\r\n\r\nTo protect these devices, vendors often utilise the latest processors with the newest security features: From read-out protections, crypto storage, secure-boot up to TrustZone-M on the latest ARM processors.\r\n\r\nIn this talk, we break these features: We show how it is possible to bypass the security features of modern IoT/embedded processors using fault-injection attacks, including breaking TrustZone-M on the new ARMv8-M processors, and presenting hardware attacks on RISC-V processors.\r\n\r\nWe are also releasing and open-sourcing our entire soft- and hardware toolchain for doing so, making it possible to integrate fault-injection testing into the secure development lifecycle."
+}, {
+  "event_classifiers": {},
+  "language": "de",
+  "title": "Offene Sensordaten f\u00fcr Jedermann - Ein Citizen Science Projekt basierend auf Open Source und Open Hardware",
+  "event_id": 10862,
+  "start_time": null,
+  "speaker_names": "Felix Erdmann",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Der Talk soll die Geschichte der senseBox von Beginn bis jetzt wiedergeben. Dabei m\u00f6chte ich vor allem auf unsere Arbeit im Bereich Open Source, Open Data, Open Hardware und Open Educational Resources eingehen. Die Motivation von Teilnehmern des senseBox Projekts m\u00f6chte ich basierend auf einer Nutzerstudie kurz wiedergeben. Au\u00dferdem m\u00f6chte ich auf aktuelle Probleme sowie technische H\u00fcrden und die Genauigkeit der Daten eingehen. Zu guter Letzt gebe ich einen kurzen Ausblick in die Zukunft des Projekts."
+}, {
+  "event_classifiers": {
+      "Entertainment": 50,
+      "Ethics, Politics + Society": 80,
+      "Art + Culture": 100
+  },
+  "language": "en",
+  "title": "Hack_Curio",
+  "event_id": 10875,
+  "start_time": null,
+  "speaker_names": " Gabriella \"Biella\" Coleman",
+  "track_id": 357,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Hacking and hackers can be hard to visualize. In the popular imagination, the figure alternates between a menacing, hooded figure or some sort of drugged-out and depressed juvenile hero (or perhaps a state-sponsored hacker).  To counter such images, a group of us have spearheaded a new digitally-based video project, Hack_Curio that features hacker-related videos, culled from a range of sources, documentary film, newscasts, hacker conference talks, advertising, and popular film. In this talk, the Hack-Curio creators and builders will briefly discuss the purpose and parameters of Hack_Curio and spend most of the talk featuring our funniest, most compelling videos around hacking from around the world. We will use these to reflect on some of the more obscure or less commented on cultural and political features of hacking--features that will address regional and international dimensions of the craft and its impacts around the world. "
+}, {
+  "event_classifiers": {
+      "Foundations": 50,
+      "Security": 100,
+      "Defense - Offense": 50
+  },
+  "language": "en",
+  "title": "HAL - The Open-Source Hardware Analyzer",
+  "event_id": 10879,
+  "start_time": null,
+  "speaker_names": "Max Hoffmann",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Since the Snowden revelations the fear of stealthy hardware manipulations is no longer regarded as far fetched.\r\nThis fear is also reflected in the massive discussions sparked by last year's Bloomberg allegations on a supposed hardware spy implant on Supermicro serverboards or the recent USA ban on Huawei telecommunication equipment.\r\n\r\nHardware reverse engineering (HRE) is a promising method to detect such manipulations or hidden backdoors.\r\nHowever, HRE is a highly complex and cumbersome task.\r\nIt takes months of work as well as expensive equipment to even obtain the netlist of a chip, the equivalent to the binary in software reverse engineering (SRE).\r\nIn contrast to SRE where various paid or open-source tools for binary analysis exist, e.g., IDA Pro or Ghidra, in HRE simply no tool for netlist analysis were available - neither commercial, nor free.\r\nTo close this gap, researchers from the Ruhr University Bochum developed HAL, the first open-source netlist analysis framework.\r\n\r\nIn this talk, we start with a basic introduction into the challenges of HRE.\r\nThen, we demonstrate the capabilities of HAL before giving a brief overview on our current research with HAL."
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 80,
+      "Foundations": 25,
+      "Security": 100,
+      "Defense - Offense": 50
+  },
+  "language": "en",
+  "title": "No source, no problem! High speed binary fuzzing",
+  "event_id": 10880,
+  "start_time": null,
+  "speaker_names": "Nspace, gannimo",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Modern grey-box fuzzers are the most effective way of finding bugs in complex code bases. Coverage instrumentation is fundamental to their effectiveness. Existing instrumentation techniques either require source code (e.g., afl-gcc, afl-llvm-fast) or have a high runtime performance cost (roughly 10x slowdown for e.g., afl-qemu compared to source based instrumentation).\r\nWe introduce RetroWrite, a binary rewriting framework that enables direct static instrumentation for both user-mode binaries and Linux kernel modules. Code rewritten by RetroWrite exhibits the same performance as the original code."
+}, {
+  "event_classifiers": {
+      "Security": 100,
+      "Defense - Offense": 100
+  },
+  "language": "en",
+  "title": "Practical Cache Attacks from the Network and Bad Cat Puns",
+  "event_id": 10884,
+  "start_time": null,
+  "speaker_names": "Michael Kurth",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Our research shows that network-based cache side-channel attacks are a realistic threat. Cache attacks have been traditionally used to leak sensitive data on a local setting (e.g., from an attacker-controlled virtual machine to a victim virtual machine that share the CPU cache on a cloud platform). With our attack called NetCAT, we show this threat extends to untrusted clients over the network, which can now leak sensitive data such as keystrokes in a SSH session from remote servers with\u00a0no\u00a0local access. The root cause of the vulnerability is a recent Intel feature called DDIO, which grants network devices and other peripherals access to the CPU cache. Originally, intended as a performance optimization in fast networks, we show DDIO has severe security implications, exposing servers in local untrusted networks to remote side-channel attacks."
+}, {
+  "event_classifiers": {
+      "Foundations": 80,
+      "Ethics, Politics + Society": 100,
+      "Entertainment": 50
+  },
+  "language": "en",
+  "title": "Unpacking the compromises of Aadhaar, and other digital identities inspired by it",
+  "event_id": 10885,
+  "start_time": null,
+  "speaker_names": "Kiran Jonnalagadda",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Aadhaar is India's national biometric identity database, with over one billion records comprising fingerprints, iris scans and basic demographic information. It is presented as identity technology, allowing an individual to identify themselves, but also as an identification technology, allowing the state to see an individual, identify fraudulent welfare beneficiaries, and thus realise savings. These claims are not complementary. They are in fact contradictory, compromising each other. If one must be true, the other must somehow be false, and this is the reality of Aadhaar."
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 100
+  },
+  "language": "de",
+  "title": " Welcome Pattern - Theorie und Praxis ",
+  "event_id": 10890,
+  "start_time": null,
+  "speaker_names": "melzai, nanooq",
+  "track_id": 358,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "In diesem Beitrag stellen wir die von der tuwat Gruppe Bildung erarbeiteten \"Welcome Pattern\" zum Empfang und Integration von Neuank\u00f6mmlingen und ihre Anwendung in Siegens Hackspace \"HaSi\"  vor.\r\n\r\n"
+}, {
+  "event_classifiers": {
+      "Science": 75,
+      "Security": 100
+  },
+  "language": "en",
+  "title": "Identifying Multi-Binary Vulnerabilities in Embedded Firmware at Scale",
+  "event_id": 10891,
+  "start_time": null,
+  "speaker_names": "Nilo Redini",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Low-power, single-purpose embedded devices (e.g., routers and IoT devices) have become ubiquitous. While they automate and simplify many aspects of our lives, recent large-scale attacks have shown that their sheer number poses a severe threat to the Internet infrastructure, which led to the development of an IoT-specific cybercrime underground. Unfortunately, the software on these systems is hardware-dependent, and typically executes in unique, minimal environments with non-standard configurations, making security analysis particularly challenging. Moreover, most of the existing devices implement their functionality through the use of multiple binaries. This multi-binary service implementation renders current static and dynamic analysis techniques either ineffective or inefficient, as they are unable to identify and adequately model the communication between the various executables.\r\n\r\nIn this talk, we will unveil the inner peculiarities of embedded firmware, we will show why existing firmware analysis techniques are ineffective, and we will present Karonte, a novel static analysis tool capable of analyzing embedded-device firmware by modeling and tracking multi-binary interactions. Our tool propagates taint information between binaries to detect insecure, attacker-controlled interactions, and effectively identify vulnerabilities.\r\n\r\nWe will then present the results and insights of our experiments. We tested Karonte on 53 firmware samples from various vendors, showing that our prototype tool can successfully track and constrain multi-binary interactions. In doing so, we discovered 46 zero-day bugs, which we disclosed to the responsible entities.  We performed a large-scale experiment on 899 different samples, showing that Karonte scales well with firmware samples of different size and complexity, and can effectively and efficiently analyze real-world firmware in a generic and fully automated fashion.\r\n\r\nFinally, we will demo our tool, showing how it led to the detection of a previously unknown vulnerability."
+}, {
+  "event_classifiers": {
+      "Foundations": 90,
+      "Ethics, Politics + Society": 100
+  },
+  "language": "de",
+  "title": "Schweiz: Netzpolitik zwischen Bodensee und Matterhorn",
+  "event_id": 10892,
+  "start_time": null,
+  "speaker_names": "Patrick \"packi\" St\u00e4hlin, Kire, Hakuna MaMate",
+  "track_id": 358,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Die Intensit\u00e4t des Kampfes um die Freiheit im digitalen Raum l\u00e4sst auch in der Schweiz nicht nach. Wir blicken auf das netzpolitische Jahr 2019 in der Schweiz zwischen Bodensee und Matterhorn zur\u00fcck. Wir behandeln jene Themen, die relevant waren und relevant bleiben. Weiter zeigen wir, was von der Digitalen Gesellschaft in der Schweiz im neuen Jahr zu erwarten ist."
+}, {
+  "event_classifiers": {
+      "Security": 100,
+      "Defense - Offense": 20
+  },
+  "language": "en",
+  "title": "High-assurance crypto software",
+  "event_id": 10893,
+  "start_time": null,
+  "speaker_names": "djb, Tanja Lange",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Software bugs and timing leaks have destroyed the security of every Chromebook ECDSA \"built-in security key\" before June 2019, ECDSA keys from several popular crypto libraries, the Dilithium post-quantum software, the Falcon post-quantum software, and more. Will we ever have trustworthy implementations of the cryptographic tools at the heart of our security systems?"
+}, {
+  "event_classifiers": {
+      "Security": 75,
+      "Ethics, Politics + Society": 25
+  },
+  "language": "de",
+  "title": "15 Jahre deutsche Telematikinfrastruktur (TI)",
+  "event_id": 10895,
+  "start_time": null,
+  "speaker_names": "Christoph Saatjohann",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Seit sp\u00e4testens 2005 wird in Deutschland an der Einf\u00fchrung der Telematik Infrastruktur, kurz die TI, gearbeitet. Diese soll nicht weniger als die komplette Digitalisierung der deutschen Medizinbranche bedeuten. Vom Arzt, Krankenhaus, Psychotherapeut bis hin zum Apotheker sollen alle Heilberufler miteinander vernetzt werden. Der Patient soll dabei die Datenhoheit behalten, und seine Daten mittels elektronischer Gesundheitskarte, sowie alternativ per mobiler Smartphone App steuern."
+}, {
+  "event_classifiers": {
+      "Science": 95,
+      "Resilience": 5
+  },
+  "language": "en",
+  "title": "Climate Modelling",
+  "event_id": 10896,
+  "start_time": null,
+  "speaker_names": "karlabyrinth",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "When climate activists say you should listen to the science they usually\r\nrefer to reports by the Intergovernmental Panel on Climate Change (IPCC). The IPCC is an Intergovernmental organization (IGO) providing an objective summary of scienctific results regarding climate change, its impacts and its reasons. The simulation of future climate is one\r\nfundamental pillar within climate research. But what is behind it? How does the science sector look like? How do we gain these insights, what does it mean?"
+}, {
+  "event_classifiers": {
+      "Science": 100,
+      "Foundations": 60
+  },
+  "language": "en",
+  "title": "An ultrashort history of ultrafast imaging",
+  "event_id": 10902,
+  "start_time": null,
+  "speaker_names": "Caroline",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Did you ever wonder what happens in the time period it takes light to cross the diameter of your hair? This is the femtosecond, a millionth of a billionth of a second. It is the time scale of electron and nuclear motion, and therefore the most fundamental processes in atomic and molecular physics, chemistry and biology start here. In order to take movies with femtosecond time resolution, we need ultrafast cameras \u2013 flashes of light that act faster than any camera shutter ever could. And imaging ultrafast motion is only the first step: We aim to control dynamics on the femtosecond time scale, ultimately driving chemical reactions with light."
+}, {
+  "event_classifiers": {
+      "Hardware": 25,
+      "Resilience": 100,
+      "Ethics, Politics + Society": 70
+  },
+  "language": "en",
+  "title": "Reusing ICT equipment, why & how",
+  "event_id": 10909,
+  "start_time": null,
+  "speaker_names": "benjamin@fairdanmark.dk",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Since 2011, FAIR (FAIR Allocation of Infotech Resources) have reused 3,000 computers from Denmark 11,000 computers from Norway. We'll go through how we're setup, and how youths in Malawi are maintaining and using these computers."
+}, {
+  "event_classifiers": {
+      "Science": 100,
+      "Resilience": 70,
+      "Ethics, Politics + Society": 70
+  },
+  "language": "en",
+  "title": "On the Edge of Human-Data Interaction with the Databox",
+  "event_id": 10912,
+  "start_time": null,
+  "speaker_names": "mort",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "In this talk I will report on Databox, the focus of a UK-based research collaboration between the University of Cambridge, the University of Nottingham, and Imperial College, with support from industrial partners including the BBC. Databox is an open-source software platform that seeks to embody the principles of Human-Data Interaction by enabling individuals to see and exercise dynamic control over what is done with their personal data. The research project has melded computer systems design with ethnomethodological approaches to Human-Computer Interaction to explore how such a platform can make use of personal data accountable to individuals. \r\n\r\n"
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 10,
+      "Science": 90,
+      "Foundations": 60
+  },
+  "language": "en",
+  "title": "Thrust is not an Option: How to get to Mars really slow",
+  "event_id": 10918,
+  "start_time": null,
+  "speaker_names": "sven",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "<p>In this talk we will see how chaos can be used to find very peculiar trajectories for space crafts within the Solar System. To understand this, we will also have a short look at the basics of orbital mechanics as well as three-body problems.</p> "
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 100
+  },
+  "language": "en",
+  "title": "#NoPNR \u2013 Let\u2019s kill the next Data Retention Law",
+  "event_id": 10919,
+  "start_time": null,
+  "speaker_names": "Gesellschaft f\u00fcr Freiheitsrechte, Walter H\u00f6tzendorfer, Bijan Moini",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "The talk will address how passenger name records (PNR) of flight passengers are currently used by law enforcement throughout the European Union to track and identify suspects of a variety of crimes, how this is likely to be only a first step by the security state to surveil our every movement. Two NGOs have joined forces to stop this new form of indiscriminate mass surveillance in the courts and build safeguards against future infringements of our fundamental right to privacy. "
+}, {
+  "event_classifiers": {},
+  "language": "en",
+  "title": "The sustainability of safety, security and privacy",
+  "event_id": 10924,
+  "start_time": null,
+  "speaker_names": "Ross Anderson",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "What sort of tools and methodologies should you use to write software for a car that will go on sale in 2023, if you have to support security patches and safety upgrades till 2043?"
+}, {
+  "event_classifiers": {
+      "Science": 30,
+      "Security": 80,
+      "Entertainment": 10
+  },
+  "language": "en",
+  "title": "Provable Insecurity",
+  "event_id": 10928,
+  "start_time": null,
+  "speaker_names": "dreiwert, Claus Diem",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Cryptographic hash functions are everywhere, yet modeling the characteristics of their real-world occurrences is surprisingly complicated when trying to prove security. We argue how seemingly convenient features of doing classical math may make it actually harder to model them correctly."
+}, {
+  "event_classifiers": {
+      "Science": 0
+  },
+  "language": "de",
+  "title": "Aus dem Schimpfw\u00f6rterbuch der neuen Rechten",
+  "event_id": 10935,
+  "start_time": null,
+  "speaker_names": "josch",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Der Vortrag gibt auf der Basis umfangreicher korpuslinguistischer Analysen einen \u00dcberblick \u00fcber den Fundus herabw\u00fcrdigender und ausgrenzender Ausdr\u00fccke, die in rechten und rechtsextremen Onlinediskursen gepr\u00e4gt wurden. In den tiefensemantischen Strukturen des invektiven Wortschatzes der neuen Rechten wird ein stark schematisiertes Weltbild sichtbar, das von der grundlegenden Verachtung nicht nur des Fremden, sondern auch des eigenen Landes, seiner Institutionen, seiner Werte und seiner Bev\u00f6lkerung gepr\u00e4gt ist. "
+}, {
+  "event_classifiers": {
+      "Hardware": 30,
+      "Security": 100
+  },
+  "language": "en",
+  "title": "Uncover, Understand, Own - Regaining Control Over Your AMD CPU",
+  "event_id": 10942,
+  "start_time": null,
+  "speaker_names": "Robert Buhren, aeichner, Christian Werling",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "The AMD Platform Security Processor (PSP) is a dedicated ARM CPU inside your AMD processor and runs undocumented, proprietary firmware provided by AMD.\r\n\r\nIt is a processor inside your processor that you don't control. It is essential for system startup. In fact, in runs before the main processor is even started and is responsible for bootstrapping all other components.\r\n\r\nThis talk presents our efforts investigating the PSP internals and functionality and how you can better understand it. Our talk is divided into three parts:\r\n\r\nThe first part covers the firmware structure of the PSP and how we analyzed this proprietary firmware. We will demonstrate how to extract and replace individual firmware components of the PSP and how to observe the PSP during boot.\r\n\r\nThe second part covers the functionality of the PSP and how it interacts with other components of the x86 CPU like the DRAM controller or System Management Unit (SMU). We will present our method to gain access to the, otherwise hidden, debug output.\r\n\r\nThe talk concludes with a security analysis of the PSP firmware.\r\nWe will demonstrate how to provide custom firmare to run on the PSP and introduce our toolchain that enables others to deploy custom firmare. \r\n\r\nThis talk documents the PSP firmware's proprietary filesystem  and provides insights into reverse-engineering such a deeply embedded system. It further sheds light on how we might regain trust in AMD CPUs despite the delicate nature of the PSP.\r\n"
+}, {
+  "event_classifiers": {
+      "Hardware": 25,
+      "Science": 75
+  },
+  "language": "de",
+  "title": "Aufbau eines Sensornetzes f\u00fcr die Messung von Stickstoffdioxid",
+  "event_id": 10948,
+  "start_time": null,
+  "speaker_names": "Patrick R\u00f6mer",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Ausgehend von den beh\u00f6rdlichen Messnetz f\u00fcr Stickoxide soll der Aufbau einer preisg\u00fcnstigen Open Source Messstation f\u00fcr Stickstoffdioxid, inklusive Kalibrierung und der behandlung von St\u00f6renden einfl\u00fcssen behandelt werden. Zus\u00e4tzlich soll eine Webanwendung vorgestellt werden welche die Daten aus einem Messnetz der NO2-Messstationen sammelt, auf Karten visualisiert und somit dem Citizen Science Ansatz Rechnung tr\u00e4gt."
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 50,
+      "Defense - Offense": 50,
+      "Hardware": 50,
+      "Foundations": 90,
+      "Security": 35,
+      "Ethics, Politics + Society": 35
+  },
+  "language": "de",
+  "title": "Warum die Card10 kein Medizinprodukt ist",
+  "event_id": 10950,
+  "start_time": null,
+  "speaker_names": "Phil",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Es soll grundlegend erkl\u00e4rt werden, nach welchen Kriterien Medizinprodukte entwickelt werden. Dazu werden die wichtigsten Regularien (Gesetze, Normen, ...) vorgestellt die von den Medizinprodukteherstellern eingehalten werden m\u00fcssen. Diese regeln, was die Hersteller umsetzen m\u00fcssen (und was nicht). \r\nHier wird auch die Frage beantwortet, warum beispielsweise die Apple-Watch (oder genauer gesagt nur zwei Apps) ein Medizinprodukt sind aber die card10 nicht.\r\n\r\n"
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 90
+  },
+  "language": "de",
+  "title": "Katastrophe und Kommunikation am Beispiel Rojava",
+  "event_id": 10957,
+  "start_time": null,
+  "speaker_names": "Ruben Neugebauer",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Katastrophen, Krisen & Kriege lassen sich heute live mitverfolgen. Wir erleben eine kaum \u00fcberblickbare Quellendiversit\u00e4t in den sozialen Medien \u2013 jeder wird zur Quelle. Welchen Einfluss hat das darauf, wie ein Konflikt wahrgenommen wird, wie setzen Konfliktparteien aber auch Helfende die sozialen Medien ein und was bedeutet das f\u00fcr Diejenigen, die vor Ort humanit\u00e4re Hilfe leisten. Wir diskutieren dies anhand des t\u00fcrkischen \u00dcberfalls auf Rojava. "
+}, {
+  "event_classifiers": {
+      "Science": 70,
+      "Resilience": 40,
+      "Ethics, Politics + Society": 30
+  },
+  "language": "en",
+  "title": "Boeing 737MAX: Automated Crashes",
+  "event_id": 10961,
+  "start_time": null,
+  "speaker_names": "Bernd Sieker",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Everybody knows about the Boeing 737 MAX crashes and the type's continued grounding. I will try to give some technical background information on the causes of the crash, technical, sociological and organisational, covering pilot proficiency, botched maintenance, system design and risk assessment, as well as a deeply flawed certification processes."
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 100
+  },
+  "language": "en",
+  "title": "Content take-downs: Who cleans the internet?",
+  "event_id": 10968,
+  "start_time": null,
+  "speaker_names": "Chlo\u00e9 Berth\u00e9l\u00e9my (EDRi), Thomas Lohninger",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "The quest towards a \u201ccleaner\u201d internet continues \u2013 with \u201ccensorship machines\u201d included in the EU Copyright Directive, upload filters proposed in the Terrorist Content Regulation, and numerous other initiatives to push dominant platforms to police online content. This talk will present the next big battles for free speech online at the European level."
+}, {
+  "event_classifiers": {
+      "Hardware": 5,
+      "Security": 95
+  },
+  "language": "en",
+  "title": "Understanding millions of gates ",
+  "event_id": 10976,
+  "start_time": null,
+  "speaker_names": "Kitty",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Reverse Engineering of integrated circuits is often seen as something only companies can do, as the equipment to image the chip is expensive, and the HR costs to hire enough reverse engineers to then understand the chip even more so. This talk gives a short introduction on the motivation behind understanding your own or someone else\u2019s chip (as a chip manufacturing company), and why it might be important for the rest of us (not a chip manufacturing company). The focus is on understanding what millions of logical gates represent, rather than the physical aspect (delayering, imaging, image processing\u2026), because everyone can do this at home. I will introduce some proposed countermeasures (like logic encryption) and explain if, how and why they fail. "
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 100
+  },
+  "language": "de",
+  "title": "Hackerparagraph \u00a7 202c StGB // Reality Check",
+  "event_id": 10977,
+  "start_time": null,
+  "speaker_names": "RA Ulrich Kerner",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Der Hackerparagraph \u00a7 202c StGB ist seit August 2007 in Kraft. Das Bundesverfassungsgericht befand ihn im Mai 2009 f\u00fcr verfassungsgem\u00e4\u00df, wies aber darauf hin, dass er verfassungskonform auszulegen sein. Wie ist also die Rechtslage? Und wie sieht die Realit\u00e4t aus? Ein Beispiel aus der Praxis zeigt, was da drau\u00dfen los ist."
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 100
+  },
+  "language": "de",
+  "title": "It\u2019s alive! \u2013 Nach den Protesten gegen die Polizeigesetze ist vor den Protesten gegen die autorit\u00e4re Wende",
+  "event_id": 10983,
+  "start_time": null,
+  "speaker_names": "Laura P\u00f6hler",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Das Jahr 2018 stand ganz im Zeichen der bundesweiten Proteste gegen die Polizeigesetze. Und 2019? Es ist leiser geworden um noPAG, noPolGNRW & Co. Aber das Biest lebt! Wir blicken zur\u00fcck auf die Proteste, geben einen kurzen \u00dcberblick \u00fcber Erfolge und Niederlagen unseres Widerstands und eine Vorschau auf die Schrecken, die sich am Horizont der Inneren Sicherheit abzeichnen. Au\u00dferdem erkl\u00e4ren wir, warum die Bewegung gegen die Polizeigesetze auf keinen Fall sterben darf \u2013 und warum sie sich neuen Themen wie Klimaschutz, Antifaschismus und Antirassismus widmen muss."
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 25,
+      "Art + Culture": 75
+  },
+  "language": "en",
+  "title": "Wohnungsbot: An Automation-Drama in Three Acts",
+  "event_id": 10988,
+  "start_time": null,
+  "speaker_names": "Clemens Sch\u00f6ll",
+  "track_id": 357,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "At the center of Clemens Sch\u00f6ll's latest art project is the \"Wohnungsbot\" (flat-bot), which automates flat searching in Berlin. But it doesn't only try to search flats for everybody, it fundamentally questions power-relationships in (flat-searching) online platforms. Where are the utopias about public automation? Who should be able to automate what, and how?"
+}, {
+  "event_classifiers": {
+      "Hardware": 50,
+      "Theory - Practice": 50
+  },
+  "language": "de",
+  "title": "Connected Mobility hacken: digital.bike.23",
+  "event_id": 10990,
+  "start_time": null,
+  "speaker_names": "Jo Tiffe",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Was haben E-Bikes mit Connected Mobility zu tun? Und ist so was wie LineageOS auch f\u00fcr Bike Computer m\u00f6glich? Au\u00dferdem: wie lassen sich Cradle to Cradle Prinzipien auf E-Bikes anwenden? Der Vortrag gibt einen Einblick in die Rolle von E-Bikes in der Connected Mobility und umrei\u00dft ihren Stand der Technik. Zudem berichtet er von den Herausforderungen, ein nachhaltiges Open-Source-E-Bike zu entwickeln. Last but not least m\u00f6chte er die Idee eines Open-E-Bike-Wiki vorstellen."
+}, {
+  "event_classifiers": {
+      "Science": 60,
+      "Resilience": 15,
+      "Ethics, Politics + Society": 10,
+      "Foundations": 15
+  },
+  "language": "en",
+  "title": "Science for future?",
+  "event_id": 10991,
+  "start_time": null,
+  "speaker_names": "Bernhard Stoevesandt",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "This talk is to show the current state of the discussion on climate change and the necessary and possible changes from a scientific perpesctive. It is to give some typical relevant answers and to foster the resiliance against climate sceptic questioning. This is one of the main tasks the scientist for future are trying to tackle."
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 100
+  },
+  "language": "de",
+  "title": "Vom Ich zum Wir",
+  "event_id": 10993,
+  "start_time": null,
+  "speaker_names": "maha, Kai Biermann",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Ein von Zeit Online entwickeltes Tool macht es m\u00f6glich, die Plenarprotokolle des Bundestags grafisch und inhaltlich auszuwerten, und zwar seit seiner ersten Sitzung 1949 bis heute. In den 200 Millionen W\u00f6rtern zeigen sich historische Z\u00e4suren, sie machen gesellschaftliche und sprachliche Entwicklungen sichtbar: Wie ernst nahm der Bundestag in den vergangenen Jahren den Klimawandel? Wie h\u00e4ufig redeten die Abgeordneten \u00fcber Datenschutz, \u00fcber Arbeitslosigkeit, \u00fcber Rechtsextremismus, \u00fcber Gefl\u00fcchtete? Es wird sichtbar und vergleichbar, zu welchem Zeitpunkt welche Themen debattiert wurden, wie sich die politische Aufmerksamkeit \u00fcber die Jahre ver\u00e4ndert hat. Und die Daten belegen, wie die Sprache selbst sich ver\u00e4ndert, nicht nur weil neue Themen aufkommen, sondern auch weil sich der Sprachgebrauch wandelt. "
+}, {
+  "event_classifiers": {
+      "Security": 10,
+      "Ethics, Politics + Society": 100
+  },
+  "language": "en",
+  "title": "No roborders, no nation, or: smile for a European surveillance propagation",
+  "event_id": 10994,
+  "start_time": null,
+  "speaker_names": "alina, niczem",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Robots, Satellites and biometrical traps - more than a Billion Euro will be spent in 2021 for what they call \"Border Security.\" The European Border and Coastguard, formerly Frontex, dreams of a fully automomus border surveillance system. As a humanitarian & human rights organisation involved in sea rescue, we recognise however that the shift towards new technologies correlates with a shift away from basic human rights standards. The robots, sattelites & co. are not used to make society safer & life easier but to spy on us and to deport people to torture in Libya. "
+}, {
+  "event_classifiers": {
+      "Science": 100,
+      "Security": 80
+  },
+  "language": "en",
+  "title": "The search for anonymous data",
+  "event_id": 10995,
+  "start_time": null,
+  "speaker_names": "Yves-Alexandre de Montjoye",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Data is core to the digital economy. Scandals such as Cambridge Analytica, however, serve as a reminder that large-scale collection and use of data raise serious privacy concerns. In this talk, I will discuss past and current research in data anonymization and anonymous use of data. More specifically, I will describe how historical statistical disclosure control methods fail to protect people's privacy in a world of big data and discuss the potential and challenges of modern security-based approaches to data privacy."
+}, {
+  "event_classifiers": {
+      "Entertainment": 50,
+      "Science": 50,
+      "Theory - Practice": 25,
+      "Foundations": 75,
+      "Resilience": 75,
+      "Ethics, Politics + Society": 75
+  },
+  "language": "de",
+  "title": "Der Deep Learning Hype",
+  "event_id": 11006,
+  "start_time": null,
+  "speaker_names": "Nadja Geisler, Benjamin H\u00e4ttasch",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Deep Learning ist von einem Dead End zur ultimativen L\u00f6sung aller Machine Learning Probleme geworden - und einiger anderer auch. Aber wie gut ist dieser Trend wirklich? Und wie nachhaltig?\r\n\r\nWir setzen uns mit vier Fragen auseinander:\r\n\r\n1. Wie gut sind die Ergebnisse wirklich? Was k\u00f6nnen die modernen neuronalen Netze und was k\u00f6nnen sie nicht? Und vor allem: Wo werden sie eingesetzt und wie sinnvoll ist das?\r\n\r\n2. Welche L\u00f6sungen und Ans\u00e4tze gehen im Deep Learning Hype unter? Daf\u00fcr, dass sich so viele Forscher*innen mit dem Thema besch\u00e4ftigen, zahlen wir damit, dass andere Themen, Ideen und Ans\u00e4tze ignoriert werden - obwohl sie n\u00fctzlich sein k\u00f6nnten.\r\n\r\n3. Was macht das mit unserer Gesellschaft? Insbesondere die Maschinen, die auf irgendeiner Ebene versuchen, Menschen zu imitieren, aber auch viele Anwendungen, die wir allt\u00e4glich verwenden, haben einen grundlegenden Einfluss auf uns, der nicht immer ausreichend reflektiert wird.\r\n\r\n4. Welche Ressourcen investieren wir? Rechenzentren, riesige Data Warehouses, Krypto-currency Berechnung und Compute Cluster haben einen nicht mehr vernachl\u00e4ssigbaren Einfluss auf unsere endlichen Ressourcen und den CO2 Haushalt, direkt und indirekt."
+}, {
+  "event_classifiers": {
+      "Security": 60,
+      "Ethics, Politics + Society": 100,
+      "Resilience": 100,
+      "Defense - Offense": 50
+  },
+  "language": "en",
+  "title": "Server Infrastructure for Global Rebellion",
+  "event_id": 11008,
+  "start_time": null,
+  "speaker_names": "Julian Oliver",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "In this talk Julian will outline his work as sysadmin, systems and security architect for the climate and environmental defense movement Extinction Rebellion. Responsible for 30 server deployments in 11 months, including a community hub spanning dozens of national teams (some of which operate in extremely hostile conditions), he will show why community-owned free and open source infrastructure is mission-critical for the growth, success and safety of global civil disobedience movements. "
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 75,
+      "Science": 100,
+      "Security": 30,
+      "Resilience": 100,
+      "Ethics, Politics + Society": 75
+  },
+  "language": "en",
+  "title": "Protecting the Wild",
+  "event_id": 11010,
+  "start_time": null,
+  "speaker_names": "Jutta Buschbom",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Conservation genomic approaches are crucial for establishing long-term sustainable conservation and management strategies for the protection of biodiversity and natural ecosystems. In this talk, the diverse and disparate fields of expertise and activism are presented, which are involved in building effective conservation genomic reference datasets and their infrastructures, analytical inference/prediction environments and operational tools for practical application. "
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 75,
+      "Entertainment": 60,
+      "Science": 50,
+      "Hardware": 50,
+      "Foundations": 70,
+      "Security": 100
+  },
+  "language": "en",
+  "title": "Vehicle immobilization revisited",
+  "event_id": 11020,
+  "start_time": null,
+  "speaker_names": "Wouter Bokslag",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Modern road vehicles are fitted with an electronic immobilization system, which prevents the vehicle from starting unless an authorized transponder is present. It is common knowledge that the security transponder embedded in the key fob should be secure, and quite some work has been published on the (in)security of such transponders. However, we identify another crucial part of the immobilizer system, that has not yet received any academic attention. We investigated three vehicles, and found that the security transponder does not communicate with the ECM (Engine Control Module) but with the BCM (Body Control Module). After succesful authentication of the key, the BCM will then authenticate towards the ECM, after which immobilization is deactivated and the vehicle may start. If either the security transponder or this ECM-BCM authentication protocol is weak, vehicles may be started without presence of a valid security transponder. \r\n\r\nWe present three case studies of such ECM-BCM protocols on vehicles from Peugeot, Fiat and Opel. The protocols are shown to be used in many different models, and also by other brands owned by the same group. We show how two of the protocols are completely broken, while the third one is derived directly from a 1995 security transponder. Both attacks can be carried out through the standardized OBD-II connector, present and conveniently located in all modern vehicles. Bottom line: cryptographic protocols used in the ECM-BCM authentication are not on par when compared with the crypto embedded in the transponder."
+}, {
+  "event_classifiers": {
+      "Resilience": 100,
+      "Ethics, Politics + Society": 70
+  },
+  "language": "de",
+  "title": "Degrowth is coming - be ready to repair",
+  "event_id": 11030,
+  "start_time": null,
+  "speaker_names": "Anja",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Der Diskurs um die \"Digitalisierung\" kann vor allem eines: Verhei\u00dfen. Roboter befreien uns von m\u00fchsamer Arbeit, Effizienzsteigerungen sorgen von ganz allein f\u00fcr den Schutz von Umwelt und Ressourcen und Algorithmen erleichtern uns den Alltag. Dass diese Verhei\u00dfungen vor allem Tech-Konzernen in die Tasche spielen und wir dank der datenraff(inier)enden Gesch\u00e4ftsmodelle des digitalen Kapitalismus auf \u00f6kologische und soziale Katastrophen zusteuern, soll in dem Vortrag gezeigt werden. \r\nKann die Wirtschaft dank effizienterer Technologien weiter wachsen ohne dabei Ressourcen zu verbrauchen? Oder merken wir bei unseren immer voller werdenden Leben gar nicht, dass uns in Wahrheit die Rohstoffe ausgehen? Wenn wir schon sehr bald kein Material mehr haben, um Technik zu bauen, die alle Verhei\u00dfungen erf\u00fcllt - was machen wir dann? Ist die Antwort dann  reparieren, selber machen, vielleicht sogar kreativ werden?"
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 90,
+      "Entertainment": 25
+  },
+  "language": "en",
+  "title": "The KGB Hack: 30 Years Later",
+  "event_id": 11031,
+  "start_time": null,
+  "speaker_names": "Anja Drephal",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "This spring marked the 30th anniversary of the public uncovering of the so-called KGB Hack, bringing with it a number of new articles remembering the event and forging bridges to the present. \r\nThe 36C3 seems an excellent opportunity to take a look back at the instance of hacking which, even more so than previous events like the BTX Hack, brought the CCC into the focus of the (West-)German public \u2013 and, additionally, the Federal Office for the Protection of the Constitution (Verfassungsschutz) and the Federal Intelligence Service (Bundesnachrichtendienst)."
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 100,
+      "Security": 100,
+      "Defense - Offense": 100,
+      "Entertainment": 10
+  },
+  "language": "en",
+  "title": "Tales of old: untethering iOS 11",
+  "event_id": 11034,
+  "start_time": null,
+  "speaker_names": "littlelailo",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "This talk is about running unsigned code at boot on iOS 11. I will demonstrate how you can start out with a daemon config file and end up with kernel code execution."
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 90
+  },
+  "language": "de",
+  "title": "Gerechtigkeit 4.0",
+  "event_id": 11035,
+  "start_time": null,
+  "speaker_names": "Sven Hilbig",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "In den gegenw\u00e4rtigen Debatten um die Digitalisierung werden systemische und strukturelle Auswirkungen der Digitalisierung auf Entwicklungs- und Schwellenl\u00e4nder und damit verbundene potentielle Risiken und Herausforderungen bislang kaum betrachtet und diskutiert. Ein schwerwiegendes Vers\u00e4umnis, hatte doch bereits die Weltbank, einer der gr\u00f6\u00dften F\u00f6rderer von IKT in den L\u00e4ndern des Globalen S\u00fcdens, in ihrem Weltentwicklungsbericht \u201aDigital Dividende\u2018 (2016) selbstkritische einger\u00e4umt, der digitale Wandel bleibe nicht nur hintern, sondern versch\u00e4rfe die soziale Ungleichheit. \r\nDer Vortrag setzt sich mit der Frage auseinander, inwiefern die Digitalisierung zur \u00dcberwindung von Armut und sozialer Ungleichheit in den L\u00e4ndern des S\u00fcdens beitragen k\u00f6nnen. Erweitern sie die Chancen auf gesellschaftliche und \u00f6konomische Teilhabe von benachteiligten Menschen oder verengen sie diese? \r\nSchwerpunkt der Analyse bildet die Auseinandersetzung mit dem digitalen Handel. Fast unbemerkt hat sich in der Handelspolitik eine neue Dynamik entwickelt. F\u00fchrende Tech-Konzerne, allen voran die aus dem Silicon Valley, instrumentalisieren zunehmend das Handelsrecht f\u00fcr ihre Interessen. Dabei geht es l\u00e4ngst nicht mehr nur um die Reduzierung von Z\u00f6llen auf digitale Produkte wie Software oder einheitliche Standards f\u00fcr Telekommunikationsdienste. Patente auf K\u00fcnstliche Intelligenz sowie die (Nicht)Regulierung von Datenfl\u00fcssen sind inzwischen auch Bestandteil handelsrechtlicher Regelungen und Gegenstand kontroverser Debatten in der Welthandelsorganisation WTO. F\u00fcr die L\u00e4nder des Globalen S\u00fcdens \u2013 aber nicht nur f\u00fcr sie \u2013 steht dabei viel auf dem Spiel, einschlie\u00dflich der Gefahr eines neuen, digitalen Kolonialismus. \r\nIm Vortrag zeigt zudem erste Ans\u00e4tze zum Aufbau einer fairen und menschenw\u00fcrdigen Digitalisierung auf. \r\n"
+}, {
+  "event_classifiers": {
+      "Science": 100
+  },
+  "language": "en",
+  "title": "Quantum Computing: Are we there yet?",
+  "event_id": 11039,
+  "start_time": null,
+  "speaker_names": "Andreas Dewes",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Five years ago I spoke about my work in quantum computing, building and running a tiny two qubit processor. A few weeks ago, Google announced a potentially groundbreaking result achieved with a 53 qubit quantum processor. I will therefore review the state of experimental quantum computing and discuss the progress we made in the last 5 years. I will explain quantum supremacy, surface code architecture and superconducting quantum processors and show which challenges we still have to overcome to build large scale quantum computers."
+}, {
+  "event_classifiers": {
+      "Science": 100,
+      "Resilience": 100
+  },
+  "language": "en",
+  "title": "HUMUS sapiens",
+  "event_id": 11043,
+  "start_time": null,
+  "speaker_names": "Julian mikroBIOMIK, Moritz Chollet, Hellmut von Koerber",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "<p>HUMUS sapiens represents a compilation of soil explorations emerging from the networks of mikroBIOMIK, Hackteria, and Gasthaus \u2013 with the ambition to bring DIY (do-it-yourself) and DIWO(do-it-with-others) approaches as well as an open-source-based \u201chacker spirit\u201d into soil ecology. Participants are invited to reflect on current scientific discourses and critical societal challenges through hands-on tinkering and curiosity-driven research.</p>"
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 75,
+      "Resilience": 50,
+      "Ethics, Politics + Society": 90
+  },
+  "language": "en",
+  "title": "Confessions of a future terrorist",
+  "event_id": 11045,
+  "start_time": null,
+  "speaker_names": "Anna Mazgal",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "We will examine the European Commission\u2019s proposal for a regulation on preventing the dissemination of terrorist content from as a radical form of censorship. Looking at the rationale and arguments of policy-makers in Brussels, we will discuss normalisation of a \u201cdo something doctrine\u201d and \u201cpolicy-based evidence\u201d. How can citizens and activists influence that legislative process? And what does it mean if they won\u2019t?"
+}, {
+  "event_classifiers": {
+      "Hardware": 20,
+      "Security": 20,
+      "Ethics, Politics + Society": 90
+  },
+  "language": "en",
+  "title": "Reflections on the New Reverse Engineering Law",
+  "event_id": 11089,
+  "start_time": null,
+  "speaker_names": "Steffen Becker, Stephan Kolo\u00dfa",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Individuals conducting reverse engineering for research purposes face several legal issues arising from IP and competition law. The legislation has reacted by introducing a new law on trade secrets specifically allowing reverse engineering. While the new law is certainly an improvement, many questions still remain as to conflicts with opposing domestic laws as well as other possibilities to waive the permission. In this talk, we provide guidance through the jungle of the current legal situation from a techno-legal perspective."
+}, {
+  "event_classifiers": {},
+  "language": "en",
+  "title": "The Case Against WikiLeaks: a direct threat to our community ",
+  "event_id": 11090,
+  "start_time": null,
+  "speaker_names": "renataavila, naomi@auerfeld.com",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "The unprecedented charges against Julian Assange and WikiLeaks constitute the most significant threat to the First Amendment in the 21st century and a clear and present danger to investigative journalism worldwide. But they also pose significant dangers to the technical community. This panel will explain the legal and political issues we all need to understand in order to respond to this historic challenge. "
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 50,
+      "Science": 50,
+      "Ethics, Politics + Society": 100
+  },
+  "language": "de",
+  "title": "Von Menschen radikalisiert: \u00dcber Rassismus im Internet",
+  "event_id": 11097,
+  "start_time": null,
+  "speaker_names": "Michael Kreil",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Seit Jahren wird \u00fcber den Einfluss des Internets auf die Gesellschaft diskutiert. Desinformationskampagnen in den sozialen Medien, russische Bots und Empfehlungs-Algorithmen h\u00e4tten die Gesellschaft gespalten. Doch viele Unterstellungen lassen sich einfach widerlegen.\r\n\r\nDieser Vortrag gibt einen \u00dcberblick und schl\u00e4gt Ans\u00e4tze vor, wie sich die Ph\u00e4nomene des Rechtsrucks zu einem konsistenten Bild zusammenf\u00fcgen lassen."
+}, {
+  "event_classifiers": {
+      "Ethics, Politics + Society": 90
+  },
+  "language": "en",
+  "title": "Reducing Carbon in the Digital Realm",
+  "event_id": 11113,
+  "start_time": null,
+  "speaker_names": "mrchrisadams",
+  "track_id": 364,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "In this talk, you'll learn about the environmental impact of the digital products and services you build, why this matters. You\u2019ll be introduced to a mental model, known as Platform, Packets, Process,  for measuring and identifying emissions hotspots in digital products, and the steps you can take to reduce them.\r\n"
+}, {
+  "event_classifiers": {
+      "Hardware": 10,
+      "Ethics, Politics + Society": 100,
+      "Entertainment": 30
+  },
+  "language": "de",
+  "title": "Die Aff\u00e4re Hannibal",
+  "event_id": 11114,
+  "start_time": null,
+  "speaker_names": "Sebastian Erb",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Sie sollen den Staat sch\u00fctzen, sind aber selbst eine Gefahr: Soldaten und Polizisten, die sich in Chat-Gruppen organisieren und auf den \u201eTag X\u201c vorbereiten. Mit aufw\u00e4ndigen Recherchen hat ein Team der taz ein bundesweites konspiratives Netzwerk aus Preppern und Staatsbediensteten aufgedeckt. Kopf war \u201eHannibal\u201c, Elitesoldat beim Kommando Spezialkr\u00e4fte \u2013 und Auskunftsperson f\u00fcr den Milit\u00e4rischen Abschirmdienst. Hier geben die ReporterInnen Einblick in die Recherche und zeigen, was aus ihren Berichten folgte. Oder auch nicht."
+}, {
+  "event_classifiers": {
+      "Hardware": 10,
+      "Science": 65,
+      "Ethics, Politics + Society": 25
+  },
+  "language": "de",
+  "title": "Energiespeicher von heute f\u00fcr die Energie von morgen",
+  "event_id": 11119,
+  "start_time": null,
+  "speaker_names": "Stormwind",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Wir verlassen uns in unserem Alltag permanent auf die Verf\u00fcgbarkeit von elektischer Energie. Aber wenn wir vom dauerhaften Betrieb von Kraftwerke, die fossile Energietr\u00e4ger verbrennen, wie stellen wir die Versorgung sicher, wenn nachts kein Wind weht? \r\nElektrolyse oder Pumpspeicherkraftwerk? Superkondensatoren oder mechanische Speicher? Was geht heute \u00fcberhaupt schon?\r\n\r\n\u00c4hnlich unklar ist die Zukunft der Mobilit\u00e4t, wenn Verbrennungsmotoren von unseren Stra\u00dfen verschwinden sollen. Batteriefahrzeug oder Wasserstoffauto? Und bekommt man sein Fahrzeug \u00fcberhaupt so schnell vollgetankt wie heute mit Benzin?"
+}, {
+  "event_classifiers": {
+      "Resilience": 25,
+      "Ethics, Politics + Society": 60
+  },
+  "language": "de",
+  "title": "Geheimdienstliche Massen\u00fcberwachung vs. Menschenrechte",
+  "event_id": 11141,
+  "start_time": null,
+  "speaker_names": "Constanze Kurz",
+  "track_id": 360,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Der Europ\u00e4ische Menschenrechtsgerichtshof besch\u00e4ftigt sich nun schon seit Jahren mit der Frage, ob die durch Edward Snowden \u00f6ffentlich bekanntgewordene geheimdienstliche Massen\u00fcberwachung mit der Europ\u00e4ischen Menschenrechtskonvention kompatibel ist. Wie ist der Stand der Dinge?"
+}, {
+  "event_classifiers": {
+      "Science": 100,
+      "Resilience": 25
+  },
+  "language": "en",
+  "title": "Mathematical diseases in climate models and how to cure them",
+  "event_id": 11155,
+  "start_time": null,
+  "speaker_names": "Ali Ramadhan, Valentin Churavy",
+  "track_id": 362,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Making climate predictions is extremely difficult because climate models cannot simulate every cloud particle in the atmosphere and every wave in the ocean, and the model has no idea what humans will do in the future. I will discuss how we are using the Julia programming language and GPUs in our attempt to build a fast and user-friendly climate model, and improve the accuracy of climate predictions by learning the small-scale physics from observations."
+}, {
+  "event_classifiers": {
+      "Security": 50,
+      "Ethics, Politics + Society": 50,
+      "Entertainment": 50
+  },
+  "language": "de",
+  "title": "Security Nightmares 0x14",
+  "event_id": 11164,
+  "start_time": null,
+  "speaker_names": "frank, Ron",
+  "track_id": 358,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Was hat sich im letzten Jahr im Bereich IT-Sicherheit getan? Was werden die n\u00e4chsten Buzzwords sein und welche neuen Trends sind schon heute absehbar?"
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 90,
+      "Security": 90,
+      "Resilience": 90,
+      "Defense - Offense": 0
+  },
+  "language": "en",
+  "title": "Leaving legacy behind",
+  "event_id": 11172,
+  "start_time": null,
+  "speaker_names": "Hannes Mehnert",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Is the way we run services these days sustainable? The trusted computing base -- the lines of code where, if a flaw is discovered, jeopardizes the security and integrity of the entire service -- is enormous. Using orchestration systems that contain millions of lines of code, and that execute shell code, does not decrease this. This talk will present an alternative, minimalist approach to secure network services - relying on a programming language that guarantees memory safety - composing small libraries (open source, permissively licensed) to build so-called MirageOS unikernels -- special purpose services. Besides web services, other digital infrastructure such as VPN gateway, calendar server, DNS server and resolver, and a minimalistic orchestration system, will be presented. Each unikernel can either run as virtual machine (KVM, Xen, BHyve, virtio), as a sandboxed process (with seccomp filters allowing only 8 system calls), or in smaller containments (GenodeOS, muen separation kernel) -- even a prototypical ESP32 backend is available."
+}, {
+  "event_classifiers": {
+      "Theory - Practice": 100,
+      "Foundations": 100,
+      "Defense - Offense": 0
+  },
+  "language": "de",
+  "title": "Hirne Hacken",
+  "event_id": 11175,
+  "start_time": null,
+  "speaker_names": "Linus Neumann",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Die \u00fcberw\u00e4ltigende Mehrheit der erfolgreichen Hacks in freier Wildbahn setzen auf menschliche Faktoren. Wie k\u00f6nnen wir Systeme und Interfaces gestalten, um diese Schwachstellen zu mindern?"
+}, {
+  "event_classifiers": {
+      "Entertainment": 95
+  },
+  "language": "de",
+  "title": "Hacker Jeopardy",
+  "event_id": 11177,
+  "start_time": null,
+  "speaker_names": "Sec, Ray",
+  "track_id": 359,
+  "room_id": null,
+  "duration": 7200,
+  "abstract": "The Hacker Jeopardy is a quiz show."
+}, {
+  "event_classifiers": {
+      "Resilience": 50,
+      "Ethics, Politics + Society": 60,
+      "Art + Culture": 80
+  },
+  "language": "de",
+  "title": "Kunst gegen Facebook",
+  "event_id": 11178,
+  "start_time": null,
+  "speaker_names": "el",
+  "track_id": 357,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": "Gegenw\u00e4rtig hat Facebook mit seinem Event-Kalender und mit Instagram als spektakul\u00e4rem Bilderfeed die Kultursph\u00e4re fest in der Hand. Doch es gibt Graffiti in den Ruinen des Feeds und das Party-Infokapital wandert aus. Der Vortrag ruft dazu auf als kritische Netzszene mit Argumenten und Skills - also theoretisch und praktisch - Br\u00fccken zu bauen damit viele da mitmachen."
+}, {
+  "event_classifiers": {
+      "Security": 100
+  },
+  "language": "en",
+  "title": "Breaking Microsoft Edge Extensions Security Policies",
+  "event_id": 11186,
+  "start_time": null,
+  "speaker_names": "Nikhil Mittal",
+  "track_id": 363,
+  "room_id": null,
+  "duration": 2400,
+  "abstract": ""
+}, {
+  "event_classifiers": {
+      "Hardware": 75,
+      "Science": 65,
+      "Entertainment": 30
+  },
+  "language": "en",
+  "title": "phyphox: Using smartphone sensors for physics experiments",
+  "event_id": 11195,
+  "start_time": null,
+  "speaker_names": "Sebastian Staacks",
+  "track_id": 361,
+  "room_id": null,
+  "duration": 3600,
+  "abstract": "Modern smartphones offer a whole range of sensors like magnetometers, accelerometers or gyroscopes. The open source app \"phyphox\", developed at the RWTH Aachen University, repurposes these sensors as measuring instruments in physics education. When put into a salad spinner, the phone can acquire the relation of centripetal acceleration and angular velocity. Its barometer can be used to measure the velocity of an elevator. And when using two phones, it is easy to determine the speed of sound with a very simple method.\r\n\r\nIn this talk, I will show these possibilities in demonstration experiments, discuss available sensors and their limitations and introduce interfaces to integrate phyphox into other projects."
+}, {
+  "event_classifiers": {},
+  "language": "en",
+  "title": "Opening Ceremony",
+  "event_id": 11223,
+  "start_time": null,
+  "speaker_names": "",
+  "track_id": 358,
+  "room_id": null,
+  "duration": 1800,
+  "abstract": ""
+}, {
+  "event_classifiers": {},
+  "language": "en",
+  "title": "Closing Ceremony",
+  "event_id": 11224,
+  "start_time": null,
+  "speaker_names": "",
+  "track_id": 358,
+  "room_id": null,
+  "duration": 1800,
+  "abstract": ""
+}]
+

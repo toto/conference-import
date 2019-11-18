@@ -1,0 +1,187 @@
+{
+  "event": {
+    "id": "36c3",
+    "label": "36C3",
+    "title": "36th Chaos Communication Congress",
+    "date": [
+      "2019-12-27",
+      "2019-12-30"
+    ],
+    "locations": [
+      {
+        "label": "Messe Leipzig",
+        "coords": [
+          51.396667,
+          12.402778
+        ],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "url": "http://events.ccc.de/congress/2019",
+    "hashtag": "36C3"
+  },
+  "days": [
+    {
+      "id": "2019-12-27",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2019-12-27"
+    },
+    {
+      "id": "2019-12-28",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2019-12-28"
+    },
+    {
+      "id": "2019-12-29",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2019-12-29"
+    },
+    {
+      "id": "2019-12-30",
+      "label_de": "Tag 4",
+      "label_en": "Day 4",
+      "date": "2019-12-30"
+    },
+  ],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "halfnarp",
+      "eventId": "36c3",
+      "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
+      "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2019/Fahrplan/events/",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "36c3-ccc",
+        "label_en": "CCC",
+        "label_de": "CCC",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "tracks": [
+        {
+          "id": "36c3-art-culture",
+          "color": [
+            249,
+            176,
+            0,
+            1
+          ],
+          "label_en": "Art & Culture",
+          "label_de": "Art & Culture",
+          "type": "track"
+        },
+        {
+          "id": "36c3-ccc",
+          "color": [
+            219,
+            196,
+            251,
+            1
+          ],
+          "label_en": "CCC",
+          "label_de": "CCC",
+          "type": "track"
+        },
+        {
+          "id": "36c3-entertainment",
+          "color": [
+            219,
+            196,
+            251,
+            1
+          ],
+          "label_en": "Entertainment",
+          "label_de": "Entertainment",
+          "type": "track"
+        },
+        {
+          "id": "36c3-ethics-society-politics",
+          "color": [
+            228,
+            4,
+            41,
+            1
+          ],
+          "label_en": "Ethics, Society & Politics",
+          "label_de": "Ethics, Society & Politics",
+          "type": "track"
+        },
+        {
+          "id": "36c3-hardware-making",
+          "color": [
+            108,
+            93,
+            166,
+            1
+          ],
+          "label_en": "Hardware & Making",
+          "label_de": "Hardware & Making",
+          "type": "track"
+        },
+        {
+          "id": "36c3-resilience-sustainability",
+          "color": [
+            0,
+            152,
+            206,
+            1
+          ],
+          "label_en": "Resilience & Sustainability",
+          "label_de": "Resilience & Sustainability",
+          "type": "track"
+        },
+        {
+          "id": "36c3-science",
+          "color": [
+            0,
+            163,
+            86,
+            1
+          ],
+          "label_en": "Science",
+          "label_de": "Science",
+          "type": "track"
+        },
+        {
+          "id": "36c3-security",
+          "color": [
+            73,
+            115,
+            150,
+            1
+          ],
+          "label_en": "Security",
+          "label_de": "Security",
+          "type": "track"
+        }
+      ],
+      "trackIdMap": {
+        "363": "36c3-security",
+        "361": "36c3-hardware-making",
+        "360": "36c3-ethics-society-politics",
+        "358": "36c3-ccc",
+        "359": "36c3-entertainment",
+        "362": "36c3-science",
+        "357": "36c3-art-culture",
+        "364": "36c3-resilience-sustainability"
+      },
+      "defaultLanguageName": "German",
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "vocSlug": "36c3",
+      "pois": []
+    }
+  ],
+  "timezone": "Europe/Berlin",
+  "hourOfDayChange": 4,
+  "nonStageLocationIds": []
+}
+}
