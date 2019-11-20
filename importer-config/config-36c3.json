@@ -44,7 +44,7 @@
       "label_de": "Tag 4",
       "label_en": "Day 4",
       "date": "2019-12-30"
-    },
+    }
   ],
   "subconferences": [],
   "sources": [
@@ -183,5 +183,4 @@
   "timezone": "Europe/Berlin",
   "hourOfDayChange": 4,
   "nonStageLocationIds": []
-}
 }

@@ -55,7 +55,11 @@ it("Should parse some session", () => {
   expect(firstSession.url).toBe(
     "https://fahrplan.events.ccc.de/congress/2019/Fahrplan/events/10496.html"
   );
-  expect(firstSession.speakers.length).toBe(0);
+  expect(firstSession.speakers.length).toBe(1);
+  const [firstSpeaker] = firstSession.speakers;
+  expect(firstSpeaker.id).toBe('36c3-arne-semsrott');
+  expect(firstSpeaker.name).toBe('Arne Semsrott');
+
   expect(firstSession.title).toBe(
     "Das Mauern muss weg"
   );
@@ -69,29 +73,21 @@ it("Should parse all sessions", () => {
   expect(sessions.length).toBe(140);
 });
 
-// it("Should parse multiple speakers sessions", () => {
-//   const sessions = sessionsFromJson(parsedJson, {
-//     format: "frab",
-//     eventId: "camp19",
-//     timezone: 'Europe/Berlin',
-//     scheduleJson: "https://fahrplan.events.ccc.de/camp/2019/Fahrplan/schedule.json",
-//     frabBaseUrl: "https://fahrplan.events.ccc.de/camp/2019/Fahrplan",
-//     defaultTrack: { id: "track", event: "35c3", label_en: "Some Track", color: [0, 0, 0, 1], type: "track" },
-//     defaultLanguageCode: 'de',
-//   });
-//   const session = sessions.find(s => s.id === "10380");
-//   if (!session) {
-//     expect(false).toBe(true);
-//     return;
-//   }
-//   expect(session.speakers.length).toBe(2);
+it("Should parse multiple speakers sessions", () => {
+  const sessions = sessionsFromJson(parsedJson, config);
+  const session = sessions.find(s => s.id === "10542");
+  if (!session) {
+    expect(false).toBe(true);
+    return;
+  }
+  expect(session.speakers.length).toBe(2);
 
-//   const [a, b] = session.speakers;
-//   expect(a.id).toBe("4601");
-//   expect(a.name).toBe("bigalex");
-//   expect(b.id).toBe("8067");
-//   expect(b.name).toBe("honky");
-// });
+  const [a, b] = session.speakers;
+  expect(a.id).toBe("36c3-peter-schmidt");
+  expect(a.name).toBe("Peter Schmidt");
+  expect(b.id).toBe("36c3-heurekus");
+  expect(b.name).toBe("Heurekus");
+});
 
 
 

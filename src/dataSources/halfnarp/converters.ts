@@ -1,7 +1,7 @@
-import { Session, MiniTrack, Track, Language, MiniSpeaker } from "../../models";
+import { Session, MiniTrack, Track, Language, MiniSpeaker, Speaker } from "../../models";
 import { HalfnarpSourceFormat } from "./index";
 import { languageFromIsoCode } from '../rp/language';
-import { dehtml } from '../rp/utils';
+import { dehtml, mkId } from '../rp/utils';
 
 function trackFromSessionJson(session: any, config: HalfnarpSourceFormat): Track | undefined {
   if (!session.track_id) return undefined;
@@ -11,6 +11,44 @@ function trackFromSessionJson(session: any, config: HalfnarpSourceFormat): Track
   if (!trackId) return undefined;
   
   return config.tracks.find(t => t.id === trackId)
+}
+
+export function speakersFromJson(json: any, config: HalfnarpSourceFormat): Speaker[] {
+  if (!Array.isArray(json)) return [];
+
+  let speakers: Speaker[] = []; 
+
+  json.forEach(sessionJson => {
+    const speakersForSession = speakersFromJson(sessionJson, config);
+    speakers = speakers.concat(speakersForSession);
+  });
+  
+  return speakers
+}
+
+function speakersFromSession(session: any, config: HalfnarpSourceFormat): Speaker[] {
+  const speakers: Speaker[] = [];
+
+  const speakerNames: string[] = session.speaker_names.split(', ');
+  for (const name of speakerNames) {
+    const id = mkId(`${config.eventId}-${name}`);
+    const speaker: Speaker = {
+      type: 'speaker',
+      event: config.eventId,
+      id,
+      name,
+      biography: '',
+      photo: undefined,
+      url: config.sessionBaseUrl,
+      links: [],
+      sessions: [],
+      organization: undefined,
+      position: undefined,
+    };
+    speakers.push(speaker);
+  }
+
+  return speakers;
 }
 
 export function sessionsFromJson(json: any, config: HalfnarpSourceFormat): Session[] {
@@ -38,8 +76,8 @@ function parseSession(session: any, config: HalfnarpSourceFormat): Session | und
     if (sessionLang) language = sessionLang;
   }
 
-  // TODO: Add speakers once we get the id
-  const speakers: MiniSpeaker[] = []
+  const speakers: Speaker[] = speakersFromSession(session, config);
+  const miniSpeakers: MiniSpeaker[] = speakers.map(s => { return {id: s.id , name: s.name} } );
 
   const sessionUrl = `${config.sessionBaseUrl}${session.event_id}.html`
   
@@ -56,7 +94,7 @@ function parseSession(session: any, config: HalfnarpSourceFormat): Session | und
     location: undefined,
     lang: language,
     enclosures: [],
-    speakers,
+    speakers: miniSpeakers,
     related_sessions: [],
     links: [],
     cancelled: false,

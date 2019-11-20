@@ -2,6 +2,7 @@ import * as axios from "axios";
 import { DataSourceFormat } from "../dataSource";
 import { Event, Track } from "../../models";
 import { ConferenceData } from "../../importer/importer";
+import { speakersFromJson, sessionsFromJson } from "./converters";
 
 export interface HalfnarpSourceFormat extends DataSourceFormat {
   format: "halfnarp";
@@ -41,6 +42,9 @@ async function singleSourceData(event: Event, source: HalfnarpSourceFormat): Pro
 
   
   const halfnarpJson = await axios.default.get(source.sourceUrl);
+
+  result.speakers = speakersFromJson(halfnarpJson, source);
+  result.sessions = sessionsFromJson(halfnarpJson, source);
   console.log(JSON.stringify(halfnarpJson, null, 4));
 
   return result;
