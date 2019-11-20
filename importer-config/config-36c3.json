@@ -180,75 +180,146 @@
       "pois": []
     }
   ],
-  "colorForTrack": {
-    "camp19-ccc": [
+  "options": {
+    "locationIdOrder": [
+      "curie",
+      "meitner",
+      "self-organized-sessions-johnson-workshop-1-",
+      "self-organized-sessions-goldberg-workshop-2-",
+      "kemistry-lounge",
+      "rockmore-booth",
+      "thms-plank",
+      "thms-workshop",
+      "thms-plank-stage-",
+      "thms-fireplace-workshop-",
+      "kids-stage",
+      "komona-stage",
+      "self-organized-sessions-hackcenter",
+      "self-organized-sessions-hackcenter-1",
+      "self-organized-sessions-hackcenter-3",
+      "self-organized-sessions-village-three-headed-monkey",
+      "self-organized-sessions-village-haecksen",
+      "self-organized-sessions-village-1komona",
+      "self-organized-sessions-village-chaoswelle",
+      "self-organized-sessions-village-chaos-west",
+      "self-organized-sessions-village-metalab-dome",
+      "self-organized-sessions-village-infuanfu",
+      "self-organized-sessions-village-foodhackingbase",
+      "self-organized-sessions-village-latex",
+      "self-organized-sessions-village-about-freedom",
+      "self-organized-sessions-village-digitalcourage",
+      "self-organized-sessions-village-kidspace",
+      "self-organized-sessions-village-hardwarehackingarea",
+      "self-organized-sessions-village-free-software-foundation-europe",
+      "self-organized-sessions-village-schaffenburg",
+      "self-organized-sessions-village-harbor",
+      "self-organized-sessions-village-hackleman",
+      "self-organized-sessions-village-c-base",
+      "self-organized-sessions-village-milliways",
+      "self-organized-sessions-village-402-payment-required",
+      "self-organized-sessions-village-zsh---zelt-stadt-hessen",
+      "self-organized-sessions-village-sft-pwnda-village-",
+      "self-organized-sessions-village-robovillage",
+      "self-organized-sessions-village-chaoszone",
+      "self-organized-sessions-village-backspace",
+      "self-organized-sessions-village-afra",
+      "self-organized-sessions-village-ecohackerfarm",
+      "self-organized-sessions-village-munich-maker-village",
+      "self-organized-sessions-village-nixos",
+      "self-organized-sessions-seating-area-south-of-milliways-s9-on-map-",
+      "self-organized-sessions-village-social-dist0rtion-protocol",
+      "self-organized-sessions-village-scottish-consulate",
+      "self-organized-sessions-village-ccc-ch",
+      "self-organized-sessions-village-emf",
+      "self-organized-sessions-village-reclaim-club-culture",
+      "self-organized-sessions-village-fri3d-camp",
+      "self-organized-sessions-village-teurca",
+      "self-organized-sessions-village-teurcamp",
+      "self-organized-sessions-village-singularity-city",
+      "self-organized-sessions-village-k-niglich-bayerisches-amtsvillage",
+      "self-organized-sessions-village-italian-hackers-embassy",
+      "self-organized-sessions-village-chaos-ballett-bett-drahti-trampolin-",
+      "self-organized-sessions-village-moose-hillhackers",
+      "self-organized-sessions-village-aaaaaaaaaaaa",
+      "self-organized-sessions-village-librehosters",
+      "self-organized-sessions-village-dragon-sleep-pwn-sector"
+    ],
+    "defaultColor": [
       0,
       83,
       132,
       1
     ],
-    "camp19-art-culture": [
-      255,
-      198,
-      0,
-      1
-    ],
-    "camp19-entertainment": [
-      211,
-      154,
-      0,
-      1
-    ],
-    "camp19-ethics-society-politics": [
-      153,
-      186,
-      0,
-      1
-    ],
-    "camp19-hardware-making": [
-      111,
-      135,
-      0,
-      1
-    ],
-    "camp19-science": [
-      0,
-      118,
-      186,
-      1
-    ],
-    "camp19-security": [
-      0,
-      83,
-      132,
-      1
-    ],
-    "camp19-music": [
-      255,
-      198,
-      0,
-      1
-    ],
-    "thms-music": [
-      255,
-      198,
-      0,
-      1
-    ],
-    "thms-workshop": [
-      0,
-      83,
-      132,
-      1
-    ],
-    "thms-talk": [
-      0,
-      118,
-      186,
-      1
-    ]
-  },
-  "timezone": "Europe/Berlin",
-  "hourOfDayChange": 4,
-  "nonStageLocationIds": []
+    "colorForTrack": {
+      "camp19-ccc": [
+        0,
+        83,
+        132,
+        1
+      ],
+      "camp19-art-culture": [
+        255,
+        198,
+        0,
+        1
+      ],
+      "camp19-entertainment": [
+        211,
+        154,
+        0,
+        1
+      ],
+      "camp19-ethics-society-politics": [
+        153,
+        186,
+        0,
+        1
+      ],
+      "camp19-hardware-making": [
+        111,
+        135,
+        0,
+        1
+      ],
+      "camp19-science": [
+        0,
+        118,
+        186,
+        1
+      ],
+      "camp19-security": [
+        0,
+        83,
+        132,
+        1
+      ],
+      "camp19-music": [
+        255,
+        198,
+        0,
+        1
+      ],
+      "thms-music": [
+        255,
+        198,
+        0,
+        1
+      ],
+      "thms-workshop": [
+        0,
+        83,
+        132,
+        1
+      ],
+      "thms-talk": [
+        0,
+        118,
+        186,
+        1
+      ]
+    },
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
 }
