@@ -1,8 +1,8 @@
 import * as axios from "axios";
 import { DataSourceFormat } from "../dataSource";
-import { Event, Track } from "../../models";
-import { ConferenceData } from "../../importer/importer";
+import { Event, Track, Subconference, Day } from "../../models";
 import { speakersFromJson, sessionsFromJson } from "./converters";
+import { SourceData } from "../../importer/sourceData";
 
 export interface HalfnarpSourceFormat extends DataSourceFormat {
   format: "halfnarp";
@@ -21,31 +21,29 @@ export function isHalfnarpSourceFormat(dataSource: DataSourceFormat): dataSource
   return dataSource.format === "halfnarp";
 }
 
-export async function sourceData(event: Event, sources: DataSourceFormat[]) {
-  const ocSources = sources.filter(s => isHalfnarpSourceFormat(s)) as HalfnarpSourceFormat[];
+export async function sourceData(event: Event, days: Day[], subconferences: Subconference[], sources: DataSourceFormat[]) {
+  const halfnarpSources = sources.filter(s => isHalfnarpSourceFormat(s)) as HalfnarpSourceFormat[];
   
-  const promises = ocSources.map(source => singleSourceData(event, source));
+  const promises = halfnarpSources.map(source => singleSourceData(event, days, subconferences, source));
   return Promise.all(promises);
 }
 
-async function singleSourceData(event: Event, source: HalfnarpSourceFormat): Promise<ConferenceData> {
-  const result: ConferenceData = {
+async function singleSourceData(event: Event, days: Day[], subconferences: Subconference[], source: HalfnarpSourceFormat): Promise<SourceData> {
+  const result: SourceData = {
     speakers: [],
     sessions: [],
-    days: [],
+    days,
     event,
-    subconferences: [],
-    tracks: source.tracks,
-    locations: [],
+    subconferences,
     maps: [],
+    pois: []
   };
-
   
   const halfnarpJson = await axios.default.get(source.sourceUrl);
 
-  result.speakers = speakersFromJson(halfnarpJson, source);
-  result.sessions = sessionsFromJson(halfnarpJson, source);
-  console.log(JSON.stringify(halfnarpJson, null, 4));
+  result.speakers = speakersFromJson(halfnarpJson.data, source);
+  result.sessions = sessionsFromJson(halfnarpJson.data, source);
+  // console.log(JSON.stringify(halfnarpJson, null, 4));
 
   return result;
 }

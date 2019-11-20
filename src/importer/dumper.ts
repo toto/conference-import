@@ -5,6 +5,7 @@ import * as rp from "./../dataSources/rp";
 import * as ocdata from "./../dataSources/ocdata";
 import * as pretalx from "./../dataSources/pretalx";
 import * as frab from "./../dataSources/frab";
+import * as halfnarp from "./../dataSources/halfnarp";
 import { processData, ConferenceData, Color } from './importer';
 import { linkFrom, LiveStream, enclosureFrom } from "../dataSources/stream";
 
@@ -91,6 +92,20 @@ export async function dumpNormalizedConference(configuration: Configuration, des
   });
   const frabData = await frab.sourceData(event, days, subconferences, sources);
   frabData.forEach(data => {
+    if (data.sessions.length === 0) return;
+    const { sessions, speakers, maps, tracks, locations, pois } = processData(data, options);
+    result.sessions = result.sessions.concat(sessions);
+    result.speakers = result.speakers.concat(speakers);
+    result.tracks = result.tracks.concat(tracks);
+    result.locations = result.locations.concat(locations);
+    // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
+    result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
+    if (maps) result.maps = result.maps!.concat(maps);
+    if (result.pois && pois) result.pois = result.pois.concat(pois);
+  });
+
+  const halfnarpData = await halfnarp.sourceData(event, days, subconferences, sources);
+  halfnarpData.forEach(data => {
     if (data.sessions.length === 0) return;
     const { sessions, speakers, maps, tracks, locations, pois } = processData(data, options);
     result.sessions = result.sessions.concat(sessions);
