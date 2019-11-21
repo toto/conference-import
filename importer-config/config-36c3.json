@@ -53,6 +53,7 @@
       "eventId": "36c3",
       "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
       "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2019/Fahrplan/events/",
+      "speakerBaseUrl": "https://fahrplan.events.ccc.de/camp/2019/Fahrplan/speakers/",
       "defaultLanguageCode": "de",
       "defaultTrack": {
         "id": "36c3-ccc",

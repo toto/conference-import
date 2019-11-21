@@ -9,6 +9,7 @@ export interface HalfnarpSourceFormat extends DataSourceFormat {
   eventId: string;
   sourceUrl: string;
   sessionBaseUrl: string;
+  speakerBaseUrl: string;
   defaultTrack: Track;
   defaultLanguageCode: string;
   tracks: Track[];

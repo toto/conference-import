@@ -19,7 +19,7 @@ export function speakersFromJson(json: any, config: HalfnarpSourceFormat): Speak
   let speakers: Speaker[] = []; 
 
   json.forEach(sessionJson => {
-    const speakersForSession = speakersFromJson(sessionJson, config);
+    const speakersForSession = speakersFromSession(sessionJson, config);
     speakers = speakers.concat(speakersForSession);
   });
   
@@ -31,7 +31,9 @@ function speakersFromSession(session: any, config: HalfnarpSourceFormat): Speake
 
   const speakerNames: string[] = session.speaker_names.split(', ');
   for (const name of speakerNames) {
-    const id = mkId(`${config.eventId}-${name}`);
+    if (name.trim() === '') continue;
+
+    const id = mkId(`${config.eventId}-${name.trim()}`);
     const speaker: Speaker = {
       type: 'speaker',
       event: config.eventId,
@@ -39,7 +41,7 @@ function speakersFromSession(session: any, config: HalfnarpSourceFormat): Speake
       name,
       biography: '',
       photo: undefined,
-      url: config.sessionBaseUrl,
+      url: config.speakerBaseUrl,
       links: [],
       sessions: [],
       organization: undefined,
