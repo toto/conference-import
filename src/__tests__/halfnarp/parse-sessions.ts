@@ -52,7 +52,7 @@ it("Should parse some session", () => {
   const sessions = sessionsFromJson(parsedJson, config);
   const [firstSession] = sessions;
   expect(firstSession).toBeTruthy();
-  expect(firstSession.id).toBe("10496");
+  expect(firstSession.id).toBe("36c3-10496");
   expect(firstSession.url).toBe(
     "https://fahrplan.events.ccc.de/congress/2019/Fahrplan/events/10496.html"
   );
@@ -76,7 +76,7 @@ it("Should parse all sessions", () => {
 
 it("Should parse multiple speakers sessions", () => {
   const sessions = sessionsFromJson(parsedJson, config);
-  const session = sessions.find(s => s.id === "10542");
+  const session = sessions.find(s => s.id === "36c3-10542");
   if (!session) {
     expect(false).toBe(true);
     return;

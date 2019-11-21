@@ -86,7 +86,7 @@ function parseSession(session: any, config: HalfnarpSourceFormat): Session | und
   const result: Session = {
     type: "session",
     event: config.eventId,
-    id: `${session.event_id}`,
+    id: mkId(`${config.eventId}-${session.event_id}`),
     title: session.title,
     subtitle: session.subtitle,
     abstract: session.abstract,
