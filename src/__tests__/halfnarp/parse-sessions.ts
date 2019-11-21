@@ -22,6 +22,7 @@ const config: HalfnarpSourceFormat = {
   timezone: 'Europe/Berlin',
   sourceUrl: "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
   sessionBaseUrl: "https://fahrplan.events.ccc.de/congress/2019/Fahrplan/events/",
+  speakerBaseUrl: "https://fahrplan.events.ccc.de/camp/2019/Fahrplan/speakers/",
   defaultTrack: { id: "track", event: "36c3", label_en: "Some Track", color: [0, 0, 0, 1], type: "track" },
   defaultLanguageCode: 'de',
   tracks: [{
