@@ -32,7 +32,7 @@
         "--config",
         "${workspaceFolder}/importer-config/config-36c3.json",
         "--out", 
-        "/Users/toto/Desktop/ocdata-repo/36c3-halfnarp-local.json"
+        "/Users/toto/Desktop/ocdata-repo/36c3-frab-local.json"
       ]
     },
     {
@@ -47,7 +47,7 @@
       "args": [
         "--serve",
         "--",
-        "/Users/toto/Desktop/ocdata-repo/36c3-halfnarp-local.json"
+        "/Users/toto/Desktop/ocdata-repo/36c3-frab-local.json"
       ]
     }
   ]

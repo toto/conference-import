@@ -49,201 +49,36 @@
   "subconferences": [],
   "sources": [
     {
-      "format": "halfnarp",
+      "format": "frab",
       "eventId": "36c3",
-      "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
-      "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2019/Fahrplan/events/",
-      "speakerBaseUrl": "https://fahrplan.events.ccc.de/camp/2019/Fahrplan/speakers/",
+      "scheduleJson": "https://fahrplan.events.ccc.de/congress/2019/Fahrplan/schedule.json",
+      "frabBaseUrl": "https://fahrplan.events.ccc.de/congress/2019/Fahrplan",
       "defaultLanguageCode": "de",
       "defaultTrack": {
-        "id": "36c3-ccc",
+        "id": "ccc",
         "label_en": "CCC",
         "label_de": "CCC",
         "color": [
-          219,
-          196,
-          251,
+          0,
+          0,
+          0,
           1
         ]
-      },
-      "tracks": [
-        {
-          "id": "36c3-art-culture",
-          "color": [
-            249,
-            176,
-            0,
-            1
-          ],
-          "label_en": "Art & Culture",
-          "label_de": "Art & Culture",
-          "type": "track"
-        },
-        {
-          "id": "36c3-ccc",
-          "color": [
-            219,
-            196,
-            251,
-            1
-          ],
-          "label_en": "CCC",
-          "label_de": "CCC",
-          "type": "track"
-        },
-        {
-          "id": "36c3-entertainment",
-          "color": [
-            219,
-            196,
-            251,
-            1
-          ],
-          "label_en": "Entertainment",
-          "label_de": "Entertainment",
-          "type": "track"
-        },
-        {
-          "id": "36c3-ethics-society-politics",
-          "color": [
-            228,
-            4,
-            41,
-            1
-          ],
-          "label_en": "Ethics, Society & Politics",
-          "label_de": "Ethics, Society & Politics",
-          "type": "track"
-        },
-        {
-          "id": "36c3-hardware-making",
-          "color": [
-            108,
-            93,
-            166,
-            1
-          ],
-          "label_en": "Hardware & Making",
-          "label_de": "Hardware & Making",
-          "type": "track"
-        },
-        {
-          "id": "36c3-resilience-sustainability",
-          "color": [
-            0,
-            152,
-            206,
-            1
-          ],
-          "label_en": "Resilience & Sustainability",
-          "label_de": "Resilience & Sustainability",
-          "type": "track"
-        },
-        {
-          "id": "36c3-science",
-          "color": [
-            0,
-            163,
-            86,
-            1
-          ],
-          "label_en": "Science",
-          "label_de": "Science",
-          "type": "track"
-        },
-        {
-          "id": "36c3-security",
-          "color": [
-            73,
-            115,
-            150,
-            1
-          ],
-          "label_en": "Security",
-          "label_de": "Security",
-          "type": "track"
-        }
-      ],
-      "trackIdMap": {
-        "363": "36c3-security",
-        "361": "36c3-hardware-making",
-        "360": "36c3-ethics-society-politics",
-        "358": "36c3-ccc",
-        "359": "36c3-entertainment",
-        "362": "36c3-science",
-        "357": "36c3-art-culture",
-        "364": "36c3-resilience-sustainability"
       },
       "defaultLanguageName": "German",
       "timezone": "Europe/Berlin",
       "maps": [],
-      "vocSlug": "36c3",
-      "pois": []
+      "pois": [],
+      "prefixSessionsWithEventId": true
     }
   ],
   "options": {
     "locationIdOrder": [
-      "curie",
-      "meitner",
-      "self-organized-sessions-johnson-workshop-1-",
-      "self-organized-sessions-goldberg-workshop-2-",
-      "kemistry-lounge",
-      "rockmore-booth",
-      "thms-plank",
-      "thms-workshop",
-      "thms-plank-stage-",
-      "thms-fireplace-workshop-",
-      "kids-stage",
-      "komona-stage",
-      "self-organized-sessions-hackcenter",
-      "self-organized-sessions-hackcenter-1",
-      "self-organized-sessions-hackcenter-3",
-      "self-organized-sessions-village-three-headed-monkey",
-      "self-organized-sessions-village-haecksen",
-      "self-organized-sessions-village-1komona",
-      "self-organized-sessions-village-chaoswelle",
-      "self-organized-sessions-village-chaos-west",
-      "self-organized-sessions-village-metalab-dome",
-      "self-organized-sessions-village-infuanfu",
-      "self-organized-sessions-village-foodhackingbase",
-      "self-organized-sessions-village-latex",
-      "self-organized-sessions-village-about-freedom",
-      "self-organized-sessions-village-digitalcourage",
-      "self-organized-sessions-village-kidspace",
-      "self-organized-sessions-village-hardwarehackingarea",
-      "self-organized-sessions-village-free-software-foundation-europe",
-      "self-organized-sessions-village-schaffenburg",
-      "self-organized-sessions-village-harbor",
-      "self-organized-sessions-village-hackleman",
-      "self-organized-sessions-village-c-base",
-      "self-organized-sessions-village-milliways",
-      "self-organized-sessions-village-402-payment-required",
-      "self-organized-sessions-village-zsh---zelt-stadt-hessen",
-      "self-organized-sessions-village-sft-pwnda-village-",
-      "self-organized-sessions-village-robovillage",
-      "self-organized-sessions-village-chaoszone",
-      "self-organized-sessions-village-backspace",
-      "self-organized-sessions-village-afra",
-      "self-organized-sessions-village-ecohackerfarm",
-      "self-organized-sessions-village-munich-maker-village",
-      "self-organized-sessions-village-nixos",
-      "self-organized-sessions-seating-area-south-of-milliways-s9-on-map-",
-      "self-organized-sessions-village-social-dist0rtion-protocol",
-      "self-organized-sessions-village-scottish-consulate",
-      "self-organized-sessions-village-ccc-ch",
-      "self-organized-sessions-village-emf",
-      "self-organized-sessions-village-reclaim-club-culture",
-      "self-organized-sessions-village-fri3d-camp",
-      "self-organized-sessions-village-teurca",
-      "self-organized-sessions-village-teurcamp",
-      "self-organized-sessions-village-singularity-city",
-      "self-organized-sessions-village-k-niglich-bayerisches-amtsvillage",
-      "self-organized-sessions-village-italian-hackers-embassy",
-      "self-organized-sessions-village-chaos-ballett-bett-drahti-trampolin-",
-      "self-organized-sessions-village-moose-hillhackers",
-      "self-organized-sessions-village-aaaaaaaaaaaa",
-      "self-organized-sessions-village-librehosters",
-      "self-organized-sessions-village-dragon-sleep-pwn-sector"
+      "ada",
+      "borg",
+      "clarke",
+      "dijkstra",
+      "eliza"
     ],
     "defaultColor": [
       0,

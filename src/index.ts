@@ -28,7 +28,7 @@ if (argv[COMMAND.IMPORT] && argv.config && argv.out) {
   
   dumpNormalizedConference(config, exportDir).then(() => { 
     console.info('Exported to', exportDir);
-  }).catch(error => console.error(error));  
+  }).catch(error => console.error(error.toString()));  
 
 } else if (argv[COMMAND.SERVE] && argv["--"]) {
   if (argv.pid) {

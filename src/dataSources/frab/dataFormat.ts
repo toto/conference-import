@@ -21,5 +21,6 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
   vocSlug?: string;
   // Any session with location names listed here will not be imported at all
   ignoredLocationNames?: string[];
+  prefixSessionsWithEventId?: boolean;
 };
 

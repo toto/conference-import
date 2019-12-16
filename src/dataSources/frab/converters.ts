@@ -116,10 +116,11 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     end.add(parseInt(minutesStr), 'm');
   }
 
+  const sessionId = config.subconferenceId ? `${config.subconferenceId}-${session.id}` : `${session.id}`;
   const result: Session = {
     type: "session",
     event: config.eventId,
-    id: config.subconferenceId ? `${config.subconferenceId}-${session.id}` : `${session.id}`,
+    id: config.prefixSessionsWithEventId === true ? `${config.eventId}-${sessionId}` : sessionId,
     title: session.title,
     subtitle: session.subtitle,
     abstract: session.abstract,
