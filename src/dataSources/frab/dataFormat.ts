@@ -22,5 +22,6 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
   // Any session with location names listed here will not be imported at all
   ignoredLocationNames?: string[];
   prefixSessionsWithEventId?: boolean;
+  fakeVideos?: any;
 };
 

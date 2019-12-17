@@ -74,7 +74,15 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": [],
-      "prefixSessionsWithEventId": true
+      "prefixSessionsWithEventId": true,
+      "fakeVideos": {
+        "36c3-11224": {
+          "mimetype": "video/mp4",
+          "url": "https://cdn.media.ccc.de/congress/2018/h264-sd/35c3-9986-deu-eng-fra-Closing_Event_sd.mp4",
+          "type": "recording",
+          "thumbnail": "https://static.media.ccc.de/media/congress/2018/9986-hd_preview.jpg"
+        }
+      }
     },
     {
       "format": "pretalx",
@@ -151,16 +159,36 @@
         186,
         1
       ],
-      "36c3-security": [175,19,14,1],
+      "36c3-security": [
+        175,
+        19,
+        14,
+        1
+      ],
       "36c3-music": [
         255,
         198,
         0,
         1
       ],
-      "36c3-resilience-sustainability": [153,186,0,1],
-      "36c3-all-about-computers": [63,164,125,1],
-      "36c3-climate-catastrophy": [153,186,0,1],
+      "36c3-resilience-sustainability": [
+        153,
+        186,
+        0,
+        1
+      ],
+      "36c3-all-about-computers": [
+        63,
+        164,
+        125,
+        1
+      ],
+      "36c3-climate-catastrophy": [
+        153,
+        186,
+        0,
+        1
+      ],
       "thms-workshop": [
         0,
         83,

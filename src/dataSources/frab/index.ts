@@ -44,6 +44,17 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     result.sessions = await addRecordingEnclosues(source.vocSlug, result.sessions);
   }
 
+  if (source.fakeVideos) {
+    for (const sessionId of Object.keys(source.fakeVideos)) {
+      const video: ConferenceModel.Enclosure = source.fakeVideos[sessionId];
+      for (const session of result.sessions) {
+        if (session.id === sessionId) {
+          session.enclosures.push(video);
+        }
+      }
+    }
+  }
+
   console.log(`Frab: ${result.sessions.length} sessions, ${result.speakers.length} speakers`);
   return result;
 }
