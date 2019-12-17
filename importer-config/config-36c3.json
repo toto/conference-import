@@ -151,19 +151,16 @@
         186,
         1
       ],
-      "36c3-security": [
-        0,
-        83,
-        132,
-        1
-      ],
+      "36c3-security": [175,19,14,1],
       "36c3-music": [
         255,
         198,
         0,
         1
       ],
+      "36c3-resilience-sustainability": [153,186,0,1],
       "36c3-all-about-computers": [63,164,125,1],
+      "36c3-climate-catastrophy": [153,186,0,1],
       "thms-workshop": [
         0,
         83,
