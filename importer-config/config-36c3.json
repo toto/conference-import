@@ -46,7 +46,12 @@
       "date": "2019-12-30"
     }
   ],
-  "subconferences": [],
+  "subconferences": [
+    {
+      "id": "36c3-chaoswest",
+      "label": "ChaosWest @ 36C3"
+    }
+  ],
   "sources": [
     {
       "format": "frab",
@@ -70,6 +75,28 @@
       "maps": [],
       "pois": [],
       "prefixSessionsWithEventId": true
+    },
+    {
+      "format": "pretalx",
+      "eventId": "36c3",
+      "baseUrl": "https://fahrplan.chaos-west.de/",
+      "conferenceCode": "36c3",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "ccc",
+        "label_en": "CCC",
+        "label_de": "CCC",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "subconferenceId": "36c3-chaoswest",
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
     }
   ],
   "options": {
@@ -78,7 +105,8 @@
       "borg",
       "clarke",
       "dijkstra",
-      "eliza"
+      "eliza",
+      "36c3-chaos-west-stage"
     ],
     "defaultColor": [
       0,
@@ -135,12 +163,7 @@
         0,
         1
       ],
-      "thms-music": [
-        255,
-        198,
-        0,
-        1
-      ],
+      "36c3-all-about-computers": [63,164,125,1],
       "thms-workshop": [
         0,
         83,
