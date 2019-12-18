@@ -102,9 +102,10 @@
         ]
       },
       "subconferenceId": "36c3-chaoswest",
+      "useSubconferenceIdInSessionId": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": []      
     }
   ],
   "options": {

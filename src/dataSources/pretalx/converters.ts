@@ -59,10 +59,15 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
   const parsedLang = languageFromIsoCode(talk.content_locale);
   if (parsedLang) language = parsedLang;
 
+  let id: string = mkId(`${config.conferenceCode}-${talk.code}`);
+  if (config.subconferenceId && config.useSubconferenceIdInSessionId === true) {
+    id = mkId(`${config.conferenceCode}-${config.subconferenceId}-${talk.code}`);
+  }
+
   const session: Session = {
     event: config.eventId,
     type: 'session',
-    id: mkId(`${config.conferenceCode}-${talk.code}`),
+    id,
     title: talk.title,
     subtitle: undefined,
     abstract: talk.abstract,

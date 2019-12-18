@@ -17,4 +17,5 @@ export interface PretalxDataSourceFormat extends DataSourceFormat {
   filterSessionNames?: string[];
   maps?: ConferenceModel.Map[];
   timezone?: string;
+  useSubconferenceIdInSessionId?: boolean;
 };
