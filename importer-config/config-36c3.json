@@ -75,14 +75,7 @@
       "maps": [],
       "pois": [],
       "prefixSessionsWithEventId": true,
-      "fakeVideos": {
-        "36c3-11224": {
-          "mimetype": "video/mp4",
-          "url": "https://cdn.media.ccc.de/congress/2018/h264-sd/35c3-9986-deu-eng-fra-Closing_Event_sd.mp4",
-          "type": "recording",
-          "thumbnail": "https://static.media.ccc.de/media/congress/2018/9986-hd_preview.jpg"
-        }
-      }
+      "fakeVideos": {}
     },
     {
       "format": "pretalx",
