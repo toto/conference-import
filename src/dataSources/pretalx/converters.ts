@@ -79,7 +79,7 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
     speakers: speakers.filter((s: MiniSpeaker) => s.name.length > 0),
     enclosures: [],
     links: [],
-    url: `${config.baseUrl}/${config.conferenceCode}/talk/${talk.code}`,
+    url: `${config.baseUrl}${config.baseUrl.endsWith('/') ? '' : '/'}${config.conferenceCode}/talk/${talk.code}`,
     begin: beginDate,
     end: endDate,
     location: room,
