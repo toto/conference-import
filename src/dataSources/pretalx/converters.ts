@@ -13,7 +13,7 @@ function locationFromTalk(talk: any, prefix: string): MiniLocation | undefined {
         roomName = roomName['en'];
       } else if (roomName['de']) {
         roomName = roomName['de'];
-      }
+      } 
     }    
     return {
       id: mkId(`${prefix}-${roomName}`),
@@ -51,6 +51,9 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
     }
     if (talk.track['de']) {
       trackNameDe = talk.track.de;
+      if (typeof trackNameEn === 'object') {
+        trackNameEn = trackNameDe;
+      }
     }
     track = {
       id: mkId(`${config.conferenceCode}-${trackNameEn}`),
