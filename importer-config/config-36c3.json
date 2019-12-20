@@ -58,6 +58,10 @@
     {
       "id": "36c3-sendezentrum",
       "label": "Sendezentrum @ 36C3"
+    },
+    {
+      "id": "36c3-oio",
+      "label": "OIO @ 36C3"
     }
   ],
   "sources": [
@@ -150,6 +154,27 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": []      
+    },
+    {
+      "format": "pretalx",
+      "eventId": "36c3",
+      "baseUrl": "https://talks.oio.social/",
+      "conferenceCode": "36c3-oio",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "oio",
+        "label_en": "Open Infrastructure Orbit",
+        "label_de": "Open Infrastructure Orbit",
+        "color": [
+          28, 185, 59, 1
+        ]
+      },
+      "subconferenceId": "36c3-oio",
+      "useSubconferenceIdInSessionId": true,
+      "useSubconferenceIdInLocations": true,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []      
     }
   ],
   "options": {
@@ -161,9 +186,12 @@
       "eliza",
       "36c3-chaos-west-stage",
       "36c3-chaoszone-stage",
-      "36c3-chaoszone-workshop",
       "36c3-b-hne",
-      "36c3-sendetisch"
+      "36c3-oio-36c3-oio-oio-stage",
+      "36c3-chaoszone-workshop",
+      "36c3-sendetisch",
+      "36c3-oio-36c3-oio-workshop",
+      "36c3-oio-36c3-oio-solder-area"
     ],
     "defaultColor": [
       0,

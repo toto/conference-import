@@ -40,7 +40,11 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
     return undefined;
   }
 
-  const room = locationFromTalk(talk, config.conferenceCode);
+  let prefix = config.conferenceCode;
+  if (config.subconferenceId && config.useSubconferenceIdInLocations === true) {
+    prefix = `${config.conferenceCode}-${config.subconferenceId}`;
+  }
+  const room = locationFromTalk(talk, prefix);
   let track: MiniTrack = config.defaultTrack;
   if (talk.track) {
     let trackNameEn = talk.track;
