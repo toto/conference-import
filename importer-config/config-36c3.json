@@ -54,6 +54,10 @@
     {
       "id": "36c3-chaoszone",
       "label": "ChaosZone @ 36C3"
+    },
+    {
+      "id": "36c3-sendezentrum",
+      "label": "Sendezentrum @ 36C3"
     }
   ],
   "sources": [
@@ -126,6 +130,26 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": []      
+    },
+    {
+      "format": "pretalx",
+      "eventId": "36c3",
+      "baseUrl": "https://fahrplan.das-sendezentrum.de/",
+      "conferenceCode": "36c3",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "sendezentrum",
+        "label_en": "Sendezentrum",
+        "label_de": "Sendezentrum",
+        "color": [
+          204, 204, 204, 1
+        ]
+      },
+      "subconferenceId": "36c3-sendezentrum",
+      "useSubconferenceIdInSessionId": true,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []      
     }
   ],
   "options": {
@@ -137,7 +161,9 @@
       "eliza",
       "36c3-chaos-west-stage",
       "36c3-chaoszone-stage",
-      "36c3-chaoszone-workshop"
+      "36c3-chaoszone-workshop",
+      "36c3-b-hne",
+      "36c3-sendetisch"
     ],
     "defaultColor": [
       0,

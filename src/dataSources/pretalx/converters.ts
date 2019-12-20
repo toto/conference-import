@@ -9,8 +9,12 @@ function locationFromTalk(talk: any, prefix: string): MiniLocation | undefined {
     let roomName = talk.slot.room;
     if (typeof roomName === 'object') {
       // sometimes room names are localized, we hardcode to the en name for now
-      roomName = roomName['en'];
-    }
+      if (roomName['en']) {
+        roomName = roomName['en'];
+      } else if (roomName['de']) {
+        roomName = roomName['de'];
+      }
+    }    
     return {
       id: mkId(`${prefix}-${roomName}`),
       label_de: roomName,
