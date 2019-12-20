@@ -130,26 +130,6 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": []      
-    },
-    {
-      "format": "pretalx",
-      "eventId": "36c3",
-      "baseUrl": "https://fahrplan.das-sendezentrum.de/",
-      "conferenceCode": "36c3",
-      "defaultLanguageCode": "de",
-      "defaultTrack": {
-        "id": "sendezentrum",
-        "label_en": "Sendezentrum",
-        "label_de": "Sendezentrum",
-        "color": [
-          204, 204, 204, 1
-        ]
-      },
-      "subconferenceId": "36c3-sendezentrum",
-      "useSubconferenceIdInSessionId": true,
-      "timezone": "Europe/Berlin",
-      "maps": [],
-      "pois": []      
     }
   ],
   "options": {
