@@ -62,6 +62,10 @@
     {
       "id": "36c3-oio",
       "label": "OIO @ 36C3"
+    },
+    {
+      "id": "36c3-wikipakawg",
+      "label": "WikiPaka WG @36C3"
     }
   ],
   "sources": [
@@ -175,6 +179,27 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": []      
+    },
+    {
+      "format": "pretalx",
+      "eventId": "36c3",
+      "baseUrl": "https://cfp.verschwoerhaus.de/",
+      "conferenceCode": "36c3",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "wikipakawg",
+        "label_en": "Wikipaka WG",
+        "label_de": "Wikipaka WG",
+        "color": [
+          28, 185, 59, 1
+        ]
+      },
+      "subconferenceId": "36c3-wikipakawg",
+      "useSubconferenceIdInSessionId": true,
+      "useSubconferenceIdInLocations": true,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []      
     }
   ],
   "options": {
@@ -189,8 +214,10 @@
       "36c3-b-hne",
       "36c3-dlf--und-podcast-b-hne",
       "36c3-oio-36c3-oio-oio-stage",
+      "36c3-36c3-wikipakawg-wikipaka-wg-esszimmer",
       "36c3-chaoszone-workshop",
       "36c3-sendetisch",
+      "36c3-36c3-wikipakawg-wikipaka-wg-bibliothek",
       "36c3-oio-36c3-oio-workshop",
       "36c3-oio-36c3-oio-solder-area",
       "36c3-oio-36c3-oio-oio-workshop-dome",
