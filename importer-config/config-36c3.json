@@ -70,6 +70,10 @@
     {
       "id": "36c3-cdc",
       "label": "CDC @ 36C3"
+    },
+    {
+      "id": "36c3-self-organized-sessions",
+      "label": "Self-Organized Sessions"
     }
   ],
   "sources": [
@@ -118,7 +122,7 @@
       "useSubconferenceIdInSessionId": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []      
+      "pois": []
     },
     {
       "format": "pretalx",
@@ -141,7 +145,7 @@
       "useSubconferenceIdInSessionId": true,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []      
+      "pois": []
     },
     {
       "format": "pretalx",
@@ -154,14 +158,17 @@
         "label_en": "Sendezentrum",
         "label_de": "Sendezentrum",
         "color": [
-          204, 204, 204, 1
+          204,
+          204,
+          204,
+          1
         ]
       },
       "subconferenceId": "36c3-sendezentrum",
       "useSubconferenceIdInSessionId": true,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []      
+      "pois": []
     },
     {
       "format": "pretalx",
@@ -174,7 +181,10 @@
         "label_en": "Open Infrastructure Orbit",
         "label_de": "Open Infrastructure Orbit",
         "color": [
-          28, 185, 59, 1
+          28,
+          185,
+          59,
+          1
         ]
       },
       "subconferenceId": "36c3-oio",
@@ -182,7 +192,7 @@
       "useSubconferenceIdInLocations": true,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []      
+      "pois": []
     },
     {
       "format": "pretalx",
@@ -195,7 +205,10 @@
         "label_en": "Wikipaka WG",
         "label_de": "Wikipaka WG",
         "color": [
-          28, 185, 59, 1
+          28,
+          185,
+          59,
+          1
         ]
       },
       "subconferenceId": "36c3-wikipakawg",
@@ -203,7 +216,7 @@
       "useSubconferenceIdInLocations": true,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []      
+      "pois": []
     },
     {
       "format": "frab",
@@ -231,6 +244,32 @@
       "useSubconferenceIdInSessionId": true,
       "useSubconferenceIdInLocations": true,
       "fakeVideos": {}
+    },
+    {
+      "format": "frab",
+      "eventId": "36c3",
+      "subconferenceId": "36c3-self-organized-sessions",
+      "scheduleJson": "https://data.c3voc.de/36C3/wiki.schedule.json",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "36c3-workshop",
+        "label_en": "Workshop",
+        "label_de": "Workshop",
+        "color": [
+          0,
+          83,
+          132,
+          1
+        ]
+      },
+      "defaultLanguageName": "German",
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": [],
+      "prefixSessionsWithEventId": true,
+      "useSubconferenceIdInSessionId": true,
+      "useSubconferenceIdInLocations": true,
+      "ignoredLocationNames": []
     }
   ],
   "options": {
@@ -255,7 +294,45 @@
       "36c3-oio-36c3-oio-oio-workshop-dome",
       "36c3-oio-36c3-oio-oio-solder-area",
       "36c3-cdc-fossasia-workshops---cdc",
-      "36c3-cdc-cdc---workshop-area"
+      "36c3-cdc-cdc---workshop-area",
+      "36c3-self-organized-sessions-art-and-play-stage",
+      "36c3-self-organized-sessions-lecture-room-11",
+      "36c3-self-organized-sessions-lecture-room-m1",
+      "36c3-self-organized-sessions-lecture-room-m2",
+      "36c3-self-organized-sessions-lecture-room-m3",
+      "36c3-self-organized-sessions-seminar-room-13",
+      "36c3-self-organized-sessions-seminar-room-14-15",
+      "36c3-self-organized-sessions-assembly-anarchist-village",
+      "36c3-self-organized-sessions-assembly-art-and-play",
+      "36c3-self-organized-sessions-assembly-backspace",
+      "36c3-self-organized-sessions-assembly-c-base-ccc-b-xhain",
+      "36c3-self-organized-sessions-assembly-c3blind",
+      "36c3-self-organized-sessions-assembly-chaos-west",
+      "36c3-self-organized-sessions-assembly-chaoszone",
+      "36c3-self-organized-sessions-assembly-city-center",
+      "36c3-self-organized-sessions-assembly-foodhackingbase",
+      "36c3-self-organized-sessions-assembly-free-software-foundation-europe",
+      "36c3-self-organized-sessions-assembly-haecksen",
+      "36c3-self-organized-sessions-assembly-hardware-hacking-area",
+      "36c3-self-organized-sessions-assembly-hsbe",
+      "36c3-self-organized-sessions-assembly-icmp",
+      "36c3-self-organized-sessions-assembly-milliways",
+      "36c3-self-organized-sessions-assembly-nibble-area",
+      "36c3-self-organized-sessions-assembly-open-infrastructure-orbit",
+      "36c3-self-organized-sessions-assembly-placeholder-for-komona-cinopolis",
+      "36c3-self-organized-sessions-assembly-pseudoroom",
+      "36c3-self-organized-sessions-assembly-space-in-front-of-m1",
+      "36c3-self-organized-sessions-assembly-vintage-computing",
+      "36c3-self-organized-sessions-assembly-wikipakawg",
+      "36c3-self-organized-sessions-c-base",
+      "36c3-self-organized-sessions-ccl-terrace",
+      "36c3-self-organized-sessions-hackers-beauty-palace",
+      "36c3-self-organized-sessions-headnut",
+      "36c3-self-organized-sessions-kidspace",
+      "36c3-self-organized-sessions-monipilami",
+      "36c3-self-organized-sessions-studio-datscha",
+      "36c3-self-organized-sessions-vintage-computing-cluster",
+      "36c3-self-organized-sessions-assembly-nixos"
     ],
     "defaultColor": [
       0,
