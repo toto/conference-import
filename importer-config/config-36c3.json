@@ -65,7 +65,11 @@
     },
     {
       "id": "36c3-wikipakawg",
-      "label": "WikiPaka WG @36C3"
+      "label": "WikiPaka WG @ 36C3"
+    },
+    {
+      "id": "36c3-cdc",
+      "label": "CDC @ 36C3"
     }
   ],
   "sources": [
@@ -200,6 +204,33 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": []      
+    },
+    {
+      "format": "frab",
+      "eventId": "36c3",
+      "subconferenceId": "36c3-cdc",
+      "scheduleJson": "https://frab.riat.at/en/36C3/public/schedule.json",
+      "frabBaseUrl": "https://frab.riat.at/en/36C3/public/",
+      "defaultLanguageCode": "en",
+      "defaultTrack": {
+        "id": "cdc",
+        "label_en": "Critical Decentralisation Cluster",
+        "label_de": "Critical Decentralisation Cluster",
+        "color": [
+          219,
+          25,
+          25,
+          1
+        ]
+      },
+      "defaultLanguageName": "German",
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": [],
+      "prefixSessionsWithEventId": true,
+      "useSubconferenceIdInSessionId": true,
+      "useSubconferenceIdInLocations": true,
+      "fakeVideos": {}
     }
   ],
   "options": {
@@ -215,13 +246,16 @@
       "36c3-dlf--und-podcast-b-hne",
       "36c3-oio-36c3-oio-oio-stage",
       "36c3-36c3-wikipakawg-wikipaka-wg-esszimmer",
+      "36c3-cdc-cdc---stage",
       "36c3-chaoszone-workshop",
       "36c3-sendetisch",
       "36c3-36c3-wikipakawg-wikipaka-wg-bibliothek",
       "36c3-oio-36c3-oio-workshop",
       "36c3-oio-36c3-oio-solder-area",
       "36c3-oio-36c3-oio-oio-workshop-dome",
-      "36c3-oio-36c3-oio-oio-solder-area"
+      "36c3-oio-36c3-oio-oio-solder-area",
+      "36c3-cdc-fossasia-workshops---cdc",
+      "36c3-cdc-cdc---workshop-area"
     ],
     "defaultColor": [
       0,

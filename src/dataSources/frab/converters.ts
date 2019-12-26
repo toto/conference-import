@@ -86,8 +86,13 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     };
   }
 
+  let locationId = mkId(roomName);
+  if (config.useSubconferenceIdInLocations === true && config.subconferenceId) {
+    locationId = `${config.subconferenceId}-${mkId(roomName)}`;
+  }
+
   const location: MiniLocation = {
-    id: config.subconferenceId ? `${config.subconferenceId}-${mkId(roomName)}` : mkId(roomName),
+    id: locationId,
     label_de: roomName,
     label_en: roomName
   };
@@ -121,8 +126,11 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     willBeRecorded = !session['do_not_record'];
   }
   
-
-  const sessionId = config.subconferenceId ? `${config.subconferenceId}-${session.id}` : `${session.id}`;
+  let sessionId = `${session.id}`;
+  if (config.useSubconferenceIdInSessionId === true && config.subconferenceId) {
+    sessionId = `${config.subconferenceId}-${session.id}`;
+  }
+  
   const result: Session = {
     type: "session",
     event: config.eventId,
