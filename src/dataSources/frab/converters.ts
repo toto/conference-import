@@ -116,6 +116,12 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     end.add(parseInt(minutesStr), 'm');
   }
 
+  let willBeRecorded: boolean | undefined;
+  if (Object.keys(session).includes('do_not_record') && session['do_not_record']) {
+    willBeRecorded = !session['do_not_record'];
+  }
+  
+
   const sessionId = config.subconferenceId ? `${config.subconferenceId}-${session.id}` : `${session.id}`;
   const result: Session = {
     type: "session",
@@ -134,7 +140,7 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     related_sessions: [],
     links: [],
     cancelled: false,
-    will_be_recorded: undefined,
+    will_be_recorded: willBeRecorded,
     begin,
     end,
   };
