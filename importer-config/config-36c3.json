@@ -74,6 +74,10 @@
     {
       "id": "36c3-self-organized-sessions",
       "label": "Self-Organized Sessions"
+    },
+    {
+      "id": "36c3-komona",
+      "label": "Komona @ 36C3"
     }
   ],
   "sources": [
@@ -219,6 +223,31 @@
       "pois": []
     },
     {
+      "format": "pretalx",
+      "eventId": "36c3",
+      "baseUrl": "https://talks.komona.org/",
+      "conferenceCode": "36c3",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "komona",
+        "label_en": "Komona",
+        "label_de": "Komona",
+        "color": [
+          28,
+          185,
+          59,
+          1
+        ]
+      },
+      "subconferenceId": "36c3-komona",
+      "useSubconferenceIdInSessionId": true,
+      "useSubconferenceIdInLocations": true,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": [],
+      "filterSessionNames": ["Chaos Ballett"]
+    },
+    {
       "format": "frab",
       "eventId": "36c3",
       "subconferenceId": "36c3-cdc",
@@ -295,6 +324,11 @@
       "36c3-oio-36c3-oio-oio-solder-area",
       "36c3-cdc-fossasia-workshops---cdc",
       "36c3-cdc-cdc---workshop-area",
+      "36c3-36c3-komona-headnut",
+      "36c3-36c3-komona-soupworx",
+      "36c3-36c3-komona-nokingdome",
+      "36c3-36c3-komona-dezentrale-",
+      "36c3-36c3-komona-cinopolis",
       "36c3-self-organized-sessions-art-and-play-stage",
       "36c3-self-organized-sessions-lecture-room-11",
       "36c3-self-organized-sessions-lecture-room-m1",
@@ -421,7 +455,7 @@
       ]
     },
     "timezone": "Europe/Berlin",
-    "hourOfDayChange": 4,
+    "hourOfDayChange": 7,
     "nonStageLocationIds": []
   }
 }

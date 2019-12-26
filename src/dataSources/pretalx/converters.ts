@@ -75,6 +75,10 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
     id = mkId(`${config.conferenceCode}-${config.subconferenceId}-${talk.code}`);
   }
 
+  if (config.filterSessionNames && config.filterSessionNames.includes(talk.title)) {
+    return undefined;
+  }
+
   const session: Session = {
     event: config.eventId,
     type: 'session',
