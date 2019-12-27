@@ -103,7 +103,8 @@
       "maps": [],
       "pois": [],
       "prefixSessionsWithEventId": true,
-      "fakeVideos": {}
+      "fakeVideos": {},
+      "vocSlug": "36c3"
     },
     {
       "format": "pretalx",
@@ -245,7 +246,9 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": [],
-      "filterSessionNames": ["Chaos Ballett"]
+      "filterSessionNames": [
+        "Chaos Ballett"
+      ]
     },
     {
       "format": "frab",
@@ -366,7 +369,12 @@
       "36c3-self-organized-sessions-monipilami",
       "36c3-self-organized-sessions-studio-datscha",
       "36c3-self-organized-sessions-vintage-computing-cluster",
-      "36c3-self-organized-sessions-assembly-nixos"
+      "36c3-self-organized-sessions-assembly-nixos",
+      "36c3-self-organized-sessions-assembly-c3re",
+      "36c3-self-organized-sessions-roter-salon",
+      "36c3-self-organized-sessions-studio-datsche",
+      "36c3-self-organized-sessions-assembly-digitalcourage",
+      "36c3-self-organized-sessions-assembly-zsh"
     ],
     "defaultColor": [
       0,
