@@ -107,6 +107,30 @@
       "vocSlug": "36c3"
     },
     {
+      "format": "frab",
+      "eventId": "36c3",
+      "scheduleJson": "https://fahrplan.events.ccc.de/congress/2019/Lineup/schedule.json",
+      "frabBaseUrl": "https://fahrplan.events.ccc.de/congress/2019/Lineup",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "lineup",
+        "label_en": "Lineup",
+        "label_de": "Lineup",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "defaultLanguageName": "German",
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": [],
+      "prefixSessionsWithEventId": true,
+      "fakeVideos": {}
+    },
+    {
       "format": "pretalx",
       "eventId": "36c3",
       "baseUrl": "https://fahrplan.chaos-west.de/",
@@ -311,6 +335,9 @@
       "clarke",
       "dijkstra",
       "eliza",
+      "discotheque-nouveauancien",
+      "uptown",
+      "furo-no-ba",
       "36c3-chaos-west-stage",
       "36c3-chaoszone-stage",
       "36c3-b-hne",
