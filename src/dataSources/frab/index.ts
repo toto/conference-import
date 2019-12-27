@@ -56,7 +56,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     }
   }
 
-  console.log(`Frab: ${result.sessions.length} sessions, ${result.speakers.length} speakers`);
+  console.log(`Frab: ${result.sessions.length} sessions, ${result.speakers.length} speakers from ${source.scheduleJson}`);
   return result;
 }
 

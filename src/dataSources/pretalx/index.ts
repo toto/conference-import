@@ -40,6 +40,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     pois: [],
   };
 
+  console.log(`Pretalx: Loading from ${source.baseUrl}`);
   const sessions = await sessionsFromPretalx(source);
   const { subconferenceId } = source;
   if (subconferenceId) {
@@ -50,7 +51,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   }
   result.sessions = sessions;
   result.speakers = await speakersFromPretalx(source);
-  console.log(`Pretalx: ${result.sessions.length} sessions, ${result.speakers.length} speakers`);
+  console.log(`Pretalx: ${result.sessions.length} sessions, ${result.speakers.length} speakers from ${source.baseUrl}`);
   return result;
 }
 
