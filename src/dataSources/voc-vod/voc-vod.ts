@@ -57,12 +57,16 @@ export async function addRecordingEnclosues(slug: string, sessions: Session[]): 
   const { data } = await axios.default.get(url);
   const vocConf = data as VocConference;
   const sessionUrls = sessions.map(s => s.url);
-  const vocVideoPromises = vocConf.events.filter(e => sessionUrls.includes(e.link)).map(e => axios.default.get(e.url));
+  const sessionUrlsWithSlash = sessions.map(s => `${s.url}/`);
+  const vocVideoPromises = vocConf.events.filter(e => sessionUrls.includes(e.link) || sessionUrlsWithSlash.includes(e.link)).map(e => axios.default.get(e.url));
   for (const vocVideoPromise of vocVideoPromises) {
     try {
       const vocVideoResponse = await vocVideoPromise;
       const vocVideo: VocVideo = vocVideoResponse.data;
-      const session = sessions.find(s => s.url === vocVideo.link);
+      let session = sessions.find(s => s.url === vocVideo.link);
+      if (!session) {
+        session = sessions.find(s => `${s.url}/` === vocVideo.link);
+      }
       if (session) {
         const resultSession = addRecordingEnclosure(vocVideo, session);
         sessioById.set(resultSession.id, resultSession);

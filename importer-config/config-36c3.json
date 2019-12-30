@@ -155,7 +155,8 @@
       "useSubconferenceIdInSessionId": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "36c3"
     },
     {
       "format": "pretalx",
@@ -178,7 +179,8 @@
       "useSubconferenceIdInSessionId": true,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "36c3"
     },
     {
       "format": "pretalx",
@@ -201,7 +203,8 @@
       "useSubconferenceIdInSessionId": true,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "36c3"
     },
     {
       "format": "pretalx",
@@ -225,7 +228,8 @@
       "useSubconferenceIdInLocations": true,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "36c3"
     },
     {
       "format": "pretalx",
@@ -276,7 +280,8 @@
       "pois": [],
       "filterSessionNames": [
         "Chaos Ballett"
-      ]
+      ],
+      "vocSlug": "36c3"
     },
     {
       "format": "frab",
@@ -303,7 +308,8 @@
       "prefixSessionsWithEventId": true,
       "useSubconferenceIdInSessionId": true,
       "useSubconferenceIdInLocations": true,
-      "fakeVideos": {}
+      "fakeVideos": {},
+      "vocSlug": "36c3"
     },
     {
       "format": "frab",
