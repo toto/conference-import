@@ -155,7 +155,8 @@
       "useSubconferenceIdInSessionId": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "36c3"
     },
     {
       "format": "pretalx",
