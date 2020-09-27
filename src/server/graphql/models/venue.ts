@@ -1,13 +1,5 @@
 import { ObjectType, ID, Field } from "type-graphql";
-
-@ObjectType()
-class GeoPosition {
-  @Field()
-  readonly lat!: number
-
-  @Field()
-  readonly lng!: number
-}
+import { GeoPosition } from "./geo_postition";
 
 @ObjectType()
 export class Venue {
@@ -23,4 +15,3 @@ export class Venue {
   @Field()
   readonly timeZone!: string;
 }
-

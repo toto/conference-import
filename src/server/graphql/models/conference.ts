@@ -16,4 +16,5 @@ export class Conference {
 
   @Field(type => [Venue])
   readonly venues!: Venue[];
+  
 }
