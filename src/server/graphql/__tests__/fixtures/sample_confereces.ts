@@ -9,12 +9,12 @@ export const sampleConferences = [
     hashtag: "#26C3"
   }),
   createConference({
-    id: "1",
+    id: "2",
     name: "28C3",
     hashtag: "#28C3"
   }),
   createConference({
-    id: "1",
+    id: "3",
     name: "27C3",
     hashtag: "#27C3"
   }),

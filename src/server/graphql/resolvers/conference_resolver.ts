@@ -9,12 +9,12 @@ export class ConferenceResolver {
     private readonly conferenceService: ConferenceService) { }
 
   @Query(returns => Conference, { nullable: true })
-  async recipe(@Arg("conferenceId") conferenceId: string) {
+  async conference(@Arg("conferenceId") conferenceId: string) {
     return this.conferenceService.getOne(conferenceId);
   }
 
   @Query(returns => [Conference])
-  async recipes(): Promise<Conference[]> {
+  async conferences(): Promise<Conference[]> {
     return this.conferenceService.getAll();
   }
 }
