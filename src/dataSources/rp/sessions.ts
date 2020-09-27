@@ -1,4 +1,5 @@
-import * as moment from 'moment-timezone';
+import moment = require('moment-timezone');
+
 import * as utils from './utils';
 import { Track, MiniTrack, Session, Subconference, MiniSpeaker, MiniLocation, Link } from '../../models';
 import { languageFromString } from './language';

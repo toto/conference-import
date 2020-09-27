@@ -2,7 +2,7 @@ import { sessionsFromJson } from "./../../dataSources/rp/sessions";
 import * as fs from "fs";
 import * as path from "path";
 import { Subconference } from "../../models";
-import * as moment from 'moment-timezone';
+import moment = require('moment-timezone');
 
 describe("Import unscheduled sessions", () => {
   const json = fs.readFileSync(

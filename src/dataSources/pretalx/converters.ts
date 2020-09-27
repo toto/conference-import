@@ -1,4 +1,5 @@
-import * as moment from 'moment-timezone';
+import moment = require('moment-timezone');
+
 import { Session, MiniLocation, MiniTrack, Language, MiniSpeaker, Speaker } from "../../models";
 import { languageFromIsoCode } from './../rp/language';
 import { PretalxDataSourceFormat } from './dataFormat';

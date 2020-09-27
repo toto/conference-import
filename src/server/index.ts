@@ -1,4 +1,4 @@
-import * as express from "express";
+import express from "express"
 import { EventDataStore } from "./eventDataStore";
 
 
@@ -27,7 +27,7 @@ export async function serveEvents(files: string[], server='localhost', port=5000
       stores.set(store.event.id, store);
     });
     
-    app.get("/events", (req, res) => {
+    app.get("/events", (_, res) => {
       const events = Array.from(stores.values()).map(s => s.event);
       return res.json(wrapInResponseData(events));
     });

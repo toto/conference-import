@@ -2,7 +2,7 @@ import * as process from 'process';
 import { Configuration, dumpNormalizedConference } from './importer/dumper';
 import { serveEvents } from './server';
 import { readFileSync, writeFileSync, unlinkSync } from 'fs';
-import * as minimist from 'minimist';
+import minimist = require('minimist');
 import * as path from "path";
 
 enum COMMAND {
@@ -40,8 +40,8 @@ if (argv[COMMAND.IMPORT] && argv.config && argv.out) {
     console.info(`Writing PID file to ${argv.pid}`);
   }
 
-  const paths = argv["--"].filter(arg => arg !== COMMAND.SERVE);
-  const files = paths.map(p => path.normalize(p));
+  const paths = argv["--"].filter((arg: string) => arg !== COMMAND.SERVE);
+  const files = paths.map((p: string) => path.normalize(p));
   serveEvents(files).then(() => {
     console.log('Serving…');
   }).catch(error => console.error(error));

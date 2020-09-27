@@ -1,4 +1,5 @@
-import * as moment from 'moment-timezone';
+import moment = require('moment-timezone');
+
 
 
 export interface Event {

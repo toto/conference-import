@@ -1,4 +1,5 @@
-import * as moment from 'moment-timezone';
+import moment = require('moment-timezone');
+
 import { Map, Speaker, Subconference, Day, Track, Location, Session } from "../../models";
 
 export function speakersFromJson(json: any): Speaker[] {

@@ -1,4 +1,5 @@
-import * as moment from 'moment-timezone';
+import moment = require('moment-timezone');
+
 import { FrabDataSourceFormat } from "./dataFormat";
 import { Session, Language, MiniSpeaker, MiniTrack, Speaker, MiniSession, MiniLocation } from "../../models";
 import { mkId, dehtml } from "../rp/utils";

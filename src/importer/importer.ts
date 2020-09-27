@@ -1,7 +1,7 @@
 import { SourceData } from "./sourceData";
 import * as ConferenceModel from "../models";
 import { stateForSession, SessionState } from "../models/session";
-import * as moment from "moment-timezone";
+import moment = require("moment-timezone");
 
 const ISO_DAY_FORMAT = "YYYY-MM-DD";
 

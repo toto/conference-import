@@ -1,4 +1,5 @@
-import * as moment from 'moment-timezone';
+import moment = require('moment-timezone');
+
 import { Subconference, Day, Level, Format, Language } from "./basic";
 import { MiniLocation } from './location';
 import { MiniTrack } from './track';

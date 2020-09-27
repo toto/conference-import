@@ -1,5 +1,6 @@
 import { Session } from "../models";
-import * as moment from 'moment-timezone';
+import moment = require('moment-timezone');
+
 import { stateForSession, SessionState } from "../models/session";
 import { isoDayForSession } from "../importer/importer";
 
