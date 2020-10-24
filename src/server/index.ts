@@ -13,14 +13,14 @@ function wrapInResponseData<T>(data: T[]): Response<T> {
   return { ok: true, count: data.length, data };
 }
 
-export async function serveEvents(files: string[], server='localhost', port=5000) {
+export async function serveEvents(files: string[], server='0.0.0.0', port=5000) {
   return new Promise((resolve) => {
     const app = express();
     
     const stores: Map<string, EventDataStore> = new Map();
     
     files.forEach(jsonPath => {
-      const store = EventDataStore.eventDataFromFile(jsonPath);
+      const store = EventDataStore.eventDataFromFile(jsonPath, process.env.LIVE_DEBUG === 'true');
       if (!store) return;
       const values = Array.from(store.sessions.values());
       console.info(`Serving ${store.event.label} (${store.event.id}, ${values.length} sessions)`);
@@ -73,10 +73,10 @@ export async function serveEvents(files: string[], server='localhost', port=5000
       });
     });
     
-    app.listen(port, "localhost", () => {
+    app.listen(port, server, () => {
       console.info(`API listening on port ${port}`)
       resolve();
-    });  
-  });  
+    });
+  });
 }
 

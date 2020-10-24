@@ -1,8 +1,9 @@
 import * as fs from 'fs';
+import * as moment from 'moment-timezone';
+
 import * as ConferenceModel from '../models';
 import { ConferenceData } from '../importer/importer';
-
-
+import { makeConferenceLive } from './live-data-fake';
 
 interface EventResources {
   sessions: Map<string,ConferenceModel.Session>
@@ -26,8 +27,12 @@ export class EventDataStore implements EventResources {
   maps: Map<string,ConferenceModel.Map>
   pois: Map<string,ConferenceModel.POI>
 
-  constructor(conferenceData: ConferenceData) {
-    this.event = conferenceData.event;
+  constructor(conferenceData: ConferenceData, liveDebug = false) {
+    let data = conferenceData;
+    if (liveDebug) {
+      data = makeConferenceLive(moment(), data);
+    }
+    this.event = data.event;
     this.sessions = new Map();
     this.speakers = new Map();
     this.days = new Map();
@@ -36,7 +41,7 @@ export class EventDataStore implements EventResources {
     this.subconferences = new Map();
     this.maps = new Map();
     this.pois = new Map();
-    this.updateResourceMaps(conferenceData);
+    this.updateResourceMaps(data);
   }
 
   private updateResourceMaps(data: ConferenceData) {
@@ -64,9 +69,9 @@ export class EventDataStore implements EventResources {
     return resources.sort((a,b) => a.id.localeCompare(b.id));
   }
 
-  static eventDataFromFile(jsonFilePath: string): EventDataStore | null {
-    const data = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8')) as ConferenceData;
-    return new EventDataStore(data);
+  static eventDataFromFile(jsonFilePath: string, liveDebug: boolean = false): EventDataStore | null {
+    const data = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8')) as ConferenceData;    
+    return new EventDataStore(data, liveDebug);
   }
 }
 

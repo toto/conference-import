@@ -20,6 +20,8 @@ Given the `out.json` that was generated before run
 
 This will serve all data from the JSON files in the current directory. The server will give a bit of output.
 
+Set `LIVE_DEBUG=true` to fake the conference to be currently live
+
 ## TODO
 
 - Make the webserver responde to a unix-signal to reload it's files (currently it's just killed and restarted)

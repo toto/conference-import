@@ -1,8 +1,8 @@
 {
   "name": "ocdata",
   "scripts": {
-    "lint": "./node_modules/.bin/tslint --project tsconfig.json",
-    "build": "./node_modules/.bin/tsc && npm run copy",
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc && npm run copy",
     "copy": "rsync -a --delete ./data ./lib && rsync -a --delete ./src/__tests__/fixtures ./lib/__tests__",
     "test": "jest --coverage"
   },
