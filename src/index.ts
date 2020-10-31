@@ -15,7 +15,14 @@ function printHelp() {
   console.log("  -h|--help\tprint this help");
 }
 
-const argv = minimist(process.argv, {'--': true, alias: {pid: 'p', help: 'h', out: 'o'}});
+const argv = minimist(process.argv, 
+  {'--': true, 
+   alias: {
+      pid: 'p', 
+      help: 'h', 
+      out: 'o'
+    }
+  });
 if (argv['help'] || argv._.length === 0) {
   printHelp();
   process.exit(0);

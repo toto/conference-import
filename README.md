@@ -20,7 +20,9 @@ Given the `out.json` that was generated before run
 
 This will serve all data from the JSON files in the current directory. The server will give a bit of output.
 
-Set `LIVE_DEBUG=true` to fake the conference to be currently live
+### Debug / Development options
+
+- Set `LIVE_DEBUG=true` to fake the conference to be currently live
 
 ## TODO
 
