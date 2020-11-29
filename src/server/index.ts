@@ -1,4 +1,5 @@
 import * as express from "express";
+import moment = require("moment-timezone");
 import { EventDataStore } from "./eventDataStore";
 
 
@@ -20,7 +21,12 @@ export async function serveEvents(files: string[], server='0.0.0.0', port=5000) 
     const stores: Map<string, EventDataStore> = new Map();
     
     files.forEach(jsonPath => {
-      const store = EventDataStore.eventDataFromFile(jsonPath, process.env.LIVE_DEBUG === 'true');
+      let fakeLiveDate: moment.Moment | undefined;
+      if (process.env.LIVE_DEBUG === 'true') {
+        fakeLiveDate = moment();
+        fakeLiveDate.add(1, 'h');
+      }
+      const store = EventDataStore.eventDataFromFile(jsonPath, fakeLiveDate);
       if (!store) return;
       const values = Array.from(store.sessions.values());
       console.info(`Serving ${store.event.label} (${store.event.id}, ${values.length} sessions)`);

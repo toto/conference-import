@@ -27,10 +27,11 @@ export class EventDataStore implements EventResources {
   maps: Map<string,ConferenceModel.Map>
   pois: Map<string,ConferenceModel.POI>
 
-  constructor(conferenceData: ConferenceData, liveDebug = false) {
+  constructor(conferenceData: ConferenceData, fakeLiveDate?: moment.Moment) {
     let data = conferenceData;
-    if (liveDebug) {
-      data = makeConferenceLive(moment(), data);
+    if (fakeLiveDate) {
+
+      data = makeConferenceLive(fakeLiveDate, data);
     }
     this.event = data.event;
     this.sessions = new Map();
@@ -69,9 +70,9 @@ export class EventDataStore implements EventResources {
     return resources.sort((a,b) => a.id.localeCompare(b.id));
   }
 
-  static eventDataFromFile(jsonFilePath: string, liveDebug: boolean = false): EventDataStore | null {
+  static eventDataFromFile(jsonFilePath: string, fakeLiveDate?: moment.Moment): EventDataStore | null {
     const data = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8')) as ConferenceData;    
-    return new EventDataStore(data, liveDebug);
+    return new EventDataStore(data, fakeLiveDate);
   }
 }
 
