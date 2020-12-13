@@ -103,7 +103,9 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     if (sessionLang) language = sessionLang;
   }
 
-  const speakers: MiniSpeaker[] = session.persons.map((person: {id: number, public_name: string}) => {
+  let persons = session.persons;
+  if (!persons) persons = [];
+  const speakers: MiniSpeaker[] = persons.map((person: {id: number, public_name: string}) => {
     return {
       id: `${person.id}`,
       name: person.public_name,

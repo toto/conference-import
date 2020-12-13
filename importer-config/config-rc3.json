@@ -1,0 +1,168 @@
+{
+  "event": {
+    "id": "rc3",
+    "label": "rC3",
+    "title": "Remote Chaos Experience",
+    "date": [
+      "2020-12-27",
+      "2020-12-30"
+    ],
+    "locations": [
+      {
+        "label": "The Internet",
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "url": "http://events.ccc.de/rc3/2020",
+    "hashtag": "rC3"
+  },
+  "days": [
+    {
+      "id": "2020-12-27",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2020-12-27"
+    },
+    {
+      "id": "2020-12-28",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2020-12-28"
+    },
+    {
+      "id": "2020-12-29",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2020-12-29"
+    },
+    {
+      "id": "2020-12-30",
+      "label_de": "Tag 4",
+      "label_en": "Day 4",
+      "date": "2020-12-30"
+    }
+  ],
+  "subconferences": [
+  ],
+  "sources": [
+    {
+      "format": "frab",
+      "eventId": "rc3",
+      "scheduleJson": "https://api-test.rc3.cccv.de/api/rc3/schedule.json",
+      "frabBaseUrl": "https://fahrplan.events.ccc.de/rC3/Fahrplan",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "ccc",
+        "label_en": "CCC",
+        "label_de": "CCC",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "defaultLanguageName": "German",
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": [],
+      "prefixSessionsWithEventId": true,
+      "fakeVideos": {},
+      "vocSlug": "rc3"
+    }
+  ],
+  "options": {
+    "locationIdOrder": [
+      "subraum"
+    ],
+    "defaultColor": [
+      0,
+      83,
+      132,
+      1
+    ],
+    "colorForTrack": {
+      "rc3-ccc": [
+        0,
+        83,
+        132,
+        1
+      ],
+      "rc3-art-beauty": [
+        255,
+        198,
+        0,
+        1
+      ],
+      "rc3-entertainment": [
+        211,
+        154,
+        0,
+        1
+      ],
+      "rc3-ethics-society-politics": [
+        153,
+        186,
+        0,
+        1
+      ],
+      "rc3-hardware-making": [
+        111,
+        135,
+        0,
+        1
+      ],
+      "rc3-science": [
+        0,
+        118,
+        186,
+        1
+      ],
+      "rc3-security": [
+        175,
+        19,
+        14,
+        1
+      ],
+      "rc3-music": [
+        255,
+        198,
+        0,
+        1
+      ],
+      "rc3-resilience-sustainability": [
+        153,
+        186,
+        0,
+        1
+      ],
+      "rc3-all-about-computers": [
+        63,
+        164,
+        125,
+        1
+      ],
+      "rc3-climate-catastrophy": [
+        153,
+        186,
+        0,
+        1
+      ],
+      "thms-workshop": [
+        0,
+        83,
+        132,
+        1
+      ],
+      "thms-talk": [
+        0,
+        118,
+        186,
+        1
+      ]
+    },
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 7,
+    "nonStageLocationIds": []
+  }
+}

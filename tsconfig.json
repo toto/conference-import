@@ -8,6 +8,8 @@
     "strict": true,
     "target": "esnext",
     "strictNullChecks": true,
+    "incremental": true,
+    "noEmitOnError": true,
     "lib": [
       "es2016"
     ]
