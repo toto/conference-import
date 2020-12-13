@@ -129,8 +129,11 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
   }
   
   let sessionId = `${session.id}`;
+  if (session.guid && !session.id) {
+    sessionId = session.guid;
+  }
   if (config.useSubconferenceIdInSessionId === true && config.subconferenceId) {
-    sessionId = `${config.subconferenceId}-${session.id}`;
+    sessionId = `${config.subconferenceId}-${sessionId}`;
   }
   
   const result: Session = {
