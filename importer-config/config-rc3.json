@@ -43,12 +43,28 @@
     }
   ],
   "subconferences": [
+    {
+      "id": "rc3-chaoswest",
+      "label": "ChaosWest @ rC3"
+    },
+    {
+      "id": "rc3-chaoszone",
+      "label": "ChaosZone @ rC3"
+    },
+    {
+      "id": "rc3-oio",
+      "label": "OIO @ rC3"
+    },
+    {
+      "id": "rc3-wikipaka",
+      "label": "WikiPaka @ rC3"
+    }
   ],
   "sources": [
     {
       "format": "frab",
       "eventId": "rc3",
-      "scheduleJson": "https://api-test.rc3.cccv.de/api/c/rc3/schedule.json",
+      "scheduleJson": "https://data.c3voc.de/rC3/everything.schedule.json",
       "frabBaseUrl": "https://fahrplan.events.ccc.de/rC3/Fahrplan",
       "defaultLanguageCode": "de",
       "defaultTrack": {
@@ -68,12 +84,31 @@
       "pois": [],
       "prefixSessionsWithEventId": true,
       "fakeVideos": {},
-      "vocSlug": "rc3"
+      "vocSlug": "rc3",
+      "preferGuid": true
     }
   ],
   "options": {
     "locationIdOrder": [
-      "subraum"
+      "rc1",
+      "rc2",
+      "chaosstudio-hamburg",
+      "restrealitaet",
+      "r3s---monheim-rhein",
+      "backspace-franconian-net---bamberg",
+      "sz-b-hne",
+      "chaos-west-tv",
+      "chaostrawler-stubnitz-g-ngeviertel-hamburg",
+      "hacc-m-nchen-about-future---m-nchen",
+      "c-base-berlin",
+      "chaoszone-tv-stream",
+      "oio-a-f-b-hne",
+      "wikipaka",
+      "wikipaka-meetups",
+      "bitw-scherei-z-rich",
+      "franconian-net",
+      "chaoszone-workshops",
+      "oio-a-f-workshop"
     ],
     "defaultColor": [
       0,
@@ -163,6 +198,14 @@
     },
     "timezone": "Europe/Berlin",
     "hourOfDayChange": 7,
-    "nonStageLocationIds": []
+    "nonStageLocationIds": [],
+    "subconferenceLocationIds": {
+      "chaoszone-tv-stream": "rc3-chaoszone",
+      "chaoszone-workshops": "rc3-chaoszone",
+      "oio-a-f-b-hne": "rc3-oio",
+      "oio-a-f-workshop": "rc3-oio",
+      "wikipaka": "rc3-wikipaka",
+      "wikipaka-meetups": "rc3-wikipaka"
+    }
   }
 }

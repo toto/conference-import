@@ -25,5 +25,6 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
   useSubconferenceIdInSessionId?: boolean;
   useSubconferenceIdInLocations?: boolean;
   fakeVideos?: any;
+  preferGuid?: boolean;
 };
 

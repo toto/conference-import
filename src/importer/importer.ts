@@ -21,11 +21,17 @@ export interface ConferenceData {
 
 export interface Options {
   locationIdOrder: string[];
-  colorForTrack: {[key: string]: Color};
+  colorForTrack: Record<string, Color>;
   defaultColor: Color;
   timezone: string;
   hourOfDayChange: number;
   nonStageLocationIds?: string[];
+  /** Maps location ids exclusivly to subconference Ids. 
+   * 
+   *  All sessions at a location will be assigned this subconference
+   *  if it exists and no subconference is present in the
+   *  session for any other reason. */
+  subconferenceLocationIds?: Record<string, string>; 
 }
 
 /**
@@ -56,7 +62,7 @@ export function processData(
   });
 
   // Process sessions for days if scheduled
-  const resultSessions = sessions.map(session => {
+  let resultSessions = sessions.map(session => {
     const dateString = isoDayForSession(
       session,
       options.timezone,
@@ -69,6 +75,27 @@ export function processData(
 
     return session;
   });
+
+  // Assign subconferences by location mapping if present
+  if (options.subconferenceLocationIds) {
+    resultSessions = sessions.map(session => {
+      // don't overwrite existing subconferences
+      if (session.subconference) return session;
+
+      const locationId = session.location?.id;
+      if (!locationId) return session;
+      const idmap = options.subconferenceLocationIds;
+      if (!idmap) return session;
+      const subconferenceId = idmap[locationId];
+      if (!subconferenceId) return session;
+      const subconference = subconferences.find(s => s.id === subconferenceId)
+      if (!subconference) return session;
+
+      session.subconference = subconference;
+
+      return session;
+    });
+  }
 
   // Extract locations from sessions and process them with order
   const miniLocationMap = new Map<string, ConferenceModel.MiniLocation>();

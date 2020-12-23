@@ -129,13 +129,21 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
   }
   
   let sessionId = `${session.id}`;
-  if (session.guid && !session.id) {
+  if (config.preferGuid === true && session.guid) {
+    sessionId = session.guid;
+  } else if (session.guid && !session.id) {
     sessionId = session.guid;
   }
+
+  if (sessionId.length === 0) {
+    console.warn(`Session data without id or GUID, ignoring`);
+    return undefined;
+  }
+  
   if (config.useSubconferenceIdInSessionId === true && config.subconferenceId) {
     sessionId = `${config.subconferenceId}-${sessionId}`;
   }
-  
+
   const result: Session = {
     type: "session",
     event: config.eventId,
