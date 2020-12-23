@@ -58,6 +58,10 @@
     {
       "id": "rc3-wikipaka",
       "label": "WikiPaka @ rC3"
+    },
+    {
+      "id": "rc3-sendezentrum",
+      "label": "Sendezentrum @ rC3"
     }
   ],
   "sources": [
@@ -82,7 +86,7 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": [],
-      "prefixSessionsWithEventId": true,
+      "prefixSessionsWithEventId": false,
       "fakeVideos": {},
       "vocSlug": "rc3",
       "preferGuid": true
@@ -118,51 +122,51 @@
     ],
     "colorForTrack": {
       "rc3-ccc": [
-        0,
-        83,
-        132,
+        103,
+        2,
+        149,
         1
       ],
       "rc3-art-beauty": [
-        255,
-        198,
+        65,
         0,
+        139,
         1
       ],
       "rc3-entertainment": [
-        211,
-        154,
         0,
+        118,
+        169,
         1
       ],
       "rc3-ethics-society-politics": [
-        153,
-        186,
+        229,
         0,
+        252,
         1
       ],
       "rc3-hardware-making": [
-        111,
-        135,
-        0,
+        70,
+        238,
+        213,
         1
       ],
       "rc3-science": [
-        0,
-        118,
-        186,
+        117,
+        29,
+        231,
         1
       ],
       "rc3-security": [
-        175,
-        19,
-        14,
+        22,
+        6,
+        36,
         1
       ],
       "rc3-music": [
-        255,
-        198,
-        0,
+        14,
+        128,
+        35,
         1
       ],
       "rc3-resilience-sustainability": [
@@ -205,7 +209,8 @@
       "oio-a-f-b-hne": "rc3-oio",
       "oio-a-f-workshop": "rc3-oio",
       "wikipaka": "rc3-wikipaka",
-      "wikipaka-meetups": "rc3-wikipaka"
+      "wikipaka-meetups": "rc3-wikipaka",
+      "sz-b-hne": "rc3-sendezentrum"
     }
   }
 }
