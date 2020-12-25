@@ -21,10 +21,13 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
   vocSlug?: string;
   /** Any session with location names listed here will not be imported at all */
   ignoredLocationNames?: string[];
+  /** Ignored if preferGuid is true  */
   prefixSessionsWithEventId?: boolean;
+  /** Ignored if preferGuid is true  */
   useSubconferenceIdInSessionId?: boolean;
   useSubconferenceIdInLocations?: boolean;
   fakeVideos?: any;
+  /** uses a guid identifier for sessions if available  */
   preferGuid?: boolean;
   baseSpeakerIdOnName?: boolean;
 };

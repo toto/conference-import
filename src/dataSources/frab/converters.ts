@@ -13,8 +13,12 @@ function speakerFromJson(json: any, config: FrabDataSourceFormat): Speaker | und
   if (json.description) biography += json.description;
 
   const sessions: MiniSession[] = json.events.map((miniSession: any) => {
+    let id = config.subconferenceId && config.useSubconferenceIdInSessionId === true ? `${config.subconferenceId}-${miniSession.id}` : `${miniSession.id}`;
+    if (config.preferGuid === true && miniSession.guid) {
+      id = miniSession.guid;
+    }
     return {
-      id: config.subconferenceId ? `${config.subconferenceId}-${miniSession.id}` : `${miniSession.id}`,
+      id,
       title: miniSession.title,
     };
   });
