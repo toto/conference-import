@@ -19,6 +19,11 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
   pois?: ConferenceModel.POI[];
   timezone?: string;
   vocSlug?: string;
+  /** Alternative live stream api url for VOC live streams
+   *  Defaults to `https://streaming.media.ccc.de/streams/v2.json` if not set
+   *  E.g. use `https://streaming.test.c3voc.de/streams/v2.json`
+   */
+  vocLiveStreamApiUrl?: string;
   /** Any session with location names listed here will not be imported at all */
   ignoredLocationNames?: string[];
   /** Ignored if preferGuid is true  */

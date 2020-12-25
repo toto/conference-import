@@ -109,6 +109,7 @@
       "prefixSessionsWithEventId": false,
       "fakeVideos": {},
       "vocSlug": "rc3",
+      "vocLiveStreamApiUrl": "https://streaming.test.c3voc.de/streams/v2.json",
       "preferGuid": true,
       "baseSpeakerIdOnName": true
     }
@@ -126,6 +127,7 @@
       "chaos-west-tv",
       "chaostrawler-stubnitz-g-ngeviertel-hamburg",
       "hacc-m-nchen-about-future---m-nchen",
+      "hacc-m-nchen-about-future",
       "c-base-berlin",
       "chaoszone-tv-stream",
       "oio-a-f-b-hne",

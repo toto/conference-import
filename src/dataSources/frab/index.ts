@@ -5,7 +5,7 @@ import { FrabDataSourceFormat, isFrabDataSourceFormat } from "./dataFormat";
 import { miniSpeakerToSpeaker, sessionsFromJson, speakersFromJson } from './converters';
 import { DataSourceFormat } from "../dataSource";
 import { SourceData } from "../../importer/sourceData";
-import { loadVocLiveStreams, addLiveStreamEnclosures } from "../voc-live";
+import { loadVocLiveStreams, addLiveStreamEnclosures, VocLiveMediaType, VocLiveStreamType } from "../voc-live";
 import { addRecordingEnclosues } from "../voc-vod";
 
 async function singleSourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], source: FrabDataSourceFormat): Promise<SourceData> {
@@ -54,7 +54,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   })
   
   if (source.vocSlug) {
-    const vocStreams = await loadVocLiveStreams(source.vocSlug);
+    const vocStreams = await loadVocLiveStreams(source.vocSlug, VocLiveMediaType.video, VocLiveStreamType.hls, source.vocLiveStreamApiUrl);
     result.sessions = addLiveStreamEnclosures(result.sessions, vocStreams);
 
     result.sessions = await addRecordingEnclosues(source.vocSlug, result.sessions);

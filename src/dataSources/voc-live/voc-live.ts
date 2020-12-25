@@ -45,10 +45,22 @@ export function enclosureFromVocJson(vocJson: any, mimeType = 'video/mp4'): Encl
   };
 }
 
-// streamType can be hls, webm, dash, mp3, opus
-// type can be dash, video or audio
-export async function loadVocLiveStreams(slug: string, mediaType = 'video', streamType = 'hls') {
-  const conferences = await axios.default.get('https://streaming.media.ccc.de/streams/v2.json')
+export enum VocLiveStreamType {
+  hls = "hls",
+  webm = "webm",
+  dash = "dash",
+  mp3 = "mp3",
+  opus = "opus",
+};
+
+export enum VocLiveMediaType {
+  audio = "video",
+  video = "video",
+  dash = "dash",
+};
+
+export async function loadVocLiveStreams(slug: string, mediaType: VocLiveMediaType = VocLiveMediaType.video, streamType: VocLiveStreamType = VocLiveStreamType.hls, streamApiUrl: string = 'https://streaming.media.ccc.de/streams/v2.json') {
+  const conferences = await axios.default.get(streamApiUrl)
   return parseVocStreams(conferences.data, slug, mediaType, streamType);
 }
 
