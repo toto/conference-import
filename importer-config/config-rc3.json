@@ -89,7 +89,8 @@
       "prefixSessionsWithEventId": false,
       "fakeVideos": {},
       "vocSlug": "rc3",
-      "preferGuid": true
+      "preferGuid": true,
+      "baseSpeakerIdOnName": true
     }
   ],
   "options": {
