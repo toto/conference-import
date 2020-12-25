@@ -62,6 +62,18 @@
     {
       "id": "rc3-sendezentrum",
       "label": "Sendezentrum @ rC3"
+    },
+    {
+      "id": "rc3-chaostrawler",
+      "label": "ChaosTrawler @ rC3"
+    },
+    {
+      "id": "rc3-bitwaescherei",
+      "label": "Bitwäscherei @ rC3"
+    },
+    {
+      "id": "rc3-cbase",
+      "label": "c-base @ rC3"
     }
   ],
   "sources": [
@@ -212,7 +224,10 @@
       "oio-a-f-workshop": "rc3-oio",
       "wikipaka": "rc3-wikipaka",
       "wikipaka-meetups": "rc3-wikipaka",
-      "sz-b-hne": "rc3-sendezentrum"
+      "sz-b-hne": "rc3-sendezentrum",
+      "chaostrawler": "rc3-chaostrawler",
+      "bitw-scherei-z-rich": "rc3-bitwaescherei",
+      "c-base-berlin": "rc3-cbase"
     }
   }
 }
