@@ -19,12 +19,13 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
   pois?: ConferenceModel.POI[];
   timezone?: string;
   vocSlug?: string;
-  // Any session with location names listed here will not be imported at all
+  /** Any session with location names listed here will not be imported at all */
   ignoredLocationNames?: string[];
   prefixSessionsWithEventId?: boolean;
   useSubconferenceIdInSessionId?: boolean;
   useSubconferenceIdInLocations?: boolean;
   fakeVideos?: any;
   preferGuid?: boolean;
+  baseSpeakerIdOnName?: boolean;
 };
 
