@@ -23,6 +23,9 @@ function speakerFromJson(json: any, config: FrabDataSourceFormat): Speaker | und
   if (config.baseSpeakerIdOnName === true) {
     speakerId = normalizedForId(json.public_name);
   }
+  if (speakerId.length === 0) {
+    return undefined;
+  }
 
   // TODO: Speaker links
   const result: Speaker = {
@@ -112,7 +115,7 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
 
   let persons = session.persons;
   if (!persons) persons = [];
-  const speakers: MiniSpeaker[] = persons.map((person: {id: number, public_name: string}) => {
+  let speakers: MiniSpeaker[] = persons.map((person: {id: number, public_name: string}) => {
     let id = `${person.id}`;
     if (config.baseSpeakerIdOnName === true) {
       id = normalizedForId(person.public_name);
@@ -122,6 +125,8 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
       name: person.public_name,
     }
   });
+
+  speakers = speakers.filter(s => s.id.length > 0);
 
   let begin: moment.Moment | undefined;
   let end: moment.Moment | undefined;
@@ -184,5 +189,22 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     end,
   };
 
+  return result;
+}
+
+export function miniSpeakerToSpeaker(miniSpeaker: MiniSpeaker, config: FrabDataSourceFormat): Speaker {
+  const result: Speaker = {
+    type: 'speaker',
+    event: config.eventId,
+    id: miniSpeaker.id,
+    name: miniSpeaker.name,
+    biography: "",
+    photo: undefined,
+    url: null,
+    links: [],
+    sessions: [],
+    organization: undefined,
+    position: undefined,
+  };
   return result;
 }

@@ -2,7 +2,7 @@ import * as axios from "axios";
 
 import * as ConferenceModel from "../../models";
 import { FrabDataSourceFormat, isFrabDataSourceFormat } from "./dataFormat";
-import { sessionsFromJson, speakersFromJson } from './converters';
+import { miniSpeakerToSpeaker, sessionsFromJson, speakersFromJson } from './converters';
 import { DataSourceFormat } from "../dataSource";
 import { SourceData } from "../../importer/sourceData";
 import { loadVocLiveStreams, addLiveStreamEnclosures } from "../voc-live";
@@ -42,6 +42,16 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
       result.speakers = [];
     }
   }
+
+  sessions.forEach(session => {
+    const findSpeaker = (speakerId: string) => {
+      return result.speakers.find(s => s.id === speakerId)
+    } 
+    const speakersNotInFullSpeakersList = session.speakers.filter(speaker => {
+      findSpeaker(speaker.id)
+    }).map(miniSpeaker => miniSpeakerToSpeaker(miniSpeaker, source));
+    result.speakers = result.speakers.concat(speakersNotInFullSpeakersList);
+  })
   
   if (source.vocSlug) {
     const vocStreams = await loadVocLiveStreams(source.vocSlug);

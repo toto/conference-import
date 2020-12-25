@@ -10,7 +10,7 @@ export interface Speaker extends MiniSpeaker {
   type: string
   event: string
   photo: string | undefined
-  url: string
+  url: string | null
   organization: string | undefined
   position: string | undefined
   biography: string | undefined

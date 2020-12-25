@@ -74,6 +74,14 @@
     {
       "id": "rc3-cbase",
       "label": "c-base @ rC3"
+    },
+    {
+      "id": "rc3-r3s",
+      "label": "RheinRuhrStage @ rC3"
+    },
+    {
+      "id": "rc3-franconian",
+      "label": "franconian.net @ rC3"
     }
   ],
   "sources": [
@@ -81,12 +89,12 @@
       "format": "frab",
       "eventId": "rc3",
       "scheduleJson": "https://data.c3voc.de/rC3/everything.schedule.json",
-      "frabBaseUrl": "https://fahrplan.events.ccc.de/rC3/Fahrplan",
+      "frabBaseUrl": "https://fahrplan.events.ccc.de/rc3/2020/Fahrplan",
       "defaultLanguageCode": "de",
       "defaultTrack": {
-        "id": "ccc",
-        "label_en": "CCC",
-        "label_de": "CCC",
+        "id": "rc3",
+        "label_en": "rC3",
+        "label_de": "rC3",
         "color": [
           219,
           196,
@@ -227,7 +235,10 @@
       "sz-b-hne": "rc3-sendezentrum",
       "chaostrawler": "rc3-chaostrawler",
       "bitw-scherei-z-rich": "rc3-bitwaescherei",
-      "c-base-berlin": "rc3-cbase"
+      "c-base-berlin": "rc3-cbase",
+      "r3s---monheim-rhein": "rc3-r3s",
+      "chaos-west-tv" :"rc3-chaoswest",
+      "franconian-net": "rc3-franconian"
     }
   }
 }
