@@ -3,6 +3,7 @@ import { FrabDataSourceFormat } from "./dataFormat";
 import { Session, Language, MiniSpeaker, MiniTrack, Speaker, MiniSession, MiniLocation } from "../../models";
 import { mkId, dehtml } from "../rp/utils";
 import { languageFromIsoCode } from "../rp/language";
+import { normalizedForId } from '../util';
 
 function speakerFromJson(json: any, config: FrabDataSourceFormat): Speaker | undefined {
   if (!config.frabBaseUrl) return undefined;
@@ -17,11 +18,17 @@ function speakerFromJson(json: any, config: FrabDataSourceFormat): Speaker | und
       title: miniSession.title,
     };
   });
+
+  let speakerId = config.subconferenceId ? `${config.subconferenceId}-${json.id}` : `${json.id}`;
+  if (config.baseSpeakerIdOnName === true) {
+    speakerId = normalizedForId(json.public_name);
+  }
+
   // TODO: Speaker links
   const result: Speaker = {
     type: 'speaker',
     event: config.eventId,
-    id: config.subconferenceId ? `${config.subconferenceId}-${json.id}` : `${json.id}`,
+    id: speakerId,
     name: json.public_name,
     biography,
     photo: json.image ? `${config.frabBaseUrl}${json.image}`.replace('/original/', '/large/') : undefined,
@@ -106,8 +113,12 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
   let persons = session.persons;
   if (!persons) persons = [];
   const speakers: MiniSpeaker[] = persons.map((person: {id: number, public_name: string}) => {
+    let id = `${person.id}`;
+    if (config.baseSpeakerIdOnName === true) {
+      id = normalizedForId(person.public_name);
+    }
     return {
-      id: `${person.id}`,
+      id,
       name: person.public_name,
     }
   });
@@ -144,6 +155,13 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     sessionId = `${config.subconferenceId}-${sessionId}`;
   }
 
+  let { url } = session;
+  // We need a url
+  if (!url || !url.match(/https?\:\/\//)) {
+    console.warn(`Invalid url for: ${session.id} (${session.title}) becuase of invalid URL '${url}'`);
+    url = null;
+  }
+
   const result: Session = {
     type: "session",
     event: config.eventId,
@@ -152,7 +170,7 @@ function parseSession(date: string, roomName: string, session: any, config: Frab
     subtitle: session.subtitle,
     abstract: session.abstract,
     description: dehtml(session.description),
-    url: session.url,
+    url,
     track,
     location,
     lang: language,
