@@ -9,8 +9,9 @@ The idea is to avoid a database alltogether since only static data is served.
 ### Import data for a specific conference
 
 1. Create a config file (see `importer-config` for examples)
-2. Build the code `./node_modules/typescript/bin/tsc`
-3. Run the importer (e.g. for 35C3) `CONF=35c3 node lib/index.js --import --config importer-config/config-$CONF.json --out out-$CONF.json` 
+2. Install the dependencies `npm install`
+3. Build the code `npm run build`
+4. Run the importer (e.g. for 35C3) `node lib/index.js --import --config importer-config/config-35c3.json --out out-35c3.json` 
 
 ### Serve the API data
 
