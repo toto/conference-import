@@ -18,7 +18,33 @@ interface VocRecording {
   recording_url: string;
   mime_type: string;
   language: "eng" | "deu" | "eng-deu"
+}
 
+
+interface VocReliveStream {
+  guid: string;
+  mp4: string;
+  playlist: string;
+  thumbnail: string;
+  title: string;
+  status: "recorded" | "live";
+}
+
+function addReliveEnclosure(relive: VocReliveStream, session: Session): Session {
+  const result = session;
+
+  if (relive.status === "recorded") {
+    const enclosure: Enclosure = {
+      url: `https:${relive.mp4}`,
+      mimetype: "video/mp4",
+      type: "recording",
+      title: session.title,
+      thumbnail: `https:${relive.thumbnail}`,
+    };
+    result.enclosures.push(enclosure);
+  }
+
+  return result;
 }
 
 function addRecordingEnclosure(video: VocVideo, session: Session): Session {
@@ -47,6 +73,30 @@ function addRecordingEnclosure(video: VocVideo, session: Session): Session {
   }
 
   return result;
+}
+
+
+export async function addReliveEnclosures(slug: string, sessions: Session[]): Promise<Session[]> {
+  const sessioById = new Map<string, Session>();
+  sessions.forEach(s => sessioById.set(s.id, s));
+  const url = `https://cdn.c3voc.de/relive/${slug}/index.json`;
+  const { data }: { data: VocReliveStream[] } = await axios.default.get(url);
+
+  data.forEach(reliveStream => {
+    if (reliveStream.status !== "recorded") return;
+
+    const session = sessioById.get(reliveStream.guid);
+    if (!session) return;
+
+    // Only add re-live if we don't have recordings yet
+    const exsistingRecordings = session.enclosures.filter(e => e.type === "recording");
+    if (exsistingRecordings.length > 0) return;
+
+    const resultSession = addReliveEnclosure(reliveStream, session);
+    sessioById.set(resultSession.id, resultSession);
+  });
+
+  return Array.from(sessioById.values());
 }
 
 export async function addRecordingEnclosues(slug: string, sessions: Session[]): Promise<Session[]> {

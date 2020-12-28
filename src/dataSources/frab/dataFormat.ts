@@ -24,6 +24,9 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
    *  E.g. use `https://streaming.test.c3voc.de/streams/v2.json`
    */
   vocLiveStreamApiUrl?: string;
+  /** Enable use of voc relive streams if the processing is not yet done */
+  vocUseReliveRecordings?: boolean;
+
   /** Any session with location names listed here will not be imported at all */
   ignoredLocationNames?: string[];
   /** Ignored if preferGuid is true  */

@@ -109,7 +109,8 @@
       "prefixSessionsWithEventId": false,
       "fakeVideos": {},
       "vocSlug": "rc3",
-      "vocLiveStreamApiUrl": "https://streaming.test.c3voc.de/streams/v2.json",
+      
+      "vocUseReliveRecordings": true,
       "preferGuid": true,
       "baseSpeakerIdOnName": true
     }

@@ -6,7 +6,7 @@ import { miniSpeakerToSpeaker, sessionsFromJson, speakersFromJson } from './conv
 import { DataSourceFormat } from "../dataSource";
 import { SourceData } from "../../importer/sourceData";
 import { loadVocLiveStreams, addLiveStreamEnclosures, VocLiveMediaType, VocLiveStreamType } from "../voc-live";
-import { addRecordingEnclosues } from "../voc-vod";
+import { addRecordingEnclosues, addReliveEnclosures } from "../voc-vod";
 
 async function singleSourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], source: FrabDataSourceFormat): Promise<SourceData> {
   const maps: ConferenceModel.Map[] = source.maps !== undefined ? source.maps : [];
@@ -58,6 +58,9 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     result.sessions = addLiveStreamEnclosures(result.sessions, vocStreams);
 
     result.sessions = await addRecordingEnclosues(source.vocSlug, result.sessions);
+    if (source.vocUseReliveRecordings === true) {
+      result.sessions = await addReliveEnclosures(source.vocSlug, result.sessions);
+    }
   }
 
   if (source.fakeVideos) {
