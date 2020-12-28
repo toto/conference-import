@@ -46,7 +46,7 @@ function addReliveEnclosure(relive: VocReliveStream, session: Session, useMp4 = 
     } else {
       const enclosure: Enclosure = {
         url: `https:${relive.playlist}`,
-        mimetype: "video/mp4",
+        mimetype: "application/x-mpegurl",
         type: "recording",
         title: session.title,
         thumbnail: `https:${relive.thumbnail}`,
