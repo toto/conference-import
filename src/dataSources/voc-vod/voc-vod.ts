@@ -33,7 +33,7 @@ interface VocReliveStream {
 function addReliveEnclosure(relive: VocReliveStream, session: Session): Session {
   const result = session;
 
-  if (relive.status === "recorded") {
+  if (relive.status === "recorded" && relive.guid === session.id) {
     const enclosure: Enclosure = {
       url: `https:${relive.mp4}`,
       mimetype: "video/mp4",
