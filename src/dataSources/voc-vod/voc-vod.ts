@@ -30,18 +30,29 @@ interface VocReliveStream {
   status: "recorded" | "live";
 }
 
-function addReliveEnclosure(relive: VocReliveStream, session: Session): Session {
+function addReliveEnclosure(relive: VocReliveStream, session: Session, useMp4 = false): Session {
   const result = session;
 
   if (relive.status === "recorded" && relive.guid === session.id) {
-    const enclosure: Enclosure = {
-      url: `https:${relive.mp4}`,
-      mimetype: "video/mp4",
-      type: "recording",
-      title: session.title,
-      thumbnail: `https:${relive.thumbnail}`,
-    };
-    result.enclosures.push(enclosure);
+    if (useMp4) {
+      const enclosure: Enclosure = {
+        url: `https:${relive.mp4}`,
+        mimetype: "video/mp4",
+        type: "recording",
+        title: session.title,
+        thumbnail: `https:${relive.thumbnail}`,
+      };
+      result.enclosures.push(enclosure);
+    } else {
+      const enclosure: Enclosure = {
+        url: `https:${relive.playlist}`,
+        mimetype: "video/mp4",
+        type: "recording",
+        title: session.title,
+        thumbnail: `https:${relive.thumbnail}`,
+      };
+      result.enclosures.push(enclosure);
+    }
   }
 
   return result;
