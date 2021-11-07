@@ -1,7 +1,7 @@
 import { Speaker } from './../../models/speaker';
 import * as utils from './utils';
 import { Link } from '../../models';
-
+import { URL } from 'url'
 
 interface Options {
   speakerPostProcessing?(speaker: Speaker): Speaker | null
@@ -30,8 +30,9 @@ export function speakersFromJson(json: any, options: Options): Speaker[] {
     sourceLinks.forEach(sourceLink => {
       const result = utils.nameAndUrlFromHtmlLink(sourceLink);
       if (!result) return;
+      const url = new URL(result.url.trim());
       links.push({
-          url: result.url,
+          url: url.toString(),
           title: result.name || item.name,
           type: 'speaker-link',
           service: 'web'
