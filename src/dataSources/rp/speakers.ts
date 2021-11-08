@@ -30,13 +30,18 @@ export function speakersFromJson(json: any, options: Options): Speaker[] {
     sourceLinks.forEach(sourceLink => {
       const result = utils.nameAndUrlFromHtmlLink(sourceLink);
       if (!result) return;
-      const url = new URL(result.url.trim());
-      links.push({
-          url: url.toString(),
-          title: result.name || item.name,
-          type: 'speaker-link',
-          service: 'web'
-      });
+      try {
+        const url = new URL(result.url.trim());
+        links.push({
+            url: url.toString(),
+            title: result.name || item.name,
+            type: 'speaker-link',
+            service: 'web'
+        });
+      } catch (error) {
+        return;
+      }
+      
     });
 
     return {
