@@ -8,3 +8,4 @@ coverage
 .vscode
 jest.config.js
 .eslintrc.js
+__tests__
