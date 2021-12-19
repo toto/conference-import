@@ -50,10 +50,10 @@ export async function serveEvents(files: string[], server='0.0.0.0', port=5000) 
     ];
     resourceName.forEach(resource => {
       const detailPath = new RegExp(
-        `\/([a-z0-9A-Z_\-]+)\/${resource}\/([a-zA-Z0-9_\-]+)`
+        `/([a-z0-9A-Z_-]+)/${resource}/([a-zA-Z0-9_-]+)`
       );
       const allPath = new RegExp(
-        `\/([a-z0-9A-Z_\-]+)\/${resource}`
+        `/([a-z0-9A-Z_-]+)/${resource}`
       );
       
       app.get([detailPath, allPath], (req, res) => {
@@ -67,13 +67,13 @@ export async function serveEvents(files: string[], server='0.0.0.0', port=5000) 
     
         const resourceId = req.params[1];
         if (resourceId) {
-          const singularResource = store.resourceForId(resource as any, resourceId);
+          const singularResource = store.resourceForId(resource as never, resourceId);
           if (!singularResource) {
             return res.status(404).json(wrapInResponseData([]));
           }
           return res.json(wrapInResponseData([singularResource]));
         } else {
-          const resources = store.resources(resource as any);
+          const resources = store.resources(resource as never);
           return res.json(wrapInResponseData(resources));
         }
       });
@@ -81,7 +81,7 @@ export async function serveEvents(files: string[], server='0.0.0.0', port=5000) 
     
     app.listen(port, server, () => {
       console.info(`API listening on port ${port}`)
-      resolve();
+      resolve(undefined);
     });
   });
 }

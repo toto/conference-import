@@ -19,8 +19,8 @@ interface Options {
 function videoLinkFromString(video: string, title: string): Link | null {
   if (video === "" || !video.includes('youtube')) return null;
   const ytregexes = [
-    /\.com\/watch\?v=([a-zA-Z0-9_\-]+)$/i,
-    /\.com\/embed\/([a-zA-Z0-9_\-]+)/i,
+    /\.com\/watch\?v=([a-zA-Z0-9_-]+)$/i,
+    /\.com\/embed\/([a-zA-Z0-9_-]+)/i,
   ];
 
   for (const ytregex of ytregexes) {

@@ -27,7 +27,7 @@ export function undefinedIfEmpty(str?: string): string | undefined {
   return str;
 }
 
-export function hasValue(value: any): boolean {
+export function hasValue(value: unknown): boolean {
   if (typeof value === "string") {
     return value.trim() !== "";
   }
@@ -35,7 +35,7 @@ export function hasValue(value: any): boolean {
 }
 
 export function mkId(str: string): string {
-	return str.trim().replace(/[^A-Za-z0-9_\-]+/g, '-').toLowerCase();
+	return str.trim().replace(/[^A-Za-z0-9_-]+/g, '-').toLowerCase();
 }
 
 interface NameAndId {
