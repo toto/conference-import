@@ -1,0 +1,216 @@
+
+{
+  "event": {
+    "id": "rc3-2021",
+    "label": "rC3 2021 NOWHERE",
+    "title": "Remote Chaos Experience 2021 || NOWHERE",
+    "date": [
+      "2021-12-27",
+      "2021-12-30"
+    ],
+    "locations": [
+      {
+        "label": "The Internet",
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "url": "https://events.ccc.de/rc3/2021",
+    "hashtag": "rC3"
+  },
+  "days": [
+    {
+      "id": "2021-12-27",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2021-12-27"
+    },
+    {
+      "id": "2021-12-28",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2021-12-28"
+    },
+    {
+      "id": "2021-12-29",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2021-12-29"
+    },
+    {
+      "id": "2021-12-30",
+      "label_de": "Tag 4",
+      "label_en": "Day 4",
+      "date": "2021-12-30"
+    }
+  ],
+  "subconferences": [
+    
+  ],
+  "sources": [
+    {
+      "format": "frab",
+      "eventId": "rc3",
+      "scheduleJson": "https://data.c3voc.de/rC3/everything.schedule.json",
+      "frabBaseUrl": "https://fahrplan.events.ccc.de/rc3/2021/Fahrplan",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "rc3",
+        "label_en": "rC3",
+        "label_de": "rC3",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "defaultLanguageName": "German",
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": [],
+      "prefixSessionsWithEventId": false,
+      "fakeVideos": {},
+      "vocSlug": "rc3",
+      
+      "vocUseReliveRecordings": true,
+      "preferGuid": true,
+      "baseSpeakerIdOnName": true
+    }
+  ],
+  "options": {
+    "locationIdOrder": [
+      "rc1",
+      "rc2",
+      "rc3-lounge",
+      "mainhall",
+      "chaosstudio-hamburg",
+      "chaoszone-tv-stream",
+      "franconian-net",
+      "r3s---monheim-rhein",
+      "restrealitaet",
+      "wikipaka",
+      "xhain-berlin",
+      "hacc-m-nchen-about-future---m-nchen",
+      "hacc-m-nchen-about-future",
+      "chaostrawler",
+      "kreaturworks",
+      "oio-a-f-b-hne",
+      "backspace-franconian-net---bamberg",
+      "sendezentrum",
+      "sz-b-hne",
+      "sendezentrum-b-hne",
+      "chaos-west-tv",
+      "chaostrawler-stubnitz-g-ngeviertel-hamburg",
+      "c-base-berlin",
+      "bitw-scherei-z-rich",
+      "wikipaka-meetups",
+      "chaoszone-workshops",
+      "oio-a-f-workshop"
+    ],
+    "defaultColor": [
+      0,
+      83,
+      132,
+      1
+    ],
+    "colorForTrack": {
+      "rc3-ccc": [
+        103,
+        2,
+        149,
+        1
+      ],
+      "rc3-art-beauty": [
+        65,
+        0,
+        139,
+        1
+      ],
+      "rc3-entertainment": [
+        0,
+        118,
+        169,
+        1
+      ],
+      "rc3-ethics-society-politics": [
+        229,
+        0,
+        252,
+        1
+      ],
+      "rc3-hardware-making": [
+        70,
+        238,
+        213,
+        1
+      ],
+      "rc3-science": [
+        117,
+        29,
+        231,
+        1
+      ],
+      "rc3-security": [
+        22,
+        6,
+        36,
+        1
+      ],
+      "rc3-music": [
+        14,
+        128,
+        35,
+        1
+      ],
+      "rc3-resilience-sustainability": [
+        153,
+        186,
+        0,
+        1
+      ],
+      "rc3-all-about-computers": [
+        63,
+        164,
+        125,
+        1
+      ],
+      "rc3-climate-catastrophy": [
+        153,
+        186,
+        0,
+        1
+      ],
+      "thms-workshop": [
+        0,
+        83,
+        132,
+        1
+      ],
+      "thms-talk": [
+        0,
+        118,
+        186,
+        1
+      ]
+    },
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 7,
+    "nonStageLocationIds": [],
+    "subconferenceLocationIds": {
+      "chaoszone-tv-stream": "rc3-chaoszone",
+      "chaoszone-workshops": "rc3-chaoszone",
+      "oio-a-f-b-hne": "rc3-oio",
+      "oio-a-f-workshop": "rc3-oio",
+      "wikipaka": "rc3-wikipaka",
+      "wikipaka-meetups": "rc3-wikipaka",
+      "sz-b-hne": "rc3-sendezentrum",
+      "sendezentrum-b-hne": "rc3-sendezentrum",
+      "chaostrawler": "rc3-chaostrawler",
+      "bitw-scherei-z-rich": "rc3-bitwaescherei",
+      "c-base-berlin": "rc3-cbase",
+      "r3s---monheim-rhein": "rc3-r3s",
+      "chaos-west-tv" :"rc3-chaoswest",
+      "franconian-net": "rc3-franconian"
+    }
+  }
+}
