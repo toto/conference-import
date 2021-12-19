@@ -38,5 +38,5 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
   /** uses a guid identifier for sessions if available  */
   preferGuid?: boolean;
   baseSpeakerIdOnName?: boolean;
-};
+}
 

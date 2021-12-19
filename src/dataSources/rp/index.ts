@@ -19,7 +19,7 @@ export interface RpDataSourceFormat extends DataSourceFormat {
   filterSessionNames?: string[],
   maps?: ConferenceModel.Map[],
   timezone?: string
-};
+}
 
 export function isRpDataSourceFormat(dataSource: DataSourceFormat): dataSource is RpDataSourceFormat {
   return dataSource.format === "rp";

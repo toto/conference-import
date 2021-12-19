@@ -16,7 +16,7 @@ export interface HalfnarpSourceFormat extends DataSourceFormat {
   trackIdMap: any;
   timezone?: string;
   vocSlug?: string;
-};
+}
 
 export function isHalfnarpSourceFormat(dataSource: DataSourceFormat): dataSource is HalfnarpSourceFormat {
   return dataSource.format === "halfnarp";

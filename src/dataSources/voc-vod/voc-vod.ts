@@ -61,10 +61,8 @@ function addReliveEnclosure(relive: VocReliveStream, session: Session, useMp4 = 
 function addRecordingEnclosure(video: VocVideo, session: Session): Session {
   const result = session;
 
-  let resultRecording: VocRecording | undefined;
-
   const orderedRecordings = video.recordings.sort(r => r.high_quality ? -1 : 1);
-  resultRecording = orderedRecordings.find(recording => {
+  const resultRecording: VocRecording | undefined = orderedRecordings.find(recording => {
     if ((session.lang.id === "de" && recording.language === "deu") ||
       (session.lang.id === "en" && recording.language === "eng")) {
       return recording.mime_type === "video/mp4";

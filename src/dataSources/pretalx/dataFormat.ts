@@ -20,4 +20,4 @@ export interface PretalxDataSourceFormat extends DataSourceFormat {
   vocSlug?: string;
   useSubconferenceIdInSessionId?: boolean;
   useSubconferenceIdInLocations?: boolean;
-};
+}

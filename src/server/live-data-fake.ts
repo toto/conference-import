@@ -19,6 +19,7 @@ export function makeConferenceLive(now: moment.Moment, data: ConferenceData): Co
     console.warn("No scheduled sessions, cannot make conference live")
     return data;
   }
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const addTime = now.unix() - moment(firstScheduledSession.begin!).unix() - 60;
   newData.sessions = sessions.map(session => updateSession(session, addTime));
 

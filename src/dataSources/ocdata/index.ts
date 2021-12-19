@@ -8,7 +8,7 @@ import { ConferenceData } from "../../importer/importer";
 export interface OcDataSourceFormat extends DataSourceFormat {
   format: "ocdata"
   baseUrl: string;
-};
+}
 
 export function isOcDataSourceFormat(dataSource: DataSourceFormat): dataSource is OcDataSourceFormat {
   return dataSource.format === "ocdata";
