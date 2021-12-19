@@ -9,7 +9,10 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
   format: "frab";
   eventId: string;
   scheduleJson: string;
+  /** Set to automatically generate speaker image urls and infer a speaker JSON url */
   frabBaseUrl?: string;
+  /** If set will be preferred over infering the speakers url from frabBaseUrl */
+  speakerJsonUrl?: string;
   defaultTrack: ConferenceModel.Track;
   defaultLanguageCode: string;
   subconferenceId?: string;

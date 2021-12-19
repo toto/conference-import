@@ -33,9 +33,15 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   }
   result.sessions = sessions;
 
-  if (source.frabBaseUrl) {
+  let speakersUrl: string | undefined
+  if (source.speakerJsonUrl) {
+    speakersUrl = source.speakerJsonUrl
+  } else if (source.frabBaseUrl) {
+    speakersUrl = `${source.frabBaseUrl}/speakers.json`
+  }
+  if (speakersUrl) {
     try {
-      const speakers = await axios.default.get(`${source.frabBaseUrl}/speakers.json`);
+      const speakers = await axios.default.get(speakersUrl);
       result.speakers = speakersFromJson(speakers.data, source);
     } catch (error) {
       console.error(`frab-importer: Could not import speakers: ${error}`);

@@ -51,6 +51,7 @@
       "format": "frab",
       "eventId": "rc3",
       "scheduleJson": "https://data.c3voc.de/rC3/everything.schedule.json",
+      "speakerJsonUrl": "https://data.c3voc.de/rC3/speakers.json",
       "frabBaseUrl": "https://fahrplan.events.ccc.de/rc3/2021/Fahrplan",
       "defaultLanguageCode": "de",
       "defaultTrack": {
