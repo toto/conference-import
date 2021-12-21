@@ -54,10 +54,12 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   result.sessions = sessions;
   result.speakers = await speakersFromPretalx(source);
 
-  if (source.vocSlug) {
-    const vocStreams = await loadVocLiveStreams(source.vocSlug);
+  const liveSlug = source.vocLiveSlug ?? source.vocSlug;
+  if (liveSlug) {
+    const vocStreams = await loadVocLiveStreams(liveSlug);
     result.sessions = addLiveStreamEnclosures(result.sessions, vocStreams);
-
+  }
+  if (source.vocSlug) {
     result.sessions = await addRecordingEnclosues(source.vocSlug, result.sessions);
   }
 

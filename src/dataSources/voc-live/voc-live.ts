@@ -59,6 +59,10 @@ export enum VocLiveMediaType {
   dash = "dash",
 }
 
+/** Loads live stream data from a running conference. 
+ * Defaults to `https://streaming.media.ccc.de/streams/v2.json`
+ * To test use `https://streaming.test.c3voc.de/streams/v2.json`
+ */
 export async function loadVocLiveStreams(slug: string, mediaType: VocLiveMediaType = VocLiveMediaType.video, streamType: VocLiveStreamType = VocLiveStreamType.hls, streamApiUrl = 'https://streaming.media.ccc.de/streams/v2.json') {
   const conferences = await axios.default.get(streamApiUrl)
   return parseVocStreams(conferences.data, slug, mediaType, streamType);
@@ -67,14 +71,14 @@ export async function loadVocLiveStreams(slug: string, mediaType: VocLiveMediaTy
 
 export function addLiveStreamEnclosures(sessions: Session[], vocVideos: VocStream[]): Session[] {
   const untranslatedVocStreams = vocVideos.filter(v => !v.translated);
-  const streamByRoomName = new Map<string, VocStream>();
-  untranslatedVocStreams.forEach(v => streamByRoomName.set(v.name, v));
+  const streamByRoomName: Record<string, VocStream> = {};
+  untranslatedVocStreams.forEach(v => streamByRoomName[v.name] = v);
 
   return sessions.map(session => {
     const updatedSession = session;
     if (updatedSession.location && updatedSession.location.label_en) {
       const roomName = updatedSession.location.label_en;
-      const stream = streamByRoomName.get(roomName);
+      const stream = streamByRoomName[roomName];
       if (stream) {
         const liveStream: Enclosure = {
           url: stream.streamUrl,

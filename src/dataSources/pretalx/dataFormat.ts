@@ -18,6 +18,8 @@ export interface PretalxDataSourceFormat extends DataSourceFormat {
   maps?: ConferenceModel.Map[];
   timezone?: string;
   vocSlug?: string;
+  /** Slug to be used for detecting live video streams. Will be preferred over vocSlug if both are set. */
+  vocLiveSlug?: string;
   useSubconferenceIdInSessionId?: boolean;
   useSubconferenceIdInLocations?: boolean;
 }

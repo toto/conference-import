@@ -66,6 +66,7 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
     };
   }
   
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   let language: Language = languageFromIsoCode(config.defaultLanguageCode)!;
   const parsedLang = languageFromIsoCode(talk.content_locale);
   if (parsedLang) language = parsedLang;

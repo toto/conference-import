@@ -104,17 +104,20 @@
         "label_en": "FeM",
         "label_de": "FeM",
         "color": [
-          219,
-          196,
-          251,
+          77,
+          127,
+          250,
           1
         ]
       },
       "subconferenceId": "rc3-2021-fem",
       "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "rc3-2021",
+      "vocLiveSlug": "rc3"
     },
     {
       "format": "pretalx",
@@ -127,17 +130,20 @@
         "label_en": "c-base",
         "label_de": "c-base",
         "color": [
-          219,
-          196,
-          251,
+          240,
+          52,
+          233,
           1
         ]
       },
       "subconferenceId": "rc3-2021-cbase",
       "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "rc3-2021",
+      "vocLiveSlug": "rc3"
     },
     {
       "format": "pretalx",
@@ -150,17 +156,20 @@
         "label_en": "CWTV",
         "label_de": "CWTV",
         "color": [
-          219,
-          196,
-          251,
+          0,
+          121,
+          254,
           1
         ]
       },
       "subconferenceId": "rc3-2021-cwtv",
       "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "rc3-2021",
+      "vocLiveSlug": "rc3"
     },
     {
       "format": "pretalx",
@@ -173,17 +182,19 @@
         "label_en": "Chaosstudio Hamburg",
         "label_de": "Chaosstudio Hamburg",
         "color": [
-          219,
-          196,
-          251,
+          28,
+          255,
+          88,
           1
         ]
       },
       "subconferenceId": "rc3-2021-chaosstudiohamburg",
       "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "rc3-2021"
     },
     {
       "format": "pretalx",
@@ -196,17 +207,20 @@
         "label_en": "ChaosZone TV",
         "label_de": "ChaosZone TV",
         "color": [
-          219,
-          196,
-          251,
+          1,
+          214,
+          255,
           1
         ]
       },
       "subconferenceId": "rc3-2021-chaoszone",
       "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "rc3-2021",
+      "vocLiveSlug": "rc3"
     },
     {
       "format": "pretalx",
@@ -219,17 +233,19 @@
         "label_en": "R3S",
         "label_de": "R3S",
         "color": [
-          219,
-          196,
+          178,
+          255,
           251,
           1
         ]
       },
       "subconferenceId": "rc3-2021-r3s",
       "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "rc3-2021"
     },
     {
       "format": "pretalx",
@@ -242,17 +258,20 @@
         "label_en": "franconian.net",
         "label_de": "franconian.net",
         "color": [
-          219,
-          196,
-          251,
+          255,
+          178,
+          23,
           1
         ]
       },
       "subconferenceId": "rc3-2021-franconian",
       "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "rc3-2021",
+      "vocLiveSlug": "rc3"
     },
     {
       "format": "pretalx",
@@ -265,17 +284,20 @@
         "label_en": "about:future",
         "label_de": "about:future",
         "color": [
-          219,
-          196,
-          251,
+          95,
+          36,
+          250,
           1
         ]
       },
       "subconferenceId": "rc3-2021-hacc-a-f",
       "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "rc3-2021",
+      "vocLiveSlug": "rc3"
     },
     {
       "format": "pretalx",
@@ -288,17 +310,20 @@
         "label_en": "Sendezentrum",
         "label_de": "Sendezentrum",
         "color": [
-          219,
-          196,
-          251,
+          157,
+          91,
+          242,
           1
         ]
       },
       "subconferenceId": "rc3-2021-sendezentrum",
       "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "rc3-2021",
+      "vocLiveSlug": "rc3"
     },
     {
       "format": "pretalx",
@@ -311,17 +336,20 @@
         "label_en": "haecksen",
         "label_de": "haecksen",
         "color": [
-          219,
-          196,
-          251,
+          13,
+          190,
+          169,
           1
         ]
       },
       "subconferenceId": "rc3-2021-haecksen",
       "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "rc3-2021",
+      "vocLiveSlug": "rc3"
     },
     {
       "format": "pretalx",
@@ -334,17 +362,20 @@
         "label_en": "xhain hack+makespace'",
         "label_de": "xhain hack+makespace'",
         "color": [
-          219,
-          196,
-          251,
+          89,
+          234,
+          127,
           1
         ]
       },
       "subconferenceId": "rc3-2021-xhain",
       "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "vocSlug": "rc3-2021",
+      "vocLiveSlug": "rc3"
     }
   ],
   "options": {
@@ -370,88 +401,154 @@
       "rc3-2021-xhain-scubar"
     ],
     "defaultColor": [
-      0,
-      83,
-      132,
+      77,
+      127,
+      250,
       1
     ],
     "colorForTrack": {
-      "rc3-ccc": [
-        103,
-        2,
-        149,
+      "cbase": [
+        240,
+        52,
+        233,
         1
       ],
-      "rc3-art-beauty": [
-        65,
-        0,
-        139,
+      "chaoszone": [
+        1,
+        214,
+        255,
         1
       ],
-      "rc3-entertainment": [
-        0,
-        118,
+      "franconiannet": [
+        255,
+        178,
+        23,
+        1
+      ],
+      "hacc-a-f": [
+        255,
+        178,
+        23,
+        1
+      ],
+      "haecksen": [
+        13,
+        190,
         169,
         1
       ],
-      "rc3-ethics-society-politics": [
-        229,
+      "r3s": [
+        178,
+        255,
+        251,
+        1
+      ],
+      "rc3-2021-chaosstudiohamburg-chaosstudio-hamburg": [
+        28,
+        255,
+        88,
+        1
+      ],
+      "rc3-2021-chaosstudiohamburg-chaosstudio-hamburg---fascinating-astronomy": [
+        28,
+        255,
+        88,
+        1
+      ],
+      "rc3-2021-chaosstudiohamburg-digitalcourage": [
+        28,
+        255,
+        88,
+        1
+      ],
+      "rc3-2021-cwtv-back-to-basics": [
         0,
-        252,
+        121,
+        254,
         1
       ],
-      "rc3-hardware-making": [
-        70,
-        238,
-        213,
-        1
-      ],
-      "rc3-science": [
-        117,
-        29,
-        231,
-        1
-      ],
-      "rc3-security": [
-        22,
-        6,
-        36,
-        1
-      ],
-      "rc3-music": [
-        14,
-        128,
-        35,
-        1
-      ],
-      "rc3-resilience-sustainability": [
-        153,
-        186,
+      "rc3-2021-cwtv-into-to-the-future-": [
         0,
+        121,
+        254,
         1
       ],
-      "rc3-all-about-computers": [
-        63,
-        164,
-        125,
+      "rc3-2021-fem-fundamentals": [
+        77,
+        127,
+        250,
         1
       ],
-      "rc3-climate-catastrophy": [
-        153,
-        186,
-        0,
+      "rc3-2021-fem-infrastruktur": [
+        77,
+        127,
+        250,
         1
       ],
-      "thms-workshop": [
-        0,
-        83,
-        132,
+      "rc3-2021-fem-medien": [
+        77,
+        127,
+        250,
         1
       ],
-      "thms-talk": [
-        0,
-        118,
-        186,
+      "rc3-2021-haecksen-feminismus": [
+        13,
+        190,
+        169,
+        1
+      ],
+      "rc3-2021-haecksen-kunst-kultur-erholung": [
+        13,
+        190,
+        169,
+        1
+      ],
+      "rc3-2021-haecksen-pandemie": [
+        13,
+        190,
+        169,
+        1
+      ],
+      "rc3-2021-haecksen-sicherheit": [
+        13,
+        190,
+        169,
+        1
+      ],
+      "rc3-2021-haecksen-soziales-gesellschaft": [
+        13,
+        190,
+        169,
+        1
+      ],
+      "rc3-2021-haecksen-technik": [
+        13,
+        190,
+        169,
+        1
+      ],
+      "rc3-2021-haecksen-umwelt": [
+        13,
+        190,
+        169,
+        1
+      ],
+      "rc3-2021-r3s-r3s---monheim-rhein": [
+        178,
+        255,
+        251,
+        1
+      ],
+      "sendezentrum": [
+        157,
+        91,
+        242,
+        1
+      ],
+      "xhain":  [
+        89,
+        234,
+        127,
         1
       ]
     },
