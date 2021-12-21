@@ -1,4 +1,3 @@
-
 {
   "event": {
     "id": "rc3-2021",
@@ -44,20 +43,66 @@
     }
   ],
   "subconferences": [
-    
+    {
+      "id": "rc3-2021-fem",
+      "label": "FeM @ rC3"
+    },
+    {
+      "id": "rc3-2021-c-base",
+      "label": "c-base @ rC3"
+    },
+    {
+      "id": "rc3-2021-cwtv",
+      "label": "CWTV @ rC3"
+    },
+    {
+      "id": "rc3-2021-chaosstudiohamburg",
+      "label": "Chaosstudio Hamburg @ rC3"
+    },
+    {
+      "id": "rc3-2021-chaoszone",
+      "label": "ChaosZone TV @ rC3"
+    },
+    {
+      "id": "rc3-2021-r3s",
+      "label": "R3S @ rC3"
+    },
+    {
+      "id": "rc3-2021-franconian",
+      "label": "franconian.net @ rC3"
+    },
+    {
+      "id": "rc3-2021-hacc-a-f",
+      "label": "about:future @ rC3"
+    },
+    {
+      "id": "rc3-2021-sendezentrum",
+      "label": "Sendezentrum @ rC3"
+    },
+    {
+      "id": "rc3-2021-haecksen",
+      "label": "haecksen @ rC3"
+    },
+    {
+      "id": "rc3-2021-gehacktes-from-hell",
+      "label": "gehacktes from hell @ rC3"
+    },
+    {
+      "id": "rc3-2021-xhain",
+      "label": "xhain hack+makespace"
+    }
   ],
   "sources": [
     {
-      "format": "frab",
-      "eventId": "rc3",
-      "scheduleJson": "https://data.c3voc.de/rC3/everything.schedule.json",
-      "speakerJsonUrl": "https://data.c3voc.de/rC3/speakers.json",
-      "frabBaseUrl": "https://fahrplan.events.ccc.de/rc3/2021/Fahrplan",
+      "format": "pretalx",
+      "eventId": "rc3-2021",
+      "baseUrl": "https://pretalx.c3voc.de/",
+      "conferenceCode": "rc3-2021-fem",
       "defaultLanguageCode": "de",
       "defaultTrack": {
-        "id": "rc3",
-        "label_en": "rC3",
-        "label_de": "rC3",
+        "id": "fem",
+        "label_en": "FeM",
+        "label_de": "FeM",
         "color": [
           219,
           196,
@@ -65,48 +110,264 @@
           1
         ]
       },
-      "defaultLanguageName": "German",
+      "subconferenceId": "rc3-2021-fem",
+      "useSubconferenceIdInSessionId": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": [],
-      "prefixSessionsWithEventId": false,
-      "fakeVideos": {},
-      "vocSlug": "rc3",
-      
-      "vocUseReliveRecordings": true,
-      "preferGuid": true,
-      "baseSpeakerIdOnName": true
+      "pois": []
+    },
+    {
+      "format": "pretalx",
+      "eventId": "rc3-2021",
+      "baseUrl": "https://pretalx.c3voc.de/",
+      "conferenceCode": "rc3-2021-cbase",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "cbase",
+        "label_en": "c-base",
+        "label_de": "c-base",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "subconferenceId": "rc3-2021-cbase",
+      "useSubconferenceIdInSessionId": false,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
+    },
+    {
+      "format": "pretalx",
+      "eventId": "rc3-2021",
+      "baseUrl": "https://pretalx.c3voc.de/",
+      "conferenceCode": "rc3-2021-cwtv",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "cwtv",
+        "label_en": "CWTV",
+        "label_de": "CWTV",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "subconferenceId": "rc3-2021-cwtv",
+      "useSubconferenceIdInSessionId": false,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
+    },
+    {
+      "format": "pretalx",
+      "eventId": "rc3-2021",
+      "baseUrl": "https://pretalx.c3voc.de/",
+      "conferenceCode": "rc3-2021-chaosstudiohamburg",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "chaosstudiohamburg",
+        "label_en": "Chaosstudio Hamburg",
+        "label_de": "Chaosstudio Hamburg",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "subconferenceId": "rc3-2021-chaosstudiohamburg",
+      "useSubconferenceIdInSessionId": false,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
+    },
+    {
+      "format": "pretalx",
+      "eventId": "rc3-2021",
+      "baseUrl": "https://pretalx.c3voc.de/",
+      "conferenceCode": "rc3-2021-chaoszone",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "chaoszone",
+        "label_en": "ChaosZone TV",
+        "label_de": "ChaosZone TV",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "subconferenceId": "rc3-2021-chaoszone",
+      "useSubconferenceIdInSessionId": false,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
+    },
+    {
+      "format": "pretalx",
+      "eventId": "rc3-2021",
+      "baseUrl": "https://pretalx.c3voc.de/",
+      "conferenceCode": "rc3-2021-r3s",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "r3s",
+        "label_en": "R3S",
+        "label_de": "R3S",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "subconferenceId": "rc3-2021-r3s",
+      "useSubconferenceIdInSessionId": false,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
+    },
+    {
+      "format": "pretalx",
+      "eventId": "rc3-2021",
+      "baseUrl": "https://cfp.franconian.net/",
+      "conferenceCode": "end-of-year-event-2021",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "franconiannet",
+        "label_en": "franconian.net",
+        "label_de": "franconian.net",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "subconferenceId": "rc3-2021-franconian",
+      "useSubconferenceIdInSessionId": false,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
+    },
+    {
+      "format": "pretalx",
+      "eventId": "rc3-2021",
+      "baseUrl": "https://pretalx.c3voc.de/",
+      "conferenceCode": "rc3-2021-hacc-a-f",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "hacc-a-f",
+        "label_en": "about:future",
+        "label_de": "about:future",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "subconferenceId": "rc3-2021-hacc-a-f",
+      "useSubconferenceIdInSessionId": false,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
+    },
+    {
+      "format": "pretalx",
+      "eventId": "rc3-2021",
+      "baseUrl": "https://pretalx.c3voc.de/",
+      "conferenceCode": "rc3-2021-sendezentrum",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "sendezentrum",
+        "label_en": "Sendezentrum",
+        "label_de": "Sendezentrum",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "subconferenceId": "rc3-2021-sendezentrum",
+      "useSubconferenceIdInSessionId": false,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
+    },
+    {
+      "format": "pretalx",
+      "eventId": "rc3-2021",
+      "baseUrl": "https://pretalx.c3voc.de/",
+      "conferenceCode": "rc3-2021-haecksen",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "haecksen",
+        "label_en": "haecksen",
+        "label_de": "haecksen",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "subconferenceId": "rc3-2021-haecksen",
+      "useSubconferenceIdInSessionId": false,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
+    },
+    {
+      "format": "pretalx",
+      "eventId": "rc3-2021",
+      "baseUrl": "https://pretalx.c3voc.de/",
+      "conferenceCode": "rc3-2021-xhain",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "xhain",
+        "label_en": "xhain hack+makespace'",
+        "label_de": "xhain hack+makespace'",
+        "color": [
+          219,
+          196,
+          251,
+          1
+        ]
+      },
+      "subconferenceId": "rc3-2021-xhain",
+      "useSubconferenceIdInSessionId": false,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
     }
   ],
   "options": {
     "locationIdOrder": [
-      "rc1",
-      "rc2",
-      "rc3-lounge",
-      "mainhall",
-      "chaosstudio-hamburg",
-      "chaoszone-tv-stream",
-      "franconian-net",
-      "r3s---monheim-rhein",
-      "restrealitaet",
-      "wikipaka",
-      "xhain-berlin",
-      "hacc-m-nchen-about-future---m-nchen",
-      "hacc-m-nchen-about-future",
-      "chaostrawler",
-      "kreaturworks",
-      "oio-a-f-b-hne",
-      "backspace-franconian-net---bamberg",
-      "sendezentrum",
-      "sz-b-hne",
-      "sendezentrum-b-hne",
-      "chaos-west-tv",
-      "chaostrawler-stubnitz-g-ngeviertel-hamburg",
-      "c-base-berlin",
-      "bitw-scherei-z-rich",
-      "wikipaka-meetups",
-      "chaoszone-workshops",
-      "oio-a-f-workshop"
+      "rc3-2021-fem-fem-channel",
+      "rc3-2021-cbase-c-base",
+      "rc3-2021-cbase-c-base-workshop",
+      "rc3-2021-cwtv-chaos-west-tv",
+      "rc3-2021-chaosstudiohamburg-chaosstudio-hamburg",
+      "rc3-2021-chaoszone-chaoszone-tv",
+      "rc3-2021-r3s-r3s---monheim-rhein",
+      "end-of-year-event-2021-franconian-net-live-stream",
+      "end-of-year-event-2021-franconian-net-world",
+      "rc3-2021-hacc-a-f-about-future-kitchen",
+      "rc3-2021-hacc-a-f-about-future-stage",
+      "rc3-2021-sendezentrum-sendezentrum-stage",
+      "rc3-2021-haecksen-haecksen-stream",
+      "rc3-2021-haecksen-haecksen-nice-mary",
+      "rc3-2021-haecksen-haecksen-the-magic-margaret",
+      "rc3-2021-haecksen-haecksen-the-genuine-grace",
+      "rc3-2021-haecksen-haecksen-the-awesome-ada",
+      "rc3-2021-xhain-lichtung",
+      "rc3-2021-xhain-scubar"
     ],
     "defaultColor": [
       0,
@@ -210,7 +471,7 @@
       "bitw-scherei-z-rich": "rc3-bitwaescherei",
       "c-base-berlin": "rc3-cbase",
       "r3s---monheim-rhein": "rc3-r3s",
-      "chaos-west-tv" :"rc3-chaoswest",
+      "chaos-west-tv": "rc3-chaoswest",
       "franconian-net": "rc3-franconian"
     }
   }
