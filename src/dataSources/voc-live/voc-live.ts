@@ -72,13 +72,14 @@ export async function loadVocLiveStreams(slug: string, mediaType: VocLiveMediaTy
 export function addLiveStreamEnclosures(sessions: Session[], vocVideos: VocStream[]): Session[] {
   const untranslatedVocStreams = vocVideos.filter(v => !v.translated);
   const streamByRoomName: Record<string, VocStream> = {};
-  untranslatedVocStreams.forEach(v => streamByRoomName[v.name] = v);
+  untranslatedVocStreams.forEach(v => streamByRoomName[v.name.toLowerCase()] = v);
 
   return sessions.map(session => {
     const updatedSession = session;
     if (updatedSession.location && updatedSession.location.label_en) {
-      const roomName = updatedSession.location.label_en;
-      const stream = streamByRoomName[roomName];
+      const roomNameEn = updatedSession.location.label_en.toLowerCase();
+      const roomNameDe = updatedSession.location.label_de?.toLowerCase();
+      const stream = streamByRoomName[roomNameEn] ?? streamByRoomName[roomNameDe ?? ''];
       if (stream) {
         const liveStream: Enclosure = {
           url: stream.streamUrl,
@@ -88,6 +89,10 @@ export function addLiveStreamEnclosures(sessions: Session[], vocVideos: VocStrea
           languages: [session.lang.id],
         };
         updatedSession.enclosures.push(liveStream);
+      } else {
+        if (process.env.DEBUG) { 
+          console.info(`Found no stream for room '${roomNameEn}' in ${JSON.stringify(Object.keys(streamByRoomName))}`)
+        }
       }
     }
     
