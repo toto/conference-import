@@ -246,7 +246,8 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": [],
-      "vocSlug": "rc3-2021"
+      "vocSlug": "rc3-2021",
+      "vocLiveSlug": "rc3"
     },
     {
       "format": "pretalx",
