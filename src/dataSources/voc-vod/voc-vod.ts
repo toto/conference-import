@@ -27,13 +27,14 @@ interface VocReliveStream {
   playlist: string;
   thumbnail: string;
   title: string;
+  room: string;
   status: "recorded" | "live";
 }
 
 function addReliveEnclosure(relive: VocReliveStream, session: Session, useMp4 = false): Session {
   const result = session;
 
-  if (relive.status === "recorded" && relive.guid === session.id) {
+  if (relive.status === "recorded" && sessionMatchesReliveStream(session, relive)) {
     if (useMp4) {
       const enclosure: Enclosure = {
         url: `https:${relive.mp4}`,
@@ -94,7 +95,8 @@ export async function addReliveEnclosures(slug: string, sessions: Session[]): Pr
   data.forEach(reliveStream => {
     if (reliveStream.status !== "recorded") return;
 
-    const session = sessioById.get(reliveStream.guid);
+    // const session = sessioById.get(reliveStream.guid);
+    const session = sessions.find(s => sessionMatchesReliveStream(s, reliveStream))
     if (!session) return;
 
     // Only add re-live if we don't have recordings yet
@@ -108,6 +110,11 @@ export async function addReliveEnclosures(slug: string, sessions: Session[]): Pr
   return Array.from(sessioById.values());
 }
 
+function sessionMatchesReliveStream(session: Session, reliveStream: VocReliveStream): boolean {
+  return session.location?.label_en === reliveStream.room 
+      && session.title === reliveStream.title
+}
+
 export async function addRecordingEnclosues(slug: string, sessions: Session[]): Promise<Session[]> {
   const sessioById = new Map<string, Session>();
   sessions.forEach(s => sessioById.set(s.id, s));
@@ -118,21 +125,29 @@ export async function addRecordingEnclosues(slug: string, sessions: Session[]): 
   const sessionUrls = sessions.map(s => s.url);
   const sessionUrlsWithSlash = sessions.map(s => `${s.url}/`);
   const vocVideoPromises = vocConf.events.filter(e => sessionUrls.includes(e.link) || sessionUrlsWithSlash.includes(e.link)).map(e => axios.default.get(e.url));
+  // console.info(`v: ${vocConf.events.map(v => v.link)}`)
+  // console.info(`s: ${sessionUrls}`)
+  // console.info(``)
+  const videos: VocVideo[] = [];
   for (const vocVideoPromise of vocVideoPromises) {
     try {
       const vocVideoResponse = await vocVideoPromise;
       const vocVideo: VocVideo = vocVideoResponse.data;
-      let session = sessions.find(s => s.url === vocVideo.link);
-      if (!session) {
-        session = sessions.find(s => `${s.url}/` === vocVideo.link);
-      }
-      if (session) {
-        const resultSession = addRecordingEnclosure(vocVideo, session);
-        sessioById.set(resultSession.id, resultSession);
-      }
+      videos.push(vocVideo);
     } catch (e) {
       console.error(`Could not load VOC VOD video: ${e}`)
       continue;
+    }
+  }
+  console.info(`Loaded ${videos.length} videos from ${vocConf.events.length}`);
+  for (const vocVideo of videos) {
+    let session = sessions.find(s => s.url === vocVideo.link);
+    if (!session) {
+      session = sessions.find(s => `${s.url}/` === vocVideo.link);
+    }
+    if (session) {
+      const resultSession = addRecordingEnclosure(vocVideo, session);
+      sessioById.set(resultSession.id, resultSession);
     }
   }
   return Array.from(sessioById.values());

@@ -117,7 +117,8 @@
       "maps": [],
       "pois": [],
       "vocSlug": "rc3-2021",
-      "vocLiveSlug": "rc3"
+      "vocLiveSlug": "rc3",
+      "vocUseReliveRecordings": true
     },
     {
       "format": "pretalx",
@@ -143,7 +144,8 @@
       "maps": [],
       "pois": [],
       "vocSlug": "rc3-2021",
-      "vocLiveSlug": "rc3"
+      "vocLiveSlug": "rc3",
+      "vocUseReliveRecordings": true
     },
     {
       "format": "pretalx",
@@ -169,7 +171,8 @@
       "maps": [],
       "pois": [],
       "vocSlug": "rc3-2021",
-      "vocLiveSlug": "rc3"
+      "vocLiveSlug": "rc3",
+      "vocUseReliveRecordings": true
     },
     {
       "format": "pretalx",
@@ -195,7 +198,8 @@
       "maps": [],
       "pois": [],
       "vocSlug": "rc3-2021",
-      "vocLiveSlug": "rc3"
+      "vocLiveSlug": "rc3",
+      "vocUseReliveRecordings": true
     },
     {
       "format": "pretalx",
@@ -221,7 +225,8 @@
       "maps": [],
       "pois": [],
       "vocSlug": "rc3-2021",
-      "vocLiveSlug": "rc3"
+      "vocLiveSlug": "rc3",
+      "vocUseReliveRecordings": true
     },
     {
       "format": "pretalx",
@@ -247,7 +252,8 @@
       "maps": [],
       "pois": [],
       "vocSlug": "rc3-2021",
-      "vocLiveSlug": "rc3"
+      "vocLiveSlug": "rc3",
+      "vocUseReliveRecordings": true
     },
     {
       "format": "pretalx",
@@ -273,7 +279,8 @@
       "maps": [],
       "pois": [],
       "vocSlug": "rc3-2021",
-      "vocLiveSlug": "rc3"
+      "vocLiveSlug": "rc3",
+      "vocUseReliveRecordings": true
     },
     {
       "format": "pretalx",
@@ -299,7 +306,8 @@
       "maps": [],
       "pois": [],
       "vocSlug": "rc3-2021",
-      "vocLiveSlug": "rc3"
+      "vocLiveSlug": "rc3",
+      "vocUseReliveRecordings": true
     },
     {
       "format": "pretalx",
@@ -325,7 +333,8 @@
       "maps": [],
       "pois": [],
       "vocSlug": "rc3-2021",
-      "vocLiveSlug": "rc3"
+      "vocLiveSlug": "rc3",
+      "vocUseReliveRecordings": true
     },
     {
       "format": "pretalx",
@@ -351,7 +360,8 @@
       "maps": [],
       "pois": [],
       "vocSlug": "rc3-2021",
-      "vocLiveSlug": "rc3"
+      "vocLiveSlug": "rc3",
+      "vocUseReliveRecordings": true
     },
     {
       "format": "pretalx",
@@ -377,7 +387,8 @@
       "maps": [],
       "pois": [],
       "vocSlug": "rc3-2021",
-      "vocLiveSlug": "rc3"
+      "vocLiveSlug": "rc3",
+      "vocUseReliveRecordings": true
     }
   ],
   "options": {

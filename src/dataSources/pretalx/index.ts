@@ -5,7 +5,7 @@ import { PretalxDataSourceFormat, isPreTalksDataSourceFormat } from "./dataForma
 import { sessionsFromJson, speakersFromJson } from './converters';
 import { DataSourceFormat } from "../dataSource";
 import { loadVocLiveStreams, addLiveStreamEnclosures } from "../voc-live/voc-live";
-import { addRecordingEnclosues } from "../voc-vod/voc-vod";
+import { addRecordingEnclosues, addReliveEnclosures } from "../voc-vod/voc-vod";
 
 async function allPagesFromPretalx(config: PretalxDataSourceFormat, endpoint: "talks" | "speakers" |  "rooms") {
   const initialUrl = `${config.baseUrl}api/events/${config.conferenceCode}/${endpoint}/`;
@@ -61,6 +61,9 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   }
   if (source.vocSlug) {
     result.sessions = await addRecordingEnclosues(source.vocSlug, result.sessions);
+    if (source.vocUseReliveRecordings === true) {
+      result.sessions = await addReliveEnclosures(source.vocSlug, result.sessions);
+    }
   }
 
   console.log(`Pretalx: ${result.sessions.length} sessions, ${result.speakers.length} speakers from ${source.baseUrl}`);

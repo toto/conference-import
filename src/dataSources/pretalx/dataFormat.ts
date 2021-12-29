@@ -20,6 +20,7 @@ export interface PretalxDataSourceFormat extends DataSourceFormat {
   vocSlug?: string;
   /** Slug to be used for detecting live video streams. Will be preferred over vocSlug if both are set. */
   vocLiveSlug?: string;
+  vocUseReliveRecordings?: boolean;
   useSubconferenceIdInSessionId?: boolean;
   useSubconferenceIdInLocations?: boolean;
 }
