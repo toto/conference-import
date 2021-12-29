@@ -125,9 +125,6 @@ export async function addRecordingEnclosues(slug: string, sessions: Session[]): 
   const sessionUrls = sessions.map(s => s.url);
   const sessionUrlsWithSlash = sessions.map(s => `${s.url}/`);
   const vocVideoPromises = vocConf.events.filter(e => sessionUrls.includes(e.link) || sessionUrlsWithSlash.includes(e.link)).map(e => axios.default.get(e.url));
-  // console.info(`v: ${vocConf.events.map(v => v.link)}`)
-  // console.info(`s: ${sessionUrls}`)
-  // console.info(``)
   const videos: VocVideo[] = [];
   for (const vocVideoPromise of vocVideoPromises) {
     try {
@@ -139,7 +136,6 @@ export async function addRecordingEnclosues(slug: string, sessions: Session[]): 
       continue;
     }
   }
-  console.info(`Loaded ${videos.length} videos from ${vocConf.events.length}`);
   for (const vocVideo of videos) {
     let session = sessions.find(s => s.url === vocVideo.link);
     if (!session) {
