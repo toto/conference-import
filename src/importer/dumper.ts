@@ -2,6 +2,7 @@ import { writeFileSync } from "fs";
 import { Event, Day, Subconference } from "../models";
 import { DataSourceFormat } from "../dataSources/dataSource";
 import * as rp from "./../dataSources/rp";
+import * as rp2 from "./../dataSources/rp2";
 import * as ocdata from "./../dataSources/ocdata";
 import * as pretalx from "./../dataSources/pretalx";
 import * as frab from "./../dataSources/frab";
@@ -64,6 +65,18 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     result.subconferences = result.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
     if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
+  const rp2data = await rp2.sourceData(event, days, subconferences, sources);
+  rp2data.forEach(data => {
+    // if (data.sessions.length === 0) return;
+    const { sessions, speakers, tracks, locations, maps, pois } = processData(data, options);
+    result.sessions = result.sessions.concat(sessions);
+    result.speakers = result.speakers.concat(speakers);
+    result.tracks = result.tracks.concat(tracks);
+    result.locations = result.locations.concat(locations);
+    if (maps) result.maps = result.maps!.concat(maps);
+    result.subconferences = result.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
+    if (result.pois && pois) result.pois = result.pois.concat(pois);
+  });  
   const oc = await ocdata.sourceData(event, sources);
   oc.forEach(data => {
     if (data.sessions.length === 0) return;

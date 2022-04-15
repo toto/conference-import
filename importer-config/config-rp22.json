@@ -1,0 +1,84 @@
+{
+  "event": {
+    "id": "rp22",
+    "label": "re:publica 22: \\“Any Way the Wind blows\\”",
+    "title": "re:publica 2022",
+    "date": ["2022-06-08", "2022-06-10"],
+    "locations": [
+      {
+        "label": "Arena Berlin",
+        "coords": [52.49691, 13.45404],
+        "timezone": "Europe/Berlin"
+      },
+      {
+        "label": "Festsaal Kreuzberg",
+        "coords": [52.49679311812499,13.4517502784729],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "rp22",
+    "url": "https://22.re-publica.com/"
+  },
+  "days": [
+    {
+      "id": "2022-06-08",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2022-06-08"
+    },
+    {
+      "id": "2022-06-09",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2022-06-09"
+    },
+    {
+      "id": "2022-06-10",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2022-06-10"
+    }
+  ],
+  "subconferences": [
+    {
+      "id": "media-convention",
+      "label": "Media Convention"
+    },
+    {
+      "id": "tincon",
+      "label": "TINCON"
+    },
+    {
+      "id": "partner",
+      "label": "Partner"
+    }
+  ],
+  "sources": [
+    {
+      "format": "rp2",
+      "dataBaseUrl": "https://dev.re-publica.lol/sites/default/files/extappdata/2022",
+      "dataAuth": {
+        "username": "king",
+        "password": "anydaythekindgrows"
+      },
+      "speakerUrlPrefix": "https://dev.re-publica.lol/en/user",
+      "defaultTrack": {
+        "id": "republica",
+        "label_en": "re:publica",
+        "label_de": "re:publica",
+        "color": [22,83,117,1]
+      }
+    }
+  ],
+  "options": {
+    "locationIdOrder": [],
+    "defaultColor": [0,0,0,1],
+    "colorForTrack": {
+      "media-journalism": [214, 0, 126, 1],
+      "research-education": [232, 200, 144, 1]
+    },
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
+}
