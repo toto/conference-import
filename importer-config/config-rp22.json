@@ -62,6 +62,7 @@
         "password": "anydaythekindgrows"
       },
       "speakerUrlPrefix": "https://dev.re-publica.lol/en/user",
+      "sessionUrlPrefix": "https://dev.re-publica.lol/en/session",
       "defaultTrack": {
         "id": "republica",
         "label_en": "re:publica",
