@@ -78,7 +78,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
 
   result.subconferences = term.map(t => subconferenceFromApiTerm(t, {eventId: event.id}))
                             .filter(t => t !== null) as ConferenceModel.Subconference[];
-  
+
   result.maps = [];
 
   return result;
@@ -86,7 +86,6 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
 
 export async function sourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], sources: DataSourceFormat[]) {
   const rp2Sources = sources.filter(s => s.format === 'rp2') as Rp2DataSourceFormat[];
-  console.log("Sources", rp2Sources)
   
   const promises = rp2Sources.map(source => singleSourceData(event, days, subconferences, source));
   return Promise.all(promises);
