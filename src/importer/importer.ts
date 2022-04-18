@@ -45,11 +45,13 @@ export function processData(
 ): ConferenceData {
   const { sessions, speakers, event, days, subconferences, maps, pois } = sourceData;
 
+  // The source data allows the importer to optionally pass tracks
+  const tracks: ConferenceModel.Track[] = sourceData.tracks ?? [];
   // Extract tracks and process color
   const miniTrackMap = new Map<string, ConferenceModel.MiniTrack>();
   sessions.forEach(s => miniTrackMap.set(s.track.id, s.track));
   const miniTracks = Array.from(miniTrackMap.values());
-  const tracks = miniTracks.map(track => {
+  miniTracks.forEach(track => {
     const result = track as ConferenceModel.Track;
     result.type = "track";
     const color = options.colorForTrack[track.id];
@@ -58,7 +60,10 @@ export function processData(
     } else {
       result.color = options.defaultColor;
     }
-    return result;
+    // If the tracks are provided already don't duplicate them
+    if (!tracks.map(t => t.id).includes(result.id)) {
+      tracks.push(result)
+    }
   });
 
   // Process sessions for days if scheduled

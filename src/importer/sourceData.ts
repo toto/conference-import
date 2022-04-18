@@ -8,4 +8,5 @@ export interface SourceData {
   subconferences: ConferenceModel.Subconference[]
   maps: ConferenceModel.Map[]
   pois: ConferenceModel.POI[]
+  tracks?: ConferenceModel.Track[]
 }

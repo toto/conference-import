@@ -55,7 +55,7 @@ export function speakerFromApiSpeaker(apiSpeaker: Rp2APIElement, options: Option
     
   }
 
-  return { 
+  let speaker: Speaker | null = { 
     id: uid, 
     name: name_raw,
     position: typeof position === "string" ? position : undefined,
@@ -68,5 +68,9 @@ export function speakerFromApiSpeaker(apiSpeaker: Rp2APIElement, options: Option
     sessions: [],
     url: `${options.speakerUrlPrefix}/${uid}`,
   }
+  if (options.speakerPostProcessing && speaker) {
+    speaker = options.speakerPostProcessing(speaker);
+  }
+  return speaker;
 }
 

@@ -1,0 +1,450 @@
+[
+  {
+    "tid": "1",
+    "name": "politics",
+    "type": "Tags",
+    "language": "en",
+    "color": "#5dccff"
+  },
+  {
+    "tid": "2",
+    "name": "culture",
+    "type": "Tags",
+    "language": "en",
+    "color": "#78cfdb"
+  },
+  {
+    "tid": "3",
+    "name": "Discussion",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "4",
+    "name": "Deutsch",
+    "type": "Language",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "5",
+    "name": "English",
+    "type": "Language",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "6",
+    "name": "15 Minuten",
+    "type": "Duration",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "6",
+    "name": "15 Minutes",
+    "type": "Duration",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "7",
+    "name": "30 Minuten",
+    "type": "Duration",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "7",
+    "name": "30 Minutes",
+    "type": "Duration",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "8",
+    "name": "60 Minuten",
+    "type": "Duration",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "8",
+    "name": "60 Minutes",
+    "type": "Duration",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "9",
+    "name": "rp22",
+    "type": "Event",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "10",
+    "name": "work",
+    "type": "Tags",
+    "language": "en",
+    "color": "#ffd5f6"
+  },
+  {
+    "tid": "11",
+    "name": "technology",
+    "type": "Tags",
+    "language": "en",
+    "color": "#96eba0"
+  },
+  {
+    "tid": "12",
+    "name": "education",
+    "type": "Tags",
+    "language": "en",
+    "color": "#a0fce7"
+  },
+  {
+    "tid": "13",
+    "name": "mobility",
+    "type": "Tags",
+    "language": "en",
+    "color": "#ffef56"
+  },
+  {
+    "tid": "14",
+    "name": "media",
+    "type": "Tags",
+    "language": "en",
+    "color": "#ff3469"
+  },
+  {
+    "tid": "15",
+    "name": "science",
+    "type": "Additional Tags",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "16",
+    "name": "city",
+    "type": "Additional Tags",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "17",
+    "name": "health",
+    "type": "Additional Tags",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "18",
+    "name": "activism",
+    "type": "Additional Tags",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "19",
+    "name": "lifestyle",
+    "type": "Additional Tags",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "20",
+    "name": "internet",
+    "type": "Additional Tags",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "21",
+    "name": "law",
+    "type": "Additional Tags",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "22",
+    "name": "family",
+    "type": "Additional Tags",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "23",
+    "name": "europe",
+    "type": "Additional Tags",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "24",
+    "name": "Talk",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "25",
+    "name": "Interview",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "27",
+    "name": "Concert",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "28",
+    "name": "Reading",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "29",
+    "name": "DJ Set",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "30",
+    "name": "Live Podcast",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "33",
+    "name": "Tincon",
+    "type": "Special Curation",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "34",
+    "name": "Media Convention Berlin",
+    "type": "Special Curation",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "35",
+    "name": "re:learn",
+    "type": "Special Curation",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "37",
+    "name": "Wissenschaftsjahr",
+    "type": "Special Curation",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "38",
+    "name": "Lightning Talk",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "39",
+    "name": "45 Minuten",
+    "type": "Duration",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "39",
+    "name": "45 Minutes",
+    "type": "Duration",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "41",
+    "name": "90 Minuten",
+    "type": "Duration",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "41",
+    "name": "90 Minutes",
+    "type": "Duration",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "42",
+    "name": "120 Minuten",
+    "type": "Duration",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "42",
+    "name": "120 Minutes",
+    "type": "Duration",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "43",
+    "name": "Workshop",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "44",
+    "name": "Tutorial",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "45",
+    "name": "Master Class",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "46",
+    "name": "Meet Up",
+    "type": "Format",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "47",
+    "name": "Pop Up",
+    "type": "Format",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "48",
+    "name": "Installation",
+    "type": "Format",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "49",
+    "name": "Exhibition",
+    "type": "Format",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "50",
+    "name": "Game",
+    "type": "Format",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "51",
+    "name": "Contest",
+    "type": "Format",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "52",
+    "name": "Film Screening",
+    "type": "Format",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "53",
+    "name": "Show",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "54",
+    "name": "Karaoke",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "55",
+    "name": "Spoken Word",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "56",
+    "name": "Theater",
+    "type": "Format",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "57",
+    "name": "Allgemeines",
+    "type": "FAQ",
+    "language": "de",
+    "color": ""
+  },
+  {
+    "tid": "57",
+    "name": "General questions",
+    "type": "FAQ",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "58",
+    "name": "Call for Participation",
+    "type": "FAQ",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "59",
+    "name": "Tickets",
+    "type": "FAQ",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "60",
+    "name": "Junior",
+    "type": "Partner Level",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "61",
+    "name": "Senior",
+    "type": "Partner Level",
+    "language": "en",
+    "color": ""
+  },
+  {
+    "tid": "62",
+    "name": "God",
+    "type": "Partner Level",
+    "language": "en",
+    "color": ""
+  }
+]

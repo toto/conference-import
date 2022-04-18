@@ -1,0 +1,294 @@
+[
+  {
+    "nid": "18",
+    "session_type": "session_conference",
+    "title": "complete session",
+    "langcode": "de",
+    "changed": "1649423020",
+    "status": "scheduled",
+    "teaser": "asdasdasd",
+    "description": "<p>asdasdasd<\/p>\r\n",
+    "room": "Stage 1",
+    "room_nid": "66",
+    "track": "media",
+    "format": "Discussion",
+    "special": "Tincon",
+    "language": "Deutsch",
+    "live_translation": "1",
+    "moderator": [
+      "Christoph Boecken",
+      "Nantjen Kuesel"
+    ],
+    "moderator_uid": [
+      "44",
+      "49"
+    ],
+    "speaker": [
+      "Christen Superspeaker mit Supernamen",
+      "Andreas Goldstein"
+    ],
+    "speaker_uid": [
+      "42",
+      "1"
+    ],
+    "partner": [
+      "Haribo"
+    ],
+    "tags": [
+      "family",
+      "lifestyle"
+    ],
+    "datetime_start": "2022-06-10T18:15:00",
+    "datetime_end": "2022-06-10T20:00:00",
+    "title_text": "complete session",
+    "recommendation": false
+  },
+  {
+    "nid": "26",
+    "session_type": "session_conference",
+    "title": "This is the way",
+    "langcode": "de",
+    "changed": "1648113576",
+    "status": "accepted",
+    "teaser": "Das All als Reisedestination ist zum Greifen nah. Wie sieht es allerdings mit Zeitreisen aus? In dieser Session betrachten wir neue Konzepte des Zeitreisen in SciFi.",
+    "description": "<p>Das All als Reisedestination ist zum Greifen nah. Wie sieht es allerdings mit Zeitreisen aus? In dieser Session betrachten wir neue Konzepte des Zeitreisen in SciFi. Und noch so vieles mehr.<\/p>\r\n",
+    "room": null,
+    "room_nid": null,
+    "track": "education",
+    "format": "Interview",
+    "special": null,
+    "language": "English",
+    "live_translation": "0",
+    "moderator": [
+      "Andreas Goldstein"
+    ],
+    "moderator_uid": [
+      "1"
+    ],
+    "speaker": [
+      "Nantjen Kuesel",
+      "Christen Superspeaker mit Supernamen"
+    ],
+    "speaker_uid": [
+      "49",
+      "42"
+    ],
+    "partner": [],
+    "tags": [
+      "health",
+      "internet"
+    ],
+    "title_text": "This is the way",
+    "recommendation": false
+  },
+  {
+    "nid": "27",
+    "session_type": "session_conference",
+    "title": "Hallo hier bin ich. Ich verwende die maximale Titell\u00e4nge. Was f\u00fcr ein Alptraum! Wer denkt sich sowas aus? Ich will nicht mehr, ich kann nicht mehr. Das geht doch nicht. Schei\u00dfe!?!?",
+    "langcode": "de",
+    "changed": "1648195956",
+    "status": "scheduled",
+    "teaser": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\r\nAt vero eos et accusam et justo duo dolores et ea.",
+    "description": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. &nbsp;&nbsp;<\/p>\r\n\r\n<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. &nbsp;&nbsp;<\/p>\r\n\r\n<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. &nbsp;&nbsp;<\/p>\r\n\r\n<p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer<\/p>\r\n",
+    "room": "Stage 1",
+    "room_nid": "66",
+    "track": "culture",
+    "format": "Lightning Talk",
+    "special": null,
+    "language": "Deutsch",
+    "live_translation": "1",
+    "moderator": [
+      "Nantjen Kuesel"
+    ],
+    "moderator_uid": [
+      "49"
+    ],
+    "speaker": [
+      "Jutta  Meier ",
+      "Christen Superspeaker mit Supernamen",
+      "Christoph Boecken",
+      "Andreas Goldstein"
+    ],
+    "speaker_uid": [
+      "95",
+      "42",
+      "44",
+      "1"
+    ],
+    "partner": [],
+    "tags": [
+      "family",
+      "internet"
+    ],
+    "datetime_start": "2022-06-06T08:00:00",
+    "datetime_end": "2022-06-06T08:30:00",
+    "title_text": "Hallo hier bin ich. Ich verwende die maximale Titell\u00e4nge. Was f\u00fcr ein Alptraum! Wer denkt sich sowas aus? Ich will nicht mehr, ich kann nicht mehr. Das geht doch nicht. Schei\u00dfe!?!?",
+    "recommendation": false
+  },
+  {
+    "nid": "67",
+    "session_type": "session_hands_on",
+    "title": "Ich bin eine Hands on Session",
+    "langcode": "de",
+    "changed": "1643019485",
+    "status": "scheduled",
+    "teaser": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+    "description": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. &nbsp;&nbsp;<\/p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. &nbsp;&nbsp;<\/p>\r\n",
+    "room": "Stage 1",
+    "room_nid": "66",
+    "track": "culture",
+    "format": "Master Class",
+    "special": null,
+    "language": "Deutsch",
+    "live_translation": null,
+    "moderator": [],
+    "moderator_uid": [],
+    "speaker": [
+      "Christen Superspeaker mit Supernamen",
+      "Andreas Goldstein",
+      "Nantjen Kuesel",
+      "Milenski MdC",
+      "Christoph Boecken"
+    ],
+    "speaker_uid": [
+      "42",
+      "1",
+      "49",
+      "55",
+      "44"
+    ],
+    "partner": [],
+    "tags": [
+      "family",
+      "lifestyle"
+    ],
+    "datetime_start": "2022-06-06T15:00:00",
+    "datetime_end": "2022-06-06T16:00:00",
+    "title_text": "Ich bin eine Hands on Session",
+    "recommendation": false
+  },
+  {
+    "nid": "70",
+    "session_type": "session_night_out",
+    "title": "Ich bin eine nightlife session",
+    "langcode": "de",
+    "changed": "1649098684",
+    "status": "cancelled",
+    "teaser": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur",
+    "description": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. &nbsp;&nbsp;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. &nbsp;&nbsp;<\/p>\r\n",
+    "room": "Stage 1",
+    "room_nid": "66",
+    "track": "culture",
+    "format": "Spoken Word",
+    "special": "Tincon",
+    "language": "Deutsch",
+    "live_translation": null,
+    "moderator": [],
+    "moderator_uid": [],
+    "speaker": [
+      "Andreas Goldstein",
+      "Christen Superspeaker mit Supernamen",
+      "Nantjen Kuesel",
+      "Christoph Boecken"
+    ],
+    "speaker_uid": [
+      "1",
+      "42",
+      "49",
+      "44"
+    ],
+    "partner": [
+      "Hornbach"
+    ],
+    "tags": [
+      "activism",
+      "city"
+    ],
+    "datetime_start": "2022-06-06T10:00:00",
+    "datetime_end": "2022-06-06T11:00:00",
+    "title_text": "Ich bin eine nightlife session",
+    "recommendation": false
+  },
+  {
+    "nid": "71",
+    "session_type": "session_offstage",
+    "title": "Ich bin eine Off Stage Session",
+    "langcode": "de",
+    "changed": "1648112230",
+    "status": "accepted",
+    "teaser": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+    "description": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. &nbsp;&nbsp;<\/p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. &nbsp;&nbsp;<\/p>\r\n\r\n<p>&nbsp;<\/p>\r\n",
+    "room": "Stage 1",
+    "room_nid": "66",
+    "track": "mobility",
+    "format": "Film Screening",
+    "special": null,
+    "language": "Deutsch",
+    "live_translation": null,
+    "moderator": [],
+    "moderator_uid": [],
+    "speaker": [
+      "Nantjen Kuesel",
+      "Andreas Goldstein",
+      "Christoph Boecken",
+      "Christen Superspeaker mit Supernamen"
+    ],
+    "speaker_uid": [
+      "49",
+      "1",
+      "44",
+      "42"
+    ],
+    "partner": [
+      "Hornbach"
+    ],
+    "tags": [
+      "family",
+      "law"
+    ],
+    "datetime_start": "2022-06-06T09:11:11",
+    "datetime_end": "2022-06-06T10:12:12",
+    "title_text": "Ich bin eine Off Stage Session",
+    "recommendation": false
+  },
+  {
+    "nid": "82",
+    "session_type": "session_conference",
+    "title": "Ich bin cool",
+    "langcode": "de",
+    "changed": "1649668141",
+    "status": "accepted",
+    "teaser": "Du bist auch cool",
+    "description": "<p>wir sind alle cool<\/p>\r\n",
+    "room": null,
+    "room_nid": null,
+    "track": "media",
+    "format": "Interview",
+    "special": "Media Convention Berlin",
+    "language": "Deutsch",
+    "live_translation": "0",
+    "moderator": [
+      "Dieter  Kempf"
+    ],
+    "moderator_uid": [
+      "2107"
+    ],
+    "speaker": [
+      "Sascha Waterkotte",
+      "Martin Wezowski"
+    ],
+    "speaker_uid": [
+      "3150",
+      "135"
+    ],
+    "partner": [
+      "Haribo"
+    ],
+    "tags": [
+      "activism",
+      "science"
+    ],
+    "title_text": "Ich bin cool",
+    "recommendation": false
+  }
+]
