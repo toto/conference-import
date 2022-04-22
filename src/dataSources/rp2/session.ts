@@ -29,6 +29,7 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
     speaker_uid,
     moderator,
     moderator_uid,
+    path,
   } = apiSession;
 
   if (!nid || typeof nid !== "string") return null;
@@ -36,6 +37,7 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
   if (!langcode || typeof langcode !== "string") return null; 
   const lang = languageFromIsoCode(langcode);
   if (!lang) return null;
+  if (!path || typeof path !== "string") return null;
 
   let sessionTrack = options.defaultTrack
   if (track && typeof track === "string") {
@@ -99,7 +101,7 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
     title,
     type: "session",
     event: options.eventId, 
-    url: `${options.sessionUrlPrefix}/${nid}`,
+    url: `${options.sessionUrlPrefix}${path}`,
     track: sessionTrack,
     lang, 
     location,
