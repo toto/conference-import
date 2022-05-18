@@ -3,16 +3,25 @@
     "id": "rp22",
     "label": "re:publica 22: \\“Any Way the Wind blows\\”",
     "title": "re:publica 2022",
-    "date": ["2022-06-08", "2022-06-10"],
+    "date": [
+      "2022-06-08",
+      "2022-06-10"
+    ],
     "locations": [
       {
         "label": "Arena Berlin",
-        "coords": [52.49691, 13.45404],
+        "coords": [
+          52.49691,
+          13.45404
+        ],
         "timezone": "Europe/Berlin"
       },
       {
         "label": "Festsaal Kreuzberg",
-        "coords": [52.49679311812499,13.4517502784729],
+        "coords": [
+          52.49679311812499,
+          13.4517502784729
+        ],
         "timezone": "Europe/Berlin"
       }
     ],
@@ -56,27 +65,64 @@
   "sources": [
     {
       "format": "rp2",
-      "dataBaseUrl": "https://dev.re-publica.lol/sites/default/files/extappdata/2022",
-      "dataAuth": {
-        "username": "king",
-        "password": "anydaythekindgrows"
-      },
-      "speakerUrlPrefix": "https://dev.re-publica.lol/en/user",
-      "sessionUrlPrefix": "https://dev.re-publica.lol",
+      "dataBaseUrl": "https://re-publica.com/sites/default/files/extappdata/2022",
+      "speakerUrlPrefix": "https://re-publica.com/en/user",
+      "sessionUrlPrefix": "https://re-publica.com",
       "defaultTrack": {
         "id": "republica",
         "label_en": "re:publica",
         "label_de": "re:publica",
-        "color": [22,83,117,1]
+        "color": [
+          22,
+          83,
+          117,
+          1
+        ]
       }
     }
   ],
   "options": {
-    "locationIdOrder": [],
-    "defaultColor": [0,0,0,1],
+    "locationIdOrder": [
+      "1054",
+      "1055",
+      "1056",
+      "1057",
+      "1058",
+      "1062",
+      "1068",
+      "1070",
+      "1069",
+      "1067",
+      "1065",
+      "1066",
+      "1074",
+      "1076",
+      "1064",
+      "1073",
+      "1072",
+      "1071",
+      "1238",
+      "1075"
+    ],
+    "defaultColor": [
+      0,
+      0,
+      0,
+      1
+    ],
     "colorForTrack": {
-      "media-journalism": [214, 0, 126, 1],
-      "research-education": [232, 200, 144, 1]
+      "media-journalism": [
+        214,
+        0,
+        126,
+        1
+      ],
+      "research-education": [
+        232,
+        200,
+        144,
+        1
+      ]
     },
     "timezone": "Europe/Berlin",
     "hourOfDayChange": 4,
