@@ -102,7 +102,11 @@
       "1072",
       "1071",
       "1238",
-      "1075"
+      "1075",
+      "1199",
+      "1202",
+      "1201",
+      "1200"
     ],
     "defaultColor": [
       0,
@@ -124,7 +128,7 @@
         1
       ]
     },
-    "timezone": "Europe/Berlin",
+    "timezone": "Etc/UTC",
     "hourOfDayChange": 4,
     "nonStageLocationIds": []
   }

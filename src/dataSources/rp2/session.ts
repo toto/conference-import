@@ -72,8 +72,8 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
   let duration: number | undefined;
   if (typeof apiSession.datetime_start === "string" 
       && typeof apiSession.datetime_end === "string") {
-    begin = moment.tz(apiSession.datetime_start, "YYYY-MM-DD'T'HH:mm:ss", options.timezone);
-    end = moment.tz(apiSession.datetime_end, "YYYY-MM-DD'T'HH:mm:ss", options.timezone);
+    begin = moment.utc(apiSession.datetime_start, "YYYY-MM-DD'T'HH:mm:ss");
+    end = moment.utc(apiSession.datetime_end, "YYYY-MM-DD'T'HH:mm:ss");
     duration = end.diff(begin, 'minute');
   }
 
