@@ -5,7 +5,7 @@ import * as ConferenceModel from "../../models";
 import { DataSourceFormat } from "../dataSource";
 import { sessionFromApiSession } from "./session";
 import { speakerFromApiSpeaker } from "./speaker";
-import { subconferenceFromApiTerm, trackFromApiTerm } from "./term";
+import { subconferenceFromApiTerm } from "./term";
 
 export interface Rp2DataSourceFormat extends DataSourceFormat {
   format: "rp2"
@@ -14,6 +14,8 @@ export interface Rp2DataSourceFormat extends DataSourceFormat {
   speakerUrlPrefix: string
   sessionUrlPrefix: string
   defaultTrack: ConferenceModel.Track
+  colorForTrack: Record<string, [number, number, number, number]>
+  trackMappings: Record<string, Array<string>>
 }
 
 export type Rp2APIElement = Record<string, string | Record<string, string> | Array<Record<string, string>>>
@@ -55,8 +57,18 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
 
   // Speakers
   const { speaker, moderator, session, term } = await loadJsonData(source.dataBaseUrl, source.dataAuth);
+  // const tracks = term.map(t => trackFromApiTerm(t, {
+  //   eventId: event.id, 
+  //   defaultColor: source.defaultTrack.color, 
+  //   colors: source.colorForTrack,
+  //   trackMappings: source.trackMappings
+  // }))
+  //   .filter(t => t !== null) as ConferenceModel.Track[];
+  // result.tracks = tracks;
+
   const speakerParseOptions = {eventId: event.id, speakerUrlPrefix: source.speakerUrlPrefix}
   const speakers = speaker.map(s => speakerFromApiSpeaker(s, speakerParseOptions))
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const speakerIds = new Set(speakers.filter(s => s !== null).map(s => s!.id))
   moderator.forEach(m => {
     const mod = speakerFromApiSpeaker(m, speakerParseOptions)
@@ -65,15 +77,15 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     }
   })
   result.speakers = speakers as ConferenceModel.Speaker[];
-  result.tracks = term.map(t => trackFromApiTerm(t, {eventId: event.id, defaultColor: source.defaultTrack.color}))
-                    .filter(t => t !== null) as ConferenceModel.Track[];
+
 
   result.sessions = session.map(s => {
     return sessionFromApiSession(s, { 
       eventId: event.id, 
       sessionUrlPrefix: source.sessionUrlPrefix, 
       defaultTrack: source.defaultTrack,
-      timezone: event.locations[0].timezone})
+      timezone: event.locations[0].timezone,
+      trackMappings: source.trackMappings})
   }).filter(s => s !== null) as ConferenceModel.Session[]
 
   result.subconferences = term.map(t => subconferenceFromApiTerm(t, {eventId: event.id}))

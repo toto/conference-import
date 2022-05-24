@@ -78,10 +78,76 @@
           117,
           1
         ]
+      },
+      "trackMappings": {
+        "gesellschaft": ["society", "gesellschaft"],
+        "kultur": ["culture", "kultur"],
+        "medien": ["medien", "media"],
+        "politik": ["politics", "politik"],
+        "technologie": ["technologie", "technology"],
+        "wirtschaft": ["wirtschaft", "economy"],
+        "wissenschaft": ["wissenschaft", "science"]
       }
     }
   ],
   "options": {
+    "colorForTrack": {
+      "media-journalism": [
+        214,
+        0,
+        126,
+        1
+      ],
+      "research-education": [
+        232,
+        200,
+        144,
+        1
+      ],
+
+      "gesellschaft": [
+        255,
+        175,
+        99,
+        1
+      ],
+      "wirtschaft": [
+        132, 
+        130,
+        254,
+        1
+      ],
+      "medien": [
+        255,
+        52,
+        105,
+        1
+      ],
+      "politik": [
+        120,
+        207,
+        219,
+        1
+      ],
+      "technologie": [
+        60,
+        177,
+        255,
+        1
+      ],
+      "kultur": [
+        249,
+        207,
+        63,
+        1
+      ],
+      "wissenschaft": [
+        92,
+        204,
+        255,
+        1
+      ]
+    },
     "locationIdOrder": [
       "1054",
       "1055",
@@ -106,7 +172,9 @@
       "1199",
       "1202",
       "1201",
-      "1200"
+      "1200",
+      "1414",
+      "1165"
     ],
     "defaultColor": [
       0,
@@ -114,20 +182,6 @@
       0,
       1
     ],
-    "colorForTrack": {
-      "media-journalism": [
-        214,
-        0,
-        126,
-        1
-      ],
-      "research-education": [
-        232,
-        200,
-        144,
-        1
-      ]
-    },
     "timezone": "Etc/UTC",
     "hourOfDayChange": 4,
     "nonStageLocationIds": []

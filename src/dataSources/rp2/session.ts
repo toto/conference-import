@@ -4,6 +4,8 @@ import { Rp2APIElement } from '.';
 import { dehtml, mkId } from '../util';
 import { languageFromIsoCode } from '../rp/language';
 import { MiniLocation, MiniSpeaker, MiniTrack, Subconference } from '../../models';
+import { normalizedTrackId } from './util';
+// import { normalizedTrackId } from './util';
 
 
 interface Options {
@@ -12,6 +14,7 @@ interface Options {
   sessionUrlPrefix: string
   defaultTrack: MiniTrack,
   timezone: string
+  trackMappings: Record<string, Array<string>>
 }
 
 export function sessionFromApiSession(apiSession: Rp2APIElement, options: Options): Session | null {
@@ -41,8 +44,9 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
 
   let sessionTrack = options.defaultTrack
   if (track && typeof track === "string") {
+    const trackId = normalizedTrackId(track.toLowerCase(), options.trackMappings)
     sessionTrack = {
-      id: mkId(track),
+      id: trackId,
       label_en: track,
       label_de: track,
     }
