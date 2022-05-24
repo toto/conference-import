@@ -68,6 +68,9 @@ export function speakerFromApiSpeaker(apiSpeaker: Rp2APIElement, options: Option
     sessions: [],
     url: `${options.speakerUrlPrefix}/${uid}`,
   }
+  if (speaker?.name.trim() === "") {
+    return null;
+  }
   if (options.speakerPostProcessing && speaker) {
     speaker = options.speakerPostProcessing(speaker);
   }
