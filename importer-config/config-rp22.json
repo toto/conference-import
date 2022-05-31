@@ -46,6 +46,12 @@
       "label_de": "Tag 3",
       "label_en": "Day 3",
       "date": "2022-06-10"
+    },
+    {
+      "id": "2022-06-11",
+      "label_de": "June 4",
+      "label_en": "Day 4",
+      "date": "2022-06-11"
     }
   ],
   "subconferences": [
@@ -60,6 +66,10 @@
     {
       "id": "partner",
       "label": "Partner"
+    },
+    {
+      "id": "txt",
+      "label": ".txt – Long live the word!"
     }
   ],
   "sources": [
