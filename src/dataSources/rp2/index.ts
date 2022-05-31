@@ -16,6 +16,9 @@ export interface Rp2DataSourceFormat extends DataSourceFormat {
   defaultTrack: ConferenceModel.Track
   colorForTrack: Record<string, [number, number, number, number]>
   trackMappings: Record<string, Array<string>>
+
+  /** Map to Session ID to HTTPS url of a video stream to be added as a test stream */
+  sessionsToVideoUrls?: Record<string, string>
 }
 
 export type Rp2APIElement = Record<string, string | Record<string, string> | Array<Record<string, string>>>
@@ -80,12 +83,25 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
 
 
   result.sessions = session.map(s => {
-    return sessionFromApiSession(s, { 
+    const resultSession = sessionFromApiSession(s, { 
       eventId: event.id, 
       sessionUrlPrefix: source.sessionUrlPrefix, 
       defaultTrack: source.defaultTrack,
       timezone: event.locations[0].timezone,
       trackMappings: source.trackMappings})
+    if (source.sessionsToVideoUrls 
+      && resultSession 
+      && source.sessionsToVideoUrls[resultSession.id]) {
+        resultSession.enclosures = resultSession.enclosures.concat([
+          {
+            url: source.sessionsToVideoUrls[resultSession.id],
+            type: "recording",
+            title: resultSession.title,
+            mimetype: "video/mp4"
+          }
+        ])
+    }
+    return resultSession;
   }).filter(s => s !== null) as ConferenceModel.Session[]
 
   result.subconferences = term.map(t => subconferenceFromApiTerm(t, {eventId: event.id}))
