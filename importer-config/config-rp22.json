@@ -98,9 +98,7 @@
         "wirtschaft": ["wirtschaft", "economy"],
         "wissenschaft": ["wissenschaft", "science"]
       },
-      "sessionsToVideoUrls": {
-        "1033": "https://ia600300.us.archive.org/17/items/BigBuckBunny_124/Content%2Fbig_buck_bunny_720p_surround.mp4"
-      }
+      "sessionsToVideoUrls": {}
     }
   ],
   "options": {
