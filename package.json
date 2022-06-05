@@ -4,7 +4,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "build": "tsc && npm run copy",
     "copy": "rsync -a --delete ./data ./lib && rsync -a --delete ./src/__tests__/fixtures ./lib/__tests__",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test-watch": "jest --watch"
   },
   "main": "lib/index.js",
   "dependencies": {

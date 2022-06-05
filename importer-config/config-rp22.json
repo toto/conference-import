@@ -90,15 +90,66 @@
         ]
       },
       "trackMappings": {
-        "gesellschaft": ["society", "gesellschaft"],
-        "kultur": ["culture", "kultur"],
-        "medien": ["medien", "media"],
-        "politik": ["politics", "politik"],
-        "technologie": ["technologie", "technology"],
-        "wirtschaft": ["wirtschaft", "economy"],
-        "wissenschaft": ["wissenschaft", "science"]
+        "gesellschaft": [
+          "society",
+          "gesellschaft"
+        ],
+        "kultur": [
+          "culture",
+          "kultur"
+        ],
+        "medien": [
+          "medien",
+          "media"
+        ],
+        "politik": [
+          "politics",
+          "politik"
+        ],
+        "technologie": [
+          "technologie",
+          "technology"
+        ],
+        "wirtschaft": [
+          "wirtschaft",
+          "economy"
+        ],
+        "wissenschaft": [
+          "wissenschaft",
+          "science"
+        ]
       },
-      "sessionsToVideoUrls": {}
+      "sessionsToVideoUrls": {},
+      "maps": [
+        {
+          "type": "map",
+          "id": "rp22-arena",
+          "event": "rp22",
+          "label_de": "Arena Berlin",
+          "label_en": "Arena Berlin",
+          "floor_label_de": "Erdgeschhoss",
+          "floor_label_en": "Ground Floor",
+          "is_outdoor": true,
+          "is_indoor": true,
+          "floor": 0,
+          "order_index": 1,
+          "area": {
+            "width": 100.0,
+            "height": 200.0
+          },
+          "tiles": {
+            "base_url": "https://data.conference.systems/D568C3BE/",
+            "large_image_url": "https://data.conference.systems/D568C3BE/rp22-map2000.png",
+            "tile_size": 512,
+            "tile_file_extension": "png",
+            "size": {
+              "width": 2000,
+              "height": 1354
+            }
+          },
+          "pois": []
+        }
+      ]
     }
   ],
   "options": {
@@ -115,7 +166,6 @@
         144,
         1
       ],
-
       "gesellschaft": [
         255,
         175,
@@ -123,7 +173,7 @@
         1
       ],
       "wirtschaft": [
-        132, 
+        132,
         130,
         254,
         1

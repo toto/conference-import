@@ -16,6 +16,7 @@ export interface Rp2DataSourceFormat extends DataSourceFormat {
   defaultTrack: ConferenceModel.Track
   colorForTrack: Record<string, [number, number, number, number]>
   trackMappings: Record<string, Array<string>>
+  maps?: ConferenceModel.Map[]
 
   /** Map to Session ID to HTTPS url of a video stream to be added as a test stream */
   sessionsToVideoUrls?: Record<string, string>
@@ -107,7 +108,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   result.subconferences = term.map(t => subconferenceFromApiTerm(t, {eventId: event.id}))
                             .filter(t => t !== null) as ConferenceModel.Subconference[];
 
-  result.maps = [];
+  result.maps = source.maps ?? [];
 
   return result;
 }
