@@ -245,6 +245,7 @@
     ],
     "timezone": "Etc/UTC",
     "hourOfDayChange": 4,
-    "nonStageLocationIds": []
+    "nonStageLocationIds": [],
+    "recommendationsSource": "https://data.conference.systems/DAD7A3F9/rp22-recommendations.json"
   }
 }

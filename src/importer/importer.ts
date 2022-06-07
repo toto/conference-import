@@ -2,6 +2,7 @@ import { SourceData } from "./sourceData";
 import * as ConferenceModel from "../models";
 import { stateForSession, SessionState } from "../models/session";
 import * as moment from "moment-timezone";
+import axios from "axios";
 
 const ISO_DAY_FORMAT = "YYYY-MM-DD";
 
@@ -31,7 +32,11 @@ export interface Options {
    *  All sessions at a location will be assigned this subconference
    *  if it exists and no subconference is present in the
    *  session for any other reason. */
-  subconferenceLocationIds?: Record<string, string>; 
+  subconferenceLocationIds?: Record<string, string>;
+  /** Url to a JSON source for mapping session ids to their recommended sessions.
+   * Format looks like this: `{"session-1": ["session-2", "session-3"]}`
+   */
+  recommendationsSource?: string;
 }
 
 /**
@@ -39,10 +44,10 @@ export interface Options {
  * @param sourceData 
  * @param options 
  */
-export function processData(
+export async function processData(
   sourceData: SourceData,
   options: Options
-): ConferenceData {
+): Promise<ConferenceData> {
   const { sessions, speakers, event, days, subconferences, maps, pois } = sourceData;
 
   // The source data allows the importer to optionally pass tracks
@@ -131,8 +136,32 @@ export function processData(
   // // Process cross relationships - sessions from speaker
   // const speakerMap = new Map<string,ConferenceModel.Speaker>();
   // speakers.forEach(s => speakerMap.set(s.id, s));
-  // const sessionMap = new Map<string,ConferenceModel.Session>();
-  // resultSessions.forEach(s => sessionMap.set(s.id, s));
+  const sessionMap = new Map<string,ConferenceModel.Session>();
+  resultSessions.forEach(s => sessionMap.set(s.id, s));
+
+  // Try to load reccomended sessions if present
+  if (options.recommendationsSource) {
+    try {
+      const response = await axios.get(options.recommendationsSource)
+      const recommendations = response.data as Record<string, string[]>;
+      if (recommendations) {
+        resultSessions.forEach(session => {
+          const recomendationsForSession = recommendations[session.id];
+          if (recomendationsForSession) {
+            const recommendedMiniSessions = recomendationsForSession
+              .map(id => sessionMap.get(id))
+              .filter(s => s !== undefined)
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+              .map(s => {return {id: s!.id, title: s!.title} as ConferenceModel.MiniSession})
+              .slice(0, 5) // limit to 5
+            session.related_sessions = recommendedMiniSessions
+          }
+        })
+      }
+    } catch (e) {
+      console.error(`Could not load recommendations from ${options.recommendationsSource}. Not adding recomendations.`)
+    }
+  }
 
   return { 
     event,

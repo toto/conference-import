@@ -54,9 +54,9 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     pois: [],
   };
   const rpdata = await rp.sourceData(event, days, subconferences, sources);
-  rpdata.forEach(data => {
+  rpdata.forEach(async data => {
     if (data.sessions.length === 0) return;
-    const { sessions, speakers, tracks, locations, maps, pois } = processData(data, options);
+    const { sessions, speakers, tracks, locations, maps, pois } = await processData(data, options);
     result.sessions = result.sessions.concat(sessions);
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
@@ -66,9 +66,9 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
   const rp2data = await rp2.sourceData(event, days, subconferences, sources);
-  rp2data.forEach(data => {
+  rp2data.forEach(async data => {
     // if (data.sessions.length === 0) return;
-    const { sessions, speakers, tracks, locations, maps, pois, subconferences } = processData(data, options);
+    const { sessions, speakers, tracks, locations, maps, pois, subconferences } = await processData(data, options);
     result.sessions = result.sessions.concat(sessions);
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
@@ -91,9 +91,9 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
   const pretalxData = await pretalx.sourceData(event, days, subconferences, sources);
-  pretalxData.forEach(data => {
+  pretalxData.forEach(async data => {
     if (data.sessions.length === 0) return;
-    const { sessions, speakers, maps, tracks, locations, pois } = processData(data, options);
+    const { sessions, speakers, maps, tracks, locations, pois } = await processData(data, options);
     result.sessions = result.sessions.concat(sessions);
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
@@ -104,9 +104,9 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
   const frabData = await frab.sourceData(event, days, subconferences, sources);
-  frabData.forEach(data => {
+  frabData.forEach(async data => {
     if (data.sessions.length === 0) return;
-    const { sessions, speakers, maps, tracks, locations, pois } = processData(data, options);
+    const { sessions, speakers, maps, tracks, locations, pois } = await processData(data, options);
     result.sessions = result.sessions.concat(sessions);
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
@@ -118,9 +118,9 @@ export async function dumpNormalizedConference(configuration: Configuration, des
   });
 
   const halfnarpData = await halfnarp.sourceData(event, days, subconferences, sources);
-  halfnarpData.forEach(data => {
+  halfnarpData.forEach(async data => {
     if (data.sessions.length === 0) return;
-    const { sessions, speakers, maps, tracks, locations, pois } = processData(data, options);
+    const { sessions, speakers, maps, tracks, locations, pois } = await processData(data, options);
     result.sessions = result.sessions.concat(sessions);
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
