@@ -120,6 +120,9 @@
         ]
       },
       "sessionsToVideoUrls": {},
+      "locationsToYouTubeLiveStream": {
+        "1054": "https://www.youtube.com/watch?v=CMa8baxlOLc"
+      },
       "maps": [
         {
           "type": "map",

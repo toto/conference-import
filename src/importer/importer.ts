@@ -151,6 +151,7 @@ export async function processData(
             const recommendedMiniSessions = recomendationsForSession
               .map(id => sessionMap.get(id))
               .filter(s => s !== undefined)
+              .filter(s => s?.begin && s?.location) // only allow scheduled sessions
               // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
               .map(s => {return {id: s!.id, title: s!.title} as ConferenceModel.MiniSession})
               .slice(0, 5) // limit to 5

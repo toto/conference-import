@@ -3,7 +3,7 @@ import { Session } from './../../models/session';
 import { Rp2APIElement } from '.';
 import { dehtml, mkId } from '../util';
 import { languageFromIsoCode } from '../rp/language';
-import { MiniLocation, MiniSpeaker, MiniTrack, Subconference } from '../../models';
+import { Link, MiniLocation, MiniSpeaker, MiniTrack, Subconference } from '../../models';
 import { normalizedTrackId } from './util';
 // import { normalizedTrackId } from './util';
 
@@ -12,9 +12,10 @@ interface Options {
   sessionPostProcessing?(session: Session): Session | null
   eventId: string
   sessionUrlPrefix: string
-  defaultTrack: MiniTrack,
+  defaultTrack: MiniTrack
   timezone: string
   trackMappings: Record<string, Array<string>>
+  locationsToYouTubeLiveStream?: Record<string, string>
 }
 
 export function sessionFromApiSession(apiSession: Rp2APIElement, options: Options): Session | null {
@@ -100,6 +101,19 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
     }
   }
 
+  const links: Link[] = [];
+  if (options.locationsToYouTubeLiveStream 
+    && location?.id
+    && options.locationsToYouTubeLiveStream[location!.id]) {
+      const url = options.locationsToYouTubeLiveStream[location!.id];
+      links.push({
+        url,
+        type: "livestream",
+        title,
+        service: "youtube",
+      });
+  }
+
   let session: Session | null = {
     id: nid,
     title,
@@ -111,7 +125,7 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
     location,
     speakers,
     enclosures: [],
-    links: [],
+    links,
     abstract: typeof teaser === "string" ? dehtml(teaser) : "", 
     description: typeof description === "string" ? dehtml(description) : "",
     cancelled: apiSession.status === "cancelled",

@@ -20,6 +20,8 @@ export interface Rp2DataSourceFormat extends DataSourceFormat {
 
   /** Map to Session ID to HTTPS url of a video stream to be added as a test stream */
   sessionsToVideoUrls?: Record<string, string>
+
+  locationsToYouTubeLiveStream?: Record<string, string>
 }
 
 export type Rp2APIElement = Record<string, string | Record<string, string> | Array<Record<string, string>>>
@@ -61,6 +63,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
 
   // Speakers
   const { speaker, moderator, session, term } = await loadJsonData(source.dataBaseUrl, source.dataAuth);
+  console.info(`L`)
   // const tracks = term.map(t => trackFromApiTerm(t, {
   //   eventId: event.id, 
   //   defaultColor: source.defaultTrack.color, 
@@ -89,7 +92,9 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
       sessionUrlPrefix: source.sessionUrlPrefix, 
       defaultTrack: source.defaultTrack,
       timezone: event.locations[0].timezone,
-      trackMappings: source.trackMappings})
+      trackMappings: source.trackMappings,
+      locationsToYouTubeLiveStream: source.locationsToYouTubeLiveStream,
+    })
     if (source.sessionsToVideoUrls 
       && resultSession 
       && source.sessionsToVideoUrls[resultSession.id]) {
