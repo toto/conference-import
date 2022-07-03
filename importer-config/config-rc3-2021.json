@@ -150,7 +150,7 @@
     {
       "format": "pretalx",
       "eventId": "rc3-2021",
-      "baseUrl": "https://pretalx.c3voc.de/",
+      "baseUrl": "https://pretalx.c3voc.de/",      
       "conferenceCode": "rc3-2021-cwtv",
       "defaultLanguageCode": "de",
       "defaultTrack": {

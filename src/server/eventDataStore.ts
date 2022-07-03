@@ -67,7 +67,7 @@ export class EventDataStore implements EventResources {
   resources(resource: keyof EventResources) {
     const map = this[resource];
     const resources = [...map].map(r => r[1]);
-    return resources.sort((a,b) => a.id.localeCompare(b.id));
+    return resources //.sort((a,b) => a.id.localeCompare(b.id));
   }
 
   static eventDataFromFile(jsonFilePath: string, fakeLiveDate?: moment.Moment): EventDataStore | null {

@@ -58,7 +58,7 @@
       "format": "frab",
       "eventId": "mch2022",
       "scheduleJson": "https://program.mch2022.org/mch2021-2020/schedule/export/schedule.json",
-      "baseUrl": "https://program.mch2022.org/mch2021-2020/",
+      "pretalxBaseUrl": "https://program.mch2022.org/mch2021-2020/",
       "defaultLanguageCode": "en",
       "defaultTrack": {
         "id": "mch2022",
@@ -76,7 +76,8 @@
       "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "pretalxExportMode": true
     }
   ],
   "options": {

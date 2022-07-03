@@ -18,9 +18,9 @@
       "args": [
         "--import",
         "--config",
-        "${workspaceFolder}/importer-config/config-36c3.json",
+        "${workspaceFolder}/importer-config/config-mch2022.json",
         "--out", 
-        "/Users/toto/Desktop/ocdata-repo/36c3-frab-local.json"
+        "/Users/toto/Desktop/mch2022/mch2022.json"
       ]
     },
     {

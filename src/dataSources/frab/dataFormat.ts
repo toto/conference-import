@@ -41,5 +41,11 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
   /** uses a guid identifier for sessions if available  */
   preferGuid?: boolean;
   baseSpeakerIdOnName?: boolean;
+  /** 
+   * Set to true, to extract speakers and guess their deep links correctly
+   * from a frab export mode. `pretalxBaseUrl` should be set to `https://HOST/PRETALX_CONF_ID/`
+   */
+  pretalxExportMode?: boolean;
+  pretalxBaseUrl?: string
 }
 

@@ -90,6 +90,58 @@ export function sessionsFromJson(json: Record<string, unknown>, config: FrabData
   return result;
 }
 
+export function pretalxSpeakersFromSessionJson(json: Record<string, unknown>, config: FrabDataSourceFormat): Speaker[] {
+  const { schedule } = json;
+  if (!schedule) return [];
+  const { conference } = schedule as {conference: Record<string, unknown>};
+  if (!conference) return [];
+  const { days } = conference as {days: Record<string, unknown>[]};
+  if (!days || !Array.isArray(days)) return [];
+
+  const { ignoredLocationNames } = config;
+
+  const result: Speaker[] = [];
+  const speakerIds = new Set<string>();
+  for (const day of days) {
+    const { rooms } = day as {rooms: Record<string, string>[], date: string};
+    if (!rooms) continue;
+
+    for (const roomName in rooms) {
+      if (ignoredLocationNames && ignoredLocationNames.includes(roomName)) {
+        continue;
+      }
+      
+      const sessionsForRoom = rooms[roomName];
+      if (!Array.isArray(sessionsForRoom)) continue;
+
+      for (const sessionJson of sessionsForRoom as Array<{"persons": Record<string, string>[]}>) {
+        for (const person of sessionJson.persons) {
+          if (speakerIds.has(person.id)) continue;
+          if (person.public_name.length === 0) continue;
+          speakerIds.add(person.id);
+          result.push(
+            {
+              id: person.id,
+              type: 'speaker',
+              event: config.eventId,
+              photo: undefined,
+              url: config.pretalxBaseUrl ? `${config.pretalxBaseUrl}speaker/${person.code}` : null,
+              organization: undefined,
+              position: undefined,
+              biography: person.biography,
+              links: [],
+              sessions: [],
+              name: person.public_name,
+            }
+          )
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
 function parseSession(date: string, roomName: string, session: Record<string, unknown>, config: FrabDataSourceFormat): Session | undefined {
   let track: MiniTrack = config.defaultTrack;
   if (session.track) {
