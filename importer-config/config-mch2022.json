@@ -1,0 +1,104 @@
+{
+  "event": {
+    "id": "mch2022",
+    "label": "MCH2022",
+    "title": "May Contain Hackers 2022",
+    "date": [
+      "2022-07-22",
+      "2022-07-26"
+    ],
+    "locations": [
+      {
+        "label": "Scoutinglandgoed Zeewolde",
+        "timezone": "Europe/Berlin",
+        "coords": [
+          52.284321784973145,
+          5.526638031005859
+        ]
+      }
+    ],
+    "url": "https://program.mch2022.org",
+    "hashtag": "mch2022"
+  },
+  "days": [
+    {
+      "id": "2022-07-22",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2022-07-22"
+    },
+    {
+      "id": "2022-07-23",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2022-07-23"
+    },
+    {
+      "id": "2022-07-24",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2022-07-24"
+    },
+    {
+      "id": "2022-07-25",
+      "label_de": "Tag 4",
+      "label_en": "Day 4",
+      "date": "2022-07-25"
+    },
+    {
+      "id": "2022-07-26",
+      "label_de": "Tag 5",
+      "label_en": "Day 5",
+      "date": "2022-07-26"
+    }
+  ],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "frab",
+      "eventId": "mch2022",
+      "scheduleJson": "https://program.mch2022.org/mch2021-2020/schedule/export/schedule.json",
+      "baseUrl": "https://program.mch2022.org/mch2021-2020/",
+      "defaultLanguageCode": "en",
+      "defaultTrack": {
+        "id": "mch2022",
+        "label_en": "MCH2022",
+        "label_de": "MCH2022",
+        "color": [
+          77,
+          127,
+          250,
+          1
+        ]
+      },
+      "defaultLanguageName": "English",
+      "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
+    }
+  ],
+  "options": {
+    "locationIdOrder": [
+      "abacus-",
+      "battery-",
+      "clairvoyance-",
+      "dna-",
+      "envelope-",
+      "gear-",
+      "hardware-hacking-area-"
+    ],
+    "defaultColor": [
+      73,
+      29,
+      136,
+      1
+    ],
+    "colorForTrack": {},
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 7,
+    "nonStageLocationIds": [],
+    "subconferenceLocationIds": {}
+  }
+}
