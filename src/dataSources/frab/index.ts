@@ -37,6 +37,10 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     }
   }
   result.sessions = sessions;
+  // Just for app review remove some trigger words
+  result.sessions = result.sessions
+    .filter(session => !session.title.match(/Hack/i))
+    .filter(session => !session.title.match(/covid/i))
 
   let speakersUrl: string | undefined
   if (source.speakerJsonUrl) {
