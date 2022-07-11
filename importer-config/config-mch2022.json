@@ -78,15 +78,7 @@
       "maps": [],
       "pois": [],
       "pretalxExportMode": true,
-      "fakeVideos": {
-        "65": {
-          "mimetype": "video/mp4",
-          "title": "How to charge your car the open source way with EVerest",
-          "url": "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
-          "type": "recording",
-          "thumbnail": "https://wallpapercave.com/wp/wp4752796.jpg"
-        }
-      }
+      "fakeVideos": {}
     }
   ],
   "options": {
@@ -97,7 +89,9 @@
       "dna-",
       "envelope-",
       "gear-",
-      "hardware-hacking-area-"
+      "hardware-hacking-area-",
+      "emergent-earth",
+      "emergent-earth-"
     ],
     "defaultColor": [
       105,
