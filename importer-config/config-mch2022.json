@@ -60,6 +60,7 @@
       "scheduleJson": "https://program.mch2022.org/mch2021-2020/schedule/export/schedule.json",
       "pretalxBaseUrl": "https://program.mch2022.org/mch2021-2020/",
       "defaultLanguageCode": "en",
+      "vocSlug": "MCH2022",
       "defaultTrack": {
         "id": "mch2022",
         "label_en": "MCH2022",
@@ -89,10 +90,14 @@
       "dna-",
       "envelope-",
       "gear-",
+      "tardis-",
       "hardware-hacking-area-",
+      "area-42-workshops",
       "emergent-earth",
       "emergent-earth-",
-      "music-stage-"
+      "music-stage-",
+      "family-zone-",
+      "hsnl-village-muze-nlnet-tent-"
     ],
     "defaultColor": [
       105,
