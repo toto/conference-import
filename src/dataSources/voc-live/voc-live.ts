@@ -1,5 +1,6 @@
 import * as axios from "axios";
 import { Enclosure, Session } from "../../models";
+import { mkId } from "../util";
 
 interface VocStream {
   roomSlug: string,
@@ -11,7 +12,7 @@ interface VocStream {
 
 export function parseVocStreams(json: any, slug: string, mediaType = 'video', streamType = 'hls'): VocStream[] {
   const streams: VocStream[] = [];
-  const conference = json.find((a: {slug: string}) => a.slug === slug);
+  const conference = json.find((a: {slug: string}) => a.slug === slug || a.slug.toLowerCase() === slug.toLowerCase());
   if (conference) {
     conference.groups.forEach((group: any) => {
       group.rooms.forEach((room: any) => {
@@ -73,13 +74,19 @@ export function addLiveStreamEnclosures(sessions: Session[], vocVideos: VocStrea
   const untranslatedVocStreams = vocVideos.filter(v => !v.translated);
   const streamByRoomName: Record<string, VocStream> = {};
   untranslatedVocStreams.forEach(v => streamByRoomName[v.name.toLowerCase()] = v);
+  const streamBySluggedRoomName: Record<string, VocStream> = {};
+  untranslatedVocStreams.forEach(v => streamBySluggedRoomName[mkId(v.name)] = v);
 
   return sessions.map(session => {
     const updatedSession = session;
     if (updatedSession.location && updatedSession.location.label_en) {
       const roomNameEn = updatedSession.location.label_en.toLowerCase();
       const roomNameDe = updatedSession.location.label_de?.toLowerCase();
-      const stream = streamByRoomName[roomNameEn] ?? streamByRoomName[roomNameDe ?? ''];
+      const stream = streamByRoomName[roomNameEn] ?? 
+        streamByRoomName[roomNameDe ?? ''] ?? 
+        streamBySluggedRoomName[mkId(roomNameEn)] ??
+        streamBySluggedRoomName[mkId(roomNameDe ?? '')];
+
       if (stream) {
         const liveStream: Enclosure = {
           url: stream.streamUrl,
