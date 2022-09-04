@@ -97,7 +97,56 @@
       83,
       1
     ],
-    "colorForTrack": {},
+    "colorForTrack": {
+      "bitsundbaeume-tech-design-power-relations-and-ownership": [
+        167,
+        11,
+        21,
+        1
+      ],
+      "bitsundbaeume-digital-and-sustainable---transformative-business-models": [
+        245,
+        221,
+        1,
+        1
+      ],
+      "bitsundbaeume-forum-culture": [
+        214,
+        51,
+        213,
+        1
+      ],
+      "bub22": [
+        161,
+        200,
+        83,
+        1
+      ],
+      "bitsundbaeume-digitalisation-environmental-and-climate-protection": [
+        87,
+        136,
+        81,
+        1
+      ],
+      "bitsundbaeume-new-social-deal-and-global-justice": [
+        139,
+        105,
+        204,
+        1
+      ],
+      "bitsundbaeume-smart-new-public-society-and-democracy": [
+        64,
+        122,
+        182,
+        1
+      ],
+      "bitsundbaeume-economy-and-resources": [
+        230,
+        138,
+        0,
+        1
+      ]
+    },
     "timezone": "Europe/Berlin",
     "hourOfDayChange": 7,
     "nonStageLocationIds": [],
