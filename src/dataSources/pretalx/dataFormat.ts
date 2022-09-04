@@ -23,4 +23,5 @@ export interface PretalxDataSourceFormat extends DataSourceFormat {
   vocUseReliveRecordings?: boolean;
   useSubconferenceIdInSessionId?: boolean;
   useSubconferenceIdInLocations?: boolean;
+  fakeVideos?: Record<string, ConferenceModel.Enclosure>;
 }
