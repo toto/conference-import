@@ -1,0 +1,106 @@
+{
+  "event": {
+    "id": "bub22",
+    "label": "Bits & Bäume",
+    "title": "Bits & Bäume 2022",
+    "date": [
+      "2022-09-30",
+      "2022-10-02"
+    ],
+    "locations": [
+      {
+        "label": "Technische Universität Berlin",
+        "timezone": "Europe/Berlin",
+        "coords": [
+          52,511944,
+          13.326389
+        ]
+      }
+    ],
+    "url": "https://fahrplan22.bits-und-baeume.org/",
+    "hashtag": "bitsundbaeume"
+  },
+  "days": [
+    {
+      "id": "2022-09-30",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2022-09-30"
+    },
+    {
+      "id": "2022-10-01",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2022-10-01"
+    },
+    {
+      "id": "2022-10-02",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2022-10-02"
+    }
+  ],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "pretalx",
+      "eventId": "bub22",
+      "baseUrl": "https://fahrplan22.bits-und-baeume.org/",
+      "conferenceCode": "bitsundbaeume",
+      "defaultLanguageCode": "en",
+      "defaultTrack": {
+        "id": "bub22",
+        "label_en": "Bits & Bäume 22",
+        "label_de": "Bits & Bäume 22",
+        "color": [
+          161,
+          200,
+          83,
+          1
+        ]
+      },
+      "defaultLanguageName": "English",
+      "useSubconferenceIdInSessionId": false,
+      "useSubconferenceIdInLocations": false,
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": [],
+      "pretalxExportMode": true,
+      "fakeVideos": {}
+    }
+  ],
+  "options": {
+    "locationIdOrder": [
+      "bitsundbaeume-ada",
+      "bitsundbaeume-bash",
+      "bitsundbaeume-emacs",
+      "bitsundbaeume-c-",
+      "bitsundbaeume-delphi",
+      "bitsundbaeume-ahorn--",
+      "bitsundbaeume-birke",
+      "bitsundbaeume-campher",
+      "bitsundbaeume-douglasie",
+      "bitsundbaeume-pitch-thrive",
+      "bitsundbaeume-apfel",
+      "bitsundbaeume-birne",
+      "bitsundbaeume-clementine",
+      "bitsundbaeume-dattel",
+      "bitsundbaeume-erdbeer",
+      "bitsundbaeume-feige",
+      "bitsundbaeume-guave",
+      "bitsundbaeume-forum-zeitunabh-ngig-",
+      "bitsundbaeume-forum-stage"
+    ],
+    "defaultColor": [
+      161,
+      200,
+      83,
+      1
+    ],
+    "colorForTrack": {},
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 7,
+    "nonStageLocationIds": [],
+    "subconferenceLocationIds": {}
+  }
+}
