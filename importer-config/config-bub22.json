@@ -65,15 +65,7 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": [],
-      "fakeVideos": {
-        "bitsundbaeume-kt3uel": {
-          "url": "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
-          "mimetype": "video/mp4",
-          "thumbnail": "https://i.ytimg.com/vi/kzodpxMbPPU/maxresdefault.jpg",
-          "title": "Big Buck Bunny",
-          "type": "recording"
-        }
-      }
+      "fakeVideos": {}
     }
   ],
   "options": {
