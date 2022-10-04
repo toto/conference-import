@@ -65,7 +65,8 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": [],
-      "fakeVideos": {}
+      "fakeVideos": {},
+      "vocSlug": "bub2022"
     }
   ],
   "options": {
