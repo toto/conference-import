@@ -15,10 +15,11 @@ import { normalizedTrackId } from "./util";
   }
 */
 export function trackFromApiTerm(apiTerm: Rp2APIElement, options: {eventId: string, defaultColor: number[], colors: Record<string, number[]>, trackMappings: Record<string, Array<string>>}): Track | null {
-  const { name, type, color } = apiTerm;
+  const { name, type, color, language } = apiTerm;
   if (typeof name !== "string") return null;
-  if (type !== "Tags") return null;
-  const id = normalizedTrackId(name, options.trackMappings)
+  if (type !== "Tracks") return null;
+  if (language !== "en") return null;
+  const id = normalizedTrackId(name.toLowerCase(), options.trackMappings)
 
 
   let trackColor = options.defaultColor as [number, number, number, number];

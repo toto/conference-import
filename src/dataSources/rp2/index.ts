@@ -5,7 +5,7 @@ import * as ConferenceModel from "../../models";
 import { DataSourceFormat } from "../dataSource";
 import { sessionFromApiSession } from "./session";
 import { speakerFromApiSpeaker } from "./speaker";
-import { subconferenceFromApiTerm } from "./term";
+import { subconferenceFromApiTerm, trackFromApiTerm } from "./term";
 
 export interface Rp2DataSourceFormat extends DataSourceFormat {
   format: "rp2"
@@ -63,15 +63,15 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
 
   // Speakers
   const { speaker, moderator, session, term } = await loadJsonData(source.dataBaseUrl, source.dataAuth);
-  console.info(`L`)
-  // const tracks = term.map(t => trackFromApiTerm(t, {
-  //   eventId: event.id, 
-  //   defaultColor: source.defaultTrack.color, 
-  //   colors: source.colorForTrack,
-  //   trackMappings: source.trackMappings
-  // }))
-  //   .filter(t => t !== null) as ConferenceModel.Track[];
-  // result.tracks = tracks;
+  
+  const tracks = term.map(t => trackFromApiTerm(t, {
+    eventId: event.id, 
+    defaultColor: source.defaultTrack.color, 
+    colors: source.colorForTrack,
+    trackMappings: source.trackMappings
+  }))
+    .filter(t => t !== null) as ConferenceModel.Track[];
+  result.tracks = tracks;
 
   const speakerParseOptions = {eventId: event.id, speakerUrlPrefix: source.speakerUrlPrefix}
   const speakers = speaker.map(s => speakerFromApiSpeaker(s, speakerParseOptions))

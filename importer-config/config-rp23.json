@@ -1,0 +1,254 @@
+{
+  "event": {
+    "id": "rp23",
+    "label": "re:publica 23: \\“CASH\\”",
+    "title": "re:publica 2023",
+    "date": [
+      "2023-06-05",
+      "2023-06-07"
+    ],
+    "locations": [
+      {
+        "label": "Arena Berlin",
+        "coords": [
+          52.49691,
+          13.45404
+        ],
+        "timezone": "Europe/Berlin"
+      },
+      {
+        "label": "Festsaal Kreuzberg",
+        "coords": [
+          52.49679311812499,
+          13.4517502784729
+        ],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "rp23",
+    "url": "https://re-publica.com/"
+  },
+  "days": [
+    {
+      "id": "2023-06-05",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2023-06-05"
+    },
+    {
+      "id": "2023-06-06",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2023-06-06"
+    },
+    {
+      "id": "2023-06-07",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2023-06-07"
+    }
+  ],
+  "subconferences": [
+    {
+      "id": "media-convention",
+      "label": "Media Convention"
+    },
+    {
+      "id": "tincon",
+      "label": "TINCON"
+    },
+    {
+      "id": "partner",
+      "label": "Partner"
+    },
+    {
+      "id": "txt",
+      "label": ".txt - Long live the word!"
+    }
+  ],
+  "sources": [
+    {
+      "format": "rp2",
+      "dataBaseUrl": "https://re-publica.com/sites/default/files/extappdata/2023",
+      "speakerUrlPrefix": "https://re-publica.com/en/user",
+      "sessionUrlPrefix": "https://re-publica.com",
+      "defaultTrack": {
+        "id": "republica",
+        "label_en": "re:publica",
+        "label_de": "re:publica",
+        "color": [242, 251, 50, 1]
+      },
+      "trackMappings": {
+        "technology": [
+          "technologie & wissenschaft",
+          "technology & science"
+        ],
+        "learning": [
+          "lernen & wissen",
+          "learning & knowledge"
+        ],
+        "politics": [
+          "politik & gesellschaft",
+          "politics & society"
+        ],
+        "net-for-good": [
+          "net for good"
+        ],
+        "this-is-fun": [
+          "this is fun."
+        ],
+        "spheres-of-work": [
+          "arbeitswelten",
+          "spheres of work"
+        ],
+        "arts-and-culture": [
+          "kunst & kultur",
+          "arts & culture"
+        ],
+        "media": [
+          "medien",
+          "media"
+        ],
+        "urban-spaces-rural-spaces": [
+          "stadt & land",
+          "urban spaces, rural spaces"
+        ],
+        "economy-and-responsibility": [
+          "wirtschaft & verantwortung",
+          "economy & responsibility"
+        ]
+      },
+      "sessionsToVideoUrls": {},
+      "locationsToYouTubeLiveStream": {
+        
+      },
+      "maps": [
+        {
+          "type": "map",
+          "id": "rp22-arena",
+          "event": "rp22",
+          "label_de": "Arena Berlin",
+          "label_en": "Arena Berlin",
+          "floor_label_de": "Erdgeschhoss",
+          "floor_label_en": "Ground Floor",
+          "is_outdoor": true,
+          "is_indoor": true,
+          "floor": 0,
+          "order_index": 1,
+          "area": {
+            "width": 100.0,
+            "height": 200.0
+          },
+          "tiles": {
+            "base_url": "https://data.conference.systems/D568C3BE/",
+            "large_image_url": "https://data.conference.systems/D568C3BE/rp22-map2000.png",
+            "tile_size": 512,
+            "tile_file_extension": "png",
+            "size": {
+              "width": 2000,
+              "height": 1354
+            }
+          },
+          "pois": []
+        }
+      ]
+    }
+  ],
+  "options": {
+    "colorForTrack": {
+      "media-journalism": [
+        214,
+        0,
+        126,
+        1
+      ],
+      "research-education": [
+        232,
+        200,
+        144,
+        1
+      ],
+      "gesellschaft": [
+        255,
+        175,
+        99,
+        1
+      ],
+      "wirtschaft": [
+        132,
+        130,
+        254,
+        1
+      ],
+      "medien": [
+        255,
+        52,
+        105,
+        1
+      ],
+      "politik": [
+        120,
+        207,
+        219,
+        1
+      ],
+      "technologie": [
+        60,
+        177,
+        255,
+        1
+      ],
+      "kultur": [
+        249,
+        207,
+        63,
+        1
+      ],
+      "wissenschaft": [
+        92,
+        204,
+        255,
+        1
+      ]
+    },
+    "locationIdOrder": [
+      "1054",
+    "1055",
+    "1056",
+    "1057",
+    "1058",
+    "1062",
+    "1069",
+    "1076",
+    "1071",
+    "1067",
+    "1068",
+    "1075",
+    "1414",
+    "1074",
+    "1072",
+    "1070",
+    "1073",
+    "3348",
+    "1165",
+    "1077",
+    "1064",
+    "1065",
+    "3361",
+    "1066",
+    "3349",
+    "1238",
+    "1199"
+    ],
+    "defaultColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "timezone": "Etc/UTC",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": [],
+    "recommendationsSource": "https://data.conference.systems/DAD7A3F9/rp22-recommendations.json"
+  }
+}
