@@ -140,8 +140,8 @@
             "height": 6860.0
           },
           "tiles": {
-            "base_url": "https://data.conference.systems/F9F2E10A/",
-            "large_image_url": "https://data.conference.systems/F9F2E10A/rp23_Lageplan-App.png",
+            "base_url": "https://data.conference.systems/F9F2E10C/",
+            "large_image_url": "https://data.conference.systems/F9F2E10C/rp23_Lageplan-App.png",
             "tile_size": 512,
             "tile_file_extension": "png",
             "size": {
