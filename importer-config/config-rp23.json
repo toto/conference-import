@@ -136,8 +136,8 @@
           "floor": 0,
           "order_index": 1,
           "area": {
-            "width": 10000.0,
-            "height": 6860.0
+            "width": 3000.0,
+            "height": 2058.0
           },
           "tiles": {
             "base_url": "https://data.conference.systems/F9F2E102/",
