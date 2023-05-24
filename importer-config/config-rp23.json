@@ -136,8 +136,8 @@
           "floor": 0,
           "order_index": 1,
           "area": {
-            "width": 100.0,
-            "height": 200.0
+            "width": 10000.0,
+            "height": 6860.0
           },
           "tiles": {
             "base_url": "https://data.conference.systems/F9F2E10A/",
@@ -146,7 +146,7 @@
             "tile_file_extension": "png",
             "size": {
               "width": 10000,
-              "height": 9946
+              "height": 6860
             }
           },
           "pois": []
