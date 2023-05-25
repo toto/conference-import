@@ -71,6 +71,15 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     trackMappings: source.trackMappings
   }))
     .filter(t => t !== null) as ConferenceModel.Track[];
+
+  const deTrackTerms = term.filter(t => t.language === "de");
+  tracks.forEach(track => {
+    const trackNames = source.trackMappings[track.id];
+    const deTrack = deTrackTerms.find(t => trackNames.includes((t.name as string).toLowerCase()))
+    if (deTrack && typeof deTrack.name === "string") {
+      track.label_de = deTrack.name;
+    }
+  })
   result.tracks = tracks;
 
   const speakerParseOptions = {eventId: event.id, speakerUrlPrefix: source.speakerUrlPrefix}
@@ -83,7 +92,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
       speakers.push(mod)
     }
   })
-  result.speakers = speakers as ConferenceModel.Speaker[];
+  result.speakers = speakers.filter(s => s !== null) as ConferenceModel.Speaker[];
 
 
   result.sessions = session.map(s => {
