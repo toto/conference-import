@@ -48,24 +48,7 @@
       "date": "2023-06-07"
     }
   ],
-  "subconferences": [
-    {
-      "id": "media-convention",
-      "label": "Media Convention"
-    },
-    {
-      "id": "tincon",
-      "label": "TINCON"
-    },
-    {
-      "id": "partner",
-      "label": "Partner"
-    },
-    {
-      "id": "txt",
-      "label": ".txt - Long live the word!"
-    }
-  ],
+  "subconferences": [],
   "sources": [
     {
       "format": "rp2",

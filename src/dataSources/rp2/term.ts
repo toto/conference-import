@@ -40,9 +40,10 @@ export function trackFromApiTerm(apiTerm: Rp2APIElement, options: {eventId: stri
 }
 
 export function subconferenceFromApiTerm(apiTerm: Rp2APIElement, options: {eventId: string}): Subconference | null {
-  const { name, type } = apiTerm;
+  const { name, type, language } = apiTerm;
   if (typeof name !== "string") return null;
   if (type !== "Special Curation") return null;
+  if (language !== "en") return null;
   return {
     type: "subconference",
     id: mkId(name),

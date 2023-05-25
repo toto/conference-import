@@ -55,7 +55,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     sessions: [],
     days,
     event,
-    subconferences,
+    subconferences: [],
     maps: [],
     pois: [],
     tracks: [],
@@ -119,9 +119,10 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     return resultSession;
   }).filter(s => s !== null) as ConferenceModel.Session[]
 
-  result.subconferences = term.map(t => subconferenceFromApiTerm(t, {eventId: event.id}))
-                            .filter(t => t !== null) as ConferenceModel.Subconference[];
-
+  const termSubconferences = term
+    .map(t => subconferenceFromApiTerm(t, {eventId: event.id}))
+    .filter(t => t !== null) as ConferenceModel.Subconference[];
+  result.subconferences = termSubconferences;
   result.maps = source.maps ?? [];
 
   return result;

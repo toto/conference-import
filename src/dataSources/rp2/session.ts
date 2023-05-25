@@ -39,6 +39,7 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
   if (!nid || typeof nid !== "string") return null;
   if (!title || typeof title !== "string") return null;
   if (!langcode || typeof langcode !== "string") return null; 
+  if (langcode !== "en") return null;
   const lang = languageFromIsoCode(langcode);
   if (!lang) return null;
   if (!path || typeof path !== "string") return null;
