@@ -19,3 +19,32 @@ export function normalizedMiniTrack(id: string, trackMappings: Record<string, Ar
   const normalizedId = normalizedTrackId(id, trackMappings);
   return tracks.find(t => t.id === normalizedId) ?? defaultTrack;
 }
+
+export function htmlListAndParagraphToString(source: string): string {
+  let cleanedSource = source
+    .replace(/\n/gi, "")
+    .replace(/\r/gi, "")
+    .replace(/\t/gi, "")
+    .replace(/&nbsp;/gi, " ")
+  cleanedSource = cleanedSource.replace(/<br *\/?>/gi, "\n")
+  let paragraphs = cleanedSource.split(/<\/p *>/i)
+
+  paragraphs = paragraphs.map(paragraph => {
+    paragraph = paragraph.replace(/<p *>/gi, "")
+    let lists = paragraph.split(/<\/ul>/gi)
+    lists = lists.map(list => {
+      list = list.replace(/<ul *>/gi, "")
+      list = list.replace(/<li *>/gi, "\n ⏺ ")
+      list = list.replace(/<\/li *>/gi, "")
+      return list;
+    })
+
+    return lists.join("\n\n")
+  });
+
+  return paragraphs
+    .map(p => p.replace(/<[^>]+>/g,' '))
+    .join("\n\n")
+    .trimEnd()
+    .replace(/^(\n|\r)+/, "") // only replace newlines in the beginning. Leading spaces are fine
+}

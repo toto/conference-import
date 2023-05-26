@@ -4,7 +4,7 @@ import { Rp2APIElement } from '.';
 import { dehtml, mkId } from '../util';
 import { languageFromIsoCode } from '../rp/language';
 import { Link, MiniLocation, MiniSpeaker, MiniTrack, Subconference } from '../../models';
-import { normalizedTrackId } from './util';
+import { htmlListAndParagraphToString, normalizedTrackId } from './util';
 // import { normalizedTrackId } from './util';
 
 
@@ -128,7 +128,7 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
     enclosures: [],
     links,
     abstract: typeof teaser === "string" ? dehtml(teaser) : "", 
-    description: typeof description === "string" ? dehtml(description) : "",
+    description: typeof description === "string" ? htmlListAndParagraphToString(description) : "",
     cancelled: apiSession.status === "cancelled",
     begin,
     end,
