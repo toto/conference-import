@@ -5,6 +5,8 @@ import { dehtml, mkId } from '../util';
 import { languageFromIsoCode } from '../rp/language';
 import { Link, MiniLocation, MiniSpeaker, MiniTrack, Subconference } from '../../models';
 import { htmlListAndParagraphToString, normalizedTrackId } from './util';
+import { German } from '../rp/language';
+import { English } from '../rp/language';
 // import { normalizedTrackId } from './util';
 
 
@@ -16,6 +18,8 @@ interface Options {
   timezone: string
   trackMappings: Record<string, Array<string>>
   locationsToYouTubeLiveStream?: Record<string, string>
+  /** Links mapping the DE and EN title to a link object */
+  partnerLinks: Record<string, Link>
 }
 
 export function sessionFromApiSession(apiSession: Rp2APIElement, options: Options): Session | null {
@@ -31,18 +35,36 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
     track,
     speaker,
     speaker_uid,
+    language_id,
     moderator,
     moderator_uid,
     path,
+    partner
   } = apiSession;
 
   if (!nid || typeof nid !== "string") return null;
   if (!title || typeof title !== "string") return null;
   if (!langcode || typeof langcode !== "string") return null; 
   if (langcode !== "en") return null;
-  const lang = languageFromIsoCode(langcode);
+  let lang = languageFromIsoCode(langcode);
+  if (language_id) {
+    if (language_id === "4") {
+      lang = German;
+    }
+    if (language_id === "5") {
+      lang = English;
+    }
+  }
   if (!lang) return null;
   if (!path || typeof path !== "string") return null;
+  const partnerNames: string[] = []
+  if (Array.isArray(partner)) {
+    for (const partnerName of partner) {
+      if (typeof partnerName === "string") {
+        partnerNames.push(partnerName)
+      }
+    }
+  }
 
   let sessionTrack = options.defaultTrack
   if (track && typeof track === "string") {
@@ -115,6 +137,13 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
         title,
         service: "youtube",
       });
+  }
+
+  for (const partnerName of partnerNames) {
+    const partnerLink = options.partnerLinks[partnerName]
+    if (partnerLink) {
+      links.push(partnerLink)
+    }
   }
 
   let session: Session | null = {

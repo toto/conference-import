@@ -6,6 +6,7 @@ import { DataSourceFormat } from "../dataSource";
 import { sessionFromApiSession } from "./session";
 import { speakerFromApiSpeaker } from "./speaker";
 import { subconferenceFromApiTerm, trackFromApiTerm } from "./term";
+import { partnerLinks } from "./link";
 
 export interface Rp2DataSourceFormat extends DataSourceFormat {
   format: "rp2"
@@ -35,6 +36,7 @@ enum Rp2APIEndpointName {
   moderator = "moderator",
   session = "session",
   term = "term",
+  partner = "partner",
 } 
 
 
@@ -46,6 +48,7 @@ async function loadJsonData(baseUrl: string, auth?: axios.AxiosBasicCredentials 
     moderator: (await load(Rp2APIEndpointName.moderator)),
     session: (await load(Rp2APIEndpointName.session)),
     term: (await load(Rp2APIEndpointName.term)),
+    partner: (await load(Rp2APIEndpointName.partner)),
   }
 }
 
@@ -62,7 +65,13 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   };
 
   // Speakers
-  const { speaker, moderator, session, term } = await loadJsonData(source.dataBaseUrl, source.dataAuth);
+  const { 
+    speaker,
+    moderator,
+    session,
+    term,
+    partner,
+  } = await loadJsonData(source.dataBaseUrl, source.dataAuth);
   
   const tracks = term.map(t => trackFromApiTerm(t, {
     eventId: event.id, 
@@ -103,6 +112,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
       timezone: event.locations[0].timezone,
       trackMappings: source.trackMappings,
       locationsToYouTubeLiveStream: source.locationsToYouTubeLiveStream,
+      partnerLinks: partnerLinks(partner),
     })
     if (source.sessionsToVideoUrls 
       && resultSession 

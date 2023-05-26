@@ -66,3 +66,5 @@ export function htmlListAndParagraphToString(source: string): string {
     .trimEnd()
     .replace(/^(\n|\r)+/, "") // only replace newlines in the beginning. Leading spaces are fine
 }
+
+
