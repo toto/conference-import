@@ -105,7 +105,9 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
   const links: Link[] = [];
   if (options.locationsToYouTubeLiveStream 
     && location?.id
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     && options.locationsToYouTubeLiveStream[location!.id]) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const url = options.locationsToYouTubeLiveStream[location!.id];
       links.push({
         url,
