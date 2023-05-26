@@ -21,16 +21,17 @@ export function normalizedMiniTrack(id: string, trackMappings: Record<string, Ar
 }
 
 export function htmlListAndParagraphToString(source: string): string {
-  let cleanedSource = source
+  let paragraphs = source
     .replace(/\n/gi, "")
     .replace(/\r/gi, "")
     .replace(/\t/gi, "")
     .replace(/&nbsp;/gi, " ")
-  cleanedSource = cleanedSource.replace(/<br *\/?>/gi, "\n")
-  let paragraphs = cleanedSource.split(/<\/p *>/i)
-
+    .replace(/<br *\/?>/gi, "\n")
+    .split(/<\/p *>/i)
   paragraphs = paragraphs.map(paragraph => {
-    paragraph = paragraph.replace(/<p *>/gi, "")
+    paragraph = paragraph
+      .replace(/<p *>/gi, "")
+      .trimStart()
     let lists = paragraph.split(/<\/ul>/gi)
     lists = lists.map(list => {
       list = list.replace(/<ul *>/gi, "")
