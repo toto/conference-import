@@ -26,8 +26,19 @@ export function htmlListAndParagraphToString(source: string): string {
     .replace(/\r/gi, "")
     .replace(/\t/gi, "")
     .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&uuml;/gi, "ü")
+    .replace(/&auml;/gi, "ä")
+    .replace(/&ouml;/gi, "ö")
+    .replace(/&Uuml;/gi, "Ü")
+    .replace(/&Auml;/gi, "Ä")
+    .replace(/&Ouml;/gi, "Ö")    
+    .replace(/&[a-z]+;/gi, "")
     .replace(/<br *\/?>/gi, "\n")
     .split(/<\/p *>/i)
+
+  // TODO: use JSON file: https://html.spec.whatwg.org/entities.json
+
   paragraphs = paragraphs.map(paragraph => {
     paragraph = paragraph
       .replace(/<p *>/gi, "")
@@ -35,7 +46,7 @@ export function htmlListAndParagraphToString(source: string): string {
     let lists = paragraph.split(/<\/ul>/gi)
     lists = lists.map(list => {
       list = list.replace(/<ul *>/gi, "")
-      list = list.replace(/<li *>/gi, "\n ⏺ ")
+      list = list.replace(/<li *>/gi, "\n • ")
       list = list.replace(/<\/li *>/gi, "")
       return list;
     })
@@ -44,7 +55,13 @@ export function htmlListAndParagraphToString(source: string): string {
   });
 
   return paragraphs
-    .map(p => p.replace(/<[^>]+>/g,' '))
+    .map(p => { 
+      return p
+        .replace(/<[^>]+>/g,'')
+        .replace(/\n{3,}/g, "\n\n")
+        .replace(/&gt;/gi, ">")
+        .replace(/&lt;/gi, "<")
+    })
     .join("\n\n")
     .trimEnd()
     .replace(/^(\n|\r)+/, "") // only replace newlines in the beginning. Leading spaces are fine

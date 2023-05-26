@@ -30,8 +30,8 @@ This is paragraph 2`
     const result = htmlListAndParagraphToString(source)
     expect(result).not.toBeNull()
     
-    const expectedResult = ` ⏺ This is item 1
- ⏺ This is item 2`
+    const expectedResult = ` • This is item 1
+ • This is item 2`
 
     expect(result).toEqual(expectedResult);
   })
