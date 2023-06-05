@@ -110,7 +110,9 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
     for (let index = 0; index < speaker.length; index++) {
       const id = speaker_uid[index] as unknown as string
       const name = speaker[index] as unknown as string
-      speakers.push({ id, name });
+      if (name.trim() !== "") {
+        speakers.push({ id, name });
+      }
     }
   }
 
