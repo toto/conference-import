@@ -12,7 +12,7 @@ interface YouTubeUrl {
 export async function youtubeUrlByTitle(playlistId: string, prefix = "re:publica 2023: "): Promise<Record<string, Link>> {
   const result: Record<string, Link> = {};
   const execAsync = promisify(exec);
-  const { stdout } = await execAsync(`youtube-dl --flat-playlist  -J "https://www.youtube.com/watch?list=${playlistId}"`)
+  const { stdout } = await execAsync(`yt-dlp --flat-playlist  -J "https://www.youtube.com/watch?list=${playlistId}"`)
   if (!stdout) return result;
 
   const parsed = JSON.parse(stdout) as Record<"entries", YouTubeUrl[]>
