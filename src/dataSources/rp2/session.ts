@@ -144,6 +144,9 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
   for (const partnerName of partnerNames) {
     const partnerLink = options.partnerLinks[partnerName]
     if (partnerLink) {
+      if (partnerLink.url.match(/youtube.com\/v\/(\w+)$/i)) {
+        partnerLink.service = "youtube"
+      }
       links.push(partnerLink)
     }
   }
