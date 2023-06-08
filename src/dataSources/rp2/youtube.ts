@@ -5,7 +5,6 @@ import { Link } from "../../models";
 interface YouTubeUrl {
   title: string
   id: string
-  url: string
   _type: "url"
 }
 
@@ -19,13 +18,13 @@ export async function youtubeUrlByTitle(playlistId: string, prefix = "re:publica
 
   for (const url of parsed.entries) {
     const title = url.title.replace(prefix, "")
-    const youtubeUrl = `https://www.youtube.com/v/${url.url}`
+    const youtubeUrl = `https://www.youtube.com/v/${url.id}`
     result[title] = {
       type: "recording",
       title,
       url: youtubeUrl,
       service: "youtube",
-      thumbnail: `https://img.youtube.com/vi/${url.url}/default.jpg`
+      thumbnail: `https://img.youtube.com/vi/${url.id}/default.jpg`
     }
   }
   return result;
