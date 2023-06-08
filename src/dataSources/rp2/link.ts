@@ -1,5 +1,6 @@
 import { Rp2APIElement } from ".";
 import { Link } from "../../models";
+import { linkServiceFromUrl, sessionLinkTypeFromService } from "./util";
 
 /**
  * 
@@ -27,11 +28,13 @@ export function partnerLinks(rawPartners: Rp2APIElement[]): Record<string, Link>
     }
     if (!url || !title) continue;
     
+    const service = linkServiceFromUrl(url)
+    const type = sessionLinkTypeFromService(service)
     const link: Link = {
-      url: url,
-      type: "session-link",
-      title: `Partner: ${title}`,
-      service: "web",
+      url,
+      type,
+      title: type === "recording" ? title : `Partner: ${title}`,
+      service,
     }
 
     result[dePartner.title] = link;

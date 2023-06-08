@@ -66,3 +66,17 @@ export function htmlListAndParagraphToString(source: string): string {
     .trimEnd()
     .replace(/^(\n|\r)+/, "") // only replace newlines in the beginning. Leading spaces are fine
 }
+
+export function linkServiceFromUrl(url: string): "web" | "youtube" {
+  if (url.match(/youtube.com\/v\/(\w+)$/i)) {
+    return "youtube"
+  }
+  return "web"
+}
+
+export function sessionLinkTypeFromService(service: string): "session-link" | "recording" {
+  if (service === "youtube") {
+    return "recording"
+  }
+  return "session-link"
+}

@@ -55,6 +55,7 @@
       "dataBaseUrl": "https://re-publica.com/sites/default/files/extappdata/2023",
       "speakerUrlPrefix": "https://re-publica.com/en/user",
       "sessionUrlPrefix": "https://re-publica.com",
+      "youtubePlaylistId": "PLAR_6-tD7IZWUKTU4nkDoKmzGTSocVAAx",
       "defaultTrack": {
         "id": "republica",
         "label_en": "re:publica",

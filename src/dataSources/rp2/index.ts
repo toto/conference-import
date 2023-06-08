@@ -7,6 +7,7 @@ import { sessionFromApiSession } from "./session";
 import { speakerFromApiSpeaker } from "./speaker";
 import { subconferenceFromApiTerm, trackFromApiTerm } from "./term";
 import { partnerLinks } from "./link";
+import { youtubeUrlByTitle } from "./youtube";
 
 export interface Rp2DataSourceFormat extends DataSourceFormat {
   format: "rp2"
@@ -23,6 +24,8 @@ export interface Rp2DataSourceFormat extends DataSourceFormat {
   sessionsToVideoUrls?: Record<string, string>
 
   locationsToYouTubeLiveStream?: Record<string, string>
+
+  youtubePlaylistId?: string
 }
 
 export type Rp2APIElement = Record<string, string | Record<string, string> | Array<Record<string, string>>>
@@ -103,6 +106,14 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   })
   result.speakers = speakers.filter(s => s !== null) as ConferenceModel.Speaker[];
 
+  let youtubeRecordingLinks: Record<string, ConferenceModel.Link> = {}
+  if (source.youtubePlaylistId) {
+    try {
+      youtubeRecordingLinks = await youtubeUrlByTitle(source.youtubePlaylistId);
+    } catch (error) {
+      console.error(`Could not fetch YouTube Playlist data for id ${source.youtubePlaylistId}`, error)
+    }
+  }
 
   result.sessions = session.map(s => {
     const resultSession = sessionFromApiSession(s, { 
@@ -113,6 +124,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
       trackMappings: source.trackMappings,
       locationsToYouTubeLiveStream: source.locationsToYouTubeLiveStream,
       partnerLinks: partnerLinks(partner),
+      youtubeRecordingLinks,
     })
     if (source.sessionsToVideoUrls 
       && resultSession 

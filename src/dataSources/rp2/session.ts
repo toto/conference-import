@@ -20,6 +20,7 @@ interface Options {
   locationsToYouTubeLiveStream?: Record<string, string>
   /** Links mapping the DE and EN title to a link object */
   partnerLinks: Record<string, Link>
+  youtubeRecordingLinks: Record<string, Link>
 }
 
 export function sessionFromApiSession(apiSession: Rp2APIElement, options: Options): Session | null {
@@ -143,12 +144,12 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
 
   for (const partnerName of partnerNames) {
     const partnerLink = options.partnerLinks[partnerName]
-    if (partnerLink) {
-      if (partnerLink.url.match(/youtube.com\/v\/(\w+)$/i)) {
-        partnerLink.service = "youtube"
-      }
-      links.push(partnerLink)
-    }
+    if (partnerLink) links.push(partnerLink)
+  }
+
+  if (options.youtubeRecordingLinks) {
+    const link = options.youtubeRecordingLinks[title];
+    if (link) links.push(link)
   }
 
   let session: Session | null = {
