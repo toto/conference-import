@@ -20,7 +20,6 @@ export async function youtubeUrlByTitle(playlistId: string, prefix = "re:publica
     const title = url.title
       .replace(prefix, "")
       .replace(/^.+ - /i, "")
-    console.log("Title", title, "from", url.title)
     const youtubeUrl = `https://www.youtube.com/v/${url.id}`
     result[title] = {
       type: "recording",
