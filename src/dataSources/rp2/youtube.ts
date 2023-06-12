@@ -17,7 +17,9 @@ export async function youtubeUrlByTitle(playlistId: string, prefix = "re:publica
   const parsed = JSON.parse(stdout) as Record<"entries", YouTubeUrl[]>
 
   for (const url of parsed.entries) {
-    const title = url.title.replace(prefix, "")
+    const title = url.title
+      .replace(prefix, "")
+    const titleWithoutDash = title.replace(/^.+ - /i, "")
     const youtubeUrl = `https://www.youtube.com/v/${url.id}`
     result[title] = {
       type: "recording",
@@ -26,6 +28,7 @@ export async function youtubeUrlByTitle(playlistId: string, prefix = "re:publica
       service: "youtube",
       thumbnail: `https://img.youtube.com/vi/${url.id}/default.jpg`
     }
+    result[titleWithoutDash] = result[title]
   }
   return result;
 }
