@@ -59,11 +59,18 @@ export async function processData(
   miniTracks.forEach(track => {
     const result = track as ConferenceModel.Track;
     result.type = "track";
-    const color = options.colorForTrack[track.id];
+    // prefer original data track color
+    let color = tracks.find(t => t.id == track.id)?.color
+    if (!color) {
+      // fall back to options.colorForTrack
+      color = options.colorForTrack[track.id];
+      if (options.colorForTrack && !color) {
+        // fall back to options.defaultColor
+        color = options.defaultColor;
+      }
+    }
     if (color) {
       result.color = color;
-    } else {
-      result.color = options.defaultColor;
     }
     // If the tracks are provided already don't duplicate them
     if (!tracks.map(t => t.id).includes(result.id)) {
