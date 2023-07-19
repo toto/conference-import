@@ -59,8 +59,8 @@
     {
       "format": "frab",
       "eventId": "camp23",
-      "scheduleJson": "https://fahrplan.events.ccc.de/camp/2023/Fahrplan/schedule.json",
-      "frabBaseUrl": "https://fahrplan.events.ccc.de/camp/2023/Fahrplan",
+      "scheduleJson": "https://fahrplan.events.ccc.de/camp/2019/Fahrplan/schedule.json",
+      "frabBaseUrl": "https://fahrplan.events.ccc.de/camp/2019/Fahrplan",
       "defaultLanguageCode": "de",
       "defaultTrack": {
         "id": "ccc",
