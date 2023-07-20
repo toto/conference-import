@@ -157,7 +157,7 @@ export async function dumpNormalizedConference(configuration: Configuration, des
   if (result.maps) result.maps.forEach(s => s.event = event.id);
   if (result.pois) result.pois.forEach(s => s.event = event.id);
 
-  const string = JSON.stringify(result);
+  const string = JSON.stringify(result, undefined, 2);
   writeFileSync(destinationFile, string, 'utf8');
 }
 

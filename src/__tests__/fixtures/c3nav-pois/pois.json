@@ -1,0 +1,502 @@
+[
+  {
+    "gid": 36433,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30529,
+      53.03107
+    ],
+    "text": "POC",
+    "text_en": "POC"
+  },
+  {
+    "gid": 36434,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30402,
+      53.0317
+    ],
+    "text": "c3voc.tv\nstudio",
+    "text_en": "c3voc.tv\nstudio"
+  },
+  {
+    "gid": 36435,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30432,
+      53.03108
+    ],
+    "text": "Himmel",
+    "text_en": "Heaven"
+  },
+  {
+    "gid": 36436,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30418,
+      53.03079
+    ],
+    "text": "Engelküche",
+    "text_en": "Angel Kitchen"
+  },
+  {
+    "gid": 36437,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30586,
+      53.0304
+    ],
+    "text": "Merch",
+    "text_en": "Merch"
+  },
+  {
+    "gid": 36438,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30573,
+      53.03026
+    ],
+    "text": "Infodesk",
+    "text_en": "Infodesk"
+  },
+  {
+    "gid": 36439,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.309,
+      53.02971
+    ],
+    "text": "Awareness",
+    "text_en": "Awareness"
+  },
+  {
+    "gid": 36440,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30906,
+      53.03001
+    ],
+    "text": "CERT\nFeuerwehr",
+    "text_en": "CERT\nFeuerwehr"
+  },
+  {
+    "gid": 36431,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30605,
+      53.02949
+    ],
+    "text": "LOC",
+    "text_en": "LOC"
+  },
+  {
+    "gid": 36432,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30671,
+      53.02996
+    ],
+    "text": "NOC",
+    "text_en": "NOC"
+  },
+  {
+    "gid": 36441,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30827,
+      53.03311
+    ],
+    "text": "Spülzelt",
+    "text_en": "Spülzelt"
+  },
+  {
+    "gid": 36663,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30474,
+      53.02949
+    ],
+    "text": "c3power\nWerkstatt",
+    "text_en": "c3power\nWerkstatt"
+  },
+  {
+    "gid": 36630,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.3037,
+      53.03185
+    ],
+    "text": "c3voc.tv\nredaktion",
+    "text_en": "c3voc.tv\nredaktion"
+  },
+  {
+    "gid": 36660,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30306,
+      53.02953
+    ],
+    "text": "c3power\ncamp",
+    "text_en": "c3power\ncamp"
+  },
+  {
+    "gid": 36661,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.3052,
+      53.02982
+    ],
+    "text": "c3power\nLager innen",
+    "text_en": "c3power\nLager innen"
+  },
+  {
+    "gid": 36662,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30502,
+      53.02972
+    ],
+    "text": "c3power\nLager außen",
+    "text_en": "c3power\nLager außen"
+  },
+  {
+    "gid": 36903,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.3054,
+      53.03003
+    ],
+    "text": "BOC, Kastenverkauf\nCaaS",
+    "text_en": "BOC, Kastenverkauf\nCaaS"
+  },
+  {
+    "gid": 36905,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30851,
+      53.03306
+    ],
+    "text": "Container\n6x2,4m",
+    "text_en": "Container\n6x2,4m"
+  },
+  {
+    "gid": 36906,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30846,
+      53.03303
+    ],
+    "text": "CaaS",
+    "text_en": "CaaS"
+  },
+  {
+    "gid": 36911,
+    "layer": "c23_bauten_name",
+    "position": [
+      13.30698,
+      53.03009
+    ],
+    "text": "Fahrradverleih & Werkstatt",
+    "text_en": "Fahrradverleih & Werkstatt"
+  },
+  {
+    "gid": 35947,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30935,
+      53.02883
+    ],
+    "text": "Caravan",
+    "text_en": "Caravan"
+  },
+  {
+    "gid": 35942,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.3052,
+      53.03357
+    ],
+    "text": "Chillfloor",
+    "text_en": "Chillfloor"
+  },
+  {
+    "gid": 35943,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30627,
+      53.0332
+    ],
+    "text": "kidsspace",
+    "text_en": "kidsspace"
+  },
+  {
+    "gid": 35944,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.307,
+      53.02942
+    ],
+    "text": "Caravan",
+    "text_en": "Caravan"
+  },
+  {
+    "gid": 35945,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30809,
+      53.02941
+    ],
+    "text": "Caravan",
+    "text_en": "Caravan"
+  },
+  {
+    "gid": 35946,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30786,
+      53.02889
+    ],
+    "text": "Caravan",
+    "text_en": "Caravan"
+  },
+  {
+    "gid": 35948,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.31143,
+      53.03029
+    ],
+    "text": "silent Camping",
+    "text_en": "silent Camping"
+  },
+  {
+    "gid": 36053,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30567,
+      53.03079
+    ],
+    "text": "Späti",
+    "text_en": "Späti"
+  },
+  {
+    "gid": 36048,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30852,
+      53.03098
+    ],
+    "text": "UFO",
+    "text_en": "UFO"
+  },
+  {
+    "gid": 36064,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30509,
+      53.0319
+    ],
+    "text": "Stände",
+    "text_en": "Food stalls"
+  },
+  {
+    "gid": 36066,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30798,
+      53.03333
+    ],
+    "text": "Stände",
+    "text_en": "Food stalls"
+  },
+  {
+    "gid": 36068,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30987,
+      53.03047
+    ],
+    "text": "Stände",
+    "text_en": "Food stalls"
+  },
+  {
+    "gid": 36070,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.31064,
+      53.03098
+    ],
+    "text": "Stände",
+    "text_en": "Food stalls"
+  },
+  {
+    "gid": 36038,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30492,
+      53.03175
+    ],
+    "text": "Marktplatz",
+    "text_en": "Marketplace"
+  },
+  {
+    "gid": 36085,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.31128,
+      53.03109
+    ],
+    "text": "art & play",
+    "text_en": "art & play"
+  },
+  {
+    "gid": 36243,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.31093,
+      53.03158
+    ],
+    "text": "caravans",
+    "text_en": "caravans"
+  },
+  {
+    "gid": 36430,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30349,
+      53.02952
+    ],
+    "text": "tafkab",
+    "text_en": "tafkab"
+  },
+  {
+    "gid": 36926,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30169,
+      53.02866
+    ],
+    "text": "Parkplatz > PKW",
+    "text_en": "Parkplatz > PKW"
+  },
+  {
+    "gid": 36927,
+    "layer": "c23_Flächen_name",
+    "position": [
+      13.30136,
+      53.02527
+    ],
+    "text": "Parkplatz <= PKW",
+    "text_en": "Parkplatz <= PKW"
+  },
+  {
+    "gid": 36599,
+    "layer": "Karte - OSM names",
+    "position": [
+      13.30834,
+      53.03069
+    ],
+    "text": "Maschinenzieglei",
+    "text_en": "Maschinenzieglei"
+  },
+  {
+    "gid": 36600,
+    "layer": "Karte - OSM names",
+    "position": [
+      13.30941,
+      53.03103
+    ],
+    "text": "Ringofen III",
+    "text_en": "Ringofen III"
+  },
+  {
+    "gid": 36601,
+    "layer": "Karte - OSM names",
+    "position": [
+      13.30953,
+      53.03196
+    ],
+    "text": "Ringofen IV",
+    "text_en": "Ringofen IV"
+  },
+  {
+    "gid": 36591,
+    "layer": "Karte - OSM names",
+    "position": [
+      13.30447,
+      53.03293
+    ],
+    "text": "Alte Werkstätten",
+    "text_en": "Alte Werkstätten"
+  },
+  {
+    "gid": 36592,
+    "layer": "Karte - OSM names",
+    "position": [
+      13.30434,
+      53.03236
+    ],
+    "text": "Alte Aufbereitung",
+    "text_en": "Alte Aufbereitung"
+  },
+  {
+    "gid": 36593,
+    "layer": "Karte - OSM names",
+    "position": [
+      13.30392,
+      53.03159
+    ],
+    "text": "Feldbahnschau / Schienenfahrrad",
+    "text_en": "Feldbahnschau / Schienenfahrrad"
+  },
+  {
+    "gid": 36594,
+    "layer": "Karte - OSM names",
+    "position": [
+      13.30437,
+      53.0299
+    ],
+    "text": "Ziegelei Stackebrandt",
+    "text_en": "Ziegelei Stackebrandt"
+  },
+  {
+    "gid": 36595,
+    "layer": "Karte - OSM names",
+    "position": [
+      13.30651,
+      53.03018
+    ],
+    "text": "Galerie Kugelmühle",
+    "text_en": "Galerie Kugelmühle"
+  },
+  {
+    "gid": 36596,
+    "layer": "Karte - OSM names",
+    "position": [
+      13.30936,
+      53.03
+    ],
+    "text": "Ziegeleikaserne",
+    "text_en": "Ziegeleikaserne"
+  },
+  {
+    "gid": 36597,
+    "layer": "Karte - OSM names",
+    "position": [
+      13.30923,
+      53.03026
+    ],
+    "text": "Veranstaltungszentrum",
+    "text_en": "Veranstaltungszentrum"
+  },
+  {
+    "gid": 36598,
+    "layer": "Karte - OSM names",
+    "position": [
+      13.30859,
+      53.03028
+    ],
+    "text": "Maschinenzieglei",
+    "text_en": "Maschinenzieglei"
+  }
+]

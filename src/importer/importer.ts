@@ -3,6 +3,7 @@ import * as ConferenceModel from "../models";
 import { stateForSession, SessionState } from "../models/session";
 import * as moment from "moment-timezone";
 import axios from "axios";
+import { fetchedPoisFromC3Nav } from "../dataSources/pois";
 
 const ISO_DAY_FORMAT = "YYYY-MM-DD";
 
@@ -37,6 +38,9 @@ export interface Options {
    * Format looks like this: `{"session-1": ["session-2", "session-3"]}`
    */
   recommendationsSource?: string;
+
+  /** Sets optional sources for POIs */
+  poiSources?: [{kind: "c3nav", url: string}]
 }
 
 /**
@@ -171,6 +175,22 @@ export async function processData(
     }
   }
 
+  let sourcedPois: ConferenceModel.POI[] = []
+  if (options.poiSources) {
+    for (const source of options.poiSources) {
+      if (source.kind === "c3nav") {
+        try {
+          const pois = await fetchedPoisFromC3Nav(source.url, {eventId: event.id})
+          sourcedPois = sourcedPois.concat(pois);  
+        } catch (error) {
+          console.error("Faild to fetch pois from", source.url, " Kind:", source.kind);  
+        }
+      } else {
+        console.warn("Cannout add POIs from unknown source:", source.kind);
+      }
+    }
+  }
+
   return { 
     event,
     sessions: resultSessions,
@@ -180,7 +200,7 @@ export async function processData(
     locations,
     subconferences,
     maps,
-    pois,
+    pois: pois.concat(sourcedPois),
   };
 }
 
