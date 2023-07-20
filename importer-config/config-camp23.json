@@ -57,10 +57,10 @@
   ],
   "sources": [
     {
-      "format": "frab",
+      "format": "pretalx",
       "eventId": "camp23",
-      "scheduleJson": "https://events.ccc.de/camp/2023/hub/api/c/camp23/schedule.json",
-      "frabBaseUrl": "https://fahrplan.events.ccc.de/camp/2019/Fahrplan",
+      "baseUrl": "https://pretalx.c3voc.de/",
+      "conferenceCode": "camp2023",
       "defaultLanguageCode": "de",
       "defaultTrack": {
         "id": "ccc",
@@ -73,10 +73,9 @@
           1
         ]
       },
-      "defaultLanguageName": "German",
+      "useSubconferenceIdInLocations": false,
       "timezone": "Europe/Berlin",
       "maps": [],
-      "vocSlug": "camp2023",
       "pois": []
     }
   ],
@@ -84,7 +83,9 @@
   "options": {
     "locationIdOrder": [
       "marktplatz",
+      "camp2023-marktplatz",
       "bits-b-ume",
+      "camp2023-bits-b-ume",
       "----camp19-below----",
       "curie",
       "meitner",
