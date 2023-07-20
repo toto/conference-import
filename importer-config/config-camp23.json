@@ -59,7 +59,7 @@
     {
       "format": "frab",
       "eventId": "camp23",
-      "scheduleJson": "https://fahrplan.events.ccc.de/camp/2019/Fahrplan/schedule.json",
+      "scheduleJson": "https://events.ccc.de/camp/2023/hub/api/c/camp23/schedule.json",
       "frabBaseUrl": "https://fahrplan.events.ccc.de/camp/2019/Fahrplan",
       "defaultLanguageCode": "de",
       "defaultTrack": {
@@ -83,6 +83,9 @@
   "livestreams": [],
   "options": {
     "locationIdOrder": [
+      "marktplatz",
+      "bits-b-ume",
+      "----camp19-below----",
       "curie",
       "meitner",
       "self-organized-sessions-johnson-workshop-1-",
