@@ -228,7 +228,10 @@
     "poiSources": [
       {
         "kind": "c3nav",
-        "url": "https://map.events.ccc.de/camp/2023/map/search/search.json"
+        "url": "https://map.events.ccc.de/camp/2023/map/search/search.json",
+        "poiToLocationId": {
+          "36038": "marktplatz"
+        }
       }
     ]
   }

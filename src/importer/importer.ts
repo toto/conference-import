@@ -40,7 +40,11 @@ export interface Options {
   recommendationsSource?: string;
 
   /** Sets optional sources for POIs */
-  poiSources?: [{kind: "c3nav", url: string}]
+  poiSources?: [{
+    kind: "c3nav", 
+    url: string,
+    poiToLocationId?: Record<string, string>
+  }]
 }
 
 /**
@@ -180,7 +184,11 @@ export async function processData(
     for (const source of options.poiSources) {
       if (source.kind === "c3nav") {
         try {
-          const pois = await fetchedPoisFromC3Nav(source.url, {eventId: event.id})
+          const pois = await fetchedPoisFromC3Nav(source.url, {
+            eventId: event.id,
+            poiToLocationId: source.poiToLocationId,
+            locations: miniLocations,
+          })
           sourcedPois = sourcedPois.concat(pois);  
         } catch (error) {
           console.error("Faild to fetch pois from", source.url, " Kind:", source.kind);  

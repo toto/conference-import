@@ -1,5 +1,5 @@
 import axios from "axios";
-import { POI } from "../models";
+import { MiniLocation, POI } from "../models";
 
 export interface C3NavPOI {
   gid: number
@@ -11,6 +11,8 @@ export interface C3NavPOI {
 
 interface PoiOptions {
   eventId: string
+  poiToLocationId?: Record<string, string>
+  locations?: MiniLocation[]
 }
 
 export async function fetchedPoisFromC3Nav(url: string, options: PoiOptions): Promise<POI[]> {
@@ -20,14 +22,14 @@ export async function fetchedPoisFromC3Nav(url: string, options: PoiOptions): Pr
 }
 
 export function poisFromFromC3Nav(source: C3NavPOI[], options: PoiOptions): POI[] {
-  return source.map(s => poiFromC3NavPOI(options.eventId, s))
+  return source.map(s => poiFromC3NavPOI(s, options))
 }
 
-function poiFromC3NavPOI(eventId: string, poi: C3NavPOI): POI {
+function poiFromC3NavPOI(poi: C3NavPOI, options: PoiOptions): POI {
   const [long, lat] = poi.position;
   const result: POI = {
     id: `${poi.gid}`,
-    event: eventId,
+    event: options.eventId,
     type: "poi",
     positions: [],
     geo_position: {lat, long},
@@ -36,6 +38,14 @@ function poiFromC3NavPOI(eventId: string, poi: C3NavPOI): POI {
     label_en: poi.text_en.replace(/\n/g, " "),
     label_de: poi.text.replace(/\n/g, " "),
     links: [],
+  }
+  if (options.poiToLocationId && options.locations) {
+    const locationId = options.poiToLocationId[result.id]
+    if (locationId) {
+      const miniLocation = options.locations.find(l => l.id === locationId);
+      result.location = miniLocation;
+      result.category = "session-location";
+    }
   }
   return result;
 }
