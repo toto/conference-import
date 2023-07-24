@@ -12,6 +12,7 @@ import { DataSourceFormat } from "../dataSource";
 import { SourceData } from "../../importer/sourceData";
 import { loadVocLiveStreams, addLiveStreamEnclosures, VocLiveMediaType, VocLiveStreamType } from "../voc-live";
 import { addRecordingEnclosues, addReliveEnclosures } from "../voc-vod";
+import { pretalxSpeakerToSpeaker } from "../pretalx/converters";
 
 async function singleSourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], source: FrabDataSourceFormat): Promise<SourceData> {
   const maps: ConferenceModel.Map[] = source.maps !== undefined ? source.maps : [];
@@ -55,6 +56,24 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     } catch (error) {
       console.error(`frab-importer: Could not import speakers: ${error}`);
       result.speakers = [];
+    }
+  }
+  if (source.speakerSources) {
+    let sourcedSpeakers: ConferenceModel.Speaker[] = [] 
+    for (const speakerSource of source.speakerSources) {
+      if (speakerSource.format !== "pretalx") continue;
+
+      const url = `${speakerSource.baseUrl}api/events/${speakerSource.conferenceCode}/speakers/?limit=1000`
+      try {
+        const response = await axios.default.get(url)
+        if (response.data) {
+          const speakerData = response.data.results as Record<string,string>[]
+          const speakers = speakerData.map(s => pretalxSpeakerToSpeaker(s, speakerSource)).filter(s => s !== undefined) as ConferenceModel.Speaker[]
+          sourcedSpeakers = sourcedSpeakers.concat(speakers)
+        }        
+      } catch (error) {
+        console.error(`Could not load pretalx speakers for ${url}`, error)
+      }
     }
   }
 

@@ -47,5 +47,17 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
    */
   pretalxExportMode?: boolean;
   pretalxBaseUrl?: string
+
+  /** 
+   * Sources for speakers 
+   * Prefer pretalx over `pretalxExportMode` */
+  speakerSources?: [
+    {
+      format: "pretalx",
+      eventId: string,
+      conferenceCode: string,
+      baseUrl: string,
+    }
+  ]
 }
 

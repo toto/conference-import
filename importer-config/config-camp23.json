@@ -57,23 +57,30 @@
   ],
   "sources": [
     {
-      "format": "pretalx",
+      "format": "frab",
       "eventId": "camp23",
-      "baseUrl": "https://pretalx.c3voc.de/",
-      "conferenceCode": "camp2023",
+      "scheduleJson": "https://events.ccc.de/camp/2023/hub/api/c/camp23/schedule.json",
       "defaultLanguageCode": "de",
       "defaultTrack": {
-        "id": "ccc",
-        "label_en": "CCC",
-        "label_de": "CCC",
+        "id": "camp",
+        "label_en": "Camp",
+        "label_de": "Camp",
         "color": [
-          0,
-          0,
-          0,
+          251,
+          72,
+          196,
           1
         ]
       },
-      "useSubconferenceIdInLocations": false,
+      "speakerSources": [
+        {
+          "format": "pretalx",
+          "eventId": "camp2023",
+          "conferenceCode": "camp2023",
+          "baseUrl": "https://pretalx.c3voc.de/"
+        }
+      ],
+      "defaultLanguageName": "German",
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": []
@@ -86,6 +93,9 @@
       "camp2023-marktplatz",
       "bits-b-ume",
       "camp2023-bits-b-ume",
+      "pentatent",
+      "batavus-on-tour",
+      "bar-lounge",
       "----camp19-below----",
       "curie",
       "meitner",

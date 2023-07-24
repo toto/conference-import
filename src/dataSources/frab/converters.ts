@@ -264,3 +264,27 @@ export function miniSpeakerToSpeaker(miniSpeaker: MiniSpeaker, config: FrabDataS
   };
   return result;
 }
+
+type Person = {id: number, code: string, biography: string, public_name: string}
+type RoomEvent = {persons?: Person[]}
+type DayWithRooms =  {rooms: Record<string, RoomEvent[]>}
+type ScheduleWithDays = {schedule: {conference: {days: DayWithRooms[]}}}
+
+export function pretalxCodeToFrabIdMap(frabSchedule: ScheduleWithDays): Record<string, string> {
+  const result: Record<string, string> = {}
+  const { days } = frabSchedule.schedule.conference;
+  for (const day of days) {
+    const { rooms } = day;
+    for (const roomName of Object.keys(rooms)) {
+      const events = rooms[roomName]
+      for (const event of events) {
+        if (!event.persons) continue;
+        for (const person of event.persons) {
+          
+        }
+      }
+    }
+  }
+
+  return result;
+}

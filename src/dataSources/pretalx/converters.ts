@@ -103,7 +103,7 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
   return session;
 }
 
-function pretalxSpeakerToSpeaker(speaker: any, config: PretalxDataSourceFormat): Speaker | undefined {
+export function pretalxSpeakerToSpeaker(speaker: Record<string, string>, config: {eventId: string, conferenceCode: string, baseUrl: string}): Speaker | undefined {
   const result: Speaker = {
     event: config.eventId,
     type: 'session',
