@@ -72,8 +72,10 @@
           1
         ]
       },
+      "baseSpeakerIdOnName": true,
       "speakerSources": [
         {
+          "baseSpeakerIdOnName": true,
           "format": "pretalx",
           "eventId": "camp2023",
           "conferenceCode": "camp2023",

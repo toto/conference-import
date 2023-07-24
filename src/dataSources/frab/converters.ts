@@ -280,11 +280,10 @@ export function pretalxCodeToFrabIdMap(frabSchedule: ScheduleWithDays): Record<s
       for (const event of events) {
         if (!event.persons) continue;
         for (const person of event.persons) {
-          
+          result[person.code] = `${person.id}`;
         }
       }
     }
   }
-
   return result;
 }

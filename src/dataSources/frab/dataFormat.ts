@@ -50,13 +50,18 @@ export interface FrabDataSourceFormat extends DataSourceFormat {
 
   /** 
    * Sources for speakers 
-   * Prefer pretalx over `pretalxExportMode` */
+   * Prefer pretalx over `pretalxExportMode` 
+   * Use togehter with `baseSpeakerIdOnName = true` for the source and the main import
+   * to ensure connections between speakers from  sessions and speakers imported since there is 
+   * no other way to map speakers from different sources. 
+   **/
   speakerSources?: [
     {
       format: "pretalx",
       eventId: string,
       conferenceCode: string,
       baseUrl: string,
+      baseSpeakerIdOnName?: boolean
     }
   ]
 }

@@ -3,6 +3,7 @@ import { Session, MiniLocation, MiniTrack, Language, MiniSpeaker, Speaker } from
 import { languageFromIsoCode } from './../rp/language';
 import { PretalxDataSourceFormat } from './dataFormat';
 import { mkId, dehtml } from '../rp/utils';
+import { normalizedForId } from '../util';
 
 function locationFromTalk(talk: any, prefix: string): MiniLocation | undefined {
   if (talk && talk.slot && talk.slot.room) {
@@ -103,18 +104,22 @@ function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | u
   return session;
 }
 
-export function pretalxSpeakerToSpeaker(speaker: Record<string, string>, config: {eventId: string, conferenceCode: string, baseUrl: string}): Speaker | undefined {
+export function pretalxSpeakerToSpeaker(speaker: Record<string, string>, config: {eventId: string, conferenceCode: string, baseUrl: string, baseSpeakerIdOnName?: boolean}): Speaker | undefined {
+  let speakerId = mkId(`${config.conferenceCode}-${speaker.code}`)
+  if (config.baseSpeakerIdOnName === true) {
+    speakerId = normalizedForId(speaker.name);
+  }
   const result: Speaker = {
     event: config.eventId,
     type: 'session',
-    id: mkId(`${config.conferenceCode}-${speaker.code}`),
+    id: speakerId,
     name: speaker.name,
     photo: speaker.avatar || undefined,
     organization: undefined,
     position: undefined,
     links: [],
     sessions: [],
-    url: `${config.baseUrl}/${config.conferenceCode}/speaker/${speaker.code}`,
+    url: `${config.baseUrl}${config.conferenceCode}/speaker/${speaker.code}`,
     biography: dehtml(speaker.biography),
   };
 

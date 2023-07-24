@@ -75,6 +75,9 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
         console.error(`Could not load pretalx speakers for ${url}`, error)
       }
     }
+    const existingIds = new Set(result.speakers.map(s => s.id))
+    const filteredSpeakers = sourcedSpeakers.filter(s => !existingIds.has(s.id))
+    result.speakers = result.speakers.concat(filteredSpeakers)
   }
 
   sessions.forEach(session => {
