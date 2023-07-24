@@ -45,6 +45,11 @@ export interface Options {
     url: string,
     poiToLocationId?: Record<string, string>
   }]
+
+  /** If set all sessions whose duration is less in minutes will not be imported */
+  minimumSessionDurationMinutes?: number;
+  /** If set all sessions whose duration is more in minutes will not be imported */
+  maximumSessionDurationMinutes?: number;
 }
 
 /**
@@ -197,6 +202,32 @@ export async function processData(
         console.warn("Cannout add POIs from unknown source:", source.kind);
       }
     }
+  }
+
+  if (options.minimumSessionDurationMinutes) {
+    resultSessions = resultSessions.filter(session => {
+      if (session.begin && session.end) {
+        const minuteDuration = moment.duration(session.end.diff(session.begin)).minutes()
+        const isLongEnough = minuteDuration >= (options.minimumSessionDurationMinutes ?? 0)
+        if (!isLongEnough) {
+          console.warn(`Not importing session ${session.id} (${session.title}) because it's ${minuteDuration} minutes long. Limit is ${options.minimumSessionDurationMinutes}`)
+        }
+        return isLongEnough;
+      } else {
+        return true;
+      }
+    })
+  }
+
+  if (options.maximumSessionDurationMinutes) {
+    resultSessions = resultSessions.filter(sessions => {
+      if (sessions.begin && sessions.end) {
+        const minuteDuration = moment.duration(sessions.end.diff(sessions.begin)).minutes()
+        return minuteDuration <= (options.maximumSessionDurationMinutes ?? 1000000)
+      } else {
+        return true;
+      }
+    })
   }
 
   return { 

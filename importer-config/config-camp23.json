@@ -246,6 +246,8 @@
           "36038": "camp2023-marktplatz"
         }
       }
-    ]
+    ],
+    "minimumSessionDurationMinutes": 15,
+    "maximumSessionDurationMinutes": 720
   }
 }
