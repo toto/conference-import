@@ -191,8 +191,10 @@ function parseSession(date: string, roomName: string, session: Record<string, un
     begin = moment(session.date as string);
     const [ hoursStr, minutesStr ] = (session.duration as string).split(':');
     end = moment(session.date as string);
-    end.add(parseInt(hoursStr), 'h');
-    end.add(parseInt(minutesStr), 'm');
+    const hours = parseInt(hoursStr);
+    const minutes = parseInt(minutesStr);
+    end.add(hours, 'h');
+    end.add(minutes, 'm');
   }
 
   let willBeRecorded: boolean | undefined;

@@ -207,7 +207,7 @@ export async function processData(
   if (options.minimumSessionDurationMinutes) {
     resultSessions = resultSessions.filter(session => {
       if (session.begin && session.end) {
-        const minuteDuration = moment.duration(session.end.diff(session.begin)).minutes()
+        const minuteDuration = (session.end.unix() - session.begin.unix()) / 60
         const isLongEnough = minuteDuration >= (options.minimumSessionDurationMinutes ?? 0)
         if (!isLongEnough) {
           console.warn(`Not importing session ${session.id} (${session.title}) because it's ${minuteDuration} minutes long. Limit is ${options.minimumSessionDurationMinutes}`)
@@ -222,7 +222,7 @@ export async function processData(
   if (options.maximumSessionDurationMinutes) {
     resultSessions = resultSessions.filter(sessions => {
       if (sessions.begin && sessions.end) {
-        const minuteDuration = moment.duration(sessions.end.diff(sessions.begin)).minutes()
+        const minuteDuration = (sessions.end.unix() - sessions.begin.unix()) / 60
         return minuteDuration <= (options.maximumSessionDurationMinutes ?? 1000000)
       } else {
         return true;
