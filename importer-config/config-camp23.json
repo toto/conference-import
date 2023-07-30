@@ -96,6 +96,8 @@
       "cleverly",
       "bits-b-ume",
       "camp2023-bits-b-ume",
+      "embassy-of-frubar-island",
+      "frubar-island",
       "pentatent",
       "batavus-on-tour",
       "bar-lounge",
@@ -249,6 +251,7 @@
       }
     ],
     "minimumSessionDurationMinutes": 15,
-    "maximumSessionDurationMinutes": 720
+    "maximumSessionDurationMinutes": 720,
+    "recommendationsSource": "https://data.conference.systems/F9F2E102/camp23-recommendations.json"
   }
 }
