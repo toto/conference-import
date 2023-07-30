@@ -252,6 +252,6 @@
     ],
     "minimumSessionDurationMinutes": 15,
     "maximumSessionDurationMinutes": 720,
-    "recommendationsSource": "https://data.conference.systems/F9F2E102/camp23-recommendations.json"
+    "recommendationsSource": "https://data.conference.systems/ABCA1209/camp23-recommendations.json"
   }
 }
