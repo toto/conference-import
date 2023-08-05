@@ -25,12 +25,14 @@ function locationFromTalk(talk: any, prefix: string): MiniLocation | undefined {
 }
 
 export interface PretalxSessionConfig {
+  format: "pretalx"
   baseUrl: string
   eventId: string
   conferenceCode: string
   defaultLanguageCode: string
   filterSessionNames?: string[]
   defaultTrack: Track
+  timezone?: string
   subconferenceId?: string
   baseSpeakerIdOnName?: boolean
   useSubconferenceIdInLocations?: boolean
