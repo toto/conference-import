@@ -168,12 +168,24 @@
       1
     ],
     "colorForTrack": {
+      "camp2023-bits-b-ume": [
+        63,
+        255,
+        33,
+        1
+      ],
       "camp23-ccc": [
         0,
         83,
         132,
         1
       ],
+      "camp2023-live-music": [
+        211,
+        154,
+        0,
+        1
+      ],     
       "camp23-art-culture": [
         255,
         198,
