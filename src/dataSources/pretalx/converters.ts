@@ -4,6 +4,7 @@ import { languageFromIsoCode } from './../rp/language';
 import { PretalxDataSourceFormat } from './dataFormat';
 import { mkId, dehtml } from '../rp/utils';
 import { normalizedForId } from '../util';
+import { type } from 'os';
 
 function locationFromTalk(talk: any, prefix: string): MiniLocation | undefined {
   if (talk && talk.slot && talk.slot.room) {
@@ -25,7 +26,20 @@ function locationFromTalk(talk: any, prefix: string): MiniLocation | undefined {
   return undefined;
 }
 
-function talksToSession(talk: any, config: {baseUrl: string, eventId: string, conferenceCode: string, defaultLanguageCode: string, filterSessionNames: string[], defaultTrack: MiniTrack, subconferenceId?: string, baseSpeakerIdOnName?: boolean, useSubconferenceIdInLocations?: boolean, useSubconferenceIdInSessionId?: boolean}): Session | undefined {
+interface PretalxSessionConfig {
+  baseUrl: string
+  eventId: string
+  conferenceCode: string
+  defaultLanguageCode: string
+  filterSessionNames: string[]
+  defaultTrack: MiniTrack
+  subconferenceId?: string
+  baseSpeakerIdOnName?: boolean
+  useSubconferenceIdInLocations?: boolean
+  useSubconferenceIdInSessionId?: boolean
+}
+
+function talksToSession(talk: any, config: PretalxSessionConfig): Session | undefined {
   const speakers = talk.speakers.map((speaker: any) => {
     let speakerId = mkId(`${config.conferenceCode}-${speaker.code}`)
     if (config.baseSpeakerIdOnName === true) {
@@ -130,7 +144,7 @@ export function pretalxSpeakerToSpeaker(speaker: Record<string, string>, config:
   return result;
 }
 
-export function sessionsFromJson(json: any[], config: PretalxDataSourceFormat): Session[] {
+export function sessionsFromJson(json: any[], config: PretalxSessionConfig): Session[] {
   return json.map((r: any) => talksToSession(r, config)).filter((s: Session | undefined) => s !== undefined) as Session[];
 }
 
