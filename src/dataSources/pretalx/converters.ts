@@ -1,5 +1,5 @@
 import * as moment from 'moment-timezone';
-import { Session, MiniLocation, MiniTrack, Language, MiniSpeaker, Speaker } from "../../models";
+import { Session, MiniLocation, MiniTrack, Language, MiniSpeaker, Speaker, Track } from "../../models";
 import { languageFromIsoCode } from './../rp/language';
 import { mkId, dehtml } from '../rp/utils';
 import { normalizedForId } from '../util';
@@ -30,7 +30,7 @@ export interface PretalxSessionConfig {
   conferenceCode: string
   defaultLanguageCode: string
   filterSessionNames?: string[]
-  defaultTrack: MiniTrack
+  defaultTrack: Track
   subconferenceId?: string
   baseSpeakerIdOnName?: boolean
   useSubconferenceIdInLocations?: boolean
