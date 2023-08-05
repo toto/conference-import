@@ -35,7 +35,7 @@ function poiFromC3NavPOI(poi: C3NavPOI, options: PoiOptions): POI {
     geo_position: {lat, long},
     category: "other", // TODO
     location: undefined,
-    label_en: poi.text_en.replace(/\n/g, " "),
+    label_en: (poi.text_en ?? poi.text)?.replace(/\n/g, " "),
     label_de: poi.text.replace(/\n/g, " "),
     links: [],
   }

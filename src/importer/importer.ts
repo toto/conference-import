@@ -196,7 +196,7 @@ export async function processData(
           })
           sourcedPois = sourcedPois.concat(pois);  
         } catch (error) {
-          console.error("Faild to fetch pois from", source.url, " Kind:", source.kind);  
+          console.error("Faild to fetch pois from", source.url, " Kind:", source.kind, error);  
         }
       } else {
         console.warn("Cannout add POIs from unknown source:", source.kind);
