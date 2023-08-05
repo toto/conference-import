@@ -1,7 +1,6 @@
 import * as moment from 'moment-timezone';
 import { Session, MiniLocation, MiniTrack, Language, MiniSpeaker, Speaker } from "../../models";
 import { languageFromIsoCode } from './../rp/language';
-import { PretalxDataSourceFormat } from './dataFormat';
 import { mkId, dehtml } from '../rp/utils';
 import { normalizedForId } from '../util';
 
@@ -25,12 +24,12 @@ function locationFromTalk(talk: any, prefix: string): MiniLocation | undefined {
   return undefined;
 }
 
-interface PretalxSessionConfig {
+export interface PretalxSessionConfig {
   baseUrl: string
   eventId: string
   conferenceCode: string
   defaultLanguageCode: string
-  filterSessionNames: string[]
+  filterSessionNames?: string[]
   defaultTrack: MiniTrack
   subconferenceId?: string
   baseSpeakerIdOnName?: boolean
@@ -147,6 +146,6 @@ export function sessionsFromJson(json: any[], config: PretalxSessionConfig): Ses
   return json.map((r: any) => talksToSession(r, config)).filter((s: Session | undefined) => s !== undefined) as Session[];
 }
 
-export function speakersFromJson(json: any[], config: PretalxDataSourceFormat): Speaker[] {
+export function speakersFromJson(json: any[], config: PretalxSessionConfig): Speaker[] {
   return json.map((r: any) => pretalxSpeakerToSpeaker(r, config)).filter((s: Speaker | undefined) => s !== undefined) as Speaker[];
 }

@@ -2,14 +2,14 @@ import * as axios from "axios";
 import { SourceData } from "../../importer/sourceData";
 import * as ConferenceModel from "../../models";
 import { PretalxDataSourceFormat, isPreTalksDataSourceFormat } from "./dataFormat";
-import { sessionsFromJson, speakersFromJson } from './converters';
+import { PretalxSessionConfig, sessionsFromJson, speakersFromJson } from './converters';
 import { DataSourceFormat } from "../dataSource";
 import { loadVocLiveStreams, addLiveStreamEnclosures } from "../voc-live/voc-live";
 import { addRecordingEnclosues, addReliveEnclosures } from "../voc-vod/voc-vod";
 
-async function allPagesFromPretalx(config: PretalxDataSourceFormat, endpoint: "talks" | "speakers" |  "rooms") {
+async function allPagesFromPretalx(config: PretalxSessionConfig, endpoint: "talks" | "speakers" |  "rooms") {
   const initialUrl = `${config.baseUrl}api/events/${config.conferenceCode}/${endpoint}/`;
-  let result: any[] = [];
+  let result: Record<string, unknown>[] = [];
   let nextPage = initialUrl;
 
   while (nextPage) {
@@ -21,12 +21,12 @@ async function allPagesFromPretalx(config: PretalxDataSourceFormat, endpoint: "t
   return result;
 }
 
-async function sessionsFromPretalx(config: PretalxDataSourceFormat): Promise<ConferenceModel.Session[]> {
+async function sessionsFromPretalx(config: PretalxSessionConfig): Promise<ConferenceModel.Session[]> {
   const talks = await allPagesFromPretalx(config, "talks")
   return sessionsFromJson(talks, config);
 }
 
-async function speakersFromPretalx(config: PretalxDataSourceFormat): Promise<ConferenceModel.Speaker[]> {
+async function speakersFromPretalx(config: PretalxSessionConfig): Promise<ConferenceModel.Speaker[]> {
   const speakers = await allPagesFromPretalx(config, "speakers")
   return speakersFromJson(speakers, config);
 }
