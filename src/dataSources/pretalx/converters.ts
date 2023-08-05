@@ -4,7 +4,6 @@ import { languageFromIsoCode } from './../rp/language';
 import { PretalxDataSourceFormat } from './dataFormat';
 import { mkId, dehtml } from '../rp/utils';
 import { normalizedForId } from '../util';
-import { type } from 'os';
 
 function locationFromTalk(talk: any, prefix: string): MiniLocation | undefined {
   if (talk && talk.slot && talk.slot.room) {
