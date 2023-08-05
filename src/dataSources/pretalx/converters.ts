@@ -25,10 +25,14 @@ function locationFromTalk(talk: any, prefix: string): MiniLocation | undefined {
   return undefined;
 }
 
-function talksToSession(talk: any, config: PretalxDataSourceFormat): Session | undefined {
+function talksToSession(talk: any, config: {baseUrl: string, eventId: string, conferenceCode: string, defaultLanguageCode: string, filterSessionNames: string[], defaultTrack: MiniTrack, subconferenceId?: string, baseSpeakerIdOnName?: boolean, useSubconferenceIdInLocations?: boolean, useSubconferenceIdInSessionId?: boolean}): Session | undefined {
   const speakers = talk.speakers.map((speaker: any) => {
+    let speakerId = mkId(`${config.conferenceCode}-${speaker.code}`)
+    if (config.baseSpeakerIdOnName === true) {
+      speakerId = normalizedForId(speaker.name);
+    }
     return {
-      id: mkId(`${config.conferenceCode}-${speaker.code}`),
+      id: speakerId,
       name: speaker.name,
     };
   });
