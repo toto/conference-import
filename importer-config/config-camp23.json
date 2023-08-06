@@ -53,7 +53,12 @@
       "date": "2023-08-19"
     }
   ],
-  "subconferences": [],
+  "subconferences": [
+    {
+      "id": "haecksen",
+      "label": "Haecksen"
+    }
+  ],
   "sources": [
     {
       "format": "pretalx",
@@ -78,21 +83,44 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": []
+    },
+    {
+      "format": "pretalx",
+      "eventId": "camp23",
+      "baseUrl": "https://pretalx.c3voc.de/",
+      "conferenceCode": "camp2023-haecksen",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "haecksen",
+        "label_en": "Haecksen",
+        "label_de": "Haecksen",
+        "color": [
+          23,
+          23,
+          23,
+          1
+        ]
+      },
+      "subconferenceId": "haecksen",
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
     }
   ],
   "livestreams": [],
   "options": {
     "locationIdOrder": [
-      "cleverly",
-      "bits-b-ume",
+      "camp2023-marktplatz",
+      "camp2023-milliways",
+      "camp2023-digitalcourage",
+      "camp2023-n-o-r-t-x",
       "camp2023-bits-b-ume",
       "camp2023-hardware-hacking-village",
-      "camp2023-n-o-r-t-x",
-      "camp2023-digitalcourage",
-      "camp2023-milliways",
       "camp2023-milliways-workshop-dome",
+      "--VOC pretalx order end--",
+      "cleverly",
+      "bits-b-ume",
       "marktplatz",
-      "camp2023-marktplatz",
       "embassy-of-frubar-island",
       "frubar-island",
       "pentatent",
@@ -174,7 +202,7 @@
         33,
         1
       ],
-      "camp23-ccc": [
+      "camp2023-ccc": [
         0,
         83,
         132,
@@ -186,7 +214,7 @@
         0,
         1
       ],     
-      "camp23-art-culture": [
+      "camp2023-art-culture": [
         255,
         198,
         0,
@@ -209,10 +237,16 @@
         154,
         0,
         1
-      ],      
+      ],
       "camp2023-digitalcourage": [
-        211,
-        154,
+        251,
+        198,
+        22,
+        1
+      ],      
+      "_____camp2023-voc-END______": [
+        153,
+        186,
         0,
         1
       ],
