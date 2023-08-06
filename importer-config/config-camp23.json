@@ -83,16 +83,16 @@
   "livestreams": [],
   "options": {
     "locationIdOrder": [
-      "marktplatz",
-      "camp2023-marktplatz",
       "cleverly",
       "bits-b-ume",
       "camp2023-bits-b-ume",
       "camp2023-hardware-hacking-village",
       "camp2023-n-o-r-t-x",
-      "camp2023-milliways",
       "camp2023-digitalcourage",
+      "camp2023-milliways",
       "camp2023-milliways-workshop-dome",
+      "marktplatz",
+      "camp2023-marktplatz",
       "embassy-of-frubar-island",
       "frubar-island",
       "pentatent",
@@ -192,7 +192,25 @@
         0,
         1
       ],
-      "camp23-entertainment": [
+      "camp2023-entertainment": [
+        211,
+        154,
+        0,
+        1
+      ],
+      "camp2023-performance": [
+        211,
+        154,
+        0,
+        1
+      ],
+      "camp2023-dj-set": [
+        211,
+        154,
+        0,
+        1
+      ],      
+      "camp2023-digitalcourage": [
         211,
         154,
         0,
