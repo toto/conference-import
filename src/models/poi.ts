@@ -8,7 +8,7 @@ interface MapPosition {
   y: number
 }
 
-type POICategory = "session-location" | "workshop-location" | "service" | 
+export type POICategory = "session-location" | "workshop-location" | "service" | 
   "info" | "safety"  | "community" | "food" | "entertainment" |
   "organisation" | "restroom" | "elevator"  | "escalator" | "shopping" |
   "other";
