@@ -1,12 +1,15 @@
 import axios from "axios";
 import { MiniLocation, POI } from "../models";
+import { POICategory } from "../models/poi";
 
 export interface C3NavPOI {
   gid: number
   layer: string
   position: number[]
   text: string
-  text_en: string
+  name?: string
+  text_en: string | null
+  type: string
 }
 
 interface PoiOptions {
@@ -26,7 +29,11 @@ export function poisFromFromC3Nav(source: C3NavPOI[], options: PoiOptions): POI[
 }
 
 function poiFromC3NavPOI(poi: C3NavPOI, options: PoiOptions): POI | null {
-  if (!poi.text || !poi.text_en || !poi.gid) return null;
+  if (!["poi", "villages_point"].includes(poi.layer)) return null;
+
+  const primaryText = poi.text ?? poi.name ?? poi.text_en;
+  if (!primaryText) return null;
+
   const [long, lat] = poi.position;
   const result: POI = {
     id: `${poi.gid}`,
@@ -34,10 +41,10 @@ function poiFromC3NavPOI(poi: C3NavPOI, options: PoiOptions): POI | null {
     type: "poi",
     positions: [],
     geo_position: {lat, long},
-    category: "other", // TODO
+    category: c3NavPoiTypeToCategroy(poi.type),
     location: undefined,
-    label_en: (poi.text_en ?? poi.text)?.replace(/\n/g, " "),
-    label_de: (poi.text ?? poi.text_en)?.replace(/\n/g, " "),
+    label_en: (poi.text_en ?? primaryText).replace(/\n/g, " "),
+    label_de: primaryText.replace(/\n/g, " "),
     links: [],
   }
   if (options.poiToLocationId && options.locations) {
@@ -48,5 +55,27 @@ function poiFromC3NavPOI(poi: C3NavPOI, options: PoiOptions): POI | null {
       result.category = "session-location";
     }
   }
+  return result;
+}
+
+function  c3NavPoiTypeToCategroy(poiType: string | undefined): POICategory {
+  if (!poiType) return "other"
+
+  let result: POICategory = "other"
+  switch (poiType) {
+    case "orga":
+      result = "organisation"
+      break;
+    case "showers":
+      result = "service"
+      break;
+    case "villages_point":
+      result = "community"
+      break;
+    
+    default:
+      break;
+  }
+
   return result;
 }
