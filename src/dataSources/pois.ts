@@ -22,10 +22,11 @@ export async function fetchedPoisFromC3Nav(url: string, options: PoiOptions): Pr
 }
 
 export function poisFromFromC3Nav(source: C3NavPOI[], options: PoiOptions): POI[] {
-  return source.map(s => poiFromC3NavPOI(s, options))
+  return source.map(s => poiFromC3NavPOI(s, options)).filter(poi => poi !== null) as POI[]
 }
 
-function poiFromC3NavPOI(poi: C3NavPOI, options: PoiOptions): POI {
+function poiFromC3NavPOI(poi: C3NavPOI, options: PoiOptions): POI | null {
+  if (!poi.text || !poi.text_en || !poi.gid) return null;
   const [long, lat] = poi.position;
   const result: POI = {
     id: `${poi.gid}`,
@@ -36,7 +37,7 @@ function poiFromC3NavPOI(poi: C3NavPOI, options: PoiOptions): POI {
     category: "other", // TODO
     location: undefined,
     label_en: (poi.text_en ?? poi.text)?.replace(/\n/g, " "),
-    label_de: poi.text.replace(/\n/g, " "),
+    label_de: (poi.text ?? poi.text_en)?.replace(/\n/g, " "),
     links: [],
   }
   if (options.poiToLocationId && options.locations) {

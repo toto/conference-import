@@ -194,6 +194,7 @@ export async function processData(
             poiToLocationId: source.poiToLocationId,
             locations: miniLocations,
           })
+          console.info(`POI[c3nav]: Imported ${pois.length} POIs`)
           sourcedPois = sourcedPois.concat(pois);  
         } catch (error) {
           console.error("Faild to fetch pois from", source.url, " Kind:", source.kind, error);  
