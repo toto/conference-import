@@ -57,6 +57,10 @@
     {
       "id": "haecksen",
       "label": "Haecksen"
+    },
+    {
+      "id": "youth-village",
+      "label": "Jugend Village"
     }
   ],
   "sources": [
@@ -82,7 +86,15 @@
       "defaultLanguageName": "German",
       "timezone": "Europe/Berlin",
       "maps": [],
-      "pois": []
+      "pois": [],
+      "fakeVideos": {
+        "camp2023-acvrnu": {
+          "url": "http://cdn.media.ccc.de/congress/2014/h264-sd/31c3-6559-de-en-Jugend_hackt_sd.mp4",
+          "mimetype": "video/mp4",
+          "type": "recording",
+          "thumbnail": "http://static.media.ccc.de/media/congress/2014/6559-hd.jpg"
+        }
+      }
     },
     {
       "format": "pretalx",
@@ -105,6 +117,28 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": []
+    },
+    {
+      "format": "pretalx",
+      "eventId": "camp23",
+      "baseUrl": "https://fahrplan.alpaka.space/",
+      "conferenceCode": "camp-2023",
+      "defaultLanguageCode": "de",
+      "defaultTrack": {
+        "id": "youth-village",
+        "label_en": "Youth Village",
+        "label_de": "Jugend Village",
+        "color": [
+          0,
+          73,
+          140,
+          1
+        ]
+      },
+      "subconferenceId": "youth-village",
+      "timezone": "Europe/Berlin",
+      "maps": [],
+      "pois": []
     }
   ],
   "livestreams": [],
@@ -124,6 +158,13 @@
       "camp2023-haecksen-outside-the-box",
       "camp2023-haecksen-workshoptent",
       "--VOC haecksen pretalx order end--",
+      "--Youth Village BEGIN",
+      "camp-2023-b-hne-mary-ann-horton-",
+      "camp-2023-workshop-1-katherine-johnson-",
+      "camp-2023-workshop-2-dorothy-vaughan-",
+      "camp-2023-make-zelt-mary-jackson-",
+      "camp-2023-hack-zelt-johanna-piesch-",
+      "--Youth Village END",
       "cleverly",
       "bits-b-ume",
       "marktplatz",
