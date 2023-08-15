@@ -1,3 +1,3 @@
 export interface DataSourceFormat {
-  format: string
+  format: string;
 }

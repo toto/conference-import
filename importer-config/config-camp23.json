@@ -61,6 +61,10 @@
     {
       "id": "youth-village",
       "label": "Jugend Village"
+    },
+    {
+      "id": "sos",
+      "label": "Self-organized session"
     }
   ],
   "sources": [
@@ -87,14 +91,8 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": [],
-      "fakeVideos": {
-        "camp2023-acvrnu": {
-          "url": "http://cdn.media.ccc.de/congress/2014/h264-sd/31c3-6559-de-en-Jugend_hackt_sd.mp4",
-          "mimetype": "video/mp4",
-          "type": "recording",
-          "thumbnail": "http://static.media.ccc.de/media/congress/2014/6559-hd.jpg"
-        }
-      }
+      "fakeVideos": {},
+      "vocSlug": "camp2023"
     },
     {
       "format": "pretalx",
@@ -139,6 +137,25 @@
       "timezone": "Europe/Berlin",
       "maps": [],
       "pois": []
+    },
+    {
+      "format": "c3hub",
+      "eventId": "camp23",
+      "apiBaseUrl": "https://events.ccc.de/camp/2023/hub/api/",
+      "apiEventId": "camp23",
+      "includedKinds": ["sos"],
+      "defaultTrack": {
+        "id": "sos",
+        "label_en": "Self-organized sessions",
+        "label_de": "Self-organized sessions",
+        "color": [
+          0,
+          140,
+          73,
+          1
+        ]
+      },
+      "subconferenceId": "sos"
     }
   ],
   "livestreams": [],

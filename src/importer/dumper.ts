@@ -7,6 +7,7 @@ import * as ocdata from "./../dataSources/ocdata";
 import * as pretalx from "./../dataSources/pretalx";
 import * as frab from "./../dataSources/frab";
 import * as halfnarp from "./../dataSources/halfnarp";
+import * as c3hub from "./../dataSources/c3hub";
 import { processData, ConferenceData, Color } from './importer';
 import { linkFrom, LiveStream, enclosureFrom } from "../dataSources/stream";
 
@@ -119,6 +120,20 @@ export async function dumpNormalizedConference(configuration: Configuration, des
 
   const halfnarpData = await halfnarp.sourceData(event, days, subconferences, sources);
   await asyncForEach(halfnarpData, async data => {
+    if (data.sessions.length === 0) return;
+    const { sessions, speakers, maps, tracks, locations, pois } = await processData(data, options);
+    result.sessions = result.sessions.concat(sessions);
+    result.speakers = result.speakers.concat(speakers);
+    result.tracks = result.tracks.concat(tracks);
+    result.locations = result.locations.concat(locations);
+    // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
+    result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
+    if (maps) result.maps = result.maps!.concat(maps);
+    if (result.pois && pois) result.pois = result.pois.concat(pois);
+  });
+
+  const c3HubData = await c3hub.sourceData(event, days, subconferences, sources);
+  await asyncForEach(c3HubData, async data => {
     if (data.sessions.length === 0) return;
     const { sessions, speakers, maps, tracks, locations, pois } = await processData(data, options);
     result.sessions = result.sessions.concat(sessions);
