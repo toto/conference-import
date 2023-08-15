@@ -92,7 +92,15 @@
       "maps": [],
       "pois": [],
       "fakeVideos": {},
-      "vocSlug": "camp2023"
+      "vocSlug": "camp2023",
+      "recordedLocationIds": [
+        "camp2023-milliways",
+        "camp2023-bits-b-ume",
+        "camp2023-digitalcourage",
+        "camp2023-marktplatz",
+        "camp2023-n-o-r-t-x",
+        "camp-2023-b-hne-mary-ann-horton-"
+      ]
     },
     {
       "format": "pretalx",

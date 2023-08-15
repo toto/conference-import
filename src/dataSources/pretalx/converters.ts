@@ -37,6 +37,7 @@ export interface PretalxSessionConfig {
   baseSpeakerIdOnName?: boolean
   useSubconferenceIdInLocations?: boolean
   useSubconferenceIdInSessionId?: boolean
+  recordedLocationIds?: string[];
 }
 
 function talksToSession(talk: any, config: PretalxSessionConfig): Session | undefined {
@@ -99,6 +100,18 @@ function talksToSession(talk: any, config: PretalxSessionConfig): Session | unde
     return undefined;
   }
 
+  let will_be_recorded: boolean | undefined = undefined;
+
+  // we can only tell anything about the recording if the info is there
+  if (config.recordedLocationIds && room) {
+    will_be_recorded = config.recordedLocationIds.includes(room.id)
+  }
+
+  // the flag always trumps the info given
+  if (talk.do_not_record) {
+    will_be_recorded = false;
+  }
+
   const session: Session = {
     event: config.eventId,
     type: 'session',
@@ -108,7 +121,7 @@ function talksToSession(talk: any, config: PretalxSessionConfig): Session | unde
     abstract: talk.abstract,
     description: talk.description,
     cancelled: false,
-    will_be_recorded: talk.do_not_record ? false : undefined,
+    will_be_recorded,
     track: track,
     lang: language,
     speakers: speakers.filter((s: MiniSpeaker) => s.name.length > 0),
