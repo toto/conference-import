@@ -195,7 +195,20 @@ export async function processData(
             locations: miniLocations,
           })
           console.info(`POI[c3nav]: Imported ${pois.length} POIs`)
-          sourcedPois = sourcedPois.concat(pois);  
+          sourcedPois = sourcedPois.concat(pois);
+
+          for (const poi of sourcedPois) {
+            for (const location of locations) {
+              const locationId = (source.poiToLocationId ?? {})[poi.id];
+              if (!locationId) continue;
+              location.point_of_interest = {
+                id: poi.id,
+                label_en: poi.label_en,
+                label_de: poi.label_de,
+              };
+            }
+          }
+
         } catch (error) {
           console.error("Faild to fetch pois from", source.url, " Kind:", source.kind, error);  
         }
