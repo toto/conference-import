@@ -34,9 +34,6 @@ function poiFromC3NavPOI(poi: C3NavPOI, options: PoiOptions): POI | null {
   const primaryText = poi.text ?? poi.name ?? poi.text_en;
   if (!primaryText) return null;
 
-  const locationId = (options.poiToLocationId ?? {})[poi.gid];
-  const location = (options.locations ?? []).find(l => l.id === locationId)
-
   const [long, lat] = poi.position;
   const result: POI = {
     id: `${poi.gid}`,
@@ -45,7 +42,7 @@ function poiFromC3NavPOI(poi: C3NavPOI, options: PoiOptions): POI | null {
     positions: [],
     geo_position: {lat, long},
     category: c3NavPoiTypeToCategroy(poi.type),
-    location: location ? {id: location.id, label_en: location.label_en, label_de: location.label_de} : undefined,
+    location: undefined,
     label_en: (poi.text_en ?? primaryText).replace(/\n/g, " "),
     label_de: primaryText.replace(/\n/g, " "),
     links: [],
@@ -54,8 +51,11 @@ function poiFromC3NavPOI(poi: C3NavPOI, options: PoiOptions): POI | null {
     const locationId = options.poiToLocationId[result.id]
     if (locationId) {
       const miniLocation = options.locations.find(l => l.id === locationId);
-      result.location = miniLocation;
+      if (!miniLocation) return null;
+      // HACK: Ignore this POI if the location is not in this data set.
+      result.location = {id: miniLocation.id, label_en: miniLocation.label_en, label_de: miniLocation.label_de};
       result.category = "session-location";
+      console.info(`Location: ${locationId} for poi ${result.id}: ${miniLocation?.label_en}`)
     }
   }
   return result;
