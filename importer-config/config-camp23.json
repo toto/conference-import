@@ -99,7 +99,8 @@
         "camp2023-digitalcourage",
         "camp2023-marktplatz",
         "camp2023-n-o-r-t-x",
-        "camp-2023-b-hne-mary-ann-horton-"
+        "camp-2023-b-hne-mary-ann-horton-",
+        "camp2023-c3voc-tv"
       ]
     },
     {
@@ -175,6 +176,8 @@
       "camp2023-n-o-r-t-x",
       "camp2023-bits-b-ume",
       "camp2023-hardware-hacking-village",
+      "camp2023-ufo",
+      "camp2023-c3voc-tv",
       "camp2023-milliways-workshop-dome",
       "camp2023-bits-b-ume-workshops",
       "camp2023-culture-club",
@@ -379,7 +382,14 @@
         "kind": "c3nav",
         "url": "https://map.events.ccc.de/camp/2023/map/search/search.json",
         "poiToLocationId": {
-          "36038": "camp2023-marktplatz"
+          "villages_point-108": "camp2023-milliways",
+          "poi-49": "camp2023-marktplatz",
+          "villages_point-121": "camp2023-bits-b-ume",
+          "villages_point-52": "camp2023-digitalcourage",
+          "villages_point-128": "camp2023-n-o-r-t-x",
+          "villages_point-175": "camp-2023-b-hne-mary-ann-horton-",
+          "poi-19": "camp2023-c3voc-tv",
+          "poi-51": "camp2023-ufo"
         }
       }
     ],
