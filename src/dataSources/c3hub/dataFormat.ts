@@ -25,6 +25,9 @@ export interface C3HubDataSourceFormat extends DataSourceFormat {
    * E.g. `https://events.ccc.de/camp/2023/hub/api/` */
   apiBaseUrl: string;
 
+  /** URL used for sharing sessions by attaching the slug */
+  webSessionBaseUrl: string;
+
   /** Included kinds of sessions. Sessions with differnet kinds will be ignored. 
    * e.g. "sos" (self organized), "assembly"
     */

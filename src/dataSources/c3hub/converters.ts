@@ -5,6 +5,7 @@ import { English } from '../rp/language';
 
 export interface C3HubScheduleEntry {
   id: string
+  slug: string
   name: string
   url: string
   kind: string
@@ -25,6 +26,8 @@ export function sessionFromJson(json: C3HubScheduleEntry, config: C3HubDataSourc
   if (!config.includedKinds.includes(json.kind)) return null;
   if (!json.schedule_start || !json.schedule_end) return null;
 
+  const url = `${config.webSessionBaseUrl}${json.slug}`
+
   const result: Session = {
     type: "session",
     event: config.eventId,
@@ -33,7 +36,7 @@ export function sessionFromJson(json: C3HubScheduleEntry, config: C3HubDataSourc
     subtitle: undefined,
     abstract: "",
     description: json.description,
-    url: json.url,
+    url,
     track: config.defaultTrack,
     location: undefined,
     lang: English,

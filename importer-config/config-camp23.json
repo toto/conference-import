@@ -152,6 +152,7 @@
       "eventId": "camp23",
       "apiBaseUrl": "https://events.ccc.de/camp/2023/hub/api/",
       "apiEventId": "camp23",
+      "webSessionBaseUrl": "https://events.ccc.de/camp/2023/hub/camp23/de/event/",
       "includedKinds": ["sos"],
       "defaultTrack": {
         "id": "sos",
