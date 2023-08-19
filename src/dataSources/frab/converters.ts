@@ -1,6 +1,6 @@
 import * as moment from 'moment-timezone';
 import { FrabDataSourceFormat } from "./dataFormat";
-import { Session, MiniSpeaker, MiniTrack, Speaker, MiniSession, MiniLocation } from "../../models";
+import { Session, MiniSpeaker, MiniTrack, Speaker, MiniSession, MiniLocation, Track } from "../../models";
 import { mkId, dehtml } from "../rp/utils";
 import { languageFromIsoCode, English } from "../rp/language";
 import { normalizedForId } from '../util';
@@ -58,7 +58,12 @@ export function speakersFromJson(json: Record<string, unknown>, config: FrabData
   return speakerResult.filter(s => s !== undefined) as Speaker[];
 }
 
-export function sessionsFromJson(json: Record<string, unknown>, config: FrabDataSourceFormat): Session[] {
+export interface FrabParseSessionsOptions extends FrabParseSessionOptions {
+  /** Any session with location names listed here will not be imported at all */
+  ignoredLocationNames?: string[];
+}
+
+export function sessionsFromJson(json: Record<string, unknown>, config: FrabParseSessionsOptions): Session[] {
   const { schedule } = json;
   if (!schedule) return [];
   const { conference } = schedule as {conference: Record<string, unknown>};
@@ -142,7 +147,20 @@ export function pretalxSpeakersFromSessionJson(json: Record<string, unknown>, co
   return result;
 }
 
-function parseSession(date: string, roomName: string, session: Record<string, unknown>, config: FrabDataSourceFormat): Session | undefined {
+export interface FrabParseSessionOptions {
+  eventId: string
+  defaultTrack: Track;
+  defaultLanguageCode: string;
+  subconferenceId?: string;
+  baseSpeakerIdOnName?: boolean
+
+  preferGuid?: boolean
+  prefixSessionsWithEventId?: boolean;
+  useSubconferenceIdInLocations?: boolean;
+  useSubconferenceIdInSessionId?: boolean;
+}
+
+function parseSession(date: string, roomName: string, session: Record<string, unknown>, config: FrabParseSessionOptions): Session | undefined {
   let track: MiniTrack = config.defaultTrack;
   if (session.track) {
     track = {

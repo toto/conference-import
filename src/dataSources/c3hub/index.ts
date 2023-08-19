@@ -3,7 +3,7 @@ import { SourceData } from "../../importer/sourceData";
 import * as ConferenceModel from "../../models";
 import { DataSourceFormat } from "../dataSource";
 import { C3HubDataSourceFormat, isC3HubDataSourceFormat } from "./dataFormat";
-import { sessionsFromJson } from "./converters";
+import { sessionsFromJson } from "./../frab/converters";
 
 export async function sourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], sources: DataSourceFormat[]) {
   const c3HubSources = sources.filter(s => isC3HubDataSourceFormat(s)) as C3HubDataSourceFormat[];
@@ -47,6 +47,10 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
 }
 
 async function sessionsFromC3Hub(config: C3HubDataSourceFormat): Promise<ConferenceModel.Session[]> {
-  const response = await axios.default.get(`${config.apiBaseUrl}c/${config.apiEventId}/events`)
-  return sessionsFromJson(response.data, config);
+
+  const scheduleResponse = await axios.default.get(`${config.apiBaseUrl}c/${config.apiEventId}/schedule.json`)
+
+  return sessionsFromJson(scheduleResponse.data, config);
+  // const response = await axios.default.get(`${config.apiBaseUrl}c/${config.apiEventId}/events`)
+  // return sessionsFromJson(response.data, config);
 }

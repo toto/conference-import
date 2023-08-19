@@ -30,6 +30,17 @@ export interface C3HubDataSourceFormat extends DataSourceFormat {
 
   /** Included kinds of sessions. Sessions with differnet kinds will be ignored. 
    * e.g. "sos" (self organized), "assembly"
+   * If not given all sessions 
     */
-  includedKinds: string[];
+  includedKinds?: string[];
+
+  // Frab compatibility
+  ignoredLocationNames?: string[];
+  defaultLanguageCode: string;
+  baseSpeakerIdOnName?: boolean
+
+  preferGuid?: boolean
+  prefixSessionsWithEventId?: boolean;
+  useSubconferenceIdInLocations?: boolean;
+  useSubconferenceIdInSessionId?: boolean;
 }

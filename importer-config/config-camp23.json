@@ -69,89 +69,11 @@
   ],
   "sources": [
     {
-      "format": "pretalx",
-      "eventId": "camp23",
-      "baseUrl": "https://pretalx.c3voc.de/",
-      "conferenceCode": "camp2023",
-      "defaultLanguageCode": "de",
-      "useSubconferenceIdInLocations": false,
-      "defaultTrack": {
-        "id": "camp",
-        "label_en": "Camp",
-        "label_de": "Camp",
-        "color": [
-          251,
-          72,
-          196,
-          1
-        ]
-      },
-      "baseSpeakerIdOnName": true,
-      "defaultLanguageName": "German",
-      "timezone": "Europe/Berlin",
-      "maps": [],
-      "pois": [],
-      "fakeVideos": {},
-      "vocSlug": "camp2023",
-      "recordedLocationIds": [
-        "camp2023-milliways",
-        "camp2023-bits-b-ume",
-        "camp2023-digitalcourage",
-        "camp2023-marktplatz",
-        "camp2023-n-o-r-t-x",
-        "camp-2023-b-hne-mary-ann-horton-",
-        "camp2023-c3voc-tv"
-      ]
-    },
-    {
-      "format": "pretalx",
-      "eventId": "camp23",
-      "baseUrl": "https://pretalx.c3voc.de/",
-      "conferenceCode": "camp2023-haecksen",
-      "defaultLanguageCode": "de",
-      "defaultTrack": {
-        "id": "haecksen",
-        "label_en": "Haecksen",
-        "label_de": "Haecksen",
-        "color": [
-          23,
-          23,
-          23,
-          1
-        ]
-      },
-      "subconferenceId": "haecksen",
-      "timezone": "Europe/Berlin",
-      "maps": [],
-      "pois": []
-    },
-    {
-      "format": "pretalx",
-      "eventId": "camp23",
-      "baseUrl": "https://fahrplan.alpaka.space/",
-      "conferenceCode": "camp-2023",
-      "defaultLanguageCode": "de",
-      "defaultTrack": {
-        "id": "youth-village",
-        "label_en": "Youth Village",
-        "label_de": "Jugend Village",
-        "color": [
-          0,
-          73,
-          140,
-          1
-        ]
-      },
-      "subconferenceId": "youth-village",
-      "timezone": "Europe/Berlin",
-      "maps": [],
-      "pois": []
-    },
-    {
       "format": "c3hub",
       "eventId": "camp23",
       "apiBaseUrl": "https://events.ccc.de/camp/2023/hub/api/",
       "apiEventId": "camp23",
+      "defaultLanguageCode": "en",
       "webSessionBaseUrl": "https://events.ccc.de/camp/2023/hub/camp23/de/event/",
       "includedKinds": ["sos"],
       "defaultTrack": {
@@ -165,7 +87,10 @@
           1
         ]
       },
-      "subconferenceId": "sos"
+      "subconferenceId": "sos",
+      "preferGuid": true,
+      "baseSpeakerIdOnName": true,
+      "ignoredLocationNames": []
     }
   ],
   "livestreams": [],
