@@ -8,7 +8,7 @@ import { loadVocLiveStreams, addLiveStreamEnclosures } from "../voc-live/voc-liv
 import { addRecordingEnclosues, addReliveEnclosures } from "../voc-vod/voc-vod";
 
 async function allPagesFromPretalx(config: PretalxSessionConfig, endpoint: "talks" | "speakers" |  "rooms") {
-  const initialUrl = `${config.baseUrl}api/events/${config.conferenceCode}/${endpoint}/`;
+  const initialUrl = `${config.baseUrl}api/events/${config.conferenceCode}/${endpoint}/?limit=500`;
   let result: Record<string, unknown>[] = [];
   let nextPage = initialUrl;
 
