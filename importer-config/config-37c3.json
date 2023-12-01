@@ -1,0 +1,200 @@
+{
+  "event": {
+    "id": "37c3",
+    "label": "37C3",
+    "title": "37th Chaos Communication Congress",
+    "date": [
+      "2023-12-27",
+      "2023-12-30"
+    ],
+    "locations": [
+      {
+        "label": "Congress Center Hamburg",
+        "coords": [53.561583, 9.985683],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "37C3",
+    "url": "https://events.ccc.de/congress/2023/"
+  },
+  "days": [
+    {
+      "id": "2023-12-27",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2023-12-27"
+    },
+    {
+      "id": "2023-12-28",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2023-12-28"
+    },
+    {
+      "id": "2023-12-29",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2023-12-29"
+    },
+    {
+      "id": "2023-12-30",
+      "label_de": "Tag 4",
+      "label_en": "Day 4",
+      "date": "2023-12-30"
+    }
+  ],
+  "subconferences": [
+    {
+      "id": "haecksen",
+      "label": "Haecksen"
+    },
+    {
+      "id": "sos",
+      "label": "Self-organized session"
+    }
+  ],
+  "sources": [
+    {
+      "format": "c3hub",
+      "eventId": "37c3",
+      "apiBaseUrl": "https://events.ccc.de/congress/2023/hub/api/",
+      "apiEventId": "37c3",
+      "webSessionBaseUrl": "https://events.ccc.de/congress/2023/hub/37c3/de/event/",
+      "includedKinds": ["sos"],
+      "defaultTrack": {
+        "id": "congress",
+        "label_en": "Congress",
+        "label_de": "Congress",
+        "color": [
+          251,
+          72,
+          196,
+          1
+        ]
+      }
+    }
+  ],
+  "livestreams": [],
+  "options": {
+    "locationIdOrder": [
+    ],
+    "defaultColor": [
+      251,
+      72,
+      196,
+      1
+    ],
+    "colorForTrack": {
+      "37c3-bits-b-ume": [
+        63,
+        255,
+        33,
+        1
+      ],
+      "37c3-ccc": [
+        0,
+        83,
+        132,
+        1
+      ],
+      "37c3-live-music": [
+        211,
+        154,
+        0,
+        1
+      ],     
+      "37c3-art-culture": [
+        255,
+        198,
+        0,
+        1
+      ],
+      "37c3-entertainment": [
+        211,
+        154,
+        0,
+        1
+      ],
+      "37c3-performance": [
+        211,
+        154,
+        0,
+        1
+      ],
+      "37c3-dj-set": [
+        211,
+        154,
+        0,
+        1
+      ],
+      "37c3-digitalcourage": [
+        251,
+        198,
+        22,
+        1
+      ],      
+      "_____37c3-voc-END______": [
+        153,
+        186,
+        0,
+        1
+      ],
+      "camp23-ethics-society-politics": [
+        153,
+        186,
+        0,
+        1
+      ],
+      "camp23-hardware-making": [
+        111,
+        135,
+        0,
+        1
+      ],
+      "camp23-science": [
+        0,
+        118,
+        186,
+        1
+      ],
+      "camp23-security": [
+        0,
+        83,
+        132,
+        1
+      ],
+      "camp23-music": [
+        255,
+        198,
+        0,
+        1
+      ],
+      "thms-music": [
+        255,
+        198,
+        0,
+        1
+      ],
+      "thms-workshop": [
+        0,
+        83,
+        132,
+        1
+      ],
+      "thms-talk": [
+        0,
+        118,
+        186,
+        1
+      ]
+    },
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": [],
+    "poiSources": [
+    ],
+    "minimumSessionDurationMinutes": 15,
+    "maximumSessionDurationMinutes": 720,
+    "recommendationsSource": "https://data.conference.systems/ABCA1209/37c3-recommendations.json"
+  }
+}
