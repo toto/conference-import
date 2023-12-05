@@ -45,6 +45,7 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
   result.speakers = speakersFromJson(halfnarpJson.data, source);
   result.sessions = sessionsFromJson(halfnarpJson.data, source);
   // console.log(JSON.stringify(halfnarpJson, null, 4));
+  console.log(`Halfnarp: ${result.sessions.length} sessions, ${result.speakers.length} speakers from ${source.sourceUrl}`);
 
   return result;
 }

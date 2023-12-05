@@ -7,6 +7,7 @@ function trackFromSessionJson(session: any, config: HalfnarpSourceFormat): Track
   if (!session.track_id) return undefined;
 
   const idStr = `${session.track_id}`
+  if (!config.trackIdMap) return undefined;
   const trackId = config.trackIdMap[idStr];
   if (!trackId) return undefined;
   

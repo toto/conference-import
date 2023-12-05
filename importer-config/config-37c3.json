@@ -55,7 +55,39 @@
   ],
   "sources": [
     {
+      "format": "halfnarp",
+      "eventId": "37c3",
+      "timezone": "Europe/Berlin",
+      "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
+      "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2023/Fahrplan/events/",
+      "speakerBaseUrl": "https://fahrplan.events.ccc.de/camp/2023/Fahrplan/speakers/",
+      "defaultTrack": { "id": "track", "event": "37c3", "label_en": "Some Track", "color": [0, 0, 0, 1] },
+      "defaultLanguageCode": "de",
+      "tracks": 
+      [
+        {"id": "37c3-ccc",            "color": [77,77,76 ,1], "label_de": "CCC", "label_en": "CCC"},
+        {"id": "37c3-entertainment",  "color": [77,77,76 ,1], "label_de": "Entertainment", "label_en": "Entertainment"},
+        {"id": "37c3-ethics-society-politics",            "color": [228,4,41 ,1], "label_de": "Ethics, Society & Politics", "label_en": "Ethics, Society & Politics"},
+        {"id": "37c3-security",       "color": [24,56,107,1], "label_de": "Security", "label_en": "Security"},
+        {"id": "37c3-art-culture",    "color": [249,176,0,1], "label_de": "Art & Culture", "label_en": "Art & Culture"},
+        {"id": "37c3-science",        "color": [0,163,86 ,1], "label_de": "Science", "label_en": "Science"},
+        {"id": "37c3-hardware",       "color": [68,53,126,1], "label_de": "Hardware", "label_en": "Hardware"},
+        {"id": "37c3-sustainability", "color": [0,132,176,1], "label_de": "Sustainability", "label_en": "Sustainability"}
+      ],
+      "trackIdMap": {
+        "378": "37c3-ccc",
+        "379": "37c3-entertainment",
+        "382": "37c3-ethics-society-politics",
+        "381": "37c3-security",
+        "376": "37c3-art-culture",
+        "380": "37c3-science",
+        "377": "37c3-hardware",
+        "383": "37c3-sustainability"
+      }
+    },
+    {
       "format": "c3hub",
+      "disabled": true,
       "eventId": "37c3",
       "apiBaseUrl": "https://events.ccc.de/congress/2023/hub/api/",
       "apiEventId": "37c3",

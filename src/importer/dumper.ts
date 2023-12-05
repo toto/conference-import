@@ -31,8 +31,10 @@ export interface Configuration {
 
 export async function dumpNormalizedConference(configuration: Configuration, destinationFile: string) {
   let { days, subconferences } = configuration;
-  const { event, options, sources } = configuration;
-
+  const { event, options } = configuration;
+  let { sources } = configuration;
+  // Ignore all disabled sources
+  sources = sources.filter(s => !(s.disabled ?? false))
   event.type = "event";
   days = days.map(day => {
     day.type = 'day';
