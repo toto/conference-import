@@ -117,108 +117,14 @@
       1
     ],
     "colorForTrack": {
-      "37c3-bits-b-ume": [
-        63,
-        255,
-        33,
-        1
-      ],
-      "37c3-ccc": [
-        0,
-        83,
-        132,
-        1
-      ],
-      "37c3-live-music": [
-        211,
-        154,
-        0,
-        1
-      ],     
-      "37c3-art-culture": [
-        255,
-        198,
-        0,
-        1
-      ],
-      "37c3-entertainment": [
-        211,
-        154,
-        0,
-        1
-      ],
-      "37c3-performance": [
-        211,
-        154,
-        0,
-        1
-      ],
-      "37c3-dj-set": [
-        211,
-        154,
-        0,
-        1
-      ],
-      "37c3-digitalcourage": [
-        251,
-        198,
-        22,
-        1
-      ],      
-      "_____37c3-voc-END______": [
-        153,
-        186,
-        0,
-        1
-      ],
-      "camp23-ethics-society-politics": [
-        153,
-        186,
-        0,
-        1
-      ],
-      "camp23-hardware-making": [
-        111,
-        135,
-        0,
-        1
-      ],
-      "camp23-science": [
-        0,
-        118,
-        186,
-        1
-      ],
-      "camp23-security": [
-        0,
-        83,
-        132,
-        1
-      ],
-      "camp23-music": [
-        255,
-        198,
-        0,
-        1
-      ],
-      "thms-music": [
-        255,
-        198,
-        0,
-        1
-      ],
-      "thms-workshop": [
-        0,
-        83,
-        132,
-        1
-      ],
-      "thms-talk": [
-        0,
-        118,
-        186,
-        1
-      ]
+      "37c3-ccc": [77,77,76 ,1],
+      "37c3-entertainment": [77,77,76 ,1],
+      "37c3-ethics-society-politics": [228,4,41 ,1],
+      "37c3-security": [24,56,107,1],
+      "37c3-art-culture": [249,176,0,1],
+      "37c3-science": [0,163,86 ,1],
+      "37c3-hardware": [68,53,126,1],
+      "37c3-sustainability": [0,132,176,1]
     },
     "timezone": "Europe/Berlin",
     "hourOfDayChange": 4,
