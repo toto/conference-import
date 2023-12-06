@@ -1,6 +1,6 @@
 import * as axios from "axios";
 import { DataSourceFormat } from "../dataSource";
-import { Event, Track, Subconference, Day } from "../../models";
+import { Event, Track, Subconference, Day, Enclosure } from "../../models";
 import { speakersFromJson, sessionsFromJson } from "./converters";
 import { SourceData } from "../../importer/sourceData";
 
@@ -13,9 +13,10 @@ export interface HalfnarpSourceFormat extends DataSourceFormat {
   defaultTrack: Track;
   defaultLanguageCode: string;
   tracks: Track[];
-  trackIdMap: any;
+  trackIdMap: Record<string, string>;
   timezone?: string;
   vocSlug?: string;
+  fakeVideos?: Record<string, Enclosure>;
 }
 
 export function isHalfnarpSourceFormat(dataSource: DataSourceFormat): dataSource is HalfnarpSourceFormat {
@@ -44,7 +45,18 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
 
   result.speakers = speakersFromJson(halfnarpJson.data, source);
   result.sessions = sessionsFromJson(halfnarpJson.data, source);
-  // console.log(JSON.stringify(halfnarpJson, null, 4));
+  
+  if (source.fakeVideos) {
+    for (const sessionId of Object.keys(source.fakeVideos)) {
+      const video: Enclosure = source.fakeVideos[sessionId];
+      for (const session of result.sessions) {
+        if (session.id === sessionId) {
+          session.enclosures.push(video);
+        }
+      }
+    }
+  }
+
   console.log(`Halfnarp: ${result.sessions.length} sessions, ${result.speakers.length} speakers from ${source.sourceUrl}`);
 
   return result;
