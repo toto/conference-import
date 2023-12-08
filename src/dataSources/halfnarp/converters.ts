@@ -83,11 +83,17 @@ function parseSession(session: any, config: HalfnarpSourceFormat): Session | und
   const miniSpeakers: MiniSpeaker[] = speakers.map(s => { return {id: s.id , name: s.name} } );
 
   const sessionUrl = `${config.sessionBaseUrl}${session.event_id}.html`
-  
+  let id: string 
+  if (session.guid) {
+    id = session.guid;
+  } else {
+    id = mkId(`${config.eventId}-${session.event_id}`);
+  }
+
   const result: Session = {
     type: "session",
     event: config.eventId,
-    id: mkId(`${config.eventId}-${session.event_id}`),
+    id,
     title: session.title,
     subtitle: session.subtitle,
     abstract: session.abstract,

@@ -107,7 +107,7 @@
     }
   ],
   "livestreams": [],
-  "options": {
+  "options": { 
     "locationIdOrder": [
     ],
     "defaultColor": [
@@ -131,15 +131,7 @@
     "nonStageLocationIds": [],
     "poiSources": [
     ],
-    "fakeVideos": {
-      "37c3-11717": {
-        "url": "https://cdn.media.ccc.de/events/camp2023/h264-hd/camp2023-57745-deu-Frag_die_Teams_hd.mp4",
-          "mimetype": "video/mp4",
-          "type": "recording",
-          "title": "POC (mit ISDN) – Frag die Teams",
-          "thumbnail": "https://static.media.ccc.de/media/conferences/camp2023/57745-0b0c13e2-372f-556b-8e5c-27a9e5c04dfb_preview.jpg"
-      }
-    },
+    "fakeVideos": {},
     "minimumSessionDurationMinutes": 15,
     "maximumSessionDurationMinutes": 720,
     "recommendationsSource": "https://data.conference.systems/ABCA1209/37c3-recommendations.json"
