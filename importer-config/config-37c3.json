@@ -57,6 +57,7 @@
     {
       "format": "halfnarp",
       "eventId": "37c3",
+      "disabled": true,
       "timezone": "Europe/Berlin",
       "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
       "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2023/Fahrplan/events/",
@@ -93,6 +94,23 @@
       "apiEventId": "37c3",
       "webSessionBaseUrl": "https://events.ccc.de/congress/2023/hub/37c3/de/event/",
       "includedKinds": ["sos"],
+      "defaultTrack": {
+        "id": "congress",
+        "label_en": "Congress",
+        "label_de": "Congress",
+        "color": [
+          251,
+          72,
+          196,
+          1
+        ]
+      }
+    },
+    {
+      "format": "scheduleJSON",
+      "disabled": false,
+      "eventId": "37c3",
+      "scheduleURL": "https://fahrplan.events.ccc.de/congress/2023/fahrplan/schedule.json",
       "defaultTrack": {
         "id": "congress",
         "label_en": "Congress",

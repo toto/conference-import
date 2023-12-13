@@ -3,7 +3,7 @@ import { SourceData } from "../../importer/sourceData";
 import * as ConferenceModel from "../../models";
 import { DataSourceFormat } from "../dataSource";
 import { C3HubDataSourceFormat, isC3HubDataSourceFormat } from "./dataFormat";
-import { sessionsFromJson } from "./converters";
+import { sessionsFromJson, tracksFromJson } from "./converters";
 
 export async function sourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], sources: DataSourceFormat[]) {
   const c3HubSources = sources.filter(s => isC3HubDataSourceFormat(s)) as C3HubDataSourceFormat[];
@@ -17,8 +17,10 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   const pois: ConferenceModel.POI[] = [];
 
   let sessions: ConferenceModel.Session[] = [];
+  let tracks: ConferenceModel.Track[] = [];
   try {
     console.log(`c3hub: Loading from ${source.apiBaseUrl} for event ${source.eventId}`);
+    tracks = await tracksFromC3Hub(source);
     sessions = await sessionsFromC3Hub(source);
   } catch (error) {
     console.error(`c3hub: Could not import sessions: ${error}`);
@@ -40,6 +42,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     subconferences,
     maps,
     pois,
+    tracks,
   };
 
   console.log(`c3hub: ${result.sessions.length} sessions, ${result.speakers.length} speakers from ${source.apiBaseUrl} event ${source.eventId}`);
@@ -50,3 +53,9 @@ async function sessionsFromC3Hub(config: C3HubDataSourceFormat): Promise<Confere
   const response = await axios.default.get(`${config.apiBaseUrl}c/${config.apiEventId}/events`)
   return sessionsFromJson(response.data, config);
 }
+
+async function tracksFromC3Hub(config: C3HubDataSourceFormat): Promise<ConferenceModel.Track[]> {
+  const response = await axios.default.get(`${config.apiBaseUrl}c/${config.apiEventId}/tracks`)
+  return tracksFromJson(response.data, config);
+}
+
