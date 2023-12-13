@@ -74,7 +74,7 @@ export function sessionsFromJson(data: ScheduleJSONData, config: ScheduleJSONDat
   return result;
 }
 
-function sessionFromJson(json: ScheduleJSONSession, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
+export function sessionFromJson(json: ScheduleJSONSession, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
   let track = config.defaultTrack
   if (json.track) {
     track = {
