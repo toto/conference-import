@@ -148,7 +148,7 @@ export function sessionFromJson(json: ScheduleJSONSession,roomName: string, conf
     lang: languageFromIsoCode(json.language) ?? English,
     speakers: json.persons?.map(p => miniSpeakerFromPerson(p)).filter(p => p != null) as ConferenceModel.MiniSpeaker[] ?? [],
     enclosures: [],
-    links: [],
+    links,
   }
  
   return result;
