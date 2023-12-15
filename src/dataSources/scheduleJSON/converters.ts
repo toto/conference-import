@@ -1,3 +1,4 @@
+import * as moment from 'moment-timezone';
 import * as ConferenceModel from "../../models";
 import { English, languageFromIsoCode } from "../rp/language";
 import { mkId } from "../util";
@@ -26,7 +27,9 @@ export interface ScheduleJSONSession {
   type: string //  "lecture",
   abstract: string | null //  null,
   description: string //  "",
-  persons?: ScheduleJSONPerson[]
+  persons?: ScheduleJSONPerson[],
+  feedback_url?: string
+  links?: {url: string, title: string}[]
 }
 
 export interface ScheduleJSONDay {
@@ -62,7 +65,7 @@ export function sessionsFromJson(data: ScheduleJSONData, config: ScheduleJSONDat
       if (Object.prototype.hasOwnProperty.call(day.rooms, roomName)) {
         const sessions = day.rooms[roomName];
         for (const session of sessions) {
-          const parsedSession = sessionFromJson(session, config);
+          const parsedSession = sessionFromJson(session, roomName, config);
           if (parsedSession) {
             result.push(parsedSession);
           }
@@ -74,7 +77,7 @@ export function sessionsFromJson(data: ScheduleJSONData, config: ScheduleJSONDat
   return result;
 }
 
-export function sessionFromJson(json: ScheduleJSONSession, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
+export function sessionFromJson(json: ScheduleJSONSession,roomName: string, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
   let track = config.defaultTrack
   if (json.track) {
     track = {
@@ -88,20 +91,64 @@ export function sessionFromJson(json: ScheduleJSONSession, config: ScheduleJSOND
     }
   }
 
+  let begin: moment.Moment | undefined;
+  let end: moment.Moment | undefined;
+
+  if (json.date && json.duration) {
+    begin = moment(json.date);
+    const [ hoursStr, minutesStr ] = (json.duration).split(':');
+    end = moment(json.date);
+    const hours = parseInt(hoursStr);
+    const minutes = parseInt(minutesStr);
+    end.add(hours, 'h');
+    end.add(minutes, 'm');
+  }
+
+  const links: ConferenceModel.Link[] = [];
+
+  if (json.links) {
+    for (const link of json.links) {
+      links.push({
+        url: link.url,
+        type: "session-link",
+        title: link.title,
+        service: 'web'
+      })
+    }
+  }
+
+  if (json.feedback_url) {
+    links.push({
+      url: json.feedback_url,
+      type: 'feedback-link',
+      title: `Session feedback`,
+      service: 'web'
+    })
+  }
+
+  const location: ConferenceModel.MiniLocation = {
+    id: mkId(roomName),
+    label_en: roomName,
+    label_de: roomName,
+  }
+
   const result: ConferenceModel.Session = {
     id: json.guid,
     type: "session",
     event: config.eventId,
+    title: json.title,
+    subtitle: json.subtitle ?? undefined,
     abstract: json.abstract ?? "",
     description: json.description ?? "",
     url: json.url,
     track,
+    begin,
+    end,
+    location,
     lang: languageFromIsoCode(json.language) ?? English,
     speakers: json.persons?.map(p => miniSpeakerFromPerson(p)).filter(p => p != null) as ConferenceModel.MiniSpeaker[] ?? [],
     enclosures: [],
     links: [],
-    title: json.title,
-    subtitle: json.subtitle ?? undefined,
   }
  
   return result;

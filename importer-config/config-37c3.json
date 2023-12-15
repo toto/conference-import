@@ -127,6 +127,11 @@
   "livestreams": [],
   "options": { 
     "locationIdOrder": [
+      "saal-1",
+      "saal-grace",
+      "saal-zuse",            
+      "house",
+      "chaoswelle"
     ],
     "defaultColor": [
       251,
