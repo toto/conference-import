@@ -117,14 +117,14 @@ export function sessionFromJson(json: ScheduleJSONSession,roomName: string, conf
     }
   }
 
-  if (json.feedback_url) {
-    links.push({
-      url: json.feedback_url,
-      type: 'feedback-link',
-      title: `Session feedback`,
-      service: 'web'
-    })
-  }
+  // if (json.feedback_url) {
+  //   links.push({
+  //     url: json.feedback_url,
+  //     type: 'feedback-link',
+  //     title: `Session feedback`,
+  //     service: 'web'
+  //   })
+  // }
 
   const location: ConferenceModel.MiniLocation = {
     id: mkId(roomName),
