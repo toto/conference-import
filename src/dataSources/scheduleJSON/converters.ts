@@ -160,3 +160,94 @@ function miniSpeakerFromPerson(json: ScheduleJSONPerson): ConferenceModel.MiniSp
     name: json.public_name
   };
 }
+
+
+interface SpeakersJSONData {
+  schedule_speakers: {
+    version: string,
+    speakers: SpeakerJSONData[]
+  }
+}
+
+interface SpeakerJSONData {
+  guid: string // "9ef179da-dc86-5b02-a231-353fe964e2e9",
+  id: number // 19378,
+  image: string | null, // null,
+  name: string // "@cyanpencil (Luca Di Bartolomeo)",
+  public_name: string // "@cyanpencil (Luca Di Bartolomeo)",
+  abstract: string | null, // null,
+  description: string | null, // null,
+  links: {title: string, url: string}[],
+  events: {
+      guid: string // "f68ec6e2-72ce-4f8a-bc14-af174fdae140",
+      id: number // 12254,
+      title: string // "ARMore: Pushing Love Back Into Binaries",
+      logo: string // "/system/events/logos/000/012/254/large/heart.png?1699741296",
+      type: string // "lecture"
+  }[]
+  
+}
+
+export function speakersFromJson(data: SpeakersJSONData, config: ScheduleJSONDataSourceFormat): ConferenceModel.Speaker[] {
+  return data.schedule_speakers.speakers.map(s => speakerFromJson(s, config)).filter(s => s !== null) as ConferenceModel.Speaker[];
+}
+
+function speakerFromJson(data: SpeakerJSONData, config: ScheduleJSONDataSourceFormat): ConferenceModel.Speaker | null {
+  if (!config.speakers) return null;
+
+  let biography = '';
+
+  if (data.abstract) {
+    biography += data.abstract;
+    if (data.description) {
+      biography += "\n\n"
+    }
+  }
+
+  if (data.description) {
+    biography += data.description;
+  }
+
+  const links: ConferenceModel.Link[] = [];
+
+  if (data.links) {
+    for (const linkData of data.links) {
+      links.push({
+        title: linkData.title,
+        url: linkData.url,
+        type: 'speaker-link',
+        service: 'web',
+      });
+    }
+  }
+
+  const sessions: ConferenceModel.MiniSession[] = [];
+
+  if (data.events) {
+    for (const eventData of data.events) {
+      sessions.push({
+        id: eventData.guid,
+        title: eventData.title,
+      })
+    }
+  }
+
+  const urlPrefix = config.speakers.jsonURL.replace("/speakers.json", "/speakers/");
+
+  const result: ConferenceModel.Speaker = {
+    id: data.guid,
+    name: data.public_name,
+    type: 'speaker',
+    event: config.eventId,
+    photo: data.image ? `${config.speakers?.imageBaseURL}${data.image}` : undefined,
+    url: `${urlPrefix}${data.id}.html`,
+    organization: undefined,
+    position: undefined,
+    biography,
+    links,
+    sessions,
+  }
+
+  return result;
+}
+

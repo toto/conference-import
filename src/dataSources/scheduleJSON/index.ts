@@ -3,7 +3,7 @@ import { SourceData } from "../../importer/sourceData";
 import * as ConferenceModel from "../../models";
 import { DataSourceFormat } from "../dataSource";
 import { ScheduleJSONDataSourceFormat, isScheduleJSONDataSourceFormat } from "./dataFormat";
-import { sessionsFromJson } from "./converters";
+import { sessionsFromJson, speakersFromJson } from "./converters";
 
 export async function sourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], sources: DataSourceFormat[]) {
   const pretalxSources = sources.filter(s => isScheduleJSONDataSourceFormat(s)) as [];
@@ -24,13 +24,16 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   };
 
   let sessions: ConferenceModel.Session[] = []
+  let speakers: ConferenceModel.Speaker[] = []
   try {
     sessions = await sessionsFromSchedule(source)
+    speakers = await speakersFromSpeakersJSON(source)
   } catch (error) {
     console.error(`ScheduleJSON: Could not load data: ${error}`)
   }
 
   result.sessions = sessions;
+  result.speakers = speakers;
 
   console.log(`ScheduleJSON: ${result.sessions.length} sessions, ${result.speakers.length} speakers from ${source.scheduleURL}`);
   return result;
@@ -39,4 +42,10 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
 async function sessionsFromSchedule(config: ScheduleJSONDataSourceFormat): Promise<ConferenceModel.Session[]> {
   const response = await axios.default.get(config.scheduleURL)
   return sessionsFromJson(response.data, config);
+}
+
+async function speakersFromSpeakersJSON(config: ScheduleJSONDataSourceFormat): Promise<ConferenceModel.Speaker[]> {
+  if (!config.speakers) throw new Error("speakersURL missing in config");
+  const response = await axios.default.get(config.speakers.jsonURL)
+  return speakersFromJson(response.data, config);
 }
