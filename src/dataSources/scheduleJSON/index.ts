@@ -3,7 +3,7 @@ import { SourceData } from "../../importer/sourceData";
 import * as ConferenceModel from "../../models";
 import { DataSourceFormat } from "../dataSource";
 import { ScheduleJSONDataSourceFormat, isScheduleJSONDataSourceFormat } from "./dataFormat";
-import { sessionsFromJson, speakersFromJson } from "./converters";
+import { sessionsFromJson, speakersFromJson, tracksFromJson } from "./converters";
 
 export async function sourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], sources: DataSourceFormat[]) {
   const pretalxSources = sources.filter(s => isScheduleJSONDataSourceFormat(s)) as [];
@@ -26,7 +26,9 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   let sessions: ConferenceModel.Session[] = []
   let speakers: ConferenceModel.Speaker[] = []
   try {
-    sessions = await sessionsFromSchedule(source)
+    const sessionsAndTracks = await sessionsFromSchedule(source)
+    sessions = sessionsAndTracks.sessions;
+    result.tracks = sessionsAndTracks.tracks;
     speakers = await speakersFromSpeakersJSON(source)
   } catch (error) {
     console.error(`ScheduleJSON: Could not load data: ${error}`)
@@ -39,9 +41,11 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   return result;
 }
 
-async function sessionsFromSchedule(config: ScheduleJSONDataSourceFormat): Promise<ConferenceModel.Session[]> {
-  const response = await axios.default.get(config.scheduleURL)
-  return sessionsFromJson(response.data, config);
+async function sessionsFromSchedule(config: ScheduleJSONDataSourceFormat): Promise<{sessions: ConferenceModel.Session[], tracks: ConferenceModel.Track[]}> {
+  const response = await axios.default.get(config.scheduleURL);
+  const sessions = sessionsFromJson(response.data, config);
+  const tracks = tracksFromJson(response.data, config);
+  return { sessions, tracks };
 }
 
 async function speakersFromSpeakersJSON(config: ScheduleJSONDataSourceFormat): Promise<ConferenceModel.Speaker[]> {

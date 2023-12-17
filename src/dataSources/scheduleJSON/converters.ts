@@ -1,7 +1,7 @@
 import * as moment from 'moment-timezone';
 import * as ConferenceModel from "../../models";
 import { English, languageFromIsoCode } from "../rp/language";
-import { mkId } from "../util";
+import { colorArrayFromHex, mkId } from "../util";
 import { ScheduleJSONDataSourceFormat } from "./dataFormat";
 
 export interface ScheduleJSONPerson {
@@ -53,14 +53,44 @@ export interface ScheduleJSONData {
       timeslot_duration: string
       time_zone_name: string
       days: ScheduleJSONDay[]
+      tracks?: ScheduleJSONTrack[]
     }
   }
+}
+
+interface ScheduleJSONTrack {
+  name: string,
+  color: string,
+  slug: string,
+}
+
+export function tracksFromJson(data: ScheduleJSONData, config: ScheduleJSONDataSourceFormat): ConferenceModel.Track[] {
+  const result: ConferenceModel.Track[] = [];
+
+  const { conference } = data.schedule;
+  if (!conference.tracks) return [];
+
+  for (const trackData of conference.tracks) {
+    const color = colorArrayFromHex(trackData.color) ?? config.defaultTrack.color;
+    result.push({
+      id: mkId(trackData.name),
+      type: 'track',
+      event: config.eventId,
+      color,
+      label_en: trackData.name,
+      label_de: trackData.name,
+    });
+  }
+
+  return result;
 }
 
 export function sessionsFromJson(data: ScheduleJSONData, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session[] {
   const result: ConferenceModel.Session[] = [];
 
-  for (const day of data.schedule.conference.days) {
+  const { conference } = data.schedule;
+
+  for (const day of conference.days) {
     for (const roomName in day.rooms) {
       if (Object.prototype.hasOwnProperty.call(day.rooms, roomName)) {
         const sessions = day.rooms[roomName];
