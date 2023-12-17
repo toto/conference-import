@@ -6,7 +6,8 @@ import { ScheduleJSONDataSourceFormat } from "./dataFormat";
 
 export interface ScheduleJSONPerson {
   id: number
-  guid: string
+  guid?: string
+  code?: string
   name: string
   public_name: string
 }
@@ -185,8 +186,11 @@ export function sessionFromJson(json: ScheduleJSONSession,roomName: string, conf
 }
 
 function miniSpeakerFromPerson(json: ScheduleJSONPerson): ConferenceModel.MiniSpeaker | null {
+  const id = json.guid ?? json.code;
+  if (!id) return null;
+  
   return {
-    id: json.guid,
+    id,
     name: json.public_name
   };
 }

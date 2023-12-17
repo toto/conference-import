@@ -41,7 +41,12 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   return result;
 }
 
-async function sessionsFromSchedule(config: ScheduleJSONDataSourceFormat): Promise<{sessions: ConferenceModel.Session[], tracks: ConferenceModel.Track[]}> {
+interface SessionsDataResult {
+  sessions: ConferenceModel.Session[]
+  tracks: ConferenceModel.Track[]
+}
+
+async function sessionsFromSchedule(config: ScheduleJSONDataSourceFormat): Promise<SessionsDataResult> {
   const response = await axios.default.get(config.scheduleURL);
   const sessions = sessionsFromJson(response.data, config);
   const tracks = tracksFromJson(response.data, config);
