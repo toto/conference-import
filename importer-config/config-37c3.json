@@ -134,15 +134,20 @@
       "saal-1",
       "saal-grace",
       "saal-zuse",            
+      "saal-e",
+      "saal-d",      
       "house",
       "chaoswelle",
       "fireshonks",
       "workshop",
+      "sendezentrum-podcast-tisch",
       "assembly",
       "stonewall-io",
       "chaospat-innen-assembly-space",
       "catonium",
-      "pentatent"
+      "pentatent",
+      "lw-meetup-room",
+      "kidspace---workshopraum-in-saal-b"
     ],
     "defaultColor": [
       251,
