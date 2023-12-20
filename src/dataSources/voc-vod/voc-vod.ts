@@ -7,6 +7,7 @@ interface VocConference {
 }
 
 interface VocVideo {
+  guid: string;
   poster_url: string;
   link: string;
   recordings: VocRecording[];
@@ -115,7 +116,7 @@ function sessionMatchesReliveStream(session: Session, reliveStream: VocReliveStr
       && session.title === reliveStream.title
 }
 
-export async function addRecordingEnclosues(slug: string, sessions: Session[]): Promise<Session[]> {
+export async function addRecordingEnclosues(slug: string, sessions: Session[], useGuid = false): Promise<Session[]> {
   const sessioById = new Map<string, Session>();
   sessions.forEach(s => sessioById.set(s.id, s));
 
@@ -137,10 +138,17 @@ export async function addRecordingEnclosues(slug: string, sessions: Session[]): 
     }
   }
   for (const vocVideo of videos) {
-    let session = sessions.find(s => s.url === vocVideo.link);
-    if (!session) {
-      session = sessions.find(s => `${s.url}/` === vocVideo.link);
+    let session: Session | undefined
+    if (useGuid) {
+      // for HUB based conferneces the GUID is identical to the GUID in the Fahrplan data
+      session = sessions.find(s => s.id === vocVideo.guid);
+    } else {
+      session = sessions.find(s => s.url === vocVideo.link);
+      if (!session) {
+        session = sessions.find(s => `${s.url}/` === vocVideo.link);
+      }
     }
+    
     if (session) {
       const resultSession = addRecordingEnclosure(vocVideo, session);
       sessioById.set(resultSession.id, resultSession);

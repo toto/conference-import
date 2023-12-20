@@ -114,7 +114,10 @@
       "speakers": {
         "jsonURL": "https://fahrplan.events.ccc.de/congress/2023/fahrplan/speakers.json",
         "imageBaseURL": "https://frab.cccv.de"
-      },      
+      },
+      "voc": {
+        "slug": "37c3"
+      },     
       "defaultTrack": {
         "id": "congress",
         "label_en": "Congress",

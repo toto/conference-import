@@ -27,4 +27,16 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
     /** Prefix of Image path. Should not end with a `/` */
     imageBaseURL: string
   };
+
+  /* VOC Streams  */
+  voc?: {
+    slug: string;
+  /** Alternative live stream api url for VOC live streams
+   *  Defaults to `https://streaming.media.ccc.de/streams/v2.json` if not set
+   *  E.g. use `https://streaming.test.c3voc.de/streams/v2.json`
+   */    
+    liveStreamApiUrl?: string;
+    /** Enable use of voc relive streams if the processing is not yet done */
+    useReliveRecordings?: boolean;
+  };
 }
