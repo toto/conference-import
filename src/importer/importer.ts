@@ -65,6 +65,8 @@ export async function processData(
 
   // The source data allows the importer to optionally pass tracks
   const tracks: ConferenceModel.Track[] = sourceData.tracks ?? [];
+  const locations: ConferenceModel.Location[] = sourceData.locations ?? [];
+
   // Extract tracks and process color
   const miniTrackMap = new Map<string, ConferenceModel.MiniTrack>();
   sessions.forEach(s => miniTrackMap.set(s.track.id, s.track));
@@ -128,13 +130,18 @@ export async function processData(
   }
 
   // Extract locations from sessions and process them with order
+  const existingLocationIds = new Set(locations.map(l=> l.id))
+
   const miniLocationMap = new Map<string, ConferenceModel.MiniLocation>();
   sessions.forEach(session => {
     const { location } = session;
-    if (location) miniLocationMap.set(location.id, location);
+    if (location && !existingLocationIds.has(location.id)) {
+      miniLocationMap.set(location.id, location);
+    }
   });
   const miniLocations = Array.from(miniLocationMap.values());
-  const locations = miniLocations.map((miniLocation, index) => {
+  
+  miniLocations.forEach((miniLocation) => {
     const location = miniLocation as ConferenceModel.Location;
     location.type = "location";
     
@@ -143,15 +150,30 @@ export async function processData(
       location.is_stage = !nonStageLocationIds.includes(location.id);
     } else {
       location.is_stage = true;
-    }
+    }  
+    locations.push(location);
+  });
+
+  // Pre-set order index is preferred. 
+  // After processing the pre-set order indices are in front of the list
+  // then follow the indices taken from options.locationIdOrder
+  // and after that the rest is appended with a warning.
+  const maxOrderIndex = locations.reduce((prev, cur) => { 
+    return Math.max(cur.order_index, prev);
+   }, 0)
+
+  locations.forEach((location, index) => {
+    // skip existing location index
+    if (location.order_index >= 0) return;
+
     let orderIndex = options.locationIdOrder.indexOf(location.id);
     if (orderIndex === -1) {
-      console.warn(`Warning: Location ${location.label_en} (${location.id}) has no order index.`);
-      orderIndex = index + miniLocations.length;
+      console.warn(`WARNING: Location ${location.label_en} (${location.id}) has no order index.`);
+      orderIndex = index + locations.length + maxOrderIndex;
     }
-    location.order_index = orderIndex;
-    return location;
+    location.order_index = orderIndex + maxOrderIndex;
   });
+  
 
   // // Process cross relationships - sessions from speaker
   // const speakerMap = new Map<string,ConferenceModel.Speaker>();

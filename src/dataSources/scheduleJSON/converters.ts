@@ -30,7 +30,7 @@ export interface ScheduleJSONSession {
   description: string //  "",
   persons?: ScheduleJSONPerson[],
   feedback_url?: string
-  links?: {url: string, title: string}[]
+  links?: { url: string, title: string }[]
 }
 
 export interface ScheduleJSONDay {
@@ -55,6 +55,7 @@ export interface ScheduleJSONData {
       time_zone_name: string
       days: ScheduleJSONDay[]
       tracks?: ScheduleJSONTrack[]
+      rooms?: ScheduleJSONRoom[]
     }
   }
 }
@@ -63,6 +64,50 @@ interface ScheduleJSONTrack {
   name: string,
   color: string,
   slug: string,
+}
+
+interface ScheduleJSONRoom {
+  name: string // "Saal 1",
+  slug: string // "saal-1",
+  guid: string // "ba692ba3-421b-5371-8309-60acc34a3c05",
+  type: string // "lecturehall",
+  stream_id: string | null // "s1",
+  capacity: number // 3025,
+  description_en: string | null // "",
+  description_de: string | null  // "",
+  assembly: { 
+    name: string // ": "CCC",
+    slug: string // ": "ccc",
+    guid: string // ": "b46b321a-19b9-4cd6-8aab-52a127268d6f",
+    description_en: string // ": "",
+    description_de: string // ": ""
+  }
+}
+
+export function locationsFromJSON(data: ScheduleJSONData, config: ScheduleJSONDataSourceFormat): {locations: ConferenceModel.Location[], locationIdToStreamId: Record<string, string>} {
+  const locations: ConferenceModel.Location[] = [];
+  const locationIdToStreamId: Record<string, string> = {};
+
+  const { conference } = data.schedule;
+  if (!conference.rooms) return {locations: [], locationIdToStreamId: {}};
+
+  conference.rooms.forEach((roomData, index) => {
+    locations.push({
+      id: roomData.guid,
+      type: 'location',
+      event: config.eventId,
+      label_en: roomData.name,
+      label_de: roomData.name,
+      is_stage: roomData.type === "lecturehall",
+      order_index: index
+    });
+
+    if (roomData.stream_id) {
+      locationIdToStreamId[roomData.guid] = roomData.stream_id;
+    }
+  })
+
+  return { locations, locationIdToStreamId };
 }
 
 export function tracksFromJson(data: ScheduleJSONData, config: ScheduleJSONDataSourceFormat): ConferenceModel.Track[] {
@@ -86,7 +131,7 @@ export function tracksFromJson(data: ScheduleJSONData, config: ScheduleJSONDataS
   return result;
 }
 
-export function sessionsFromJson(data: ScheduleJSONData, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session[] {
+export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceModel.Location[], config: ScheduleJSONDataSourceFormat): ConferenceModel.Session[] {
   const result: ConferenceModel.Session[] = [];
 
   const { conference } = data.schedule;
@@ -96,7 +141,8 @@ export function sessionsFromJson(data: ScheduleJSONData, config: ScheduleJSONDat
       if (Object.prototype.hasOwnProperty.call(day.rooms, roomName)) {
         const sessions = day.rooms[roomName];
         for (const session of sessions) {
-          const parsedSession = sessionFromJson(session, roomName, config);
+          const location = locations.find(l => l.label_en === roomName) ?? null;
+          const parsedSession = sessionFromJson(session, location, location !== null ? roomName : null, config);
           if (parsedSession) {
             result.push(parsedSession);
           }
@@ -108,7 +154,8 @@ export function sessionsFromJson(data: ScheduleJSONData, config: ScheduleJSONDat
   return result;
 }
 
-export function sessionFromJson(json: ScheduleJSONSession,roomName: string, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
+// NOTE: roomName is only set if fullLocation is null
+export function sessionFromJson(json: ScheduleJSONSession, fullLocation: ConferenceModel.Location | null, roomName: string | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
   let track = config.defaultTrack
   if (json.track) {
     track = {
@@ -127,7 +174,7 @@ export function sessionFromJson(json: ScheduleJSONSession,roomName: string, conf
 
   if (json.date && json.duration) {
     begin = moment(json.date);
-    const [ hoursStr, minutesStr ] = (json.duration).split(':');
+    const [hoursStr, minutesStr] = (json.duration).split(':');
     end = moment(json.date);
     const hours = parseInt(hoursStr);
     const minutes = parseInt(minutesStr);
@@ -157,10 +204,20 @@ export function sessionFromJson(json: ScheduleJSONSession,roomName: string, conf
   //   })
   // }
 
-  const location: ConferenceModel.MiniLocation = {
-    id: mkId(roomName),
-    label_en: roomName,
-    label_de: roomName,
+  let location: ConferenceModel.MiniLocation | undefined 
+  if (fullLocation) {
+    location = {
+      id: fullLocation.id,
+      label_en: fullLocation.label_en,
+      label_de: fullLocation.label_de,
+    }
+  } else if (roomName) {
+    console.warn(`WARNING: Unknown room with name: '${roomName}'`)
+    location = {
+      id: mkId(roomName),
+      label_en: roomName,
+      label_de: roomName,
+    }
   }
 
   const result: ConferenceModel.Session = {
@@ -181,20 +238,19 @@ export function sessionFromJson(json: ScheduleJSONSession,roomName: string, conf
     enclosures: [],
     links,
   }
- 
+
   return result;
 }
 
 function miniSpeakerFromPerson(json: ScheduleJSONPerson): ConferenceModel.MiniSpeaker | null {
   const id = json.guid ?? json.code;
   if (!id) return null;
-  
+
   return {
     id,
     name: json.public_name
   };
 }
-
 
 interface SpeakersJSONData {
   schedule_speakers: {
@@ -211,15 +267,15 @@ interface SpeakerJSONData {
   public_name: string // "@cyanpencil (Luca Di Bartolomeo)",
   abstract: string | null, // null,
   description: string | null, // null,
-  links: {title: string, url: string}[],
+  links: { title: string, url: string }[],
   events: {
-      guid: string // "f68ec6e2-72ce-4f8a-bc14-af174fdae140",
-      id: number // 12254,
-      title: string // "ARMore: Pushing Love Back Into Binaries",
-      logo: string // "/system/events/logos/000/012/254/large/heart.png?1699741296",
-      type: string // "lecture"
+    guid: string // "f68ec6e2-72ce-4f8a-bc14-af174fdae140",
+    id: number // 12254,
+    title: string // "ARMore: Pushing Love Back Into Binaries",
+    logo: string // "/system/events/logos/000/012/254/large/heart.png?1699741296",
+    type: string // "lecture"
   }[]
-  
+
 }
 
 export function speakersFromJson(data: SpeakersJSONData, config: ScheduleJSONDataSourceFormat): ConferenceModel.Speaker[] {
@@ -284,4 +340,3 @@ function speakerFromJson(data: SpeakerJSONData, config: ScheduleJSONDataSourceFo
 
   return result;
 }
-
