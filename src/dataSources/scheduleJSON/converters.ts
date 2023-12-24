@@ -36,6 +36,7 @@ export interface ScheduleJSONSession {
   persons?: ScheduleJSONPerson[],
   feedback_url?: string
   links?: { url: string, title: string }[]
+  do_not_record?: boolean
 }
 
 export interface ScheduleJSONDay {
@@ -235,6 +236,18 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     }
   }
 
+  let will_be_recorded: boolean | undefined
+
+  if (config.voc?.recordedLocationIds && location?.id) {
+    if (config.voc?.recordedLocationIds.includes(location?.id)) {
+      will_be_recorded = true
+    }
+  }
+
+  if (json.do_not_record === true) {
+    will_be_recorded = false
+  }
+
   const result: ConferenceModel.Session = {
     id: json.guid,
     type: "session",
@@ -254,6 +267,7 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     enclosures: [],
     links,
     subconference: subconference ? subconference : undefined,
+    will_be_recorded,
   }
 
   return result;

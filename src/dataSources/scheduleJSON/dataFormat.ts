@@ -38,6 +38,10 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
     liveStreamApiUrl?: string;
     /** Enable use of voc relive streams if the processing is not yet done */
     useReliveRecordings?: boolean;
+
+    /** will be recorded will be set to `true` for any session where the location is 
+     *  one of these IDs (Unless `do_not_record` is `true` for the session) */
+    recordedLocationIds?: string[];
   };
 
   /** Slug of the the assembly not considered a subconference (e.g. "ccc") */

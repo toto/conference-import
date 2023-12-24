@@ -103,8 +103,12 @@
       "eventId": "37c3",
       "scheduleURL": "https://fahrplan.events.ccc.de/congress/2023/fahrplan/schedule.json",
       "voc": {
-        "slug": "37c3"
-      },     
+        "slug": "37c3",
+        "recordedLocationIds": [
+          "ba692ba3-421b-5371-8309-60acc34a3c05",
+          "7202df07-050c-552f-8318-992f94e40ef0",
+          "62251a07-13e4-5a72-bb3c-8528416ee0f2"]
+      },
       "mainConferenceAssemblySlug": "ccc",
       "defaultTrack": {
         "id": "congress",
