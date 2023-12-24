@@ -17,10 +17,10 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
   /** subconference id */
   subconferenceId?: string;
 
-  
   /** URL of schedule JSON */
   scheduleURL: string;
 
+  /** Use only if speakers.json should be used to source the speakers */
   speakers?: {
     /** Optional URL of speakers JSON */
     jsonURL: string, 
