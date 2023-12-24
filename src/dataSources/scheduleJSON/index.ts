@@ -3,7 +3,7 @@ import { SourceData } from "../../importer/sourceData";
 import * as ConferenceModel from "../../models";
 import { DataSourceFormat } from "../dataSource";
 import { ScheduleJSONDataSourceFormat, isScheduleJSONDataSourceFormat } from "./dataFormat";
-import { locationsFromJSON, sessionsFromJson, speakersFromJson, speakersFromSessionJson, tracksFromJson } from "./converters";
+import { locationsFromJSON, sessionsFromJson, speakersFromJson, speakersFromSessionJson, subsconferencesFromSessionJson, tracksFromJson } from "./converters";
 import { loadVocLiveStreams, addLiveStreamEnclosures, VocLiveMediaType, VocLiveStreamType } from "../voc-live";
 import { addRecordingEnclosues, addReliveEnclosures } from "../voc-vod";
 
@@ -33,10 +33,18 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     speakers = sessionsResult.speakers;
     result.tracks = sessionsResult.tracks;
     result.locations = sessionsResult.locations;
+    
     if (source.speakers) {
       // TODO: Merge the speakers with the previous ones
       speakers = await speakersFromSpeakersJSON(source)
     }
+
+    // dedupe subconferences
+    const subconferencesMap: Map<string, ConferenceModel.Subconference> = new Map();
+    subconferences.forEach(s => subconferencesMap.set(s.id, s)) 
+    sessionsResult.subconferences.forEach(s => subconferencesMap.set(s.id, s))
+
+    result.subconferences = Array.from(subconferencesMap.values())  
   } catch (error) {
     console.error(`ScheduleJSON: Could not load data: ${error}`)
   }
@@ -63,6 +71,7 @@ interface SessionsDataResult {
   tracks: ConferenceModel.Track[]
   locations: ConferenceModel.Location[]
   speakers: ConferenceModel.Speaker[]
+  subconferences: ConferenceModel.Subconference[]
 }
 
 async function sessionsFromSchedule(config: ScheduleJSONDataSourceFormat): Promise<SessionsDataResult> {
@@ -71,7 +80,8 @@ async function sessionsFromSchedule(config: ScheduleJSONDataSourceFormat): Promi
   const sessions = sessionsFromJson(response.data, locations, config);
   const tracks = tracksFromJson(response.data, config);
   const speakers = speakersFromSessionJson(response.data, config);
-  return { sessions, tracks, locations, speakers };
+  const subconferences = subsconferencesFromSessionJson(response.data, config);
+  return { sessions, tracks, locations, speakers, subconferences };
 }
 
 async function speakersFromSpeakersJSON(config: ScheduleJSONDataSourceFormat): Promise<ConferenceModel.Speaker[]> {

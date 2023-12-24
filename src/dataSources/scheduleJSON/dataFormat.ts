@@ -39,4 +39,7 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
     /** Enable use of voc relive streams if the processing is not yet done */
     useReliveRecordings?: boolean;
   };
+
+  /** Slug of the the assembly not considered a subconference (e.g. "ccc") */
+  mainConferenceAssemblySlug?: string;
 }

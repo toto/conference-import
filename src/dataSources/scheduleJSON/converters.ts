@@ -9,6 +9,7 @@ export interface ScheduleJSONPerson {
   guid?: string
   code?: string
   name: string
+  url?: string | null
   public_name?: string
   avatar_url?: string
   avatar?: string | null
@@ -140,13 +141,23 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
 
   const { conference } = data.schedule;
 
+  const { subconferences, locationIdToSubconferenceId  } = subsconferencesAndLocationIdMapFromSessionJson(data, config);
+
   for (const day of conference.days) {
     for (const roomName in day.rooms) {
       if (Object.prototype.hasOwnProperty.call(day.rooms, roomName)) {
         const sessions = day.rooms[roomName];
         for (const session of sessions) {
           const location = locations.find(l => l.label_en === roomName) ?? null;
-          const parsedSession = sessionFromJson(session, location, location !== null ? roomName : null, config);
+          let subconference: ConferenceModel.Subconference | null = null
+          if (location) {
+            const subconferenceId = locationIdToSubconferenceId.get(location.id)
+            if (subconferenceId) {
+              subconference = subconferences.find(s => s.id === subconferenceId) ?? null
+            }
+          }
+
+          const parsedSession = sessionFromJson(session, location, location !== null ? roomName : null, subconference, config);
           if (parsedSession) {
             result.push(parsedSession);
           }
@@ -159,7 +170,7 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
 }
 
 // NOTE: roomName is only set if fullLocation is null
-export function sessionFromJson(json: ScheduleJSONSession, fullLocation: ConferenceModel.Location | null, roomName: string | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
+export function sessionFromJson(json: ScheduleJSONSession, fullLocation: ConferenceModel.Location | null, roomName: string | null, subconference: ConferenceModel.Subconference | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
   let track = config.defaultTrack
   if (json.track) {
     track = {
@@ -241,6 +252,7 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     speakers: json.persons?.map(p => miniSpeakerFromPerson(p)).filter(p => p != null) as ConferenceModel.MiniSpeaker[] ?? [],
     enclosures: [],
     links,
+    subconference: subconference ? subconference : undefined,
   }
 
   return result;
@@ -275,10 +287,13 @@ export function speakersFromSessionJson(json: ScheduleJSONData, config: Schedule
             const id = person.guid ?? person.code
             if (!id) continue;
             const speaker = result.get(id)
+
+            // for existing speakers just update the session list
             if (speaker) {
-              // for existing speakers just update the session list
               speaker.sessions.push(miniSession);
+
             } else {
+
               const links: ConferenceModel.Link[] = (person.links ?? []).map(l => {
                 return {
                   url: l.url,
@@ -287,13 +302,17 @@ export function speakersFromSessionJson(json: ScheduleJSONData, config: Schedule
                   service: 'web'
                 }
               });
+
+              const url: string | null = person.url ?? null;
+
+              // TODO: Possibly add URL
               const speaker: ConferenceModel.Speaker = {
                 id,
                 name: person.name,
                 type: 'speaker',
                 event: config.eventId,
                 photo: person.avatar_url,
-                url: null,
+                url,
                 biography: person.biography ?? undefined,
                 links,
                 sessions: [miniSession],
@@ -310,6 +329,40 @@ export function speakersFromSessionJson(json: ScheduleJSONData, config: Schedule
 
   return Array.from(result.values());
 }
+
+export function subsconferencesAndLocationIdMapFromSessionJson(data: ScheduleJSONData, config: ScheduleJSONDataSourceFormat): {subconferences: ConferenceModel.Subconference[], locationIdToSubconferenceId: Map<string, string>} {
+  const locationIdToSubconferenceId: Map<string, string> = new Map()
+
+  if (!data.schedule.conference.rooms) return { subconferences: [], locationIdToSubconferenceId };
+
+  const result: Map<string, ConferenceModel.Subconference> = new Map();
+
+  for (const room of data.schedule.conference.rooms) {
+    const { assembly } = room;
+    if (assembly.slug === config.mainConferenceAssemblySlug) continue;
+
+    locationIdToSubconferenceId.set(room.guid, assembly.slug);
+
+    result.set(assembly.slug, {
+      type: 'subconference',
+      id: assembly.slug,
+      label: assembly.name,
+      event: config.eventId,
+    })
+  }
+
+  return {
+    subconferences: Array.from(result.values()),
+    locationIdToSubconferenceId,
+  };
+}
+
+export function subsconferencesFromSessionJson(data: ScheduleJSONData, config: ScheduleJSONDataSourceFormat): ConferenceModel.Subconference[] {
+  const { subconferences } = subsconferencesAndLocationIdMapFromSessionJson(data, config)
+  return subconferences;
+}
+
+
 
 /** Speaker json */
 

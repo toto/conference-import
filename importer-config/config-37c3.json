@@ -43,16 +43,7 @@
       "date": "2023-12-30"
     }
   ],
-  "subconferences": [
-    {
-      "id": "haecksen",
-      "label": "Haecksen"
-    },
-    {
-      "id": "sos",
-      "label": "Self-organized session"
-    }
-  ],
+  "subconferences": [],
   "sources": [
     {
       "format": "halfnarp",
@@ -114,6 +105,7 @@
       "voc": {
         "slug": "37c3"
       },     
+      "mainConferenceAssemblySlug": "ccc",
       "defaultTrack": {
         "id": "congress",
         "label_en": "Congress",
