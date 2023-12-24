@@ -3,7 +3,7 @@ import { SourceData } from "../../importer/sourceData";
 import * as ConferenceModel from "../../models";
 import { DataSourceFormat } from "../dataSource";
 import { ScheduleJSONDataSourceFormat, isScheduleJSONDataSourceFormat } from "./dataFormat";
-import { locationsFromJSON, sessionsFromJson, speakersFromJson, tracksFromJson } from "./converters";
+import { locationsFromJSON, sessionsFromJson, speakersFromJson, speakersFromSessionJson, tracksFromJson } from "./converters";
 import { loadVocLiveStreams, addLiveStreamEnclosures, VocLiveMediaType, VocLiveStreamType } from "../voc-live";
 import { addRecordingEnclosues, addReliveEnclosures } from "../voc-vod";
 
@@ -30,9 +30,13 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   try {
     const sessionsResult = await sessionsFromSchedule(source)
     sessions = sessionsResult.sessions;
+    speakers = sessionsResult.speakers;
     result.tracks = sessionsResult.tracks;
     result.locations = sessionsResult.locations;
-    speakers = await speakersFromSpeakersJSON(source)
+    if (source.speakers) {
+      // TODO: Merge the speakers with the previous ones
+      speakers = await speakersFromSpeakersJSON(source)
+    }
   } catch (error) {
     console.error(`ScheduleJSON: Could not load data: ${error}`)
   }
@@ -58,6 +62,7 @@ interface SessionsDataResult {
   sessions: ConferenceModel.Session[]
   tracks: ConferenceModel.Track[]
   locations: ConferenceModel.Location[]
+  speakers: ConferenceModel.Speaker[]
 }
 
 async function sessionsFromSchedule(config: ScheduleJSONDataSourceFormat): Promise<SessionsDataResult> {
@@ -65,7 +70,8 @@ async function sessionsFromSchedule(config: ScheduleJSONDataSourceFormat): Promi
   const { locations } = locationsFromJSON(response.data, config)
   const sessions = sessionsFromJson(response.data, locations, config);
   const tracks = tracksFromJson(response.data, config);
-  return { sessions, tracks, locations };
+  const speakers = speakersFromSessionJson(response.data, config);
+  return { sessions, tracks, locations, speakers };
 }
 
 async function speakersFromSpeakersJSON(config: ScheduleJSONDataSourceFormat): Promise<ConferenceModel.Speaker[]> {

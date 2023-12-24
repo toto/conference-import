@@ -9,7 +9,11 @@ export interface ScheduleJSONPerson {
   guid?: string
   code?: string
   name: string
-  public_name: string
+  public_name?: string
+  avatar_url?: string
+  avatar?: string | null
+  biography?: string | null
+  links?: { url: string, title: string }[]
 }
 
 export interface ScheduleJSONSession {
@@ -248,9 +252,66 @@ function miniSpeakerFromPerson(json: ScheduleJSONPerson): ConferenceModel.MiniSp
 
   return {
     id,
-    name: json.public_name
+    name: json.name ?? json.public_name,
   };
 }
+
+export function speakersFromSessionJson(json: ScheduleJSONData, config: ScheduleJSONDataSourceFormat): ConferenceModel.Speaker[] {
+  const result: Map<string, ConferenceModel.Speaker> = new Map();
+
+  const { conference } = json.schedule;
+
+  for (const day of conference.days) {
+    for (const roomName in day.rooms) {
+      if (Object.prototype.hasOwnProperty.call(day.rooms, roomName)) {
+        const sessions = day.rooms[roomName];
+        for (const session of sessions) {
+          const miniSession: ConferenceModel.MiniSession = {
+            id: session.guid,
+            title: session.title
+          }  
+
+          for (const person of session.persons ?? []) {
+            const id = person.guid ?? person.code
+            if (!id) continue;
+            const speaker = result.get(id)
+            if (speaker) {
+              // for existing speakers just update the session list
+              speaker.sessions.push(miniSession);
+            } else {
+              const links: ConferenceModel.Link[] = (person.links ?? []).map(l => {
+                return {
+                  url: l.url,
+                  type: 'speaker-link',
+                  title: l.title,
+                  service: 'web'
+                }
+              });
+              const speaker: ConferenceModel.Speaker = {
+                id,
+                name: person.name,
+                type: 'speaker',
+                event: config.eventId,
+                photo: person.avatar_url,
+                url: null,
+                biography: person.biography ?? undefined,
+                links,
+                sessions: [miniSession],
+                organization: undefined,
+                position: undefined
+              }
+              result.set(id, speaker)
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return Array.from(result.values());
+}
+
+/** Speaker json */
 
 interface SpeakersJSONData {
   schedule_speakers: {
@@ -264,7 +325,7 @@ interface SpeakerJSONData {
   id: number // 19378,
   image: string | null, // null,
   name: string // "@cyanpencil (Luca Di Bartolomeo)",
-  public_name: string // "@cyanpencil (Luca Di Bartolomeo)",
+  public_name?: string // "@cyanpencil (Luca Di Bartolomeo)",
   abstract: string | null, // null,
   description: string | null, // null,
   links: { title: string, url: string }[],
@@ -326,7 +387,7 @@ function speakerFromJson(data: SpeakerJSONData, config: ScheduleJSONDataSourceFo
 
   const result: ConferenceModel.Speaker = {
     id: data.guid,
-    name: data.public_name,
+    name: data.public_name ?? data.name,
     type: 'speaker',
     event: config.eventId,
     photo: data.image ? `${config.speakers?.imageBaseURL}${data.image}` : undefined,

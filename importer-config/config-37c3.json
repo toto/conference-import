@@ -111,10 +111,6 @@
       "disabled": false,
       "eventId": "37c3",
       "scheduleURL": "https://fahrplan.events.ccc.de/congress/2023/fahrplan/schedule.json",
-      "speakers": {
-        "jsonURL": "https://fahrplan.events.ccc.de/congress/2023/fahrplan/speakers.json",
-        "imageBaseURL": "https://frab.cccv.de"
-      },
       "voc": {
         "slug": "37c3"
       },     
