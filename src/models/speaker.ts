@@ -1,3 +1,4 @@
+import { TextFormat } from './basic';
 import { Link } from './link';
 import { MiniSession } from './session';
 
@@ -9,11 +10,12 @@ export interface MiniSpeaker {
 export interface Speaker extends MiniSpeaker {
   type: string
   event: string
-  photo: string | undefined
+  photo?: string
   url: string | null
-  organization: string | undefined
-  position: string | undefined
-  biography: string | undefined
+  organization?: string
+  position?: string
+  biography?: string
+  biography_format?: TextFormat
   links: Link[]
   sessions: MiniSession[]
 }
