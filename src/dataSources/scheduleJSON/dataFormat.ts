@@ -44,6 +44,14 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
     recordedLocationIds?: string[];
   };
 
+  /** Config for c3nav link integration */
+  c3nav?: {
+    /** Base Url prefix like `https://37c3.c3nav.de/l/` */
+    baseUrl: string;
+    /** Set location id to c3nav slug (which is not the room slug) */
+    locationIdToNavSlug: Record<string, string>;
+  };
+
   /** Slug of the the assembly not considered a subconference (e.g. "ccc") */
   mainConferenceAssemblySlug?: string;
 }

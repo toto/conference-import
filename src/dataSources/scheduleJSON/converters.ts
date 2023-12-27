@@ -2,7 +2,7 @@ import * as moment from 'moment-timezone';
 import * as ConferenceModel from "../../models";
 import { English, languageFromIsoCode } from "../rp/language";
 import { colorArrayFromHex, mkId } from "../util";
-import { ScheduleJSONDataSourceFormat } from "./dataFormat";
+import type { ScheduleJSONDataSourceFormat } from "./dataFormat";
 
 export interface ScheduleJSONPerson {
   id: number
@@ -198,28 +198,6 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     end.add(minutes, 'm');
   }
 
-  const links: ConferenceModel.Link[] = [];
-
-  if (json.links) {
-    for (const link of json.links) {
-      links.push({
-        url: link.url,
-        type: "session-link",
-        title: link.title,
-        service: 'web'
-      })
-    }
-  }
-
-  // if (json.feedback_url) {
-  //   links.push({
-  //     url: json.feedback_url,
-  //     type: 'feedback-link',
-  //     title: `Session feedback`,
-  //     service: 'web'
-  //   })
-  // }
-
   let location: ConferenceModel.MiniLocation | undefined 
   if (fullLocation) {
     location = {
@@ -235,6 +213,42 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
       label_de: roomName,
     }
   }
+
+  const links: ConferenceModel.Link[] = [];
+
+  if (json.links) {
+    for (const link of json.links) {
+      links.push({
+        url: link.url,
+        type: "session-link",
+        title: link.title,
+        service: 'web'
+      })
+    }
+  }
+
+  if (json.feedback_url) {
+    links.push({
+      url: json.feedback_url,
+      type: 'feedback-link',
+      title: `Session feedback`,
+      service: 'web'
+    })
+  }
+
+  if (config.c3nav && location) {
+    const { baseUrl, locationIdToNavSlug } = config.c3nav;
+    const slug = locationIdToNavSlug[location.id];
+    if (slug && location?.label_en) {
+      links.unshift({
+        url: `${baseUrl}${slug}/`,
+        type: "session-link",
+        title: `C3Nav: ${location.label_en}`,
+        service: "web",
+      })
+    }
+  }
+
 
   let will_be_recorded: boolean | undefined
 
