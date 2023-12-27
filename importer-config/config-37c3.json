@@ -192,7 +192,7 @@
       "37c3-sustainability": [0,132,176,1]
     },
     "timezone": "Europe/Berlin",
-    "hourOfDayChange": 4,
+    "hourOfDayChange": 6,
     "nonStageLocationIds": [],
     "poiSources": [
     ],
