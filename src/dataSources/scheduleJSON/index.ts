@@ -47,6 +47,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     result.subconferences = Array.from(subconferencesMap.values())  
   } catch (error) {
     console.error(`ScheduleJSON: Could not load data: ${error}`)
+    throw new Error(`ScheduleJSON: Could not load data due to source error. Refusing to import empty data.`)
   }
 
   result.sessions = sessions;
