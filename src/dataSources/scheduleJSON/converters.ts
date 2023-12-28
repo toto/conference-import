@@ -227,14 +227,14 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     }
   }
 
-  // if (json.feedback_url) {
-  //   links.push({
-  //     url: json.feedback_url,
-  //     type: 'feedback-link',
-  //     title: `Session feedback`,
-  //     service: 'web'
-  //   })
-  // }
+  if (json.feedback_url) {
+    links.push({
+      url: json.feedback_url,
+      type: 'feedback-link',
+      title: `Session feedback`,
+      service: 'web'
+    })
+  }
 
   if (config.c3nav && location) {
     const { baseUrl, locationIdToNavSlug } = config.c3nav;
