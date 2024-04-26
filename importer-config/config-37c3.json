@@ -1,0 +1,204 @@
+{
+  "event": {
+    "id": "37c3",
+    "label": "37C3",
+    "title": "37th Chaos Communication Congress",
+    "date": [
+      "2023-12-27",
+      "2023-12-30"
+    ],
+    "locations": [
+      {
+        "label": "Congress Center Hamburg",
+        "coords": [53.561583, 9.985683],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "37C3",
+    "url": "https://events.ccc.de/congress/2023/"
+  },
+  "days": [
+    {
+      "id": "2023-12-27",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2023-12-27"
+    },
+    {
+      "id": "2023-12-28",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2023-12-28"
+    },
+    {
+      "id": "2023-12-29",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2023-12-29"
+    },
+    {
+      "id": "2023-12-30",
+      "label_de": "Tag 4",
+      "label_en": "Day 4",
+      "date": "2023-12-30"
+    }
+  ],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "halfnarp",
+      "eventId": "37c3",
+      "disabled": true,
+      "timezone": "Europe/Berlin",
+      "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
+      "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2023/Fahrplan/events/",
+      "speakerBaseUrl": "https://fahrplan.events.ccc.de/camp/2023/Fahrplan/speakers/",
+      "defaultTrack": { "id": "track", "event": "37c3", "label_en": "Some Track", "color": [0, 0, 0, 1] },
+      "defaultLanguageCode": "de",
+      "tracks": 
+      [
+        {"id": "37c3-ccc",            "color": [77,77,76 ,1], "label_de": "CCC", "label_en": "CCC"},
+        {"id": "37c3-entertainment",  "color": [77,77,76 ,1], "label_de": "Entertainment", "label_en": "Entertainment"},
+        {"id": "37c3-ethics-society-politics",            "color": [228,4,41 ,1], "label_de": "Ethics, Society & Politics", "label_en": "Ethics, Society & Politics"},
+        {"id": "37c3-security",       "color": [24,56,107,1], "label_de": "Security", "label_en": "Security"},
+        {"id": "37c3-art-culture",    "color": [249,176,0,1], "label_de": "Art & Culture", "label_en": "Art & Culture"},
+        {"id": "37c3-science",        "color": [0,163,86 ,1], "label_de": "Science", "label_en": "Science"},
+        {"id": "37c3-hardware",       "color": [68,53,126,1], "label_de": "Hardware", "label_en": "Hardware"},
+        {"id": "37c3-sustainability", "color": [0,132,176,1], "label_de": "Sustainability", "label_en": "Sustainability"}
+      ],
+      "trackIdMap": {
+        "378": "37c3-ccc",
+        "379": "37c3-entertainment",
+        "382": "37c3-ethics-society-politics",
+        "381": "37c3-security",
+        "376": "37c3-art-culture",
+        "380": "37c3-science",
+        "377": "37c3-hardware",
+        "383": "37c3-sustainability"
+      }
+    },
+    {
+      "format": "c3hub",
+      "disabled": true,
+      "eventId": "37c3",
+      "apiBaseUrl": "https://events.ccc.de/congress/2023/hub/api/",
+      "apiEventId": "37c3",
+      "webSessionBaseUrl": "https://events.ccc.de/congress/2023/hub/37c3/de/event/",
+      "includedKinds": ["sos"],
+      "defaultTrack": {
+        "id": "congress",
+        "label_en": "Congress",
+        "label_de": "Congress",
+        "color": [
+          251,
+          72,
+          196,
+          1
+        ]
+      }
+    },
+    {
+      "format": "scheduleJSON",
+      "disabled": false,
+      "eventId": "37c3",
+      "scheduleURL": "https://fahrplan.events.ccc.de/congress/2023/fahrplan/schedule.json",
+      "voc": {
+        "slug": "37c3",
+        "recordedLocationIds": [
+          "ba692ba3-421b-5371-8309-60acc34a3c05",
+          "7202df07-050c-552f-8318-992f94e40ef0",
+          "62251a07-13e4-5a72-bb3c-8528416ee0f2"]
+      },
+      "c3nav": {
+        "baseUrl": "https://37c3.c3nav.de/l/",
+        "locationIdToNavSlug": {
+          "ba692ba3-421b-5371-8309-60acc34a3c05": "hall-1",
+          "7202df07-050c-552f-8318-992f94e40ef0": "hg",
+          "62251a07-13e4-5a72-bb3c-8528416ee0f2": "hz",
+          "10e6a40c-3b85-4df0-9731-af511d818fad": "hall-e",
+          "e58b284a-d3e6-42cc-be2b-7e02c791bf95": "sos-y",
+          "53f436a0-705b-40eb-974f-2bfce8857b1b": "sos-h",
+          "8f182db3-241a-4809-8633-b85b9054ceb7": "hall-d",
+          "84b99bf3-1727-44e3-811e-8b130153a30d": "bitsundbaeume-aboutfreedom",
+          "ae1d2469-2639-46dc-b21b-809ab14badae": "lounge",
+          "85a6ba5d-11d9-4efe-8d28-c5f7165a19ce": "hall-f",
+          "5dc69a77-16d0-4a94-8f18-7c563ecf13db": "chill-lounge",
+          "18d442e5-de5e-4e40-b3d5-90ad724f9a9e": "rationality",
+          "a27fcab0-d25f-466a-968d-0e86df84aa79": "houseoftea",
+          "8e75cfa3-c555-4eb2-b3ba-a723450a1f4b": "chaoszone",
+          "f354f5c6-6a24-41e6-b403-9366eeab120f": "sendezentrum",
+          "bccb6a5b-b26b-4f17-90b9-b5966f5e34d8": "chaoswelle",
+          "b44cdf40-93b6-4581-92b5-7e8a543f8f62": "hall-b",
+          "321c70d7-8bad-47f6-b8f2-fbfb3425d1d": "stonewall-io",
+          "613f9c5e-1908-4e7f-934b-639a5262df94": "bitsundbaeume-aboutfreedom",
+          "d7b3bd0b-8db7-49c1-88ef-8ad8d683a40a": "fau",
+          "00c8f3bc-af5b-4cd8-a781-956834f4044c": "cdc",
+          "e7d701c4-c43a-416d-afc5-a3bcbc5801e9": "cdc",
+          "a88bed8d-f38b-4ea2-b11d-99ba14027cc9": "scc",
+          "afd7c493-534b-4de4-88ba-c1508efc0565": "art-play",
+          "722e1feb-6d34-4423-b07a-6f0f50e5d2a3": "ctbk",
+          "b55047fa-505a-42da-8699-ab5ee803e58c": "sendezentrum",
+          "25f73c1f-ab5c-4222-8d26-cf4609fd3a66": "openlabopenlabaugsburg"
+        }
+      },
+      "mainConferenceAssemblySlug": "ccc",
+      "defaultTrack": {
+        "id": "congress",
+        "label_en": "Congress",
+        "label_de": "Congress",
+        "color": [
+          251,
+          72,
+          196,
+          1
+        ]
+      }
+    }
+  ],
+  "livestreams": [],
+  "options": { 
+    "locationIdOrder": [
+      "saal-1",
+      "saal-grace",
+      "saal-zuse",            
+      "saal-e",
+      "saal-d",      
+      "house",
+      "chaoswelle",
+      "fireshonks",
+      "workshop",
+      "sendezentrum-podcast-tisch",
+      "assembly",
+      "stonewall-io",
+      "chaospat-innen-assembly-space",
+      "catonium",
+      "pentatent",
+      "lw-meetup-room"
+    ],
+    "defaultColor": [
+      251,
+      72,
+      196,
+      1
+    ],
+    "colorForTrack": {
+      "37c3-ccc": [77,77,76 ,1],
+      "37c3-entertainment": [77,77,76 ,1],
+      "37c3-ethics-society-politics": [228,4,41 ,1],
+      "37c3-security": [24,56,107,1],
+      "37c3-art-culture": [249,176,0,1],
+      "37c3-science": [0,163,86 ,1],
+      "37c3-hardware": [68,53,126,1],
+      "37c3-sustainability": [0,132,176,1]
+    },
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 6,
+    "nonStageLocationIds": [],
+    "poiSources": [
+    ],
+    "fakeVideos": {},
+    "minimumSessionDurationMinutes": 15,
+    "maximumSessionDurationMinutes": 720,
+    "recommendationsSource": "https://data.conference.systems/BC12099A/37c3-recommendations.json"
+  }
+}

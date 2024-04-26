@@ -18,7 +18,7 @@ const spakers = speakersFromJson(parsedJson, {
   format: "pretalx",
   eventId: "35c3",
   timezone: 'Europe/Berlin',
-  baseUrl: "https://example.com",
+  baseUrl: "https://example.com/",
   conferenceCode: "35c3oic",
   defaultTrack: { id: "track", event: "35c3", label_en: "Some Track", color: [0, 0, 0, 1], type: "track" },
   defaultLanguageCode: 'de',

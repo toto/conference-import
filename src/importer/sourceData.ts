@@ -9,4 +9,5 @@ export interface SourceData {
   maps: ConferenceModel.Map[]
   pois: ConferenceModel.POI[]
   tracks?: ConferenceModel.Track[]
+  locations?: ConferenceModel.Location[]
 }

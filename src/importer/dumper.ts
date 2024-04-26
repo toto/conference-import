@@ -8,6 +8,7 @@ import * as pretalx from "./../dataSources/pretalx";
 import * as frab from "./../dataSources/frab";
 import * as halfnarp from "./../dataSources/halfnarp";
 import * as c3hub from "./../dataSources/c3hub";
+import * as scheduleJSON from "./../dataSources/scheduleJSON";
 import { processData, ConferenceData, Color } from './importer';
 import { linkFrom, LiveStream, enclosureFrom } from "../dataSources/stream";
 
@@ -31,8 +32,10 @@ export interface Configuration {
 
 export async function dumpNormalizedConference(configuration: Configuration, destinationFile: string) {
   let { days, subconferences } = configuration;
-  const { event, options, sources } = configuration;
-
+  const { event, options } = configuration;
+  let { sources } = configuration;
+  // Ignore all disabled sources
+  sources = sources.filter(s => !(s.disabled ?? false))
   event.type = "event";
   days = days.map(day => {
     day.type = 'day';
@@ -62,7 +65,7 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
     result.locations = result.locations.concat(locations);
-    if (maps) result.maps = result.maps!.concat(maps);
+    if (maps) result.maps = (result.maps ?? []).concat(maps);
     result.subconferences = result.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
     if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
@@ -74,7 +77,7 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     result.speakers = result.speakers.concat(speakers);
     result.tracks = result.tracks.concat(tracks);
     result.locations = result.locations.concat(locations);
-    if (maps) result.maps = result.maps!.concat(maps);
+    if (maps) result.maps = (result.maps ?? []).concat(maps);
     result.subconferences = result.subconferences.concat(subconferences);
     if (result.pois && pois) result.pois = result.pois.concat(pois);
   });  
@@ -88,7 +91,7 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     result.locations = result.locations.concat(locations);
     // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
     result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
-    if (maps) result.maps = result.maps!.concat(maps);
+    if (maps) result.maps = (result.maps ?? []).concat(maps);
     if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
   const pretalxData = await pretalx.sourceData(event, days, subconferences, sources);
@@ -101,7 +104,7 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     result.locations = result.locations.concat(locations);
     // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
     result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
-    if (maps) result.maps = result.maps!.concat(maps);
+    if (maps) result.maps = (result.maps ?? []).concat(maps);
     if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
   const frabData = await frab.sourceData(event, days, subconferences, sources);
@@ -114,7 +117,7 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     result.locations = result.locations.concat(locations);
     // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
     result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
-    if (maps) result.maps = result.maps!.concat(maps);
+    if (maps) result.maps = (result.maps ?? []).concat(maps);
     if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
 
@@ -128,7 +131,7 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     result.locations = result.locations.concat(locations);
     // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
     result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
-    if (maps) result.maps = result.maps!.concat(maps);
+    if (maps) result.maps = (result.maps ?? []).concat(maps);
     if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
 
@@ -141,10 +144,24 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     result.tracks = result.tracks.concat(tracks);
     result.locations = result.locations.concat(locations);
     // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
-    result.subconferences = data.subconferences.filter(s => !subconferences.map(subconference => subconference.id).includes(s.id));
-    if (maps) result.maps = result.maps!.concat(maps);
+    result.subconferences = (result.subconferences ?? []).concat(data.subconferences ?? [])
+    if (maps) result.maps = (result.maps ?? []).concat(maps);
     if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
+
+  const scheduleJSONData = await scheduleJSON.sourceData(event, days, subconferences, sources);
+  await asyncForEach(scheduleJSONData, async data => {
+    if (data.sessions.length === 0) return;
+    const { sessions, speakers, maps, tracks, locations, pois, subconferences } = await processData(data, options);
+    result.sessions = result.sessions.concat(sessions);
+    result.speakers = result.speakers.concat(speakers);
+    result.tracks = result.tracks.concat(tracks);
+    result.locations = result.locations.concat(locations);
+    // result.days = data.days.filter(d => !days.map(day => day.id).includes(d.id));
+    result.subconferences = (result.subconferences ?? []).concat(subconferences ?? [])
+    if (maps) result.maps = (result.maps ?? []).concat(maps);
+    if (result.pois && pois) result.pois = result.pois.concat(pois);
+  });  
 
   result.sessions.forEach(s => s.event = event.id);
   result.sessions.forEach(session => {

@@ -1,5 +1,5 @@
 import * as moment from 'moment-timezone';
-import { Session } from "../../models";
+import { Location, Session, Track } from "../../models";
 import { C3HubDataSourceFormat } from "./dataFormat";
 import { English } from '../rp/language';
 
@@ -51,4 +51,48 @@ export function sessionFromJson(json: C3HubScheduleEntry, config: C3HubDataSourc
   };
 
   return result;
+}
+
+
+/**
+ * Example: 
+  {
+    "conference": "19cb1ca2-706d-4c4f-bb21-04ae0c2bd6fa",
+    "slug": "art-beauty",
+    "name": "Art & Beauty",
+    "id": 3
+  },
+ */
+export interface C3HubTrackEntry {
+  conference: string
+  slug: string
+  name: string
+  id: number
+}
+
+export function tracksFromJson(json: C3HubTrackEntry[], config: C3HubDataSourceFormat): Track[] {
+  return json.map(trackData => {
+    return {
+      type: "track",
+      id: trackData.slug,
+      label_en: trackData.name,
+      label_de: trackData.name,
+      event: config.eventId,
+      color: config.defaultTrack.color,
+    }
+  });
+}
+
+export interface C3HubRoomEntry {
+  id: string
+  name: string
+  room_type: string
+  capacity?: number
+  links: string[]
+  conference: string
+  assembly: string
+}
+
+export function locationsFromJson(json: C3HubRoomEntry[], config: C3HubDataSourceFormat): Location[] {
+  return [];
 }

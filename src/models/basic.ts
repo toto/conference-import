@@ -9,6 +9,8 @@ export type Language = NamedElement;
 export type Level = NamedElement;
 export type MiniPOI = NamedElement;
 
+export type TextFormat = "plain" | "markdown";
+
 export interface Subconference {
   type: "subconference"
   id: string

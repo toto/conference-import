@@ -1,5 +1,5 @@
 import * as moment from 'moment-timezone';
-import { Subconference, Day, Level, Format, Language } from "./basic";
+import { Subconference, Day, Level, Format, Language, TextFormat } from "./basic";
 import { MiniLocation } from './location';
 import { MiniTrack } from './track';
 import { MiniSpeaker } from './speaker';
@@ -18,6 +18,7 @@ export interface Session extends MiniSession {
   subtitle?: string
   abstract: string
   description: string
+  description_format?: TextFormat
   url: string
   begin?: moment.Moment
   end?: moment.Moment
