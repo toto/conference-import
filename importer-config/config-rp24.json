@@ -1,0 +1,234 @@
+{
+  "event": {
+    "id": "rp24",
+    "label": "re:publica 24: \\“Who cares?\\”",
+    "title": "re:publica 2024",
+    "date": [
+      "2023-05-27",
+      "2023-06-29"
+    ],
+    "locations": [
+      {
+        "label": "Station Berlin",
+        "coords": [
+          52.49814,
+          13.374538
+        ],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "rp24",
+    "url": "https://re-publica.com/"
+  },
+  "days": [
+    {
+      "id": "2024-05-27",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2024-05-27"
+    },
+    {
+      "id": "2024-05-28",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2024-05-28"
+    },
+    {
+      "id": "2024-05-29",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2024-05-29"
+    }
+  ],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "rp2",
+      "dataBaseUrl": "https://re-publica.com/sites/default/files/extappdata/2024",
+      "speakerUrlPrefix": "https://re-publica.com/en/user",
+      "sessionUrlPrefix": "https://re-publica.com",
+      "defaultTrack": {
+        "id": "republica",
+        "label_en": "re:publica",
+        "label_de": "re:publica",
+        "color": [242, 251, 50, 1]
+      },
+      "trackMappings": {
+        "technology": [
+          "technologie & wissenschaft",
+          "technology & science"
+        ],
+        "learning": [
+          "lernen & wissen",
+          "learning & knowledge"
+        ],
+        "politics": [
+          "politik & gesellschaft",
+          "politics & society"
+        ],
+        "net-for-good": [
+          "net for good"
+        ],
+        "this-is-fun": [
+          "this is fun."
+        ],
+        "spheres-of-work": [
+          "arbeitswelten",
+          "spheres of work"
+        ],
+        "arts-and-culture": [
+          "kunst & kultur",
+          "arts & culture"
+        ],
+        "media": [
+          "medien",
+          "media"
+        ],
+        "urban-spaces-rural-spaces": [
+          "stadt & land",
+          "urban spaces, rural spaces"
+        ],
+        "economy-and-responsibility": [
+          "wirtschaft & verantwortung",
+          "economy & responsibility"
+        ]
+      },
+      "sessionsToVideoUrls": {},
+      "locationsToYouTubeLiveStream": {
+      },
+      "maps": [
+        {
+          "type": "map",
+          "id": "rp23-arena",
+          "event": "rp23",
+          "label_de": "Arena Berlin",
+          "label_en": "Arena Berlin",
+          "floor_label_de": "Erdgeschhoss",
+          "floor_label_en": "Ground Floor",
+          "is_outdoor": true,
+          "is_indoor": true,
+          "floor": 0,
+          "order_index": 1,
+          "area": {
+            "width": 3000.0,
+            "height": 2058.0
+          },
+          "tiles": {
+            "base_url": "https://data.conference.systems/F9F2E102",
+            "large_image_url": "https://data.conference.systems/F9F2E102/rp23_Lageplan-App.png",
+            "tile_size": 512,
+            "tile_file_extension": "png",
+            "size": {
+              "width": 3000,
+              "height": 2058
+            }
+          },
+          "pois": []
+        }
+      ]
+    }
+  ],
+  "options": {
+    "colorForTrack": {
+      "media-journalism": [
+        214,
+        0,
+        126,
+        1
+      ],
+      "research-education": [
+        232,
+        200,
+        144,
+        1
+      ],
+      "gesellschaft": [
+        255,
+        175,
+        99,
+        1
+      ],
+      "wirtschaft": [
+        132,
+        130,
+        254,
+        1
+      ],
+      "medien": [
+        255,
+        52,
+        105,
+        1
+      ],
+      "politik": [
+        120,
+        207,
+        219,
+        1
+      ],
+      "technologie": [
+        60,
+        177,
+        255,
+        1
+      ],
+      "kultur": [
+        249,
+        207,
+        63,
+        1
+      ],
+      "wissenschaft": [
+        92,
+        204,
+        255,
+        1
+      ]
+    },
+    "locationIdOrder": [
+      "1054",
+    "1055",
+    "1056",
+    "1057",
+    "1058",
+    "1062",
+    "1069", 
+    "1065", 
+    "1076", 
+    "1067", 
+    "1068", 
+    "3543", 
+    "1071", 
+    "1072", 
+    "1070", 
+    "3323", 
+    "3324", 
+    "3325", 
+    "1075", 
+    "1414", 
+    "1074", 
+    "3533", 
+    "1073", 
+    "3348", 
+    "1165", 
+    "1077", 
+    "1064", 
+    "3361", 
+    "1066", 
+    "3349", 
+    "3797",
+    "1238", 
+    "3534"
+    ],
+    "defaultColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "timezone": "Etc/UTC",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": [],
+    "recommendationsSource": "https://data.conference.systems/F9F2E102/rp23-recommendations.json"
+  }
+}
