@@ -87,7 +87,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   const deTrackTerms = term.filter(t => t.language === "de");
   tracks.forEach(track => {
     const trackNames = source.trackMappings[track.id];
-    const deTrack = deTrackTerms.find(t => trackNames.includes((t.name as string).toLowerCase()))
+    const deTrack = deTrackTerms.find(t => trackNames?.includes((t.name as string).toLowerCase()))
     if (deTrack && typeof deTrack.name === "string") {
       track.label_de = deTrack.name;
     }
