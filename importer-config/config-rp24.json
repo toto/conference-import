@@ -99,8 +99,8 @@
       "maps": [
         {
           "type": "map",
-          "id": "rp23-arena",
-          "event": "rp23",
+          "id": "rp23-arena-pdf",
+          "event": "rp24",
           "label_de": "Arena Berlin",
           "label_en": "Arena Berlin",
           "floor_label_de": "Erdgeschhoss",
@@ -113,16 +113,7 @@
             "width": 3000.0,
             "height": 2058.0
           },
-          "tiles": {
-            "base_url": "https://data.conference.systems/F9F2E102",
-            "large_image_url": "https://data.conference.systems/F9F2E102/rp23_Lageplan-App.png",
-            "tile_size": 512,
-            "tile_file_extension": "png",
-            "size": {
-              "width": 3000,
-              "height": 2058
-            }
-          },
+          "map_pdf_url": "http://bitfever.de/~toto/data/rp23map/rp23_Lageplan-App.pdf",
           "pois": []
         }
       ]
