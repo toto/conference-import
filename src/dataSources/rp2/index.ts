@@ -42,6 +42,7 @@ enum Rp2APIEndpointName {
   session = "session",
   term = "term",
   partner = "partner",
+  stage = "stage",
 } 
 
 
@@ -54,6 +55,7 @@ async function loadJsonData(baseUrl: string, auth?: axios.AxiosBasicCredentials 
     session: (await load(Rp2APIEndpointName.session)),
     term: (await load(Rp2APIEndpointName.term)),
     partner: (await load(Rp2APIEndpointName.partner)),
+    stage: (await load(Rp2APIEndpointName.stage)),
   }
 }
 
@@ -76,6 +78,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     session,
     term,
     partner,
+    stage
   } = await loadJsonData(source.dataBaseUrl, source.dataAuth);
   
   const tracks = term.map(t => trackFromApiTerm(t, {
@@ -118,7 +121,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   }
 
   result.sessions = session.map(s => {
-    const resultSession = sessionFromApiSession(s, { 
+    const resultSession = sessionFromApiSession(s, stage, { 
       eventId: event.id, 
       sessionUrlPrefix: source.sessionUrlPrefix, 
       defaultTrack: source.defaultTrack,

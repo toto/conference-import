@@ -24,7 +24,7 @@ interface Options {
   addNodeAlternateLinksToSession: boolean
 }
 
-export function sessionFromApiSession(apiSession: Rp2APIElement, options: Options): Session | null {
+export function sessionFromApiSession(apiSession: Rp2APIElement, apiRooms: Rp2APIElement[], options: Options): Session | null {
   const {
     nid,
     title,
@@ -44,6 +44,8 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
     partner,
     audio_stream
   } = apiSession;
+
+  const roomData = apiRooms.find(r => r.nid === room_nid)
 
   if (!nid || typeof nid !== "string") return null;
   if (!title || typeof title !== "string") return null;
@@ -144,14 +146,28 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
       });
   }
 
+  let linkAudioStream: Link | undefined
+  if (typeof roomData?.audio_stream === "string") {
+    linkAudioStream = {
+      url: roomData?.audio_stream,
+      type: "livestream",
+      title,
+      service: "livevoice",
+    };
+  } 
+  // Session specific audio streams override room specific ones
   if (typeof audio_stream === "string") {
-    links.push({
+    linkAudioStream = {
       url: audio_stream,
       type: "livestream",
       title,
       service: "livevoice",
-    })
+    };
   }
+
+  if (linkAudioStream) {
+    links.push(linkAudioStream)
+  }  
 
   for (const partnerName of partnerNames) {
     const partnerLink = options.partnerLinks[partnerName]
