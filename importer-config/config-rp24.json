@@ -98,25 +98,6 @@
       "locationsToYouTubeLiveStream": {
       },
       "maps": [
-        {
-          "type": "map",
-          "id": "rp23-arena-pdf",
-          "event": "rp24",
-          "label_de": "Arena Berlin",
-          "label_en": "Arena Berlin",
-          "floor_label_de": "Erdgeschhoss",
-          "floor_label_en": "Ground Floor",
-          "is_outdoor": true,
-          "is_indoor": true,
-          "floor": 0,
-          "order_index": 1,
-          "area": {
-            "width": 3000.0,
-            "height": 2058.0
-          },
-          "map_pdf_url": "http://bitfever.de/~toto/data/rp23map/rp23_Lageplan-App.pdf",
-          "pois": []
-        }
       ]
     }
   ],
