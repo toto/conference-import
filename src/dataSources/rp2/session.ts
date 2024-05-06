@@ -41,7 +41,8 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
     moderator,
     moderator_uid,
     path,
-    partner
+    partner,
+    audio_stream
   } = apiSession;
 
   if (!nid || typeof nid !== "string") return null;
@@ -141,6 +142,15 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
         title,
         service: "youtube",
       });
+  }
+
+  if (typeof audio_stream === "string") {
+    links.push({
+      url: audio_stream,
+      type: "livestream",
+      title,
+      service: "livevoice",
+    })
   }
 
   for (const partnerName of partnerNames) {
