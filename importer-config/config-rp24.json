@@ -53,6 +53,7 @@
         "label_de": "re:publica",
         "color": [242, 251, 50, 1]
       },
+      "addNodeAlternateLinksToSession": true,
       "trackMappings": {
         "technology": [
           "technologie & wissenschaft",

@@ -26,6 +26,8 @@ export interface Rp2DataSourceFormat extends DataSourceFormat {
   locationsToYouTubeLiveStream?: Record<string, string>
 
   youtubePlaylistId?: string
+  /** Adds `/de|en/node/<nid>` as `alternate-link` to each session to help universal links along */
+  addNodeAlternateLinksToSession?: boolean
 }
 
 export type Rp2APIElement = Record<string, string | Record<string, string> | Array<Record<string, string>>>
@@ -125,6 +127,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
       locationsToYouTubeLiveStream: source.locationsToYouTubeLiveStream,
       partnerLinks: partnerLinks(partner),
       youtubeRecordingLinks,
+      addNodeAlternateLinksToSession: source.addNodeAlternateLinksToSession ?? false,
     })
     if (source.sessionsToVideoUrls 
       && resultSession 

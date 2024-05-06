@@ -21,6 +21,7 @@ interface Options {
   /** Links mapping the DE and EN title to a link object */
   partnerLinks: Record<string, Link>
   youtubeRecordingLinks: Record<string, Link>
+  addNodeAlternateLinksToSession: boolean
 }
 
 export function sessionFromApiSession(apiSession: Rp2APIElement, options: Options): Session | null {
@@ -151,6 +152,18 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, options: Option
     const link = options.youtubeRecordingLinks[title];
     if (link) links.push(link)
   }
+
+  if (options.addNodeAlternateLinksToSession) {
+    ["de", "en"].forEach(lang => {
+      links.push({
+        url: `${options.sessionUrlPrefix}/${lang}/node/${nid}`,
+        type: "session-alternate",
+        title,
+        service: "web"
+      })
+    })
+  }
+  
 
   let session: Session | null = {
     id: nid,
