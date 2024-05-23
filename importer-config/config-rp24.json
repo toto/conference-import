@@ -98,6 +98,26 @@
       "locationsToYouTubeLiveStream": {
       },
       "maps": [
+        {
+          "type": "map",
+          "id": "rp24-station",
+          "event": "rp24",
+          "map_pdf_url": "https://bitfever.de/~toto/data/rp24map/pdf/rp24_Lageplan_100524.pdf",
+          "label_de": "Station Berlin",
+          "label_en": "Station Berlin",
+          "floor_label_de": "Erdgeschhoss",
+          "floor_label_en": "Ground Floor",
+          "is_outdoor": true,
+          "is_indoor": true,
+          "floor": 0,
+          "order_index": 1,
+          "area": {
+            "width": 3000.0,
+            "height": 2058.0
+          },
+          "tiles": {},
+          "pois": []
+        }
       ]
     }
   ],
