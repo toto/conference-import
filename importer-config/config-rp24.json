@@ -53,6 +53,9 @@
         "label_de": "re:publica",
         "color": [242, 251, 50, 1]
       },
+      "sessionsToVideoUrls": {
+        
+      },
       "addNodeAlternateLinksToSession": true,
       "trackMappings": {
         "technology": [
@@ -94,7 +97,6 @@
           "economy & responsibility"
         ]
       },
-      "sessionsToVideoUrls": {},
       "locationsToYouTubeLiveStream": {
       },
       "maps": [
@@ -178,7 +180,8 @@
         1
       ]
     },
-    "locationIdOrder": ["5643",
+    "locationIdOrder": 
+    ["5643",
     "5644",
     "5645",
     "5646",
@@ -199,11 +202,17 @@
     "5654",
     "5667",
     "5660",
+    "6279",
     "5801",
     "5802",
     "5661",
     "5669",
-    "5659"],
+    "5659",
+    "3349",
+    "5668",
+    "5974",
+    "6278"
+  ],
     "defaultColor": [
       0,
       0,

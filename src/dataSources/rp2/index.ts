@@ -138,7 +138,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
         resultSession.enclosures = resultSession.enclosures.concat([
           {
             url: source.sessionsToVideoUrls[resultSession.id],
-            type: "recording",
+            type: "livestream",
             title: resultSession.title,
             mimetype: "video/mp4"
           }
