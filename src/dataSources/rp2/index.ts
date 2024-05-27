@@ -24,6 +24,7 @@ export interface Rp2DataSourceFormat extends DataSourceFormat {
   sessionsToVideoUrls?: Record<string, string>
 
   locationsToYouTubeLiveStream?: Record<string, string>
+  liveStreamThumbUrl?: string
 
   youtubePlaylistId?: string
   /** Adds `/de|en/node/<nid>` as `alternate-link` to each session to help universal links along */
