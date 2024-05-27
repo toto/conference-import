@@ -141,7 +141,8 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
             url: source.sessionsToVideoUrls[resultSession.id],
             type: "livestream",
             title: resultSession.title,
-            mimetype: "video/mp4"
+            mimetype: "video/mp4",
+            thumbnail: source.liveStreamThumbUrl ?? undefined,
           }
         ])
     }
