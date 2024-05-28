@@ -16,11 +16,17 @@ export async function youtubeUrlByTitle(playlistId: string, prefix = "re:publica
   try {
     const res = await execAsync(`yt-dlp --flat-playlist  -J "https://www.youtube.com/watch?list=${playlistId}"`)
     stdout = res.stdout;
-    if (!stdout) return result;
+    if (!stdout) {
+      if (res.stderr) {
+        console.error(`yt-dlp failed: ${res.stderr}`)    
+      }
+      return result;
+    }
   } catch (error) {
+    console.error(`yt-dlp failed: ${error}`)
     return result;
   }
-  
+
   const parsed = JSON.parse(stdout) as Record<"entries", YouTubeUrl[]>
 
   for (const url of parsed.entries) {
