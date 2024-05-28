@@ -14,6 +14,8 @@ export async function youtubeUrlByTitle(playlistId: string, prefix = "re:publica
   let stdout: string | undefined
 
   try {
+    const which = await execAsync(`which yt-dlp`)
+    console.info(which.stdout)
     const res = await execAsync(`yt-dlp --flat-playlist  -J "https://www.youtube.com/watch?list=${playlistId}"`)
     stdout = res.stdout;
     if (!stdout) {
