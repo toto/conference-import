@@ -27,4 +27,5 @@ export interface Map {
 	area: MapSize
   tiles: MapTileConfig
   pois: string[]
+  map_pdf_url?: string
 }

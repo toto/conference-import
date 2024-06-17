@@ -158,9 +158,12 @@ export async function processData(
   // After processing the pre-set order indices are in front of the list
   // then follow the indices taken from options.locationIdOrder
   // and after that the rest is appended with a warning.
-  const maxOrderIndex = locations.reduce((prev, cur) => { 
+  let maxOrderIndex = locations.reduce((prev, cur) => { 
     return Math.max(cur.order_index, prev);
    }, 0)
+   if (Number.isNaN(maxOrderIndex)) {
+    maxOrderIndex = 0;
+   }
 
   locations.forEach((location, index) => {
     // skip existing location index

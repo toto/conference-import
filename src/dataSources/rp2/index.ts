@@ -24,8 +24,11 @@ export interface Rp2DataSourceFormat extends DataSourceFormat {
   sessionsToVideoUrls?: Record<string, string>
 
   locationsToYouTubeLiveStream?: Record<string, string>
+  liveStreamThumbUrl?: string
 
   youtubePlaylistId?: string
+  /** Adds `/de|en/node/<nid>` as `alternate-link` to each session to help universal links along */
+  addNodeAlternateLinksToSession?: boolean
 }
 
 export type Rp2APIElement = Record<string, string | Record<string, string> | Array<Record<string, string>>>
@@ -40,6 +43,7 @@ enum Rp2APIEndpointName {
   session = "session",
   term = "term",
   partner = "partner",
+  stage = "stage",
 } 
 
 
@@ -52,6 +56,7 @@ async function loadJsonData(baseUrl: string, auth?: axios.AxiosBasicCredentials 
     session: (await load(Rp2APIEndpointName.session)),
     term: (await load(Rp2APIEndpointName.term)),
     partner: (await load(Rp2APIEndpointName.partner)),
+    stage: (await load(Rp2APIEndpointName.stage)),
   }
 }
 
@@ -74,6 +79,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     session,
     term,
     partner,
+    stage
   } = await loadJsonData(source.dataBaseUrl, source.dataAuth);
   
   const tracks = term.map(t => trackFromApiTerm(t, {
@@ -87,7 +93,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   const deTrackTerms = term.filter(t => t.language === "de");
   tracks.forEach(track => {
     const trackNames = source.trackMappings[track.id];
-    const deTrack = deTrackTerms.find(t => trackNames.includes((t.name as string).toLowerCase()))
+    const deTrack = deTrackTerms.find(t => trackNames?.includes((t.name as string).toLowerCase()))
     if (deTrack && typeof deTrack.name === "string") {
       track.label_de = deTrack.name;
     }
@@ -116,7 +122,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   }
 
   result.sessions = session.map(s => {
-    const resultSession = sessionFromApiSession(s, { 
+    const resultSession = sessionFromApiSession(s, stage, { 
       eventId: event.id, 
       sessionUrlPrefix: source.sessionUrlPrefix, 
       defaultTrack: source.defaultTrack,
@@ -125,6 +131,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
       locationsToYouTubeLiveStream: source.locationsToYouTubeLiveStream,
       partnerLinks: partnerLinks(partner),
       youtubeRecordingLinks,
+      addNodeAlternateLinksToSession: source.addNodeAlternateLinksToSession ?? false,
     })
     if (source.sessionsToVideoUrls 
       && resultSession 
@@ -132,9 +139,10 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
         resultSession.enclosures = resultSession.enclosures.concat([
           {
             url: source.sessionsToVideoUrls[resultSession.id],
-            type: "recording",
+            type: "livestream",
             title: resultSession.title,
-            mimetype: "video/mp4"
+            mimetype: "video/mp4",
+            thumbnail: source.liveStreamThumbUrl ?? undefined,
           }
         ])
     }
