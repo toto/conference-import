@@ -25,6 +25,12 @@ export async function serveEvents(files: string[], server='0.0.0.0', port=5000) 
       if (process.env.LIVE_DEBUG === 'true') {
         fakeLiveDate = moment();
         fakeLiveDate.add(1, 'h');
+      } else if (typeof process.env.TIME_START_DEBUG === 'string') {
+        const time = moment(process.env.TIME_START_DEBUG)
+        if (!time.isValid()) {
+          throw new Error(`TIME_START_DEBUG set to invalid time/date: '${process.env.TIME_START_DEBUG}'`);
+        }
+        fakeLiveDate = time;
       }
       const store = EventDataStore.eventDataFromFile(jsonPath, fakeLiveDate);
       if (!store) return;

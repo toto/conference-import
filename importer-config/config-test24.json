@@ -1,0 +1,34 @@
+{
+  "event": {
+    "type": "event",
+    "id": "test24",
+    "label": "Data from 34C3",
+    "title": "Test in 2024",
+    "date": ["2024-12-27", "2024-12-30"],
+    "locations": [
+      {
+        "label": "Station Berlin",
+        "coords": [52.49814, 13.374538],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "url": "http://13.re-publica.de/",
+    "hashtag": "rp13"
+  },
+  "days": [],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "ocdata",
+      "baseUrl": "https://api.conference.systems/api/37c3"
+    }
+  ],
+  "options": {
+    "locationIdOrder": [],
+    "defaultColor": [0, 0, 0, 1],
+    "colorForTrack": {},
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": []
+  }
+}

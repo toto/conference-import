@@ -8,6 +8,10 @@ import { ConferenceData } from "../../importer/importer";
 export interface OcDataSourceFormat extends DataSourceFormat {
   format: "ocdata"
   baseUrl: string;
+  testData: {
+    userToActivityPubLink?: Record<string, string>
+    sessionToActivityPubLink?: Record<string, string>
+  }
 }
 
 export function isOcDataSourceFormat(dataSource: DataSourceFormat): dataSource is OcDataSourceFormat {
@@ -52,8 +56,8 @@ async function singleSourceData(event: Event, source: OcDataSourceFormat): Promi
     mapsJSON,
   ] = await Promise.all(loadingPromises);
 
-  result.speakers = converters.speakersFromJson(speakersJSON.data.data);
-  result.sessions = converters.sessionsFromJson(sessionsJSON.data.data);
+  result.speakers = converters.speakersFromJson(speakersJSON.data.data, source);
+  result.sessions = converters.sessionsFromJson(sessionsJSON.data.data, source);
   result.days = converters.daysFromJson(daysJSON.data.data);
   result.days = converters.mergeWithoutDuplication(result.sessions.map(s => s.day) , result.days);
   result.tracks = converters.tracksFromJson(tracksJSON.data.data);

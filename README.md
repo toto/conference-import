@@ -24,6 +24,7 @@ This will serve all data from the JSON files in the current directory. The serve
 ### Debug / Development options
 
 - Set `LIVE_DEBUG=true` to fake the conference to be currently live
+- Alternatively set `TIME_START_DEBUG=<date>` where `<date>` is any format that [MomentJS](https://momentjs.com) can parse. This will be the start point of the first session.
 
 ## TODO
 
