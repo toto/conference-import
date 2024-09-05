@@ -20,7 +20,14 @@
   "sources": [
     {
       "format": "ocdata",
-      "baseUrl": "https://api.conference.systems/api/37c3"
+      "baseUrl": "https://api.conference.systems/api/37c3",
+      "testData": {
+        "speakerToActivityPubLink": {
+        },
+        "sessionToActivityPubLink": {
+          "fddf9aa7-4952-497e-b706-2e802deef3cc": "https://social.mrtoto.net/@apptest/113085273939532302"
+        }
+      }
     }
   ],
   "options": {

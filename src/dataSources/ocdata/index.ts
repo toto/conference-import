@@ -9,7 +9,7 @@ export interface OcDataSourceFormat extends DataSourceFormat {
   format: "ocdata"
   baseUrl: string;
   testData: {
-    userToActivityPubLink?: Record<string, string>
+    speakerToActivityPubLink?: Record<string, string>
     sessionToActivityPubLink?: Record<string, string>
   }
 }
