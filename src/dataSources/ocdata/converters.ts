@@ -7,12 +7,12 @@ export function speakersFromJson(json: any, options: OcDataSourceFormat): Speake
 
   return speakers.map((speaker) => {
     const { id } = speaker;
-    const sessionMap = options.testData?.sessionToActivityPubLink
-    if (!sessionMap) return speaker;
-    const sessionLink = sessionMap[id]
-    if (sessionLink) {
+    const speakerMap = options.testData?.speakerToActivityPubLink
+    if (!speakerMap) return speaker;
+    const speakerLink = speakerMap[id]
+    if (speakerLink) {
       speaker.links.push({
-        url: sessionLink,
+        url: speakerLink,
         type: "social-interaction",
         service: "activityPub",
         title: speaker.name,
