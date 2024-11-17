@@ -61,20 +61,18 @@
         {"id": "38c3-entertainment",  "color": [77,77,76 ,1], "label_de": "Entertainment", "label_en": "Entertainment"},
         {"id": "38c3-ethics-society-politics",            "color": [228,4,41 ,1], "label_de": "Ethics, Society & Politics", "label_en": "Ethics, Society & Politics"},
         {"id": "38c3-security",       "color": [24,56,107,1], "label_de": "Security", "label_en": "Security"},
-        {"id": "38c3-art-culture",    "color": [249,176,0,1], "label_de": "Art & Culture", "label_en": "Art & Culture"},
+        {"id": "38c3-art-beauty",    "color": [249,176,0,1], "label_de": "Art & Beauty", "label_en": "Art & Beauty"},
         {"id": "38c3-science",        "color": [0,163,86 ,1], "label_de": "Science", "label_en": "Science"},
-        {"id": "38c3-hardware",       "color": [68,53,126,1], "label_de": "Hardware", "label_en": "Hardware"},
-        {"id": "38c3-sustainability", "color": [0,132,176,1], "label_de": "Sustainability", "label_en": "Sustainability"}
+        {"id": "38c3-hardware",       "color": [68,53,126,1], "label_de": "Hardware & Making", "label_en": "Hardware & Making"}
       ],
       "trackIdMap": {
-        "378": "38c3-ccc",
-        "379": "38c3-entertainment",
-        "382": "38c3-ethics-society-politics",
-        "381": "38c3-security",
-        "376": "38c3-art-culture",
-        "380": "38c3-science",
-        "377": "38c3-hardware",
-        "383": "38c3-sustainability"
+        "2": "38c3-ccc",
+        "3": "38c3-entertainment",
+        "7": "38c3-ethics-society-politics",
+        "6": "38c3-security",
+        "1": "38c3-art-beauty",
+        "5": "38c3-science",
+        "4": "38c3-hardware"
       }
     }    
   ],
