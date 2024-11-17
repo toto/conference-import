@@ -1,0 +1,127 @@
+{
+  "event": {
+    "id": "38c3",
+    "label": "38C3",
+    "title": "38th Chaos Communication Congress",
+    "date": [
+      "2024-12-27",
+      "2024-12-30"
+    ],
+    "locations": [
+      {
+        "label": "Congress Center Hamburg",
+        "coords": [53.561583, 9.985683],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "38C3",
+    "url": "https://events.ccc.de/congress/2024/"
+  },
+  "days": [
+    {
+      "id": "2024-12-27",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2024-12-27"
+    },
+    {
+      "id": "2024-12-28",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2024-12-28"
+    },
+    {
+      "id": "2024-12-29",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2024-12-29"
+    },
+    {
+      "id": "2024-12-30",
+      "label_de": "Tag 4",
+      "label_en": "Day 4",
+      "date": "2024-12-30"
+    }
+  ],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "halfnarp",
+      "eventId": "38c3",
+      "disabled": false,
+      "timezone": "Europe/Berlin",
+      "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
+      "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2024/Fahrplan/events/",
+      "speakerBaseUrl": "https://fahrplan.events.ccc.de/camp/2024/Fahrplan/speakers/",
+      "defaultTrack": { "id": "track", "event": "38c3", "label_en": "Some Track", "color": [0, 0, 0, 1] },
+      "defaultLanguageCode": "de",
+      "tracks": 
+      [
+        {"id": "38c3-ccc",            "color": [77,77,76 ,1], "label_de": "CCC", "label_en": "CCC"},
+        {"id": "38c3-entertainment",  "color": [77,77,76 ,1], "label_de": "Entertainment", "label_en": "Entertainment"},
+        {"id": "38c3-ethics-society-politics",            "color": [228,4,41 ,1], "label_de": "Ethics, Society & Politics", "label_en": "Ethics, Society & Politics"},
+        {"id": "38c3-security",       "color": [24,56,107,1], "label_de": "Security", "label_en": "Security"},
+        {"id": "38c3-art-culture",    "color": [249,176,0,1], "label_de": "Art & Culture", "label_en": "Art & Culture"},
+        {"id": "38c3-science",        "color": [0,163,86 ,1], "label_de": "Science", "label_en": "Science"},
+        {"id": "38c3-hardware",       "color": [68,53,126,1], "label_de": "Hardware", "label_en": "Hardware"},
+        {"id": "38c3-sustainability", "color": [0,132,176,1], "label_de": "Sustainability", "label_en": "Sustainability"}
+      ],
+      "trackIdMap": {
+        "378": "38c3-ccc",
+        "379": "38c3-entertainment",
+        "382": "38c3-ethics-society-politics",
+        "381": "38c3-security",
+        "376": "38c3-art-culture",
+        "380": "38c3-science",
+        "377": "38c3-hardware",
+        "383": "38c3-sustainability"
+      }
+    }    
+  ],
+  "livestreams": [],
+  "options": { 
+    "locationIdOrder": [
+      "saal-1",
+      "saal-grace",
+      "saal-zuse",            
+      "saal-e",
+      "saal-d",      
+      "house",
+      "chaoswelle",
+      "fireshonks",
+      "workshop",
+      "sendezentrum-podcast-tisch",
+      "assembly",
+      "stonewall-io",
+      "chaospat-innen-assembly-space",
+      "catonium",
+      "pentatent",
+      "lw-meetup-room"
+    ],
+    "defaultColor": [
+      251,
+      72,
+      196,
+      1
+    ],
+    "colorForTrack": {
+      "38c3-ccc": [77,77,76 ,1],
+      "38c3-entertainment": [77,77,76 ,1],
+      "38c3-ethics-society-politics": [228,4,41 ,1],
+      "38c3-security": [24,56,107,1],
+      "38c3-art-culture": [249,176,0,1],
+      "38c3-science": [0,163,86 ,1],
+      "38c3-hardware": [68,53,126,1],
+      "38c3-sustainability": [0,132,176,1]
+    },
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 6,
+    "nonStageLocationIds": [],
+    "poiSources": [
+    ],
+    "fakeVideos": {},
+    "minimumSessionDurationMinutes": 15,
+    "maximumSessionDurationMinutes": 720,
+    "recommendationsSource": "https://data.conference.systems/BC12099A/38c3-recommendations.json"
+  }
+}

@@ -96,7 +96,7 @@ function parseSession(session: any, config: HalfnarpSourceFormat): Session | und
     id,
     title: session.title,
     subtitle: session.subtitle,
-    abstract: session.abstract,
+    abstract: dehtml(session.abstract),
     description: dehtml(session.description),
     url: sessionUrl,
     track,
