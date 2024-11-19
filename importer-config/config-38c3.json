@@ -10,7 +10,10 @@
     "locations": [
       {
         "label": "Congress Center Hamburg",
-        "coords": [53.561583, 9.985683],
+        "coords": [
+          53.561583,
+          9.985683
+        ],
         "timezone": "Europe/Berlin"
       }
     ],
@@ -53,17 +56,114 @@
       "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
       "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2024/Fahrplan/events/",
       "speakerBaseUrl": "https://fahrplan.events.ccc.de/camp/2024/Fahrplan/speakers/",
-      "defaultTrack": { "id": "track", "event": "38c3", "label_en": "Some Track", "color": [0, 0, 0, 1] },
+      "defaultTrack": {
+        "id": "track",
+        "event": "38c3",
+        "label_en": "Some Track",
+        "color": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
       "defaultLanguageCode": "de",
-      "tracks": 
-      [
-        {"id": "38c3-ccc",            "color": [77,77,76 ,1], "label_de": "CCC", "label_en": "CCC"},
-        {"id": "38c3-entertainment",  "color": [77,77,76 ,1], "label_de": "Entertainment", "label_en": "Entertainment"},
-        {"id": "38c3-ethics-society-politics",            "color": [228,4,41 ,1], "label_de": "Ethics, Society & Politics", "label_en": "Ethics, Society & Politics"},
-        {"id": "38c3-security",       "color": [24,56,107,1], "label_de": "Security", "label_en": "Security"},
-        {"id": "38c3-art-beauty",    "color": [249,176,0,1], "label_de": "Art & Beauty", "label_en": "Art & Beauty"},
-        {"id": "38c3-science",        "color": [0,163,86 ,1], "label_de": "Science", "label_en": "Science"},
-        {"id": "38c3-hardware",       "color": [68,53,126,1], "label_de": "Hardware & Making", "label_en": "Hardware & Making"}
+      "tracks": [
+        {
+          "id": "38c3-ccc",
+          "color": [
+            77,
+            77,
+            77,
+            1
+          ],
+          "darkColor": [
+            140,
+            140,
+            140,
+            1
+          ],
+          "label_de": "CCC",
+          "label_en": "CCC"
+        },
+        {
+          "id": "38c3-entertainment",
+          "color": [
+            77,
+            77,
+            77,
+            1
+          ],
+          "darkColor": [
+            140,
+            140,
+            140,
+            1
+          ],          
+          "label_de": "Entertainment",
+          "label_en": "Entertainment"
+        },
+        {
+          "id": "38c3-ethics-society-politics",
+          "color": [
+            228,
+            4,
+            41,
+            1
+          ],
+          "label_de": "Ethics, Society & Politics",
+          "label_en": "Ethics, Society & Politics"
+        },
+        {
+          "id": "38c3-security",
+          "color": [
+            24,
+            56,
+            107,
+            1
+          ],
+          "label_de": "Security",
+          "label_en": "Security"
+        },
+        {
+          "id": "38c3-art-beauty",
+          "color": [
+            249,
+            176,
+            0,
+            1
+          ],
+          "label_de": "Art & Beauty",
+          "label_en": "Art & Beauty"
+        },
+        {
+          "id": "38c3-science",
+          "color": [
+            0,
+            163,
+            86,
+            1
+          ],
+          "label_de": "Science",
+          "label_en": "Science"
+        },
+        {
+          "id": "38c3-hardware",
+          "color": [
+            68,
+            53,
+            126,
+            1
+          ],
+          "darkColor": [
+            110,
+            87,
+            206,
+            1
+          ], 
+          "label_de": "Hardware & Making",
+          "label_en": "Hardware & Making"
+        }
       ],
       "trackIdMap": {
         "2": "38c3-ccc",
@@ -74,16 +174,16 @@
         "5": "38c3-science",
         "4": "38c3-hardware"
       }
-    }    
+    }
   ],
   "livestreams": [],
-  "options": { 
+  "options": {
     "locationIdOrder": [
       "saal-1",
       "saal-grace",
-      "saal-zuse",            
+      "saal-zuse",
       "saal-e",
-      "saal-d",      
+      "saal-d",
       "house",
       "chaoswelle",
       "fireshonks",
@@ -103,20 +203,59 @@
       1
     ],
     "colorForTrack": {
-      "38c3-ccc": [77,77,76 ,1],
-      "38c3-entertainment": [77,77,76 ,1],
-      "38c3-ethics-society-politics": [228,4,41 ,1],
-      "38c3-security": [24,56,107,1],
-      "38c3-art-culture": [249,176,0,1],
-      "38c3-science": [0,163,86 ,1],
-      "38c3-hardware": [68,53,126,1],
-      "38c3-sustainability": [0,132,176,1]
+      "38c3-ccc": [
+        77,
+        77,
+        76,
+        1
+      ],
+      "38c3-entertainment": [
+        77,
+        77,
+        76,
+        1
+      ],
+      "38c3-ethics-society-politics": [
+        228,
+        4,
+        41,
+        1
+      ],
+      "38c3-security": [
+        24,
+        56,
+        107,
+        1
+      ],
+      "38c3-art-culture": [
+        249,
+        176,
+        0,
+        1
+      ],
+      "38c3-science": [
+        0,
+        163,
+        86,
+        1
+      ],
+      "38c3-hardware": [
+        68,
+        53,
+        126,
+        1
+      ],
+      "38c3-sustainability": [
+        0,
+        132,
+        176,
+        1
+      ]
     },
     "timezone": "Europe/Berlin",
     "hourOfDayChange": 6,
     "nonStageLocationIds": [],
-    "poiSources": [
-    ],
+    "poiSources": [],
     "fakeVideos": {},
     "minimumSessionDurationMinutes": 15,
     "maximumSessionDurationMinutes": 720,
