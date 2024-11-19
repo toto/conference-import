@@ -11,7 +11,11 @@ function trackFromSessionJson(session: any, config: HalfnarpSourceFormat): Track
   const trackId = config.trackIdMap[idStr];
   if (!trackId) return undefined;
   
-  return config.tracks.find(t => t.id === trackId)
+  const track = config.tracks.find(t => t.id === trackId)
+  if (track && !track?.darkColor) {
+    track.darkColor = track?.color
+  }
+  return track;
 }
 
 export function speakersFromJson(json: any, config: HalfnarpSourceFormat): Speaker[] {
