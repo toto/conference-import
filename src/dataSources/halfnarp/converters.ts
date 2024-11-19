@@ -12,8 +12,9 @@ function trackFromSessionJson(session: any, config: HalfnarpSourceFormat): Track
   if (!trackId) return undefined;
   
   const track = config.tracks.find(t => t.id === trackId)
-  if (track && !track?.darkColor) {
-    track.darkColor = track?.color
+  if (!track) return undefined;
+  if (!track.darkColor) {
+    track.darkColor = track.color
   }
   return track;
 }
