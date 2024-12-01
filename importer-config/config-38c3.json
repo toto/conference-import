@@ -67,6 +67,13 @@
           1
         ]
       },
+      "fakeVideos": {
+        "38c3-teahvc": {
+          "url": "https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_h264.mov",
+          "mimetype": "video/mp4",
+          "type": "recording"
+        }
+      },
       "defaultLanguageCode": "de",
       "tracks": [
         {
