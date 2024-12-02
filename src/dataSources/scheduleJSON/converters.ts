@@ -341,7 +341,7 @@ export function speakersFromSessionJson(json: ScheduleJSONData, config: Schedule
                 name: person.name,
                 type: 'speaker',
                 event: config.eventId,
-                photo: person.avatar_url,
+                photo: person.avatar_url ?? person.avatar ?? undefined,
                 url,
                 biography: person.biography ?? undefined,
                 biography_format: "markdown",
