@@ -263,12 +263,17 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     will_be_recorded = false
   }
 
+  let subtitle: undefined | string
+  if (json.subtitle && json.subtitle.trim().length > 0) {
+    subtitle = json.subtitle
+  }
+
   const result: ConferenceModel.Session = {
     id: json.guid,
     type: "session",
     event: config.eventId,
     title: json.title,
-    subtitle: json.subtitle ?? undefined,
+    subtitle: subtitle,
     abstract: json.abstract ?? "",
     description: json.description ?? "",
     description_format: "markdown",
