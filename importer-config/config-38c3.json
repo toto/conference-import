@@ -49,9 +49,34 @@
   "subconferences": [],
   "sources": [
     {
-      "format": "halfnarp",
+      "format": "scheduleJSON",
       "eventId": "38c3",
       "disabled": false,
+      "timezone": "Europe/Berlin",
+      "scheduleURL": "https://fahrplan.events.ccc.de/congress/2024/fahrplan/schedule/export/schedule.json",
+      "mainConferenceAssemblySlug": "ccc",
+      "defaultTrack": {
+        "id": "congress",
+        "label_en": "Congress",
+        "label_de": "Congress",
+        "color": [
+          69,
+          185,
+          100,
+          1
+        ],
+        "darkColor": [
+          69,
+          185,
+          100,
+          1
+        ]
+      }
+    },
+    {
+      "format": "halfnarp",
+      "eventId": "38c3",
+      "disabled": true,
       "timezone": "Europe/Berlin",
       "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
       "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2024/Fahrplan/events/",

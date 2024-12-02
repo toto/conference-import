@@ -129,6 +129,7 @@ export function tracksFromJson(data: ScheduleJSONData, config: ScheduleJSONDataS
       type: 'track',
       event: config.eventId,
       color,
+      darkColor: color,
       label_en: trackData.name,
       label_de: trackData.name,
     });
@@ -369,7 +370,9 @@ export function subsconferencesAndLocationIdMapFromSessionJson(data: ScheduleJSO
 
   for (const room of data.schedule.conference.rooms) {
     const { assembly } = room;
-    if (assembly.slug === config.mainConferenceAssemblySlug) continue;
+    if (!assembly || !assembly.slug || assembly.slug === config.mainConferenceAssemblySlug) {
+      continue;
+    }
 
     locationIdToSubconferenceId.set(room.guid, assembly.slug);
 
