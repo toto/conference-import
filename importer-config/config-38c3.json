@@ -71,6 +71,15 @@
           100,
           1
         ]
+      },
+      "fakeVideos": {
+        "270fa44c-821a-577f-8ca3-33e8d4a8c2a7": {
+          "url": "https://cdn.media.ccc.de/congress/2023/h264-hd/37c3-12338-deu-37C3_Feierliche_Eroeffnung.mp4",
+          "mimetype": "video/mp4",
+          "type": "recording",
+          "title": "37C3: Feierliche Eröffnung (Test)",
+          "thumbnail": "https://static.media.ccc.de/media/congress/2023/12338-fddf9aa7-4952-497e-b706-2e802deef3cc_preview.jpg"
+        }
       }
     },
     {
@@ -131,7 +140,7 @@
             185,
             100,
             1
-          ],        
+          ],
           "label_de": "Entertainment",
           "label_en": "Entertainment"
         },
@@ -159,7 +168,7 @@
             117,
             235,
             1
-          ],          
+          ],
           "label_de": "Security",
           "label_en": "Security"
         },
@@ -176,7 +185,7 @@
             176,
             80,
             1
-          ],          
+          ],
           "label_de": "Art & Beauty",
           "label_en": "Art & Beauty"
         },
@@ -193,7 +202,7 @@
             185,
             179,
             1
-          ],          
+          ],
           "label_de": "Science",
           "label_en": "Science"
         },
@@ -210,7 +219,7 @@
             96,
             228,
             1
-          ], 
+          ],
           "label_de": "Hardware & Making",
           "label_en": "Hardware & Making"
         }

@@ -173,6 +173,7 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
 
 // NOTE: roomName is only set if fullLocation is null
 export function sessionFromJson(json: ScheduleJSONSession, fullLocation: ConferenceModel.Location | null, roomName: string | null, subconference: ConferenceModel.Subconference | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
+  const id = json.guid;
   let track = config.defaultTrack
   if (json.track) {
     track = {
@@ -268,8 +269,13 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     subtitle = json.subtitle
   }
 
+  const enclosures: ConferenceModel.Enclosure[] = [];
+  if (config.fakeVideos && config.fakeVideos[id]) {
+    enclosures.push(config.fakeVideos[id]);
+  }
+
   const result: ConferenceModel.Session = {
-    id: json.guid,
+    id,
     type: "session",
     event: config.eventId,
     title: json.title,
@@ -284,7 +290,7 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     location,
     lang: languageFromIsoCode(json.language) ?? English,
     speakers: json.persons?.map(p => miniSpeakerFromPerson(p)).filter(p => p != null) as ConferenceModel.MiniSpeaker[] ?? [],
-    enclosures: [],
+    enclosures,
     links,
     subconference: subconference ? subconference : undefined,
     will_be_recorded,

@@ -44,6 +44,9 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
     recordedLocationIds?: string[];
   };
 
+  /** Set a fake enclosure for arbitray session IDs (e.g. for App Review) */
+  fakeVideos?:  Record<string, ConferenceModel.Enclosure>;
+
   /** Config for c3nav link integration */
   c3nav?: {
     /** Base Url prefix like `https://37c3.c3nav.de/l/` */
