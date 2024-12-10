@@ -37,6 +37,7 @@ export interface ScheduleJSONSession {
   feedback_url?: string
   links?: { url: string, title: string }[]
   do_not_record?: boolean
+  do_not_stream?: boolean
 }
 
 export interface ScheduleJSONDay {
@@ -87,6 +88,10 @@ interface ScheduleJSONRoom {
     guid: string // ": "b46b321a-19b9-4cd6-8aab-52a127268d6f",
     description_en: string // ": "",
     description_de: string // ": ""
+  }
+  features: {
+    // This is a bit crazy. Please check here: https://github.com/voc/schedule/pull/130
+    recording: "record_by_default" | "not_recorded_by_default" | "recording_forbidden" | "recording_not_possible"
   }
 }
 
@@ -159,7 +164,7 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
             }
           }
 
-          const parsedSession = sessionFromJson(session, location, location !== null ? roomName : null, subconference, config);
+          const parsedSession = sessionFromJson(session, location, location !== null ? roomName : null, conference.rooms ?? null, subconference, config);
           if (parsedSession) {
             result.push(parsedSession);
           }
@@ -172,7 +177,7 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
 }
 
 // NOTE: roomName is only set if fullLocation is null
-export function sessionFromJson(json: ScheduleJSONSession, fullLocation: ConferenceModel.Location | null, roomName: string | null, subconference: ConferenceModel.Subconference | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
+export function sessionFromJson(json: ScheduleJSONSession, fullLocation: ConferenceModel.Location | null, roomName: string | null, rooms: ScheduleJSONRoom[] | null, subconference: ConferenceModel.Subconference | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
   const id = json.guid;
   let track = config.defaultTrack
   if (json.track) {
@@ -260,6 +265,18 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     }
   }
 
+  const room = rooms?.find(r => r.name === roomName)
+  if (room && room.features?.recording) {
+    const recording = room.features.recording
+    if (recording === "recording_forbidden" 
+      || recording === "recording_not_possible"
+      || recording === "not_recorded_by_default") {
+      will_be_recorded = false
+    } else if (recording === "record_by_default") {
+      will_be_recorded = true
+    }
+  }
+
   if (json.do_not_record === true) {
     will_be_recorded = false
   }
@@ -322,7 +339,7 @@ export function speakersFromSessionJson(json: ScheduleJSONData, config: Schedule
           const miniSession: ConferenceModel.MiniSession = {
             id: session.guid,
             title: session.title
-          }  
+          }
 
           for (const person of session.persons ?? []) {
             const id = person.guid ?? person.code
