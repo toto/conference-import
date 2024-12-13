@@ -157,7 +157,7 @@ export function tracksFromJson(data: ScheduleJSONData, config: ScheduleJSONDataS
   return result;
 }
 
-export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceModel.Location[], alternateUrlSource: AlternateUrlSource | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session[] {
+export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceModel.Location[], tracks: ConferenceModel.Track[], alternateUrlSource: AlternateUrlSource | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session[] {
   const result: ConferenceModel.Session[] = [];
 
   const { conference } = data.schedule;
@@ -178,6 +178,9 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
             }
           }
 
+          const track: ConferenceModel.Track | null = tracks.find(t => session.track && t.id === mkId(session.track)) ?? null
+          
+
           const alternateUrlsForSessionIds: Record<string, string> = {};
           if (alternateUrlSource) {
             for (const day of alternateUrlSource.schedule.conference.days) {
@@ -192,6 +195,7 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
 
           const parsedSession = sessionFromJson(
             session, 
+            track,
             location, 
             location !== null ? roomName : null, 
             conference.rooms ?? null, 
@@ -211,10 +215,10 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
 }
 
 // NOTE: roomName is only set if fullLocation is null
-export function sessionFromJson(json: ScheduleJSONSession, fullLocation: ConferenceModel.Location | null, roomName: string | null, rooms: ScheduleJSONRoom[] | null, subconference: ConferenceModel.Subconference | null, alternateSessionUrls: Record<string, string> | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
+export function sessionFromJson(json: ScheduleJSONSession, sessionTrack: ConferenceModel.Track | null, fullLocation: ConferenceModel.Location | null, roomName: string | null, rooms: ScheduleJSONRoom[] | null, subconference: ConferenceModel.Subconference | null, alternateSessionUrls: Record<string, string> | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
   const id = json.guid;
   const { title } = json
-  let track = config.defaultTrack
+  let track = sessionTrack ?? config.defaultTrack
   if (json.track) {
     track = {
       type: "track",
@@ -222,8 +226,8 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
       id: mkId(json.track),
       label_en: json.track,
       label_de: json.track,
-      // FIXME: Determine color here
-      color: config.defaultTrack.color,
+      color: track.color,
+      darkColor: track.darkColor,
     }
   }
 

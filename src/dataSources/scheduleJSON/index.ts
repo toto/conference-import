@@ -83,8 +83,8 @@ async function sessionsFromSchedule(config: ScheduleJSONDataSourceFormat): Promi
     alternateUrlSource = response.data
   }
   const { locations } = locationsFromJSON(response.data, config)
-  const sessions = sessionsFromJson(response.data, locations, alternateUrlSource, config);
   const tracks = tracksFromJson(response.data, config);
+  const sessions = sessionsFromJson(response.data, locations, tracks, alternateUrlSource, config);
   const speakers = speakersFromSessionJson(response.data, config);
   const subconferences = subsconferencesFromSessionJson(response.data, config);
   return { sessions, tracks, locations, speakers, subconferences };
