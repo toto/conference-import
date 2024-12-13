@@ -224,7 +224,6 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
       label_de: json.track,
       // FIXME: Determine color here
       color: config.defaultTrack.color,
-      darkColor: config.defaultTrack.color,
     }
   }
 
