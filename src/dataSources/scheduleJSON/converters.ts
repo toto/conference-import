@@ -95,6 +95,20 @@ interface ScheduleJSONRoom {
   }
 }
 
+
+export interface AlternateUrlSource {
+  schedule: {
+    conference: {
+      days: { rooms: Record<string, AlternateUrlSourceSession[]> }[]
+    }
+  }
+}
+
+export interface AlternateUrlSourceSession {
+  guid: string
+  url: string
+}
+
 export function locationsFromJSON(data: ScheduleJSONData, config: ScheduleJSONDataSourceFormat): {locations: ConferenceModel.Location[], locationIdToStreamId: Record<string, string>} {
   const locations: ConferenceModel.Location[] = [];
   const locationIdToStreamId: Record<string, string> = {};
@@ -143,7 +157,7 @@ export function tracksFromJson(data: ScheduleJSONData, config: ScheduleJSONDataS
   return result;
 }
 
-export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceModel.Location[], config: ScheduleJSONDataSourceFormat): ConferenceModel.Session[] {
+export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceModel.Location[], alternateUrlSource: AlternateUrlSource | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session[] {
   const result: ConferenceModel.Session[] = [];
 
   const { conference } = data.schedule;
@@ -164,7 +178,27 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
             }
           }
 
-          const parsedSession = sessionFromJson(session, location, location !== null ? roomName : null, conference.rooms ?? null, subconference, config);
+          const alternateUrlsForSessionIds: Record<string, string> = {};
+          if (alternateUrlSource) {
+            for (const day of alternateUrlSource.schedule.conference.days) {
+              for (const alternateSessions of Object.values(day.rooms)) {
+                for (const alternateSession of alternateSessions) {
+                  alternateUrlsForSessionIds[alternateSession.guid] = alternateSession.url;
+                }
+              }  
+            }
+            
+          }
+
+          const parsedSession = sessionFromJson(
+            session, 
+            location, 
+            location !== null ? roomName : null, 
+            conference.rooms ?? null, 
+            subconference,
+            alternateUrlsForSessionIds,
+            config
+          );
           if (parsedSession) {
             result.push(parsedSession);
           }
@@ -177,8 +211,9 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
 }
 
 // NOTE: roomName is only set if fullLocation is null
-export function sessionFromJson(json: ScheduleJSONSession, fullLocation: ConferenceModel.Location | null, roomName: string | null, rooms: ScheduleJSONRoom[] | null, subconference: ConferenceModel.Subconference | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
+export function sessionFromJson(json: ScheduleJSONSession, fullLocation: ConferenceModel.Location | null, roomName: string | null, rooms: ScheduleJSONRoom[] | null, subconference: ConferenceModel.Subconference | null, alternateSessionUrls: Record<string, string> | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
   const id = json.guid;
+  const { title } = json
   let track = config.defaultTrack
   if (json.track) {
     track = {
@@ -189,6 +224,7 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
       label_de: json.track,
       // FIXME: Determine color here
       color: config.defaultTrack.color,
+      darkColor: config.defaultTrack.color,
     }
   }
 
@@ -232,6 +268,16 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
         service: 'web'
       })
     }
+  }
+
+  if (alternateSessionUrls && alternateSessionUrls[id]) {
+    let url = alternateSessionUrls[id]
+    links.push({
+      url,
+      type: "session-alternate",
+      title,
+      service: 'web'
+    })
   }
 
   if (json.feedback_url) {
@@ -295,7 +341,7 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     id,
     type: "session",
     event: config.eventId,
-    title: json.title,
+    title,
     subtitle: subtitle,
     abstract: json.abstract ?? "",
     description: json.description ?? "",

@@ -20,6 +20,12 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
   /** URL of schedule JSON */
   scheduleURL: string;
 
+  /** 
+   * If set will use the sessions in this schdeule to populate the imported sessions
+   * with additional `session-alternate` type links. Most useful to support Universal Links.
+   */
+  alternateSessionLinkScheduleURL?: string;
+
   /** Use only if speakers.json should be used to source the speakers */
   speakers?: {
     /** Optional URL of speakers JSON */

@@ -54,6 +54,7 @@
       "disabled": false,
       "timezone": "Europe/Berlin",
       "scheduleURL": "https://api.events.ccc.de/congress/2024/schedule.json",
+      "alternateSessionLinkScheduleURL": "https://fahrplan.events.ccc.de/congress/2024/fahrplan/schedule/export/schedule.json",
       "mainConferenceAssemblySlug": "ccc",
       "defaultTrack": {
         "id": "congress",
