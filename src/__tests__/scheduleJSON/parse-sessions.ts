@@ -17,7 +17,7 @@ const parsedJson = JSON.parse(json);
 
 
 it("Should parse some session", () => {
-  const sessions = sessionsFromJson(parsedJson, [], {
+  const sessions = sessionsFromJson(parsedJson, [], null, {
     format: "scheduleJSON",
     eventId: "37c3",
     scheduleURL: "https://fahrplan.events.ccc.de/congress/2023/Fahrplan/schedule.json",
@@ -38,7 +38,7 @@ it("Should parse some session", () => {
 });
 
 it("Should parse all sessions", () => {
-  const sessions = sessionsFromJson(parsedJson, [], {
+  const sessions = sessionsFromJson(parsedJson, [], null, {
     format: "scheduleJSON",
     eventId: "37c3",
     scheduleURL: "https://fahrplan.events.ccc.de/congress/2023/Fahrplan/schedule.json",
@@ -48,7 +48,7 @@ it("Should parse all sessions", () => {
 });
 
 it("Should parse multiple speakers sessions", () => {
-  const sessions = sessionsFromJson(parsedJson, [], {
+  const sessions = sessionsFromJson(parsedJson, [], null, {
     format: "scheduleJSON",
     eventId: "37c3",
     scheduleURL: "https://fahrplan.events.ccc.de/congress/2023/Fahrplan/schedule.json",
