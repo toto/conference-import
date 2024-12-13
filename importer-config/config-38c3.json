@@ -73,13 +73,6 @@
         ]
       },
       "fakeVideos": {
-        "270fa44c-821a-577f-8ca3-33e8d4a8c2a7": {
-          "url": "https://cdn.media.ccc.de/congress/2023/h264-hd/37c3-12338-deu-37C3_Feierliche_Eroeffnung.mp4",
-          "mimetype": "video/mp4",
-          "type": "recording",
-          "title": "37C3: Feierliche Eröffnung (Test)",
-          "thumbnail": "https://static.media.ccc.de/media/congress/2023/12338-fddf9aa7-4952-497e-b706-2e802deef3cc_preview.jpg"
-        }
       }
     },
     {
