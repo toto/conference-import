@@ -61,6 +61,8 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
     locationIdToNavSlug: Record<string, string>;
   };
 
+  maps?: [ConferenceModel.Map]
+
   /** Slug of the the assembly not considered a subconference (e.g. "ccc") */
   mainConferenceAssemblySlug?: string;
 }

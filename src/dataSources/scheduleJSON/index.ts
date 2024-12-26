@@ -21,7 +21,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     days,
     event,
     subconferences,
-    maps: [],
+    maps:  source.maps ?? [],
     pois: [],
   };
 

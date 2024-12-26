@@ -274,7 +274,7 @@ export function sessionFromJson(json: ScheduleJSONSession, sessionTrack: Confere
   }
 
   if (alternateSessionUrls && alternateSessionUrls[id]) {
-    let url = alternateSessionUrls[id]
+    const url = alternateSessionUrls[id]
     links.push({
       url,
       type: "session-alternate",
