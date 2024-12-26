@@ -109,46 +109,6 @@
         }
       },
       "maps": [
-        {
-          "type": "map",
-          "id": "38c3-level-0",
-          "event": "38c3",
-          "map_pdf_url": "https://bitfever.de/~toto/data/38c3maps/pdf/cch_floor0_v1.pdf",
-          "label_de": "CCH",
-          "label_en": "CCH",
-          "floor_label_de": "Erdgeschhoss",
-          "floor_label_en": "Ground Floor",
-          "is_outdoor": true,
-          "is_indoor": true,
-          "floor": 0,
-          "order_index": 1,
-          "area": {
-            "width": 3000.0,
-            "height": 2058.0
-          },
-          "tiles": {},
-          "pois": []
-        },
-        {
-          "type": "map",
-          "id": "38c3-level-1",
-          "event": "38c3",
-          "map_pdf_url": "https://bitfever.de/~toto/data/38c3maps/pdf/cch_floor1_v1.pdf",
-          "label_de": "CCH",
-          "label_en": "CCH",
-          "floor_label_de": "1. OG",
-          "floor_label_en": "1st Floor",
-          "is_outdoor": true,
-          "is_indoor": true,
-          "floor": 1,
-          "order_index": 1,
-          "area": {
-            "width": 3000.0,
-            "height": 2058.0
-          },
-          "tiles": {},
-          "pois": []
-        } 
       ]
     },
     {
