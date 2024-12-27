@@ -75,6 +75,9 @@
       },
       "fakeVideos": {
       },
+      "voc": {
+        "slug": "38c3"
+      },
       "c3nav": {
         "baseUrl": "https://38c3.c3nav.de/l/",
         "locationIdToNavSlug": {
