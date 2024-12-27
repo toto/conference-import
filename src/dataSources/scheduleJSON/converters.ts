@@ -293,11 +293,10 @@ export function sessionFromJson(json: ScheduleJSONSession, sessionTrack: Confere
   }
 
   if (config.c3nav && location) {
-    const { baseUrl, locationIdToNavSlug } = config.c3nav;
-    const slug = locationIdToNavSlug[location.id];
-    if (slug && location?.label_en) {
+    const { baseUrl } = config.c3nav;
+    if (location?.label_en && location?.id) {
       links.unshift({
-        url: `${baseUrl}${slug}/`,
+        url: `${baseUrl}${location.id}/`,
         type: "session-link",
         title: `C3Nav: ${location.label_en}`,
         service: "web",
