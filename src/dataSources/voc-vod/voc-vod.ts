@@ -2,7 +2,7 @@ import * as axios from 'axios';
 import { Session, Enclosure } from '../../models';
 
 interface VocConference {
-  events: { link: string, url: string }[];
+  events: { link: string, url: string, guid: string, }[];
   acronym: string;
 }
 
@@ -123,9 +123,14 @@ export async function addRecordingEnclosues(slug: string, sessions: Session[], u
   const url = `https://api.media.ccc.de/public/conferences/${slug}`
   const { data } = await axios.default.get(url);
   const vocConf = data as VocConference;
+  const sessionIds = sessions.map(s => s.id);
   const sessionUrls = sessions.map(s => s.url);
   const sessionUrlsWithSlash = sessions.map(s => `${s.url}/`);
-  const vocVideoPromises = vocConf.events.filter(e => sessionUrls.includes(e.link) || sessionUrlsWithSlash.includes(e.link)).map(e => axios.default.get(e.url));
+  const vocVideoPromises = vocConf.events
+    .filter(e => sessionUrls.includes(e.link) 
+               || sessionUrlsWithSlash.includes(e.link)
+               || sessionIds.includes(e.guid))
+    .map(e => axios.default.get(e.url));
   const videos: VocVideo[] = [];
   for (const vocVideoPromise of vocVideoPromises) {
     try {
