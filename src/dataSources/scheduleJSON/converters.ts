@@ -37,6 +37,7 @@ export interface ScheduleJSONSession {
   feedback_url?: string
   links?: { url: string, title: string }[]
   do_not_record?: boolean
+  do_not_stream?: boolean
 }
 
 export interface ScheduleJSONDay {
@@ -88,6 +89,24 @@ interface ScheduleJSONRoom {
     description_en: string // ": "",
     description_de: string // ": ""
   }
+  features: {
+    // This is a bit crazy. Please check here: https://github.com/voc/schedule/pull/130
+    recording: "record_by_default" | "not_recorded_by_default" | "recording_forbidden" | "recording_not_possible"
+  }
+}
+
+
+export interface AlternateUrlSource {
+  schedule: {
+    conference: {
+      days: { rooms: Record<string, AlternateUrlSourceSession[]> }[]
+    }
+  }
+}
+
+export interface AlternateUrlSourceSession {
+  guid: string
+  url: string
 }
 
 export function locationsFromJSON(data: ScheduleJSONData, config: ScheduleJSONDataSourceFormat): {locations: ConferenceModel.Location[], locationIdToStreamId: Record<string, string>} {
@@ -129,6 +148,7 @@ export function tracksFromJson(data: ScheduleJSONData, config: ScheduleJSONDataS
       type: 'track',
       event: config.eventId,
       color,
+      darkColor: color,
       label_en: trackData.name,
       label_de: trackData.name,
     });
@@ -137,7 +157,7 @@ export function tracksFromJson(data: ScheduleJSONData, config: ScheduleJSONDataS
   return result;
 }
 
-export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceModel.Location[], config: ScheduleJSONDataSourceFormat): ConferenceModel.Session[] {
+export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceModel.Location[], tracks: ConferenceModel.Track[], alternateUrlSource: AlternateUrlSource | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session[] {
   const result: ConferenceModel.Session[] = [];
 
   const { conference } = data.schedule;
@@ -158,7 +178,31 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
             }
           }
 
-          const parsedSession = sessionFromJson(session, location, location !== null ? roomName : null, subconference, config);
+          const track: ConferenceModel.Track | null = tracks.find(t => session.track && t.id === mkId(session.track)) ?? null
+          
+
+          const alternateUrlsForSessionIds: Record<string, string> = {};
+          if (alternateUrlSource) {
+            for (const day of alternateUrlSource.schedule.conference.days) {
+              for (const alternateSessions of Object.values(day.rooms)) {
+                for (const alternateSession of alternateSessions) {
+                  alternateUrlsForSessionIds[alternateSession.guid] = alternateSession.url;
+                }
+              }  
+            }
+            
+          }
+
+          const parsedSession = sessionFromJson(
+            session, 
+            track,
+            location, 
+            location !== null ? roomName : null, 
+            conference.rooms ?? null, 
+            subconference,
+            alternateUrlsForSessionIds,
+            config
+          );
           if (parsedSession) {
             result.push(parsedSession);
           }
@@ -171,8 +215,10 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
 }
 
 // NOTE: roomName is only set if fullLocation is null
-export function sessionFromJson(json: ScheduleJSONSession, fullLocation: ConferenceModel.Location | null, roomName: string | null, subconference: ConferenceModel.Subconference | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
-  let track = config.defaultTrack
+export function sessionFromJson(json: ScheduleJSONSession, sessionTrack: ConferenceModel.Track | null, fullLocation: ConferenceModel.Location | null, roomName: string | null, rooms: ScheduleJSONRoom[] | null, subconference: ConferenceModel.Subconference | null, alternateSessionUrls: Record<string, string> | null, config: ScheduleJSONDataSourceFormat): ConferenceModel.Session | null {
+  const id = json.guid;
+  const { title } = json
+  let track = sessionTrack ?? config.defaultTrack
   if (json.track) {
     track = {
       type: "track",
@@ -180,8 +226,8 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
       id: mkId(json.track),
       label_en: json.track,
       label_de: json.track,
-      // FIXME: Determine color here
-      color: config.defaultTrack.color,
+      color: track.color,
+      darkColor: track.darkColor,
     }
   }
 
@@ -227,6 +273,16 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     }
   }
 
+  if (alternateSessionUrls && alternateSessionUrls[id]) {
+    const url = alternateSessionUrls[id]
+    links.push({
+      url,
+      type: "session-alternate",
+      title,
+      service: 'web'
+    })
+  }
+
   if (json.feedback_url) {
     links.push({
       url: json.feedback_url,
@@ -237,11 +293,10 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
   }
 
   if (config.c3nav && location) {
-    const { baseUrl, locationIdToNavSlug } = config.c3nav;
-    const slug = locationIdToNavSlug[location.id];
-    if (slug && location?.label_en) {
+    const { baseUrl } = config.c3nav;
+    if (location?.label_en && location?.id) {
       links.unshift({
-        url: `${baseUrl}${slug}/`,
+        url: `${baseUrl}${location.id}/`,
         type: "session-link",
         title: `C3Nav: ${location.label_en}`,
         service: "web",
@@ -258,16 +313,38 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     }
   }
 
+  const room = rooms?.find(r => r.name === roomName)
+  if (room && room.features?.recording) {
+    const recording = room.features.recording
+    if (recording === "recording_forbidden" 
+      || recording === "recording_not_possible"
+      || recording === "not_recorded_by_default") {
+      will_be_recorded = false
+    } else if (recording === "record_by_default") {
+      will_be_recorded = true
+    }
+  }
+
   if (json.do_not_record === true) {
     will_be_recorded = false
   }
 
+  let subtitle: undefined | string
+  if (json.subtitle && json.subtitle.trim().length > 0) {
+    subtitle = json.subtitle
+  }
+
+  const enclosures: ConferenceModel.Enclosure[] = [];
+  if (config.fakeVideos && config.fakeVideos[id]) {
+    enclosures.push(config.fakeVideos[id]);
+  }
+
   const result: ConferenceModel.Session = {
-    id: json.guid,
+    id,
     type: "session",
     event: config.eventId,
-    title: json.title,
-    subtitle: json.subtitle ?? undefined,
+    title,
+    subtitle: subtitle,
     abstract: json.abstract ?? "",
     description: json.description ?? "",
     description_format: "markdown",
@@ -278,7 +355,7 @@ export function sessionFromJson(json: ScheduleJSONSession, fullLocation: Confere
     location,
     lang: languageFromIsoCode(json.language) ?? English,
     speakers: json.persons?.map(p => miniSpeakerFromPerson(p)).filter(p => p != null) as ConferenceModel.MiniSpeaker[] ?? [],
-    enclosures: [],
+    enclosures,
     links,
     subconference: subconference ? subconference : undefined,
     will_be_recorded,
@@ -310,7 +387,7 @@ export function speakersFromSessionJson(json: ScheduleJSONData, config: Schedule
           const miniSession: ConferenceModel.MiniSession = {
             id: session.guid,
             title: session.title
-          }  
+          }
 
           for (const person of session.persons ?? []) {
             const id = person.guid ?? person.code
@@ -340,7 +417,7 @@ export function speakersFromSessionJson(json: ScheduleJSONData, config: Schedule
                 name: person.name,
                 type: 'speaker',
                 event: config.eventId,
-                photo: person.avatar_url,
+                photo: person.avatar_url ?? person.avatar ?? undefined,
                 url,
                 biography: person.biography ?? undefined,
                 biography_format: "markdown",
@@ -369,7 +446,9 @@ export function subsconferencesAndLocationIdMapFromSessionJson(data: ScheduleJSO
 
   for (const room of data.schedule.conference.rooms) {
     const { assembly } = room;
-    if (assembly.slug === config.mainConferenceAssemblySlug) continue;
+    if (!assembly || !assembly.slug || assembly.slug === config.mainConferenceAssemblySlug) {
+      continue;
+    }
 
     locationIdToSubconferenceId.set(room.guid, assembly.slug);
 

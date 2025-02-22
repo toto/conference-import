@@ -8,4 +8,5 @@ export interface Track extends MiniTrack {
   type: "track"
   event: string
   color: number[]
+  darkColor?: number[]
 }

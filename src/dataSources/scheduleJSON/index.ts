@@ -3,7 +3,7 @@ import { SourceData } from "../../importer/sourceData";
 import * as ConferenceModel from "../../models";
 import { DataSourceFormat } from "../dataSource";
 import { ScheduleJSONDataSourceFormat, isScheduleJSONDataSourceFormat } from "./dataFormat";
-import { locationsFromJSON, sessionsFromJson, speakersFromJson, speakersFromSessionJson, subsconferencesFromSessionJson, tracksFromJson } from "./converters";
+import { AlternateUrlSource, locationsFromJSON, sessionsFromJson, speakersFromJson, speakersFromSessionJson, subsconferencesFromSessionJson, tracksFromJson } from "./converters";
 import { loadVocLiveStreams, addLiveStreamEnclosures, VocLiveMediaType, VocLiveStreamType } from "../voc-live";
 import { addRecordingEnclosues, addReliveEnclosures } from "../voc-vod";
 
@@ -21,7 +21,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     days,
     event,
     subconferences,
-    maps: [],
+    maps:  source.maps ?? [],
     pois: [],
   };
 
@@ -77,9 +77,14 @@ interface SessionsDataResult {
 
 async function sessionsFromSchedule(config: ScheduleJSONDataSourceFormat): Promise<SessionsDataResult> {
   const response = await axios.default.get(config.scheduleURL);
+  let alternateUrlSource: AlternateUrlSource | null = null;
+  if (config.alternateSessionLinkScheduleURL) {
+    const response = await axios.default.get<AlternateUrlSource>(config.alternateSessionLinkScheduleURL)
+    alternateUrlSource = response.data
+  }
   const { locations } = locationsFromJSON(response.data, config)
-  const sessions = sessionsFromJson(response.data, locations, config);
   const tracks = tracksFromJson(response.data, config);
+  const sessions = sessionsFromJson(response.data, locations, tracks, alternateUrlSource, config);
   const speakers = speakersFromSessionJson(response.data, config);
   const subconferences = subsconferencesFromSessionJson(response.data, config);
   return { sessions, tracks, locations, speakers, subconferences };

@@ -38,7 +38,8 @@ async function singleSourceData(event: Event, days: Day[], subconferences: Subco
     event,
     subconferences,
     maps: [],
-    pois: []
+    pois: [],
+    tracks: source.tracks,
   };
   
   const halfnarpJson = await axios.default.get(source.sourceUrl);

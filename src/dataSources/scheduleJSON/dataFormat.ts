@@ -20,6 +20,12 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
   /** URL of schedule JSON */
   scheduleURL: string;
 
+  /** 
+   * If set will use the sessions in this schdeule to populate the imported sessions
+   * with additional `session-alternate` type links. Most useful to support Universal Links.
+   */
+  alternateSessionLinkScheduleURL?: string;
+
   /** Use only if speakers.json should be used to source the speakers */
   speakers?: {
     /** Optional URL of speakers JSON */
@@ -44,6 +50,9 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
     recordedLocationIds?: string[];
   };
 
+  /** Set a fake enclosure for arbitray session IDs (e.g. for App Review) */
+  fakeVideos?:  Record<string, ConferenceModel.Enclosure>;
+
   /** Config for c3nav link integration */
   c3nav?: {
     /** Base Url prefix like `https://37c3.c3nav.de/l/` */
@@ -51,6 +60,8 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
     /** Set location id to c3nav slug (which is not the room slug) */
     locationIdToNavSlug: Record<string, string>;
   };
+
+  maps?: [ConferenceModel.Map]
 
   /** Slug of the the assembly not considered a subconference (e.g. "ccc") */
   mainConferenceAssemblySlug?: string;

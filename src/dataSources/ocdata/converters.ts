@@ -1,8 +1,25 @@
 import * as moment from 'moment-timezone';
 import { Map, Speaker, Subconference, Day, Track, Location, Session } from "../../models";
+import { OcDataSourceFormat } from '.';
 
-export function speakersFromJson(json: any): Speaker[] {
-  return untransformedFromJson(json, 'speaker');
+export function speakersFromJson(json: any, options: OcDataSourceFormat): Speaker[] {
+  const speakers = untransformedFromJson(json, 'speaker') as Speaker[];
+
+  return speakers.map((speaker) => {
+    const { id } = speaker;
+    const speakerMap = options.testData?.speakerToActivityPubLink
+    if (!speakerMap) return speaker;
+    const speakerLink = speakerMap[id]
+    if (speakerLink) {
+      speaker.links.push({
+        url: speakerLink,
+        type: "social-interaction",
+        service: "activityPub",
+        title: speaker.name,
+      })
+    }
+    return speaker;
+  })
 }
 
 export function daysFromJson(json: any): Day[] {
@@ -25,14 +42,30 @@ export function locationsFromJson(json: any): Location[] {
   return untransformedFromJson(json, 'location');
 }
 
-export function sessionsFromJson(json: any): Session[] {
+export function sessionsFromJson(json: any, options: OcDataSourceFormat): Session[] {
   if (!Array.isArray(json)) return [];
 
-  return json.filter(s => s.type === 'session').map((s) => {
+  const sessions = json.filter(s => s.type === 'session').map((s) => {
     if (s.begin) s.begin = moment(s.begin);
     if (s.end) s.end = moment(s.end);
     return s;
   }) as Session[];
+
+  return sessions.map((session) => {
+    const { id } = session;
+    const sessionMap = options.testData?.sessionToActivityPubLink
+    if (!sessionMap) return session;
+    const sessionLink = sessionMap[id]
+    if (sessionLink) {
+      session.links.push({
+        url: sessionLink,
+        type: "social-interaction",
+        service: "activityPub",
+        title: session.title,
+      })
+    }
+    return session;
+  })
 }
 
 function untransformedFromJson<T>(json: any, type: string): T[] {
