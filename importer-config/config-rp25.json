@@ -1,0 +1,230 @@
+{
+  "event": {
+    "id": "rp25",
+    "label": "re:publica 25: \\“Generation XYZ?\\”",
+    "title": "re:publica 2025",
+    "date": [
+      "2025-05-26",
+      "2025-05-28"
+    ],
+    "locations": [
+      {
+        "label": "Station Berlin",
+        "coords": [
+          52.49814,
+          13.374538
+        ],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "rp25",
+    "url": "https://re-publica.com/"
+  },
+  "days": [
+    {
+      "id": "2025-05-26",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2025-05-26"
+    },
+    {
+      "id": "2025-05-27",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2025-05-27"
+    },
+    {
+      "id": "2025-05-28",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2025-05-28"
+    }
+  ],
+  "subconferences": [],
+  "sources": [
+    {
+      "format": "rp2",
+      "dataBaseUrl": "https://re-publica.com/sites/default/files/extappdata/2025",
+      "speakerUrlPrefix": "https://re-publica.com/en/user",
+      "sessionUrlPrefix": "https://re-publica.com",
+      "defaultTrack": {
+        "id": "republica",
+        "label_en": "re:publica",
+        "label_de": "re:publica",
+        "color": [242, 251, 50, 1]
+      },
+      "sessionsToVideoUrls": {
+        
+      },
+      "addNodeAlternateLinksToSession": true,
+      "trackMappings": {
+        "technology": [
+          "technologie & wissenschaft",
+          "technology & science"
+        ],
+        "learning": [
+          "lernen & wissen",
+          "learning & knowledge"
+        ],
+        "politics": [
+          "politik & gesellschaft",
+          "politics & society"
+        ],
+        "net-for-good": [
+          "net for good"
+        ],
+        "this-is-fun": [
+          "this is fun."
+        ],
+        "spheres-of-work": [
+          "arbeitswelten",
+          "spheres of work"
+        ],
+        "arts-and-culture": [
+          "kunst & kultur",
+          "arts & culture"
+        ],
+        "media": [
+          "medien",
+          "media"
+        ],
+        "urban-spaces-rural-spaces": [
+          "stadt & land",
+          "urban spaces, rural spaces"
+        ],
+        "economy-and-responsibility": [
+          "wirtschaft & verantwortung",
+          "economy & responsibility"
+        ]
+      },
+      "locationsToYouTubeLiveStream": {
+        "5643": "https://www.youtube.com/watch?v=nFfDjk2OVTo"
+      },
+      "liveStreamThumbUrl": "https://re-publica.com/sites/default/files/oembed_thumbnails/eyrwntRYlKwTpBcEc6thMGhmmFXaUOv7g05rGz5jiPo.jpg",
+      "youtubePlaylistId": "PLAR_6-tD7IZV6D2ud_q905-riF4QAp3Jy",
+      "maps": [
+        {
+          "type": "map",
+          "id": "rp24-station",
+          "event": "rp24",
+          "map_pdf_url": "https://bitfever.de/~toto/data/rp24map/pdf/rp24_Lageplan_100524.pdf",
+          "label_de": "Station Berlin",
+          "label_en": "Station Berlin",
+          "floor_label_de": "Erdgeschhoss",
+          "floor_label_en": "Ground Floor",
+          "is_outdoor": true,
+          "is_indoor": true,
+          "floor": 0,
+          "order_index": 1,
+          "area": {
+            "width": 3000.0,
+            "height": 2058.0
+          },
+          "tiles": {},
+          "pois": []
+        }
+      ]
+    }
+  ],
+  "options": {
+    "colorForTrack": {
+      "media-journalism": [
+        214,
+        0,
+        126,
+        1
+      ],
+      "research-education": [
+        232,
+        200,
+        144,
+        1
+      ],
+      "gesellschaft": [
+        255,
+        175,
+        99,
+        1
+      ],
+      "wirtschaft": [
+        132,
+        130,
+        254,
+        1
+      ],
+      "medien": [
+        255,
+        52,
+        105,
+        1
+      ],
+      "politik": [
+        120,
+        207,
+        219,
+        1
+      ],
+      "technologie": [
+        60,
+        177,
+        255,
+        1
+      ],
+      "kultur": [
+        249,
+        207,
+        63,
+        1
+      ],
+      "wissenschaft": [
+        92,
+        204,
+        255,
+        1
+      ]
+    },
+    "locationIdOrder": 
+    ["5643",
+    "5644",
+    "5645",
+    "5646",
+    "5647",
+    "5648",
+    "5649",
+    "5650",
+    "5651",
+    "5652",
+    "5653",
+    "5657",
+    "5658",
+    "5656",
+    "5655",
+    "5662",
+    "5665",
+    "5666",
+    "5654",
+    "5667",
+    "5660",
+    "6279",
+    "5801",
+    "5802",
+    "5661",
+    "5669",
+    "5659",
+    "3349",
+    "5668",
+    "5974",
+    "6278"
+  ],
+    "defaultColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "timezone": "Etc/UTC",
+    "hourOfDayChange": 4,
+    "nonStageLocationIds": [],
+    "recommendationsSource": "https://data.conference.systems/F9F2E102/rp25-recommendations.json"
+  }
+}
