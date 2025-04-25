@@ -22,11 +22,20 @@ export function trackFromApiTerm(apiTerm: Rp2APIElement, options: {eventId: stri
   const id = normalizedTrackId(name.toLowerCase(), options.trackMappings)
 
 
-  let trackColor = options.defaultColor as [number, number, number, number];
+  let trackColor;
   if (typeof color === "string" && color.length === 7 && color.charAt(0) === "#") {
     const colorValue = colorArrayFromHex(color);
     if (colorValue) trackColor = colorValue
   }
+  if (!trackColor) {
+    const mappedColor = options.colors[id];
+    if (mappedColor) { 
+      trackColor = mappedColor;
+    } else {
+      trackColor = options.defaultColor as [number, number, number, number];
+    }
+  }
+  
   const label = name;
   label[0].toUpperCase();
   return {
