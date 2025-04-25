@@ -59,16 +59,20 @@
       "addNodeAlternateLinksToSession": true,
       "trackMappings": {
         "technology": [
-          "technologie & wissenschaft",
-          "technology & science"
+          "science & technology",
+          "wissenschaft & technologie"
         ],
         "learning": [
           "lernen & wissen",
-          "learning & knowledge"
+          "learning & knowledge",
+          "education & learning",
+          "bildung & lernen"
         ],
         "politics": [
           "politik & gesellschaft",
-          "politics & society"
+          "politics & society",
+          "politics",
+          "politik"
         ],
         "net-for-good": [
           "net for good"
@@ -82,19 +86,22 @@
         ],
         "arts-and-culture": [
           "kunst & kultur",
-          "arts & culture"
+          "arts & culture",
+          "art & culture"
         ],
         "media": [
           "medien",
-          "media"
+          "media",
+          "media & public spheres",
+          "medien & öffentlichkeit"
         ],
         "urban-spaces-rural-spaces": [
           "stadt & land",
           "urban spaces, rural spaces"
         ],
-        "economy-and-responsibility": [
-          "wirtschaft & verantwortung",
-          "economy & responsibility"
+        "economy-and-innovation": [
+          "wirtschaft & innovation",
+          "economy & innovation"
         ]
       },
       "locationsToYouTubeLiveStream": {
