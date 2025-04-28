@@ -28,6 +28,8 @@ export function speakerFromApiSpeaker(apiSpeaker: Rp2APIElement, options: Option
   if (!name_raw || typeof name_raw !== "string") return null;
   if (name_raw.trim() === "") return null;
 
+  const name = name_raw.replace(/\s+/g, ' ').trim();
+
   let biography: string | undefined
   if (bio && typeof bio === "string") {
     biography = dehtml(bio);
@@ -58,7 +60,7 @@ export function speakerFromApiSpeaker(apiSpeaker: Rp2APIElement, options: Option
 
   let speaker: Speaker | null = { 
     id: uid, 
-    name: name_raw.trim(),
+    name,
     position: typeof position === "string" ? position : undefined,
     biography,
     organization,
