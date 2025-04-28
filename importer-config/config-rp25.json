@@ -51,7 +51,12 @@
         "id": "republica",
         "label_en": "re:publica",
         "label_de": "re:publica",
-        "color": [242, 251, 50, 1]
+        "color": [
+          29,
+          229,
+          26,
+          1
+        ]
       },
       "sessionsToVideoUrls": {
         
@@ -132,52 +137,46 @@
         }
       ],
       "colorForTrack": {
-        "media-journalism": [
-          214,
-          0,
-          126,
+        "media": [
+          230,
+          230,
+          26,
           1
         ],
         "research-education": [
-          232,
-          200,
-          144,
+          29,
+          229,
+          26,
           1
         ],
         "gesellschaft": [
-          255,
-          175,
-          99,
+          25,
+          25,
+          230,
           1
         ],
         "economy-and-innovation": [
-          132,
-          130,
-          254,
-          1
-        ],
-        "media": [
-          255,
-          52,
-          105,
+          230,
+          26,
+          230,
           1
         ],
         "politics": [
-          120,
-          207,
-          219,
+          230,
+          26,
+          25,
           1
         ],
         "technology": [
-          60,
-          177,
-          255,
+          23,
+          230,
+          230,
           1
         ],
         "arts-and-culture": [
-          249,
-          207,
-          63,
+          25,
+          25,
+          230,
           1
         ]
       }
