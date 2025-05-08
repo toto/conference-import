@@ -59,7 +59,9 @@
         ]
       },
       "sessionsToVideoUrls": {
-        
+      },
+      "sessionsToYoutubeoUrls": {
+        "8305": "https://www.youtube.com/watch?v=BhOQxu7U_-M"
       },
       "addNodeAlternateLinksToSession": true,
       "trackMappings": {
@@ -221,7 +223,10 @@
     "8049",
     "8051",
     "8050",
-    "8210"
+    "8210",
+    "8052",
+    "8277",
+    "8276"
   ],
     "defaultColor": [
       0,

@@ -23,6 +23,9 @@ export interface Rp2DataSourceFormat extends DataSourceFormat {
   /** Map to Session ID to HTTPS url of a video stream to be added as a test stream */
   sessionsToVideoUrls?: Record<string, string>
 
+    /** Map to Session ID to YouTube urls of a video stream to be added as a test stream */
+  sessionsToYoutubeoUrls?: Record<string, string>
+
   locationsToYouTubeLiveStream?: Record<string, string>
   liveStreamThumbUrl?: string
 
@@ -139,10 +142,23 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
         resultSession.enclosures = resultSession.enclosures.concat([
           {
             url: source.sessionsToVideoUrls[resultSession.id],
-            type: "livestream",
+            type: "recording",
             title: resultSession.title,
             mimetype: "video/mp4",
             thumbnail: source.liveStreamThumbUrl ?? undefined,
+          }
+        ])
+    }
+    if (source.sessionsToYoutubeoUrls 
+      && resultSession 
+      && source.sessionsToYoutubeoUrls[resultSession.id]) {
+        resultSession.links = resultSession.links.concat([
+          {
+            url: source.sessionsToYoutubeoUrls[resultSession.id],
+            type: "recording",
+            title: resultSession.title,
+            service: "youtube",
+            thumbnail: undefined,
           }
         ])
     }
