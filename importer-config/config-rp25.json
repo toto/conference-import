@@ -121,7 +121,7 @@
           "type": "map",
           "id": "rp25-station",
           "event": "rp25",
-          "map_pdf_url": "https://bitfever.de/~toto/data/rp25map/pdf/rp25_Lageplan_080525.pdf",
+          "map_pdf_url": "https://data.conference.systems/8AF1EF9D/maps/rp25_Lageplan_080525.pdf",
           "label_de": "Station Berlin",
           "label_en": "Station Berlin",
           "floor_label_de": "Erdgeschhoss",
