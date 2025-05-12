@@ -119,9 +119,9 @@
       "maps": [
         {
           "type": "map",
-          "id": "rp24-station",
-          "event": "rp24",
-          "map_pdf_url": "https://bitfever.de/~toto/data/rp24map/pdf/rp24_Lageplan_100524.pdf",
+          "id": "rp25-station",
+          "event": "rp25",
+          "map_pdf_url": "https://bitfever.de/~toto/data/rp25map/pdf/rp25_Lageplan_080525.pdf",
           "label_de": "Station Berlin",
           "label_en": "Station Berlin",
           "floor_label_de": "Erdgeschhoss",
