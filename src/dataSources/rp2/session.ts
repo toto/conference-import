@@ -105,8 +105,12 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, apiRooms: Rp2AP
   let duration: number | undefined;
   if (typeof apiSession.datetime_start === "string" 
       && typeof apiSession.datetime_end === "string") {
-    begin = moment.utc(apiSession.datetime_start, "YYYY-MM-DD'T'HH:mm:ss");
-    end = moment.utc(apiSession.datetime_end, "YYYY-MM-DD'T'HH:mm:ss");
+    begin = moment
+      .utc(apiSession.datetime_start, "YYYY-MM-DD'T'HH:mm:ss")
+      .tz(options.timezone ?? "Etc/UTC", true);
+    end = moment
+      .utc(apiSession.datetime_end, "YYYY-MM-DD'T'HH:mm:ss")
+      .tz(options.timezone ?? "Etc/UTC", true);
     duration = end.diff(begin, 'minute');
   }
 

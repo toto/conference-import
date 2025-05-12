@@ -234,7 +234,7 @@
       0,
       1
     ],
-    "timezone": "Etc/UTC",
+    "timezone": "Europe/Berlin",
     "hourOfDayChange": 4,
     "nonStageLocationIds": [],
     "recommendationsSource": "https://data.conference.systems/F9F2E102/rp25-recommendations.json"
