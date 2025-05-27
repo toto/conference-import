@@ -8,7 +8,7 @@ interface YouTubeUrl {
   _type: "url"
 }
 
-export async function youtubeUrlByTitle(playlistId: string, prefix = "re:publica 2023: "): Promise<Record<string, Link>> {
+export async function youtubeUrlByTitle(playlistId: string, prefix = `re:publica 2023: ${new Date().getFullYear()}`): Promise<Record<string, Link>> {
   const result: Record<string, Link> = {};
   const execAsync = promisify(exec);
   let stdout: string | undefined
