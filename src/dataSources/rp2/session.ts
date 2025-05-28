@@ -120,7 +120,8 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, apiRooms: Rp2AP
       const id = speaker_uid[index] as unknown as string
       const name = speaker[index] as unknown as string
       if (name.trim() !== "") {
-        speakers.push({ id, name });
+        // replace double spaces with just one
+        speakers.push({ id, name: name.replace(/\s+/g, ' ').trim() });
       }
     }
   }
