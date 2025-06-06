@@ -25,7 +25,7 @@ interface Options {
 }
 
 export function sessionFromApiSession(apiSession: Rp2APIElement, apiRooms: Rp2APIElement[], options: Options): Session | null {
-  const {
+  let {
     nid,
     title,
     teaser,
@@ -71,6 +71,9 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, apiRooms: Rp2AP
     }
   }
 
+  // clean up the API mess
+  const sessionTitle = (title as string).trim();
+  
   let sessionTrack = options.defaultTrack
   if (track && typeof track === "string") {
     const trackId = normalizedTrackId(track.toLowerCase(), options.trackMappings)
@@ -132,7 +135,9 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, apiRooms: Rp2AP
       const id = moderator_uid[index] as unknown as string
       if (speakerIds.has(id)) continue;
       const name = moderator[index] as unknown as string
-      speakers.push({ id, name });
+      if (name.trim() !== "") {
+        speakers.push({ id, name: name.replace(/\s+/g, ' ').trim() });
+      }
     }
   }
 
@@ -146,7 +151,7 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, apiRooms: Rp2AP
       links.push({
         url,
         type: "livestream",
-        title,
+        title: sessionTitle,
         service: "youtube",
       });
   }
@@ -156,7 +161,7 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, apiRooms: Rp2AP
     linkAudioStream = {
       url: roomData?.audio_stream,
       type: "livestream",
-      title,
+      title: sessionTitle,
       service: "livevoice",
     };
   } 
@@ -165,7 +170,7 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, apiRooms: Rp2AP
     linkAudioStream = {
       url: audio_stream,
       type: "livestream",
-      title,
+      title: sessionTitle,
       service: "livevoice",
     };
   }
@@ -180,7 +185,7 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, apiRooms: Rp2AP
   }
 
   if (options.youtubeRecordingLinks) {
-    const link = options.youtubeRecordingLinks[title];
+    const link = options.youtubeRecordingLinks[sessionTitle];
     if (link) links.push(link)
   }
 
@@ -189,7 +194,7 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, apiRooms: Rp2AP
       links.push({
         url: `${options.sessionUrlPrefix}/${lang}/node/${nid}`,
         type: "session-alternate",
-        title,
+        title: sessionTitle,
         service: "web"
       })
     })
@@ -198,7 +203,7 @@ export function sessionFromApiSession(apiSession: Rp2APIElement, apiRooms: Rp2AP
 
   let session: Session | null = {
     id: nid,
-    title,
+    title: sessionTitle,
     type: "session",
     event: options.eventId, 
     url: `${options.sessionUrlPrefix}${path}`,

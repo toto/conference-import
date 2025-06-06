@@ -8,7 +8,7 @@ interface YouTubeUrl {
   _type: "url"
 }
 
-export async function youtubeUrlByTitle(playlistId: string, prefix = `re:publica 2023: ${new Date().getFullYear()}`): Promise<Record<string, Link>> {
+export async function youtubeUrlByTitle(playlistId: string, prefix = `re:publica ${new Date().getFullYear() - 2000}: `): Promise<Record<string, Link>> {
   const result: Record<string, Link> = {};
   const execAsync = promisify(exec);
   let stdout: string | undefined
@@ -32,14 +32,14 @@ export async function youtubeUrlByTitle(playlistId: string, prefix = `re:publica
   for (const url of parsed.entries) {
     const title = url.title
       .replace(prefix, "")
-    const titleWithoutDash = title.replace(/^.+ - /i, "")
+    const titleWithoutDash = title.replace(/^.+ (-|–) /i, "")
     const youtubeUrl = `https://www.youtube.com/v/${url.id}`
     result[title] = {
       type: "recording",
       title,
       url: youtubeUrl,
       service: "youtube",
-      thumbnail: `https://img.youtube.com/vi/${url.id}/default.jpg`
+      thumbnail: `https://img.youtube.com/vi/${url.id}/hqdefault.jpg`
     }
     result[titleWithoutDash] = result[title]
   }
