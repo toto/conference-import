@@ -129,7 +129,7 @@
       "speakerBaseUrl": "https://fahrplan.events.ccc.de/camp/2025/Fahrplan/speakers/",
       "defaultTrack": {
         "id": "track",
-        "event": "38c3",
+        "event": "39c3",
         "label_en": "Some Track",
         "color": [
           0,
@@ -139,7 +139,7 @@
         ]
       },
       "fakeVideos": {
-        "38c3-teahvc": {
+        "39c3-teahvc": {
           "url": "https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_h264.mov",
           "mimetype": "video/mp4",
           "type": "recording"
@@ -148,7 +148,7 @@
       "defaultLanguageCode": "de",
       "tracks": [
         {
-          "id": "38c3-ccc",
+          "id": "39c3-ccc",
           "color": [
             69,
             185,
@@ -165,7 +165,7 @@
           "label_en": "CCC"
         },
         {
-          "id": "38c3-entertainment",
+          "id": "39c3-entertainment",
           "color": [
             69,
             185,
@@ -182,7 +182,7 @@
           "label_en": "Entertainment"
         },
         {
-          "id": "38c3-ethics-society-politics",
+          "id": "39c3-ethics-society-politics",
           "color": [
             228,
             4,
@@ -193,7 +193,7 @@
           "label_en": "Ethics, Society & Politics"
         },
         {
-          "id": "38c3-security",
+          "id": "39c3-security",
           "color": [
             80,
             87,
@@ -210,7 +210,7 @@
           "label_en": "Security"
         },
         {
-          "id": "38c3-art-beauty",
+          "id": "39c3-art-beauty",
           "color": [
             185,
             151,
@@ -227,7 +227,7 @@
           "label_en": "Art & Beauty"
         },
         {
-          "id": "38c3-science",
+          "id": "39c3-science",
           "color": [
             69,
             185,
@@ -244,7 +244,7 @@
           "label_en": "Science"
         },
         {
-          "id": "38c3-hardware",
+          "id": "39c3-hardware",
           "color": [
             68,
             53,
@@ -259,16 +259,34 @@
           ],
           "label_de": "Hardware & Making",
           "label_en": "Hardware & Making"
+        },
+        {
+          "id": "39c3-chaos-community-creations",
+          "color": [
+            68,
+            53,
+            126,
+            1
+          ],
+          "darkColor": [
+            122,
+            96,
+            228,
+            1
+          ],
+          "label_de": "Chaos Community Creations",
+          "label_en": "Chaos Community Creations"
         }
       ],
       "trackIdMap": {
-        "2": "38c3-ccc",
-        "3": "38c3-entertainment",
-        "7": "38c3-ethics-society-politics",
-        "6": "38c3-security",
-        "1": "38c3-art-beauty",
-        "5": "38c3-science",
-        "4": "38c3-hardware"
+        "2": "39c3-ccc",
+        "27": "39c3-entertainment",
+        "28": "39c3-ethics-society-politics",
+        "31": "39c3-security",
+        "33": "39c3-art-beauty",
+        "29": "39c3-science",
+        "32": "39c3-hardware",
+        "30": "39c3-chaos-community-creations"
       }
     }
   ],
@@ -299,49 +317,49 @@
       1
     ],
     "colorForTrack": {
-      "38c3-ccc": [
+      "39c3-ccc": [
         77,
         77,
         76,
         1
       ],
-      "38c3-entertainment": [
+      "39c3-entertainment": [
         77,
         77,
         76,
         1
       ],
-      "38c3-ethics-society-politics": [
+      "39c3-ethics-society-politics": [
         228,
         4,
         41,
         1
       ],
-      "38c3-security": [
+      "39c3-security": [
         24,
         56,
         107,
         1
       ],
-      "38c3-art-culture": [
+      "39c3-art-culture": [
         249,
         176,
         0,
         1
       ],
-      "38c3-science": [
+      "39c3-science": [
         0,
         163,
         86,
         1
       ],
-      "38c3-hardware": [
+      "39c3-hardware": [
         68,
         53,
         126,
         1
       ],
-      "38c3-sustainability": [
+      "39c3-sustainability": [
         0,
         132,
         176,
@@ -355,6 +373,6 @@
     "fakeVideos": {},
     "minimumSessionDurationMinutes": 15,
     "maximumSessionDurationMinutes": 720,
-    "recommendationsSource": "https://data.conference.systems/BC12099A/38c3-recommendations.json"
+    "recommendationsSource": "https://data.conference.systems/BC12099A/39c3-recommendations.json"
   }
 }
