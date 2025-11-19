@@ -122,7 +122,7 @@
     {
       "format": "halfnarp",
       "eventId": "39c3",
-      "disabled": false,
+      "disabled": true,
       "timezone": "Europe/Berlin",
       "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
       "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2025/Fahrplan/events/",
@@ -287,6 +287,33 @@
         "29": "39c3-science",
         "32": "39c3-hardware",
         "30": "39c3-chaos-community-creations"
+      }
+    },
+    {
+      "format": "pretalx_v1",
+      "baseUrl": "https://cfp.cccv.de/",
+      "eventId": "39c3",
+      "conferenceCode": "39c3",
+      "apiKeyEnvVar": "API_KEY_PRETALX_39C3",
+      "defaultLanguageCode": "de",
+      "disabled": false,
+      "timezone": "Europe/Berlin",
+      "defaultTrack": {
+        "id": "congress",
+        "label_en": "Congress",
+        "label_de": "Congress",
+        "color": [
+          69,
+          185,
+          100,
+          1
+        ],
+        "darkColor": [
+          69,
+          185,
+          100,
+          1
+        ]
       }
     }
   ],
