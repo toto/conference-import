@@ -51,10 +51,9 @@
     {
       "format": "scheduleJSON",
       "eventId": "39c3",
-      "disabled": true,
+      "disabled": false,
       "timezone": "Europe/Berlin",
       "scheduleURL": "https://api.events.ccc.de/congress/2025/schedule.json",
-      "alternateSessionLinkScheduleURL": "https://fahrplan.events.ccc.de/congress/2025/fahrplan/schedule/export/schedule.json",
       "mainConferenceAssemblySlug": "ccc",
       "defaultTrack": {
         "id": "congress",
@@ -75,13 +74,7 @@
       },
       "fakeVideos": {
       },
-      "voc": {
-        "slug": "39c3"
-      },
-      "c3nav": {
-        "baseUrl": "https://39c3.c3nav.de/l/",
-        "locationIdToNavSlug": {}
-      },
+      
       "maps": [
       ]
     },
@@ -122,7 +115,7 @@
     {
       "format": "halfnarp",
       "eventId": "39c3",
-      "disabled": false,
+      "disabled": true,
       "timezone": "Europe/Berlin",
       "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
       "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2025/Fahrplan/events/",
