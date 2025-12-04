@@ -26,6 +26,12 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
    */
   alternateSessionLinkScheduleURL?: string;
 
+  /* Base URL for alternate session links. 
+  E.g. https://fahrplan.events.ccc.de/congress/2025/fahrplan/event/ 
+  In this case the last url component (slug) from the main url will be 
+  appended as alternate. Needs to end in a `/` */
+  alternateSessionBase?: string;
+
   /** Use only if speakers.json should be used to source the speakers */
   speakers?: {
     /** Optional URL of speakers JSON */

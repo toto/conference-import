@@ -190,7 +190,14 @@ export function sessionsFromJson(data: ScheduleJSONData, locations: ConferenceMo
                 }
               }  
             }
-            
+          }
+
+          if (typeof config.alternateSessionBase === "string") {
+            const slug = session.url.split('/').filter(part => part.length > 0).pop();
+            if (slug) {
+              const alternateUrl = `${config.alternateSessionBase}${slug}`;
+              alternateUrlsForSessionIds[session.guid] = alternateUrl;
+            }
           }
 
           const parsedSession = sessionFromJson(
@@ -283,7 +290,8 @@ export function sessionFromJson(json: ScheduleJSONSession, sessionTrack: Confere
     })
   }
 
-  if (json.feedback_url) {
+  // only add feedback after session is done
+  if (json.feedback_url && end && moment().isAfter(end)) {
     links.push({
       url: json.feedback_url,
       type: 'feedback-link',

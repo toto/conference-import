@@ -54,6 +54,7 @@
       "disabled": false,
       "timezone": "Europe/Berlin",
       "scheduleURL": "https://api.events.ccc.de/congress/2025/schedule.json",
+      "alternateSessionBase": "https://fahrplan.events.ccc.de/congress/2025/fahrplan/event/",
       "mainConferenceAssemblySlug": "ccc",
       "defaultTrack": {
         "id": "congress",
