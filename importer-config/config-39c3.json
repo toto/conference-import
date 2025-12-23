@@ -367,6 +367,6 @@
     "fakeVideos": {},
     "minimumSessionDurationMinutes": 15,
     "maximumSessionDurationMinutes": 720,
-    "recommendationsSource": "https://data.conference.systems/BC12099A/39c3-recommendations.json"
+    "recommendationsSource": "https://data.conference.systems/4AF085E7/39c3-recommendations.json"
   }
 }
