@@ -28,6 +28,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
   let sessions: ConferenceModel.Session[] = []
   let speakers: ConferenceModel.Speaker[] = []
   try {
+    console.debug(`ScheduleJSON: Loading schedule from ${source.scheduleURL}`);
     const sessionsResult = await sessionsFromSchedule(source)
     sessions = sessionsResult.sessions;
     speakers = sessionsResult.speakers;
@@ -36,6 +37,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     
     if (source.speakers) {
       // TODO: Merge the speakers with the previous ones
+      console.debug(`ScheduleJSON: Loading speakers from ${source.speakers.jsonURL}`);
       speakers = await speakersFromSpeakersJSON(source)
     }
 
@@ -55,6 +57,7 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
 
   if (source.voc?.slug) {
     const vocStreams = await loadVocLiveStreams(source.voc?.slug, VocLiveMediaType.video, VocLiveStreamType.hls, source.voc.liveStreamApiUrl);
+    console.debug(`ScheduleJSON: Loaded ${vocStreams.length} live streams from VOC for VOC '${source.voc?.slug}'`);
     result.sessions = addLiveStreamEnclosures(result.sessions, vocStreams);
 
     result.sessions = await addRecordingEnclosues(source.voc?.slug, result.sessions, true);
