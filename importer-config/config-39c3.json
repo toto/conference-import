@@ -96,6 +96,86 @@
         }
       },
       "maps": [
+        {
+          "type": "map",
+          "id": "39c3-cch-0",
+          "event": "39c3",
+          "map_pdf_url": "https://data.conference.systems/4AF085E7/maps/lvl0.pdf",
+          "label_de": "CCH",
+          "label_en": "CCH",
+          "floor_label_de": "Level 0",
+          "floor_label_en": "Level 0",
+          "is_outdoor": false,
+          "is_indoor": true,
+          "floor": 0,
+          "order_index": 1,
+          "area": {
+            "width": 3000.0,
+            "height": 2058.0
+          },
+          "tiles": {},
+          "pois": []
+        },
+         {
+         "type": "map",
+          "id": "39c3-cch-1",
+          "event": "39c3",
+          "map_pdf_url": "https://data.conference.systems/4AF085E7/maps/lvl1.pdf",
+          "label_de": "CCH",
+          "label_en": "CCH",
+          "floor_label_de": "Level 1",
+          "floor_label_en": "Level 1",
+          "is_outdoor": false,
+          "is_indoor": true,
+          "floor": 1,
+          "order_index": 2,
+          "area": {
+            "width": 3000.0,
+            "height": 2058.0
+          },
+          "tiles": {},
+          "pois": []
+        },
+         {
+          "type": "map",
+          "id": "39c3-cch-2",
+          "event": "39c3",
+          "map_pdf_url": "https://data.conference.systems/4AF085E7/maps/lvl2.pdf",
+          "label_de": "CCH",
+          "label_en": "CCH",
+          "floor_label_de": "Level 2",
+          "floor_label_en": "Level 2",
+          "is_outdoor": false,
+          "is_indoor": true,
+          "floor": 2,
+          "order_index": 3,
+          "area": {
+            "width": 3000.0,
+            "height": 2058.0
+          },
+          "tiles": {},
+          "pois": []
+         },
+         {
+          "type": "map",
+          "id": "39c3-cch-34",
+          "event": "39c3",
+          "map_pdf_url": "https://data.conference.systems/4AF085E7/maps/lvl34.pdf",
+          "label_de": "CCH",
+          "label_en": "CCH",
+          "floor_label_de": "Level 3/4",
+          "floor_label_en": "Level 3/4",
+          "is_outdoor": false,
+          "is_indoor": true,
+          "floor": 3,
+          "order_index": 4,
+          "area": {
+            "width": 3000.0,
+            "height": 2058.0
+          },
+          "tiles": {},
+          "pois": []
+         }
       ]
     },
     {
