@@ -6,6 +6,7 @@ import { ScheduleJSONDataSourceFormat, isScheduleJSONDataSourceFormat } from "./
 import { AlternateUrlSource, locationsFromJSON, sessionsFromJson, speakersFromJson, speakersFromSessionJson, subsconferencesFromSessionJson, tracksFromJson } from "./converters";
 import { loadVocLiveStreams, addLiveStreamEnclosures, VocLiveMediaType, VocLiveStreamType } from "../voc-live";
 import { addRecordingEnclosues, addReliveEnclosures } from "../voc-vod";
+import moment = require("moment-timezone");
 
 export async function sourceData(event: ConferenceModel.Event, days: ConferenceModel.Day[], subconferences: ConferenceModel.Subconference[], sources: DataSourceFormat[]) {
   const pretalxSources = sources.filter(s => isScheduleJSONDataSourceFormat(s)) as [];
@@ -31,6 +32,14 @@ async function singleSourceData(event: ConferenceModel.Event, days: ConferenceMo
     console.debug(`ScheduleJSON: Loading schedule from ${source.scheduleURL}`);
     const sessionsResult = await sessionsFromSchedule(source)
     sessions = sessionsResult.sessions;
+    if (source.endTimestamp) {
+      const isoEnd = moment(source.endTimestamp);
+      sessions = sessions.filter(s => {
+        if (!s.begin || !s.end) return true;
+        const sessionEnd = moment(s.end);
+        return sessionEnd.isSameOrBefore(isoEnd);
+      });
+    }
     speakers = sessionsResult.speakers;
     result.tracks = sessionsResult.tracks;
     result.locations = sessionsResult.locations;

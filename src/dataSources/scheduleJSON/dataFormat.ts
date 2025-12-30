@@ -71,4 +71,7 @@ export interface ScheduleJSONDataSourceFormat extends DataSourceFormat {
 
   /** Slug of the the assembly not considered a subconference (e.g. "ccc") */
   mainConferenceAssemblySlug?: string;
+
+  /** No events after this time will be included if set. ISO 8601 timestamp. */
+  endTimestamp?: string;
 }
