@@ -225,12 +225,7 @@ function parseSession(date: string, roomName: string, session: Record<string, un
     return undefined;
   }
 
-  let id: string
-  if (typeof session.guid === "string") {
-    id = session.guid as string
-  } else {
-    id = config.prefixSessionsWithEventId === true ? `${config.eventId}-${sessionId}` : sessionId
-  }
+  const id = config.prefixSessionsWithEventId === true ? `${config.eventId}-${sessionId}` : sessionId;
   
   const result: Session = {
     type: "session",

@@ -29,8 +29,6 @@ export function poisFromFromC3Nav(source: C3NavPOI[], options: PoiOptions): POI[
 }
 
 function poiFromC3NavPOI(poi: C3NavPOI, options: PoiOptions): POI | null {
-  if (!["poi", "villages_point"].includes(poi.layer)) return null;
-
   const primaryText = poi.text ?? poi.name ?? poi.text_en;
   if (!primaryText) return null;
 
