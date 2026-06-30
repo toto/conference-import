@@ -5,74 +5,99 @@ import * as ConferenceModel from '../models';
 import { ConferenceData } from '../importer/importer';
 import { makeConferenceLive } from './live-data-fake';
 
-interface EventResources {
-  sessions: Map<string,ConferenceModel.Session>
-  speakers: Map<string,ConferenceModel.Speaker>
-  days: Map<string,ConferenceModel.Day>
-  tracks: Map<string,ConferenceModel.Track>
-  locations: Map<string,ConferenceModel.Location>
-  subconferences: Map<string,ConferenceModel.Subconference>
-  maps: Map<string,ConferenceModel.Map>
-  pois: Map<string,ConferenceModel.POI>
+export const resourceNames = [
+  "sessions",
+  "speakers",
+  "days",
+  "tracks",
+  "locations",
+  "subconferences",
+  "maps",
+  "pois",
+] as const;
+export type ResourceName = typeof resourceNames[number];
+
+interface ResourceTypes {
+  sessions: ConferenceModel.Session;
+  speakers: ConferenceModel.Speaker;
+  days: ConferenceModel.Day;
+  tracks: ConferenceModel.Track;
+  locations: ConferenceModel.Location;
+  subconferences: ConferenceModel.Subconference;
+  maps: ConferenceModel.Map;
+  pois: ConferenceModel.POI;
 }
 
-export class EventDataStore implements EventResources {
-  event: ConferenceModel.Event
-  sessions: Map<string,ConferenceModel.Session>
-  speakers: Map<string,ConferenceModel.Speaker>
-  days: Map<string,ConferenceModel.Day>
-  tracks: Map<string,ConferenceModel.Track>
-  locations: Map<string,ConferenceModel.Location>
-  subconferences: Map<string,ConferenceModel.Subconference>
-  maps: Map<string,ConferenceModel.Map>
-  pois: Map<string,ConferenceModel.POI>
+type ResourceCollections = { [K in ResourceName]: Map<string, ResourceTypes[K]> };
 
-  constructor(conferenceData: ConferenceData, fakeLiveDate?: moment.Moment) {
-    let data = conferenceData;
-    if (fakeLiveDate) {
+export class EventDataStore {
+  event: ConferenceModel.Event;
+  readonly byType: ResourceCollections;
+  updatedAt: Date;
+  sourcePath?: string;
 
-      data = makeConferenceLive(fakeLiveDate, data);
-    }
+  constructor(conferenceData: ConferenceData, fakeLiveDate?: moment.Moment, updatedAt: Date = new Date(), sourcePath?: string) {
+    const data = fakeLiveDate ? makeConferenceLive(fakeLiveDate, conferenceData) : conferenceData;
     this.event = data.event;
-    this.sessions = new Map();
-    this.speakers = new Map();
-    this.days = new Map();
-    this.tracks = new Map();
-    this.locations = new Map();
-    this.subconferences = new Map();
-    this.maps = new Map();
-    this.pois = new Map();
-    this.updateResourceMaps(data);
+    this.updatedAt = updatedAt;
+    this.sourcePath = sourcePath;
+    this.byType = {
+      sessions: new Map(),
+      speakers: new Map(),
+      days: new Map(),
+      tracks: new Map(),
+      locations: new Map(),
+      subconferences: new Map(),
+      maps: new Map(),
+      pois: new Map(),
+    };
+    this.populate(data);
   }
 
-  private updateResourceMaps(data: ConferenceData) {
-    data.sessions.forEach(s => this.sessions.set(s.id, s));
-    data.speakers.forEach(s => this.speakers.set(s.id, s));
-    data.days.forEach(s => this.days.set(s.id, s));
-    data.tracks.forEach(s => this.tracks.set(s.id, s));
-    data.locations.forEach(s => this.locations.set(s.id, s));
-    data.subconferences.forEach(s => this.subconferences.set(s.id, s));
-    if (data.maps) {
-      data.maps.forEach(s => this.maps.set(s.id, s));
+  get sessions() { return this.byType.sessions; }
+  get speakers() { return this.byType.speakers; }
+  get days() { return this.byType.days; }
+  get tracks() { return this.byType.tracks; }
+  get locations() { return this.byType.locations; }
+  get subconferences() { return this.byType.subconferences; }
+  get maps() { return this.byType.maps; }
+  get pois() { return this.byType.pois; }
+
+  private populate(data: ConferenceData) {
+    data.sessions.forEach(s => this.byType.sessions.set(s.id, s));
+    data.speakers.forEach(s => this.byType.speakers.set(s.id, s));
+    data.days.forEach(s => this.byType.days.set(s.id, s));
+    data.tracks.forEach(s => this.byType.tracks.set(s.id, s));
+    data.locations.forEach(s => this.byType.locations.set(s.id, s));
+    data.subconferences.forEach(s => this.byType.subconferences.set(s.id, s));
+    if (data.maps) data.maps.forEach(s => this.byType.maps.set(s.id, s));
+    if (data.pois) data.pois.forEach(s => this.byType.pois.set(s.id, s));
+  }
+
+  resourceForId<K extends ResourceName>(resource: K, id: string): ResourceTypes[K] | undefined {
+    const map = this.byType[resource] as Map<string, ResourceTypes[K]>;
+    return map.get(id);
+  }
+
+  resources<K extends ResourceName>(resource: K): ResourceTypes[K][] {
+    const map = this.byType[resource] as Map<string, ResourceTypes[K]>;
+    return Array.from(map.values());
+  }
+
+  static eventDataFromFile(jsonFilePath: string, fakeLiveDate?: moment.Moment): EventDataStore {
+    let raw: string;
+    try {
+      raw = fs.readFileSync(jsonFilePath, 'utf8');
+    } catch (err) {
+      throw new Error(`Failed to read event data file '${jsonFilePath}': ${(err as Error).message}`);
     }
-    if (data.pois) {
-      data.pois.forEach(s => this.pois.set(s.id, s));
+    let data: ConferenceData;
+    try {
+      data = JSON.parse(raw) as ConferenceData;
+    } catch (err) {
+      throw new Error(`Failed to parse event data file '${jsonFilePath}': ${(err as Error).message}`);
     }
-  }
-
-  resourceForId(resource: keyof EventResources, id: string) {
-    return this[resource].get(id);
-  }
-
-  resources(resource: keyof EventResources) {
-    const map = this[resource];
-    const resources = [...map].map(r => r[1]);
-    return resources //.sort((a,b) => a.id.localeCompare(b.id));
-  }
-
-  static eventDataFromFile(jsonFilePath: string, fakeLiveDate?: moment.Moment): EventDataStore | null {
-    const data = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8')) as ConferenceData;    
-    return new EventDataStore(data, fakeLiveDate);
+    const updatedAt = fs.statSync(jsonFilePath).mtime;
+    return new EventDataStore(data, fakeLiveDate, updatedAt, jsonFilePath);
   }
 }
-
