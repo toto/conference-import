@@ -47,6 +47,139 @@
     }
   ],
   "subconferences": [],
+  "maps": [
+    {
+      "id": "39c3-c3nav",
+      "type": "map",
+      "event": "39c3",
+      "provider": "c3nav",
+      "label_en": "Interactive venue map",
+      "label_de": "Interaktiver Geländeplan",
+      "is_indoor": true,
+      "is_outdoor": true,
+      "order_index": 0,
+      "pois": [],
+      "c3nav": {
+        "base_url": "https://39c3.c3nav.de/",
+        "default_level_id": 1,
+        "floors": [
+          {
+            "id": 62,
+            "slug": "level--1",
+            "level_index": "-1",
+            "label_en": "Level -1",
+            "label_de": "1. UG",
+            "order_index": 0,
+            "on_top_of": null
+          },
+          {
+            "id": 78,
+            "slug": "level--1-0",
+            "level_index": "-1-0",
+            "label_en": "Level -1 → 0",
+            "label_de": "1. UG → EG",
+            "order_index": 1,
+            "on_top_of": 62
+          },
+          {
+            "id": 1,
+            "slug": "level-0",
+            "level_index": "0",
+            "label_en": "Level 0",
+            "label_de": "EG",
+            "order_index": 2,
+            "on_top_of": null
+          },
+          {
+            "id": 79,
+            "slug": "level-0-1",
+            "level_index": "0-1",
+            "label_en": "Level 0 → 1",
+            "label_de": "EG → 1. OG",
+            "order_index": 3,
+            "on_top_of": 1
+          },
+          {
+            "id": 2,
+            "slug": "level-1",
+            "level_index": "1",
+            "label_en": "Level 1",
+            "label_de": "1. OG",
+            "order_index": 4,
+            "on_top_of": null
+          },
+          {
+            "id": 80,
+            "slug": "level-1-2",
+            "level_index": "1-2",
+            "label_en": "Level 1 → 2",
+            "label_de": "1. OG → 2. OG",
+            "order_index": 5,
+            "on_top_of": 2
+          },
+          {
+            "id": 3,
+            "slug": "level-2",
+            "level_index": "2",
+            "label_en": "Level 2",
+            "label_de": "2. OG",
+            "order_index": 6,
+            "on_top_of": null
+          },
+          {
+            "id": 81,
+            "slug": "level-2-3",
+            "level_index": "2-3",
+            "label_en": "Level 2 → 3",
+            "label_de": "2. OG → 3. OG",
+            "order_index": 7,
+            "on_top_of": 3
+          },
+          {
+            "id": 4,
+            "slug": "level-3",
+            "level_index": "3",
+            "label_en": "Level 3",
+            "label_de": "3. OG",
+            "order_index": 8,
+            "on_top_of": null
+          },
+          {
+            "id": 82,
+            "slug": "level-3-4",
+            "level_index": "3-4",
+            "label_en": "Level 3 → Level 4",
+            "label_de": "3. OG → 4. OG",
+            "order_index": 9,
+            "on_top_of": 4
+          },
+          {
+            "id": 5,
+            "slug": "level-4",
+            "level_index": "4",
+            "label_en": "Level 4",
+            "label_de": "4. OG",
+            "order_index": 10,
+            "on_top_of": null
+          }
+        ],
+        "location_id_to_slug": {
+          "ba692ba3-421b-5371-8309-60acc34a3c05": "hall-1",
+          "7202df07-050c-552f-8318-992f94e40ef0": "hg",
+          "62251a07-13e4-5a72-bb3c-8528416ee0f2": "hz",
+          "85a6ba5d-11d9-4efe-8d28-c5f7165a19ce": "hall-f",
+          "1d0080d1-d8d1-5a26-85e8-6e0556bdbf95": "h5",
+          "ce20bae4-fc3a-46e2-8608-be3caa7fa20d": "sos-6",
+          "9001b61b-b1f1-5bcd-89fd-135ed5e43e19": "hall-sendezentrum",
+          "d477e5d4-4700-4317-896c-ca39c0720eed": "stage-h",
+          "ecd57af5-f5fe-4b00-bd18-005375deb4ac": "sos-e",
+          "4d734db6-fb54-460c-98fc-5f8c55025ef7": "sos-d",
+          "c2d2090b-32f1-48e9-9233-b43de3066aa6": "komona",
+          "6114efbe-f549-579a-8aa4-cd143f5a96cf": "spaeti"
+        }
+      }
+    }
+  ],
   "sources": [
     {
       "format": "scheduleJSON",
@@ -78,23 +211,6 @@
       },
       "voc": {
         "slug": "39c3"
-      },
-      "c3nav": {
-        "baseUrl": "https://39c3.c3nav.de/l/",
-        "locationIdToNavSlug": {
-          "ba692ba3-421b-5371-8309-60acc34a3c05": "hall-1",
-          "7202df07-050c-552f-8318-992f94e40ef0": "hg",
-          "62251a07-13e4-5a72-bb3c-8528416ee0f2": "hz",
-          "85a6ba5d-11d9-4efe-8d28-c5f7165a19ce": "hall-f",
-          "1d0080d1-d8d1-5a26-85e8-6e0556bdbf95": "h5",
-          "ce20bae4-fc3a-46e2-8608-be3caa7fa20d": "sos-6",
-          "9001b61b-b1f1-5bcd-89fd-135ed5e43e19": "hall-sendezentrum",
-          "d477e5d4-4700-4317-896c-ca39c0720eed": "stage-h",
-          "ecd57af5-f5fe-4b00-bd18-005375deb4ac": "sos-e",
-          "4d734db6-fb54-460c-98fc-5f8c55025ef7": "sos-d",
-          "c2d2090b-32f1-48e9-9233-b43de3066aa6": "komona",
-          "6114efbe-f549-579a-8aa4-cd143f5a96cf" :"spaeti"
-        }
       },
       "maps": [
         {

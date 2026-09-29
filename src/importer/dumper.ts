@@ -11,6 +11,9 @@ import * as c3hub from "./../dataSources/c3hub";
 import * as scheduleJSON from "./../dataSources/scheduleJSON";
 import { processData, ConferenceData, Color } from './importer';
 import { linkFrom, LiveStream, enclosureFrom } from "../dataSources/stream";
+import { MapConfiguration } from "../models/map";
+import { addMapNavigationLinks, mergeMaps } from "./maps";
+import { isScheduleJSONDataSourceFormat } from "../dataSources/scheduleJSON/dataFormat";
 
 interface ConfigurationOptions {
   locationIdOrder: string[]
@@ -28,11 +31,13 @@ export interface Configuration {
   sources: DataSourceFormat[]
   options: ConfigurationOptions
   livestreams?: LiveStream[]
+  maps?: MapConfiguration[]
 }
 
 export async function dumpNormalizedConference(configuration: Configuration, destinationFile: string) {
   let { days, subconferences } = configuration;
   const { event, options } = configuration;
+  const eventMaps = mergeMaps(configuration.maps ?? [], event.id);
   let { sources } = configuration;
   // Ignore all disabled sources
   sources = sources.filter(s => !(s.disabled ?? false))
@@ -54,7 +59,7 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     speakers: [],
     tracks: [],
     locations: [],
-    maps: [],
+    maps: eventMaps,
     pois: [],
   };
   const rpdata = await rp.sourceData(event, days, subconferences, sources);
@@ -149,7 +154,16 @@ export async function dumpNormalizedConference(configuration: Configuration, des
     if (result.pois && pois) result.pois = result.pois.concat(pois);
   });
 
-  const scheduleJSONData = await scheduleJSON.sourceData(event, days, subconferences, sources);
+  // Event-level navigation takes precedence; keep legacy mappings for other rooms.
+  const mappedLocations = new Set(eventMaps.flatMap(map => map.provider === "c3nav"
+    ? Object.keys(map.c3nav.location_id_to_slug ?? {}) : []));
+  const scheduleSources = sources.map(source => {
+    if (!isScheduleJSONDataSourceFormat(source) || !source.c3nav) return source;
+    const locationIdToNavSlug = Object.fromEntries(Object.entries(source.c3nav.locationIdToNavSlug)
+      .filter(([id]) => !mappedLocations.has(id)));
+    return { ...source, c3nav: { ...source.c3nav, locationIdToNavSlug } };
+  });
+  const scheduleJSONData = await scheduleJSON.sourceData(event, days, subconferences, scheduleSources);
   await asyncForEach(scheduleJSONData, async data => {
     if (data.sessions.length === 0) return;
     const { sessions, speakers, maps, tracks, locations, pois, subconferences } = await processData(data, options);
@@ -186,7 +200,8 @@ export async function dumpNormalizedConference(configuration: Configuration, des
   result.days.forEach(s => s.event = event.id);
   result.locations.forEach(s => s.event = event.id);
   result.subconferences.forEach(s => s.event = event.id);
-  if (result.maps) result.maps.forEach(s => s.event = event.id);
+  result.maps = mergeMaps(result.maps ?? [], event.id);
+  addMapNavigationLinks(result.sessions, result.maps);
   if (result.pois) result.pois.forEach(s => s.event = event.id);
 
   const string = JSON.stringify(result, undefined, 2);

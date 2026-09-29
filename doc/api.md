@@ -418,7 +418,9 @@ Locations are specified spaces on the compound and may be stages.
 
 ## Maps
 
-Maps represent maps of the conference venue. A map refrences on more points of interest (POIs). See below for POIs.
+Maps represent maps of the conference venue and may reference points of interest (POIs).
+
+`provider` selects the map representation: absent or `"static"` uses the legacy floor-map format below; `"c3nav"` uses the multi-floor venue descriptor described afterwards. Clients must check the provider before reading static fields and skip unsupported providers. The server in this repository serves maps at `/<event-id>/maps` and `/<event-id>/maps/<map-id>`.
 
 ### GET `/events/<event-id>/maps`
 
@@ -479,6 +481,105 @@ Specifies the base URL for image tiles.
 ### GET `/events/<event-id>/maps/<map-id>`
 
 Same as above, but returning only one map.
+
+### c3nav maps
+
+A c3nav map is one interactive venue with multiple levels. It retains the common
+`id`, `type: "map"`, `event`, labels, `is_indoor`, `is_outdoor`, `order_index`, and
+`pois` fields. It has `provider: "c3nav"` and a required `c3nav` object. Static
+fields (`floor`, `floor_label_en`, `area`, `tiles`, `map_pdf_url`) do not apply.
+
+```json
+{
+  "id": "39c3-c3nav",
+  "type": "map",
+  "event": "39c3",
+  "provider": "c3nav",
+  "label_en": "Interactive venue map",
+  "is_indoor": true,
+  "is_outdoor": true,
+  "order_index": 0,
+  "pois": [],
+  "c3nav": {
+    "base_url": "https://39c3.c3nav.de/",
+    "api_base_url": "https://39c3.c3nav.de/api/v2/",
+    "api_headers": { "X-API-Key": "anonymous" },
+    "levels_url": "https://39c3.c3nav.de/api/v2/mapdata/levels/",
+    "map_settings_url": "https://39c3.c3nav.de/api/v2/map/settings/",
+    "location_url_template": "https://39c3.c3nav.de/l/{slug}/",
+    "default_level_id": 1,
+    "location_id_to_slug": { "room-id": "hall-1" }
+  }
+}
+```
+
+All six connection fields in the example (`base_url`, `api_base_url`,
+`api_headers`, `levels_url`, `map_settings_url`, `location_url_template`) are
+present in normalized output. Open `base_url` in a browser/web view for the
+complete interactive map, including its floor selector. For a room or floor
+link, replace `{slug}` with the percent-encoded location/floor slug. The optional
+`location_id_to_slug` dictionary uses this event's location IDs as keys.
+
+Send `api_headers` when requesting c3nav API endpoints. The only supported value
+is the public guest header shown above; private credentials must never appear in
+this public event data. The live [39C3 API documentation](https://39c3.c3nav.de/api/v2/)
+describes its native schemas and guest access. `map_settings_url` provides the
+initial level, map bounds and tile-server URL; `levels_url` provides the current
+levels in c3nav's native format. These descriptors do not implement a native
+renderer or translate c3nav tiles into the static-map tile format.
+
+`floors` is an optional configured metadata snapshot, sorted by `order_index`:
+
+```json
+[
+  {
+    "id": 1,
+    "slug": "level-0",
+    "level_index": "0",
+    "label_en": "Level 0",
+    "label_de": "EG",
+    "order_index": 0,
+    "on_top_of": null
+  },
+  {
+    "id": 79,
+    "slug": "level-0-1",
+    "level_index": "0-1",
+    "label_en": "Level 0 → 1",
+    "label_de": "EG → 1. OG",
+    "order_index": 1,
+    "on_top_of": 1
+  }
+]
+```
+
+- `id`: required positive numeric c3nav level ID, scoped to this c3nav instance.
+  It is **not a floor number**: 39C3's ground floor has ID 1 and its basement has ID 62.
+- `slug`: required c3nav effective location slug, usable with `location_url_template`.
+- `level_index`: required opaque string, including values like `"-1"` and `"0-1"`.
+  Do not parse it as a number or use it as the API level ID.
+- `label_en`: required display label; `label_de` is optional.
+- `order_index`: required numeric display order hint.
+- `on_top_of`: optional underlying level ID, or null for a main level. Use this
+  relationship to distinguish intermediate/overlay levels from the main floor
+  selector. All referenced levels must exist in a supplied snapshot; cycles are rejected.
+
+`default_level_id` is optional. When `floors` is supplied it must reference one of
+those floors; otherwise resolve it against live levels. When it is absent, use
+c3nav's initial level from the map settings or let the web map choose its default.
+An absent `floors` array means discover levels through c3nav, not a single-floor
+map. An empty array is an empty snapshot, not a reason to disable discovery.
+
+The snapshot does not refresh during import. Clients may refresh it from
+`levels_url`, mapping `effective_slug` to `slug`, `titles.en` (or `title` as a
+fallback) to `label_en`, and `titles.de` to `label_de`, retaining `id`,
+`level_index` and `on_top_of`. Sort by `base_altitude` to assign `order_index`.
+If refreshing fails, use the configured snapshot or open the web map.
+
+The 39C3 configuration includes six main floors and five intermediate levels,
+verified against its live API on 2026-09-29. Existing PDF maps remain separate
+static entries. Adding this new variant requires consumers to tolerate or
+support it; retaining PDF entries alone does not make old strict decoders compatible.
 
 ## Points of Interest
 
