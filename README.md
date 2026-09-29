@@ -29,3 +29,47 @@ This will serve all data from the JSON files in the current directory. The serve
 ## TODO
 
 - Make the webserver responde to a unix-signal to reload it's files (currently it's just killed and restarted)
+
+## c3nav indoor maps
+
+Add a top-level `maps` array to any event configuration, independently of its
+schedule sources. For example:
+
+```json
+{
+  "maps": [{
+    "id": "my-event-c3nav",
+    "provider": "c3nav",
+    "label_en": "Interactive venue map",
+    "is_indoor": true,
+    "is_outdoor": false,
+    "order_index": 0,
+    "pois": [],
+    "c3nav": {
+      "base_url": "https://39c3.c3nav.de/",
+      "location_id_to_slug": { "my-room-id": "hall-1" }
+    }
+  }]
+}
+```
+
+The importer supplies `type`, the event ID, API base URL (`api/v2/`), guest API
+header, levels endpoint (`mapdata/levels/`), settings endpoint (`map/settings/`),
+and location URL template (`l/{slug}/`) relative to the configured base URL.
+Each endpoint can be overridden for a different deployment. Base URLs are
+normalized with trailing slashes. Importing these descriptors does not contact
+c3nav and works with no schedule sources or sessions.
+
+One c3nav map covers all floors. Optionally configure a `c3nav.floors` snapshot
+and `default_level_id`; apps can also discover current floors from `levels_url`.
+Floor IDs are c3nav IDs, not storey numbers, and intermediate levels carry an
+`on_top_of` reference. See [the map API contract](doc/api.md#c3nav-maps) for the
+complete fields and client behavior, and [39C3's configuration](importer-config/config-39c3.json)
+for a verified multi-floor example with PDF fallbacks.
+
+`location_id_to_slug` is exposed to apps and adds room navigation links to
+sessions from any schedule format. For scheduleJSON it takes precedence over
+legacy `sources[].c3nav` mappings for the same location; other legacy mappings
+continue to work. Existing identical links are not duplicated. Existing
+source-level maps remain supported. Identical duplicate map IDs are coalesced;
+conflicting descriptors fail the import rather than silently replacing a map.

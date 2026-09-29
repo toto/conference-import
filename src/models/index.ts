@@ -6,6 +6,7 @@ import { Location, MiniLocation } from './location';
 import { Link } from './link';
 import { Enclosure } from './enclosure';
 import { Map } from './map';
+export { StaticMap, C3NavMap, C3NavConnection, C3NavFloor, MapConfiguration } from './map';
 import { Format, Language, Level, Day, Subconference, MiniPOI } from './basic';
 import { POI } from './poi'
 
