@@ -1,3 +1,8 @@
+> **Note:** This is the original field-level reference. The URL paths, pagination and
+> `last_modified` behaviour described here are outdated. For the API as currently served
+> (paths, envelope, caching, error handling) see [server-api.md](./server-api.md) and
+> [openapi.yaml](./openapi.yaml).
+
 # Basics
 
 ## Requests and Responses

@@ -21,6 +21,10 @@ Given the `out.json` that was generated before run
 
 This will serve all data from the JSON files in the current directory. The server will give a bit of output.
 
+The served HTTP API is specified in [doc/server-api.md](doc/server-api.md) with a
+machine-readable [OpenAPI 3.1 spec](doc/openapi.yaml). Use these to build clients or a
+compatible server.
+
 ### Debug / Development options
 
 - Set `LIVE_DEBUG=true` to fake the conference to be currently live
