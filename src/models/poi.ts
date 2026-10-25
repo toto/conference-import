@@ -3,7 +3,8 @@ import { Link } from './link';
 import { MiniLocation } from './location';
 
 interface MapPosition {
-  identifier: string,
+  /** Map id. Clients and the legacy spec use the key `map`. */
+  map: string,
   x: number,
   y: number
 }

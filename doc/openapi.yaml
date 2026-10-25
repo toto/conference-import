@@ -372,12 +372,15 @@ components:
     IsoDate:
       type: string
       format: date
-      description: Calendar date `YYYY-MM-DD` (no time zone; interpret in the event's time zone).
+      description: Calendar date, exactly `YYYY-MM-DD` (no time zone; interpret in the event's time zone). Any other format makes the iOS client reject the import.
       examples: ['2025-12-27']
     IsoDateTime:
       type: string
       format: date-time
-      description: RFC 3339 timestamp. Usually UTC with `Z`, but offsets (`+01:00`) are valid.
+      description: |
+        RFC 3339 timestamp with a time zone designator (`Z` or `±hh:mm`),
+        optionally with fractional seconds. A value without a zone makes the
+        iOS client reject the entire sessions import.
       examples: ['2025-12-27T09:30:00.000Z']
     UpdatedAt:
       type: string
@@ -631,14 +634,18 @@ components:
         event: { type: string }
         label_en: { type: string }
         label_de: { type: string }
-        shortlabel_en: { type: string, description: Very short label (≤3 chars) for tiny displays. }
+        shortlabel_en:
+          type: string
+          description: Very short label (≤3 chars) for tiny displays. Note that the iOS client currently reads `shortname_en` instead and ignores this field.
         shortlabel_de: { type: string }
         is_stage:
           type: boolean
           description: '`true` for stages/halls, `false` for workshop rooms, meeting areas etc.'
         order_index:
-          type: number
-          description: Sort key; lower comes first.
+          type: integer
+          minimum: -32768
+          maximum: 32767
+          description: Sort key; lower comes first. MUST be an integer that fits in 16 bits (decoded as `Int16` by the iOS client).
         point_of_interest:
           $ref: '#/components/schemas/NamedElement'
         updatedAt: { $ref: '#/components/schemas/UpdatedAt' }
@@ -672,9 +679,17 @@ components:
           allOf: [{ $ref: '#/components/schemas/Day' }]
           description: Full embedded day object. Absent when the session is unscheduled or outside all days.
         location:
-          $ref: '#/components/schemas/MiniLocation'
+          allOf: [{ $ref: '#/components/schemas/MiniLocation' }]
+          description: |
+            Location reference. iOS client builds before toto/ConferenceApp#22
+            reset an absent `is_stage` to `false`; later builds merge only the
+            fields present. Embedding the full `Location` is safe for all builds.
         track:
-          $ref: '#/components/schemas/MiniTrack'
+          allOf: [{ $ref: '#/components/schemas/MiniTrack' }]
+          description: |
+            Track reference. MUST carry the full `Track` fields including
+            `color` and `darkColor`: the iOS client overwrites the stored track
+            with the embedded object, so a missing color erases it.
         format:
           $ref: '#/components/schemas/NamedElement'
         level:
@@ -690,6 +705,11 @@ components:
           description: Absent when the session belongs to the main conference.
         speakers:
           type: array
+          description: |
+            Speaker references. The reference server embeds `{id, name}` only.
+            iOS client builds before toto/ConferenceApp#22 clear the absent
+            speaker fields (photo, biography, links, ...); later builds merge
+            only the fields present. See server-api.md §8.2.
           items: { $ref: '#/components/schemas/MiniSpeaker' }
         will_be_recorded:
           type: boolean
@@ -755,7 +775,10 @@ components:
         label_de: { type: string }
         is_indoor: { type: boolean }
         is_outdoor: { type: boolean }
-        order_index: { type: number }
+        order_index:
+          type: integer
+          minimum: 0
+          description: Sort key. MUST be a non-negative integer (decoded as `UInt` by the iOS client).
         pois:
           type: array
           description: IDs of `POI`s shown on this map.
@@ -769,8 +792,12 @@ components:
           properties:
             provider: { type: string, enum: [static] }
             floor:
-              type: number
-              description: Storey; 0 = ground, negative = basement.
+              type: integer
+              minimum: 0
+              description: |
+                Storey index, 0 = ground. MUST be a non-negative integer: the
+                iOS client decodes it as `UInt`, and a negative value makes the
+                whole maps import (and the sessions import after it) fail.
             floor_label_en: { type: string }
             floor_label_de: { type: string }
             area:
@@ -874,12 +901,12 @@ components:
           enum: [session-location, workshop-location, service, info, safety, community, food, entertainment, organisation, restroom, elevator, escalator, shopping, other]
         positions:
           type: array
-          description: Positions on maps, in pixels of the map's original image.
+          description: Positions on maps, in pixels of the map's original image. A map `id` MUST NOT occur twice.
           items:
             type: object
-            required: [identifier, x, y]
+            required: [map, x, y]
             properties:
-              identifier: { type: string, description: Map `id`. }
+              map: { type: string, description: Map `id`. Each map may appear at most once per POI. }
               x: { type: number }
               y: { type: number }
         geo_position:

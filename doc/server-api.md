@@ -11,6 +11,9 @@ without changes.
 - Data model source of truth: [`src/models/`](../src/models)
 - Field-level background and client guidance (legacy, partly outdated paths):
   [`api.md`](./api.md)
+- The only active client is the iOS/visionOS/tvOS `ConferenceModel` package
+  (TKConference). Its import has stricter requirements than the schema alone. See
+  [§8](#8-ios-client-conferencemodel-compatibility), which takes precedence when in doubt.
 
 Where this document and `api.md` disagree about HTTP behavior, this document describes
 what the server actually does. See [Differences from the legacy `api.md`](#differences-from-the-legacy-apimd).
@@ -242,7 +245,7 @@ Session.related_sessions -> MiniSession   {id, title}                      -> /s
 Speaker.sessions[]       -> MiniSession   {id, title}                      -> /sessions/{id}
 Location.point_of_interest -> {id, label_en, ...}                          -> /pois/{id}
 POI.location             -> MiniLocation                                   -> /locations/{id}
-POI.positions[].identifier -> map id                                       -> /maps/{id}
+POI.positions[].map       -> map id                                        -> /maps/{id}
 Map.pois[]               -> POI id (string)                                -> /pois/{id}
 ```
 
@@ -280,8 +283,8 @@ Day IDs are usually the date itself, such as `2025-12-27`.
 when `darkColor` is missing.
 
 **Location**: **`type`**, **`id`**, **`event`**, **`label_en`**, **`is_stage`**,
-**`order_index`** (lower comes first), `label_de`, `shortlabel_en`/`shortlabel_de`
-(≤3 characters), `point_of_interest`.
+**`order_index`** (integer that fits in 16 bits, lower comes first), `label_de`,
+`shortlabel_en`/`shortlabel_de` (≤3 characters), `point_of_interest`.
 
 **Subconference**: **`type`**, **`id`**, **`label`**, **`event`**.
 
@@ -299,7 +302,7 @@ when `darkColor` is missing.
 typically HLS (`application/x-mpegurl`) and recordings are typically `video/mp4`.
 
 **POI**: **`type`**, **`id`**, **`event`**, **`label_en`**, **`category`**,
-**`positions[]`** (`{identifier: mapId, x, y}`, in pixels of the map image),
+**`positions[]`** (`{map: mapId, x, y}`, in pixels of the map image, at most one entry per map),
 **`links[]`**, `geo_position` (`{lat, long}`), `location`, `description_en`/`_de`,
 `hidden` (default `false`), `priority` (default `0`), `beacons[]` (`{uuid, major, minor}`).
 `category` is one of `session-location`, `workshop-location`, `service`, `info`, `safety`,
@@ -316,7 +319,9 @@ typically HLS (`application/x-mpegurl`) and recordings are typically `video/mp4`
 | `"c3nav"` | `C3NavMap` | `c3nav` connection object (one map covers all floors) |
 
 Both variants share **`type`** (`map`), **`id`**, **`event`**, **`label_en`**,
-**`is_indoor`**, **`is_outdoor`**, **`order_index`** and **`pois[]`**.
+**`is_indoor`**, **`is_outdoor`**, **`order_index`** and **`pois[]`**. `floor` and
+`order_index` MUST be non-negative integers. Negative floors (basements) can't be
+expressed yet, because the iOS client rejects them (see [§8](#8-ios-client-conferencemodel-compatibility)).
 
 - `tiles` is an OpenSeadragon/Deep-Zoom descriptor (`base_url`, `large_image_url`,
   `tile_size`, `tile_file_extension`, `size`). **In practice it can be an empty object
@@ -404,6 +409,7 @@ EMPTY = { ok: true, count: 0, data: [] }
       granularity.
 - [ ] Unknown fields from the data are passed through untouched.
 - [ ] Response bodies validate against [`openapi.yaml`](./openapi.yaml).
+- [ ] Every item in [§8.1](#81-hard-requirements) holds.
 
 Quick smoke test against a running server:
 
@@ -425,6 +431,82 @@ These are features of the reference implementation only:
   so an old event looks live, and replace livestream URLs with a test stream.
 - The listening address and port (`0.0.0.0:5000`), the PID file and file watching.
 - The `X-Powered-By` header and the HTML body of unmatched-route 404s.
+
+---
+
+## 8. iOS client (`ConferenceModel`) compatibility
+
+The only active consumer of this API is the `ConferenceModel` Swift package that the
+TKConference apps use (`ConferenceModel/Import/` and
+`Managers and API/ConferenceAPIController.swift`). It decodes every collection with
+strict Swift `Decodable` types and imports **all or nothing per collection**. One bad
+value fails the whole collection, and because maps are imported before sessions, a bad
+map also blocks the session import.
+
+### 8.1 Hard requirements
+
+A server that breaks any of these breaks the app's data refresh:
+
+| Requirement | Why |
+| --- | --- |
+| Base URL is `<scheme>://<host><apiPath>/<eventId>`, followed by `/days`, `/speakers`, `/locations`, `/subconferences`, `/tracks`, `/maps`, `/sessions`. Single items come from `/sessions/{id}` and `/speakers/{id}`. | Fixed paths in `ConferenceAPIController`. `/events` and `/pois` aren't requested. |
+| Status `< 400` and a JSON envelope with `ok: true` and `count == data.length`. | Anything else throws. A 404 for a single item is treated as an error. |
+| `id` is a JSON **string** everywhere, including inside embedded objects. | Decoded as `String`. A number fails. |
+| IDs are unique within a collection response. | Duplicates throw `duplicateResourceIdentifier`. |
+| `Session.begin` / `end` are ISO 8601 date-times **with** a zone (`Z` or `±hh:mm`), with or without fractional seconds. | `ISO8601DateFormatter`. Otherwise the import fails. |
+| `Day.date` is exactly `yyyy-MM-dd`. | Otherwise the import fails. |
+| `Track.color` / `darkColor`, when present, have **exactly 4** numbers. | Otherwise the import fails. Applies to tracks embedded in sessions too. |
+| `Map.floor` and `Map.order_index` are non-negative integers. | Decoded as `UInt`. `-1` fails the maps import and blocks the sessions import. |
+| `Location.order_index` is an integer in the `Int16` range. | Decoded as `Int16`. |
+| c3nav maps contain `base_url`, `api_base_url`, `levels_url`, `map_settings_url` and `location_url_template`, and `floors[].id` is an integer. | Required by `ConferenceC3NavMap`. |
+| A POI uses the key `map` in `positions[]`, and each map at most once. | Decoded as `positions[].map`. A duplicate map traps in `Dictionary(uniqueKeysWithValues:)`. |
+| `Link.url` and `Enclosure.url` are strings. | Required. |
+
+Unknown fields, unknown enum strings (`Link.type`, `service`, `Enclosure.type`,
+`format`, `level`) and unknown map `provider`s are tolerated. `updatedAt`,
+`Last-Modified` and `ETag` are ignored, and the client always refetches everything.
+
+### 8.2 Embedded objects and stored objects
+
+Sessions are imported **after** speakers, locations and tracks, so whatever the client
+does with the copies embedded in sessions decides what ends up stored:
+
+| Embedded in session | What this server sends | What the client does |
+| --- | --- | --- |
+| `track` | Full `Track`, including `color` and `darkColor` | Replaces the stored track. A server MUST keep embedding the colors. |
+| `day` | Full `Day` | Replaces the stored day |
+| `subconference` | Full `Subconference` | Replaces the stored subconference |
+| `location` | `{id, label_en, label_de?}` | Merges: only fields present are written (fixed, see below) |
+| `speakers[]` | `{id, name}` | Merges: only fields present are written (fixed, see below) |
+| `related_sessions[]` | `{id, title}` | Only `title` is applied |
+
+**Fixed in the client.** From ConferenceModel commit `c524ab03` (June 2026), the typed
+import applied embedded speakers and locations as complete resources. Every session
+import therefore cleared speakers' `photo`, `organization`, `position`, `biography`,
+`url` and `links`, and reset locations' `is_stage` to `false`. The fix in
+[toto/ConferenceApp#22](https://github.com/toto/ConferenceApp/pull/22) applies these
+embedded objects with `ConferenceImportApplyMode.mergePresentFields`. Its regression
+tests import responses captured from this server.
+
+App builds older than that fix still lose this data. For those builds, a server can
+avoid the loss by embedding the **full** `Speaker` and `Location` objects in sessions.
+That's valid under this spec, because embedded references MAY carry extra fields. For
+`track`, `day` and `subconference`, the client still replaces the stored object, so
+always embed them in full.
+
+### 8.3 Known naming mismatches
+
+| Field | This server and the legacy `api.md` | iOS client | Effect today |
+| --- | --- | --- | --- |
+| Location short label | `shortlabel_en` / `shortlabel_de` | `shortname_en` / `shortname_de` | Short labels are never shown. No current data source emits them. |
+| Location floor | not emitted | `floor` (optional `Int16`) | Defaults to `0` |
+| Speaker organization URL | not emitted | `organization_url` (optional) | None |
+| Link username | not emitted | `username` (optional) | None |
+
+The client also has a POI import (`updateAllPointsOfInterest`), but it's never called. That
+code currently **crashes** for any POI with a non-empty `positions` array, because it sets
+`identifier` on the `POILocation` Core Data entity, which has no such attribute. Fix the
+client before it starts fetching `/pois`.
 
 ---
 
