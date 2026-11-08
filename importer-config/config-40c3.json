@@ -1,0 +1,328 @@
+{
+  "event": {
+    "id": "40c3",
+    "label": "40C3",
+    "title": "40th Chaos Communication Congress",
+    "date": [
+      "2026-12-27",
+      "2026-12-30"
+    ],
+    "locations": [
+      {
+        "label": "Messe Hamburg",
+        "coords": [
+          53.5636,
+          9.9806
+        ],
+        "timezone": "Europe/Berlin"
+      }
+    ],
+    "hashtag": "40C3",
+    "url": "https://events.ccc.de/congress/2026/"
+  },
+  "days": [
+    {
+      "id": "2026-12-27",
+      "label_de": "Tag 1",
+      "label_en": "Day 1",
+      "date": "2026-12-27"
+    },
+    {
+      "id": "2026-12-28",
+      "label_de": "Tag 2",
+      "label_en": "Day 2",
+      "date": "2026-12-28"
+    },
+    {
+      "id": "2026-12-29",
+      "label_de": "Tag 3",
+      "label_en": "Day 3",
+      "date": "2026-12-29"
+    },
+    {
+      "id": "2026-12-30",
+      "label_de": "Tag 4",
+      "label_en": "Day 4",
+      "date": "2026-12-30"
+    }
+  ],
+  "subconferences": [],
+  "maps": [],
+  "sources": [
+    {
+      "format": "scheduleJSON",
+      "eventId": "40c3",
+      "disabled": true,
+      "timezone": "Europe/Berlin",
+      "scheduleURL": "https://api.events.ccc.de/congress/2026/schedule.json",
+      "alternateSessionBase": "https://fahrplan.events.ccc.de/congress/2026/fahrplan/event/",
+      "mainConferenceAssemblySlug": "ccc",
+      "endTimestamp": "2026-12-30T18:00:00+01:00",
+      "defaultTrack": {
+        "id": "congress",
+        "label_en": "Congress",
+        "label_de": "Congress",
+        "color": [
+          117,
+          180,
+          75,
+          1
+        ],
+        "darkColor": [
+          117,
+          180,
+          75,
+          1
+        ]
+      },
+      "fakeVideos": {},
+      "voc": {
+        "slug": "40c3"
+      },
+      "maps": []
+    },
+    {
+      "format": "halfnarp",
+      "eventId": "40c3",
+      "disabled": false,
+      "timezone": "Europe/Berlin",
+      "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
+      "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2026/Fahrplan/events/",
+      "speakerBaseUrl": "https://fahrplan.events.ccc.de/congress/2026/Fahrplan/speakers/",
+      "defaultTrack": {
+        "id": "40c3-ccc",
+        "event": "40c3",
+        "label_en": "CCC",
+        "label_de": "CCC",
+        "color": [
+          117,
+          180,
+          75,
+          1
+        ],
+        "darkColor": [
+          117,
+          180,
+          75,
+          1
+        ]
+      },
+      "fakeVideos": {},
+      "defaultLanguageCode": "de",
+      "tracks": [
+        {
+          "id": "40c3-ccc",
+          "color": [
+            117,
+            180,
+            75,
+            1
+          ],
+          "darkColor": [
+            117,
+            180,
+            75,
+            1
+          ],
+          "label_de": "CCC",
+          "label_en": "CCC"
+        },
+        {
+          "id": "40c3-entertainment",
+          "color": [
+            21,
+            173,
+            163,
+            1
+          ],
+          "darkColor": [
+            21,
+            173,
+            163,
+            1
+          ],
+          "label_de": "Entertainment",
+          "label_en": "Entertainment"
+        },
+        {
+          "id": "40c3-ethics-society-politics",
+          "color": [
+            159,
+            164,
+            232,
+            1
+          ],
+          "darkColor": [
+            159,
+            164,
+            232,
+            1
+          ],
+          "label_de": "Ethics, Society & Politics",
+          "label_en": "Ethics, Society & Politics"
+        },
+        {
+          "id": "40c3-security",
+          "color": [
+            200,
+            146,
+            214,
+            1
+          ],
+          "darkColor": [
+            200,
+            146,
+            214,
+            1
+          ],
+          "label_de": "Security",
+          "label_en": "Security"
+        },
+        {
+          "id": "40c3-art-beauty",
+          "color": [
+            238,
+            93,
+            162,
+            1
+          ],
+          "darkColor": [
+            238,
+            93,
+            162,
+            1
+          ],
+          "label_de": "Art & Beauty",
+          "label_en": "Art & Beauty"
+        },
+        {
+          "id": "40c3-science",
+          "color": [
+            234,
+            111,
+            130,
+            1
+          ],
+          "darkColor": [
+            234,
+            111,
+            130,
+            1
+          ],
+          "label_de": "Science",
+          "label_en": "Science"
+        },
+        {
+          "id": "40c3-hardware",
+          "color": [
+            248,
+            138,
+            48,
+            1
+          ],
+          "darkColor": [
+            248,
+            138,
+            48,
+            1
+          ],
+          "label_de": "Hardware & Making",
+          "label_en": "Hardware & Making"
+        },
+        {
+          "id": "40c3-chaos-community-creations",
+          "color": [
+            255,
+            188,
+            64,
+            1
+          ],
+          "darkColor": [
+            255,
+            188,
+            64,
+            1
+          ],
+          "label_de": "Chaos Community Creations",
+          "label_en": "Chaos Community Creations"
+        }
+      ],
+      "trackIdMap": {
+        "56": "40c3-entertainment",
+        "58": "40c3-ethics-society-politics",
+        "53": "40c3-security",
+        "57": "40c3-art-beauty",
+        "59": "40c3-science",
+        "54": "40c3-hardware",
+        "55": "40c3-chaos-community-creations"
+      }
+    }
+  ],
+  "livestreams": [],
+  "options": {
+    "locationIdOrder": [],
+    "defaultColor": [
+      117,
+      180,
+      75,
+      1
+    ],
+    "colorForTrack": {
+      "40c3-ccc": [
+        117,
+        180,
+        75,
+        1
+      ],
+      "40c3-entertainment": [
+        21,
+        173,
+        163,
+        1
+      ],
+      "40c3-ethics-society-politics": [
+        159,
+        164,
+        232,
+        1
+      ],
+      "40c3-security": [
+        200,
+        146,
+        214,
+        1
+      ],
+      "40c3-art-beauty": [
+        238,
+        93,
+        162,
+        1
+      ],
+      "40c3-science": [
+        234,
+        111,
+        130,
+        1
+      ],
+      "40c3-hardware": [
+        248,
+        138,
+        48,
+        1
+      ],
+      "40c3-chaos-community-creations": [
+        255,
+        188,
+        64,
+        1
+      ]
+    },
+    "timezone": "Europe/Berlin",
+    "hourOfDayChange": 6,
+    "nonStageLocationIds": [],
+    "poiSources": [],
+    "fakeVideos": {},
+    "minimumSessionDurationMinutes": 15,
+    "maximumSessionDurationMinutes": 720
+  }
+}
