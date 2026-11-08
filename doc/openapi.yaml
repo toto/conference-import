@@ -1,0 +1,936 @@
+openapi: 3.1.0
+info:
+  title: Conference Data API (ocdata / re-data)
+  version: 2.0.0
+  summary: Read-only JSON API serving normalized conference data.
+  description: |
+    Read-only HTTP API that serves normalized conference data (events, sessions,
+    speakers, tracks, locations, days, subconferences, maps and points of
+    interest). Every response uses the same envelope: `{ok, count, updatedAt, data[]}`.
+
+    This document describes the API as served by `src/server/index.ts`. The
+    prose companion [`server-api.md`](./server-api.md) explains semantics and
+    edge cases an independent implementation must reproduce.
+
+    Compatibility notes:
+    - All endpoints are `GET` (and implicitly `HEAD`). There is no write API.
+    - Query parameters are ignored. There is no pagination or filtering.
+    - Unknown fields may appear on any object; clients must ignore them.
+    - Errors (unknown event, resource or ID) return `404` with an *empty
+      success-shaped* envelope, not an error object.
+  license:
+    name: See repository
+servers:
+  - url: https://api.conference.systems/api
+    description: Public production deployment (reverse proxy adds the `/api` prefix)
+  - url: http://localhost:5000
+    description: Local development (`node lib/index.js --serve -- out.json`)
+
+tags:
+  - name: events
+  - name: sessions
+  - name: speakers
+  - name: schedule
+    description: Days, tracks, locations and subconferences
+  - name: venue
+    description: Maps and points of interest
+
+paths:
+  /events:
+    get:
+      tags: [events]
+      operationId: listEvents
+      summary: List all events served by this instance
+      description: |
+        `updatedAt` / `Last-Modified` is the most recent update of *any* served event.
+      parameters:
+        - $ref: '#/components/parameters/IfModifiedSince'
+      responses:
+        '200':
+          description: All events
+          headers:
+            Last-Modified: { $ref: '#/components/headers/LastModified' }
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Envelope'
+                  - properties:
+                      data:
+                        type: array
+                        items: { $ref: '#/components/schemas/Event' }
+        '304': { $ref: '#/components/responses/NotModified' }
+
+  /{eventId}/sessions:
+    get:
+      tags: [sessions]
+      operationId: listSessions
+      summary: List all sessions of an event
+      parameters: &listParams
+        - $ref: '#/components/parameters/EventId'
+        - $ref: '#/components/parameters/IfModifiedSince'
+      responses:
+        '200':
+          description: All sessions
+          headers: &lmHeader
+            Last-Modified: { $ref: '#/components/headers/LastModified' }
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SessionList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /{eventId}/sessions/{id}:
+    get:
+      tags: [sessions]
+      operationId: getSession
+      summary: Get a single session
+      parameters: &itemParams
+        - $ref: '#/components/parameters/EventId'
+        - $ref: '#/components/parameters/ResourceId'
+        - $ref: '#/components/parameters/IfModifiedSince'
+      responses:
+        '200':
+          description: Envelope with exactly one session
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SessionList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /{eventId}/speakers:
+    get:
+      tags: [speakers]
+      operationId: listSpeakers
+      summary: List all speakers of an event
+      parameters: *listParams
+      responses:
+        '200':
+          description: All speakers
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SpeakerList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /{eventId}/speakers/{id}:
+    get:
+      tags: [speakers]
+      operationId: getSpeaker
+      summary: Get a single speaker
+      parameters: *itemParams
+      responses:
+        '200':
+          description: Envelope with exactly one speaker
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SpeakerList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /{eventId}/days:
+    get:
+      tags: [schedule]
+      operationId: listDays
+      summary: List all days of an event
+      parameters: *listParams
+      responses:
+        '200':
+          description: All days
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DayList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /{eventId}/days/{id}:
+    get:
+      tags: [schedule]
+      operationId: getDay
+      summary: Get a single day
+      parameters: *itemParams
+      responses:
+        '200':
+          description: Envelope with exactly one day
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DayList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /{eventId}/tracks:
+    get:
+      tags: [schedule]
+      operationId: listTracks
+      summary: List all tracks of an event
+      parameters: *listParams
+      responses:
+        '200':
+          description: All tracks
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TrackList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /{eventId}/tracks/{id}:
+    get:
+      tags: [schedule]
+      operationId: getTrack
+      summary: Get a single track
+      parameters: *itemParams
+      responses:
+        '200':
+          description: Envelope with exactly one track
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TrackList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /{eventId}/locations:
+    get:
+      tags: [schedule]
+      operationId: listLocations
+      summary: List all locations (rooms, stages) of an event
+      parameters: *listParams
+      responses:
+        '200':
+          description: All locations
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/LocationList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /{eventId}/locations/{id}:
+    get:
+      tags: [schedule]
+      operationId: getLocation
+      summary: Get a single location
+      parameters: *itemParams
+      responses:
+        '200':
+          description: Envelope with exactly one location
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/LocationList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /{eventId}/subconferences:
+    get:
+      tags: [schedule]
+      operationId: listSubconferences
+      summary: List all subconferences of an event
+      parameters: *listParams
+      responses:
+        '200':
+          description: All subconferences
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SubconferenceList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /{eventId}/subconferences/{id}:
+    get:
+      tags: [schedule]
+      operationId: getSubconference
+      summary: Get a single subconference
+      parameters: *itemParams
+      responses:
+        '200':
+          description: Envelope with exactly one subconference
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SubconferenceList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /{eventId}/maps:
+    get:
+      tags: [venue]
+      operationId: listMaps
+      summary: List all maps of an event
+      parameters: *listParams
+      responses:
+        '200':
+          description: All maps
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MapList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /{eventId}/maps/{id}:
+    get:
+      tags: [venue]
+      operationId: getMap
+      summary: Get a single map
+      parameters: *itemParams
+      responses:
+        '200':
+          description: Envelope with exactly one map
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MapList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /{eventId}/pois:
+    get:
+      tags: [venue]
+      operationId: listPois
+      summary: List all points of interest of an event
+      parameters: *listParams
+      responses:
+        '200':
+          description: All POIs
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/POIList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /{eventId}/pois/{id}:
+    get:
+      tags: [venue]
+      operationId: getPoi
+      summary: Get a single point of interest
+      parameters: *itemParams
+      responses:
+        '200':
+          description: Envelope with exactly one POI
+          headers: *lmHeader
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/POIList' }
+        '304': { $ref: '#/components/responses/NotModified' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+components:
+  parameters:
+    EventId:
+      name: eventId
+      in: path
+      required: true
+      description: Event identifier as returned by `/events` (e.g. `39c3`, `rp25`).
+      schema: { $ref: '#/components/schemas/Identifier' }
+    ResourceId:
+      name: id
+      in: path
+      required: true
+      description: Identifier of the resource within the event.
+      schema: { $ref: '#/components/schemas/Identifier' }
+    IfModifiedSince:
+      name: If-Modified-Since
+      in: header
+      required: false
+      description: |
+        HTTP-date. If the data has not changed since (compared at 1-second
+        resolution) the server answers `304` with no body.
+      schema: { type: string }
+      example: Sun, 25 Oct 2026 13:54:24 GMT
+
+  headers:
+    LastModified:
+      description: HTTP-date of the last update of the underlying event data (same instant as `updatedAt`).
+      schema: { type: string }
+      example: Sun, 25 Oct 2026 13:54:24 GMT
+
+  responses:
+    NotModified:
+      description: Data unchanged since `If-Modified-Since` (or matching `If-None-Match`). Empty body.
+      headers:
+        Last-Modified: { $ref: '#/components/headers/LastModified' }
+    NotFound:
+      description: |
+        Unknown event, unknown resource collection, or unknown resource ID.
+        The body is an *empty envelope* with `ok: true` and no `updatedAt`.
+        Paths that do not match the URL grammar at all (e.g. `/`,
+        `/events/39c3/sessions`) may return a non-JSON 404 instead.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/EmptyEnvelope' }
+          example: { ok: true, count: 0, data: [] }
+
+  schemas:
+    # ---------- primitives ----------
+    Identifier:
+      type: string
+      pattern: '^[a-zA-Z0-9_-]+$'
+      description: |
+        Opaque identifier, unique per resource type within an event. Only
+        ASCII letters, digits, `_` and `-` are routable.
+    IsoDate:
+      type: string
+      format: date
+      description: Calendar date, exactly `YYYY-MM-DD` (no time zone; interpret in the event's time zone). Any other format makes the iOS client reject the import.
+      examples: ['2025-12-27']
+    IsoDateTime:
+      type: string
+      format: date-time
+      description: |
+        RFC 3339 timestamp with a time zone designator (`Z` or `±hh:mm`),
+        optionally with fractional seconds. A value without a zone makes the
+        iOS client reject the entire sessions import.
+      examples: ['2025-12-27T09:30:00.000Z']
+    UpdatedAt:
+      type: string
+      format: date-time
+      description: |
+        Added by the server to every served object: the last time the event's
+        data set changed (ISO 8601, UTC, millisecond precision). All objects of
+        one event share the same value.
+    TextFormat:
+      type: string
+      enum: [plain, markdown]
+    LanguageCode:
+      type: string
+      description: ISO 639-1 language code, e.g. `en`, `de`.
+    RGBAColor:
+      type: array
+      description: '`[red, green, blue, alpha]`; RGB in 0–255, alpha in 0–1.'
+      items: { type: number }
+      minItems: 4
+      maxItems: 4
+      examples: [[69, 185, 100, 1]]
+
+    # ---------- envelope ----------
+    Envelope:
+      type: object
+      required: [ok, count, data]
+      properties:
+        ok:
+          type: boolean
+          const: true
+          description: Always `true` (also on 404).
+        count:
+          type: integer
+          minimum: 0
+          description: Number of elements in `data` (equals `data.length`).
+        updatedAt:
+          $ref: '#/components/schemas/UpdatedAt'
+        data:
+          type: array
+          description: Results. A single-object request returns an array with exactly one element.
+    EmptyEnvelope:
+      type: object
+      required: [ok, count, data]
+      properties:
+        ok: { type: boolean, const: true }
+        count: { type: integer, const: 0 }
+        data: { type: array, maxItems: 0 }
+
+    SessionList:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - properties:
+            data: { type: array, items: { $ref: '#/components/schemas/Session' } }
+    SpeakerList:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - properties:
+            data: { type: array, items: { $ref: '#/components/schemas/Speaker' } }
+    DayList:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - properties:
+            data: { type: array, items: { $ref: '#/components/schemas/Day' } }
+    TrackList:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - properties:
+            data: { type: array, items: { $ref: '#/components/schemas/Track' } }
+    LocationList:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - properties:
+            data: { type: array, items: { $ref: '#/components/schemas/Location' } }
+    SubconferenceList:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - properties:
+            data: { type: array, items: { $ref: '#/components/schemas/Subconference' } }
+    MapList:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - properties:
+            data: { type: array, items: { $ref: '#/components/schemas/Map' } }
+    POIList:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - properties:
+            data: { type: array, items: { $ref: '#/components/schemas/POI' } }
+
+    # ---------- shared embedded ("mini") objects ----------
+    NamedElement:
+      type: object
+      description: |
+        Generic localized reference (used for format, level, language, mini
+        location, mini track, mini POI). `label_en` is always present; other
+        `label_<lang>` keys are optional.
+      required: [id, label_en]
+      properties:
+        id: { type: string }
+        label_en: { type: string }
+        label_de: { type: string }
+      additionalProperties: true
+    Language:
+      allOf:
+        - $ref: '#/components/schemas/NamedElement'
+      description: Language reference; `id` is an ISO 639-1 code.
+      examples: [{ id: en, label_en: English, label_de: Englisch }]
+    MiniSession:
+      type: object
+      required: [id, title]
+      properties:
+        id: { type: string }
+        title: { type: string }
+    MiniSpeaker:
+      type: object
+      required: [id, name]
+      properties:
+        id: { type: string }
+        name: { type: string }
+    MiniLocation:
+      $ref: '#/components/schemas/NamedElement'
+    MiniTrack:
+      allOf:
+        - $ref: '#/components/schemas/NamedElement'
+      description: Track reference. May carry the full `Track` fields (e.g. `color`); clients should use `/tracks` as the source of truth.
+
+    Link:
+      type: object
+      required: [url, type, title, service]
+      properties:
+        url: { type: string, format: uri }
+        type:
+          type: string
+          description: Semantic role of the link. Clients must tolerate unknown values.
+          enum: [speaker-link, recording, livestream, session-link, feedback-link, session-alternate, social-interaction]
+        title: { type: string }
+        service:
+          type: string
+          description: Hosting service, used e.g. to choose an icon or player. Clients must tolerate unknown values (treat as `web`).
+          enum: [web, twitter, facebook, github, youtube, vimeo, mastodon, bluesky, threads, livevoice, activityPub]
+        thumbnail: { type: string, format: uri }
+        languages:
+          type: array
+          items: { $ref: '#/components/schemas/LanguageCode' }
+      additionalProperties: true
+
+    Enclosure:
+      type: object
+      description: A media file or stream attached to a session.
+      required: [url, mimetype, type]
+      properties:
+        url: { type: string, format: uri }
+        mimetype:
+          type: string
+          examples: [video/mp4, application/x-mpegurl, audio/mpeg, application/pdf]
+        type:
+          type: string
+          enum: [slides, recording, livestream]
+        title: { type: string }
+        thumbnail: { type: string, format: uri }
+        languages:
+          type: array
+          description: Audio/subtitle languages contained in the media.
+          items: { $ref: '#/components/schemas/LanguageCode' }
+      additionalProperties: true
+
+    # ---------- resources ----------
+    Event:
+      type: object
+      required: [type, id, label, title, date, url, locations]
+      properties:
+        type: { const: event }
+        id: { $ref: '#/components/schemas/Identifier' }
+        label: { type: string, description: Short display name, e.g. `39C3`. }
+        title: { type: string, description: Full name. }
+        date:
+          type: array
+          description: '`[firstDay, lastDay]`, both inclusive calendar dates.'
+          items: { $ref: '#/components/schemas/IsoDate' }
+          minItems: 2
+          maxItems: 2
+        url: { type: string, format: uri }
+        hashtag: { type: string, description: Without leading `#`. }
+        locations:
+          type: array
+          items: { $ref: '#/components/schemas/EventLocation' }
+        updatedAt: { $ref: '#/components/schemas/UpdatedAt' }
+      additionalProperties: true
+    EventLocation:
+      type: object
+      required: [label, timezone, coords]
+      properties:
+        label: { type: string }
+        timezone:
+          type: string
+          description: IANA time zone (e.g. `Europe/Berlin`). The event's local time zone.
+        coords:
+          type: array
+          description: '`[latitude, longitude]` in WGS84.'
+          items: { type: number }
+          minItems: 2
+          maxItems: 2
+      additionalProperties: true
+
+    Day:
+      type: object
+      required: [type, id, event, date]
+      properties:
+        type: { const: day }
+        id: { $ref: '#/components/schemas/Identifier' }
+        event: { type: string }
+        date: { $ref: '#/components/schemas/IsoDate' }
+        label_en: { type: string }
+        label_de: { type: string }
+        updatedAt: { $ref: '#/components/schemas/UpdatedAt' }
+      additionalProperties: true
+
+    Subconference:
+      type: object
+      required: [type, id, label, event]
+      properties:
+        type: { const: subconference }
+        id: { $ref: '#/components/schemas/Identifier' }
+        label: { type: string }
+        event: { type: string }
+        updatedAt: { $ref: '#/components/schemas/UpdatedAt' }
+      additionalProperties: true
+
+    Track:
+      type: object
+      required: [type, id, event, label_en]
+      properties:
+        type: { const: track }
+        id: { $ref: '#/components/schemas/Identifier' }
+        event: { type: string }
+        label_en: { type: string }
+        label_de: { type: string }
+        color: { $ref: '#/components/schemas/RGBAColor' }
+        darkColor:
+          allOf: [{ $ref: '#/components/schemas/RGBAColor' }]
+          description: Variant for dark UI themes. Fall back to `color` if absent.
+        updatedAt: { $ref: '#/components/schemas/UpdatedAt' }
+      additionalProperties: true
+
+    Location:
+      type: object
+      required: [type, id, event, label_en, is_stage, order_index]
+      properties:
+        type: { const: location }
+        id: { $ref: '#/components/schemas/Identifier' }
+        event: { type: string }
+        label_en: { type: string }
+        label_de: { type: string }
+        shortlabel_en:
+          type: string
+          description: Very short label (≤3 chars) for tiny displays. Note that the iOS client currently reads `shortname_en` instead and ignores this field.
+        shortlabel_de: { type: string }
+        is_stage:
+          type: boolean
+          description: '`true` for stages/halls, `false` for workshop rooms, meeting areas etc.'
+        order_index:
+          type: integer
+          minimum: -32768
+          maximum: 32767
+          description: Sort key; lower comes first. MUST be an integer that fits in 16 bits (decoded as `Int16` by the iOS client).
+        point_of_interest:
+          $ref: '#/components/schemas/NamedElement'
+        updatedAt: { $ref: '#/components/schemas/UpdatedAt' }
+      additionalProperties: true
+
+    Session:
+      type: object
+      required: [type, id, event, title, abstract, description, url, track, lang, speakers, enclosures, links]
+      properties:
+        type: { const: session }
+        id: { $ref: '#/components/schemas/Identifier' }
+        event: { type: string }
+        title: { type: string }
+        subtitle: { type: string }
+        abstract: { type: string, description: Short teaser. May be empty. }
+        description: { type: string, description: Long description. May be empty. }
+        description_format:
+          allOf: [{ $ref: '#/components/schemas/TextFormat' }]
+          description: Format of `abstract`/`description`; `plain` if absent.
+        url: { type: string, description: Canonical web page of the session. }
+        begin:
+          allOf: [{ $ref: '#/components/schemas/IsoDateTime' }]
+          description: Absent for unscheduled sessions.
+        end:
+          allOf: [{ $ref: '#/components/schemas/IsoDateTime' }]
+          description: Absent for unscheduled sessions.
+        duration:
+          type: number
+          description: Duration in minutes. Optional; derive from `end - begin` if absent.
+        day:
+          allOf: [{ $ref: '#/components/schemas/Day' }]
+          description: Full embedded day object. Absent when the session is unscheduled or outside all days.
+        location:
+          allOf: [{ $ref: '#/components/schemas/MiniLocation' }]
+          description: |
+            Location reference. iOS client builds before toto/ConferenceApp#22
+            reset an absent `is_stage` to `false`; later builds merge only the
+            fields present. Embedding the full `Location` is safe for all builds.
+        track:
+          allOf: [{ $ref: '#/components/schemas/MiniTrack' }]
+          description: |
+            Track reference. MUST carry the full `Track` fields including
+            `color` and `darkColor`: the iOS client overwrites the stored track
+            with the embedded object, so a missing color erases it.
+        format:
+          $ref: '#/components/schemas/NamedElement'
+        level:
+          $ref: '#/components/schemas/NamedElement'
+        lang:
+          $ref: '#/components/schemas/Language'
+        translated_langs:
+          type: array
+          description: Languages available via live translation or subtitles.
+          items: { $ref: '#/components/schemas/Language' }
+        subconference:
+          allOf: [{ $ref: '#/components/schemas/Subconference' }]
+          description: Absent when the session belongs to the main conference.
+        speakers:
+          type: array
+          description: |
+            Speaker references. The reference server embeds `{id, name}` only.
+            iOS client builds before toto/ConferenceApp#22 clear the absent
+            speaker fields (photo, biography, links, ...); later builds merge
+            only the fields present. See server-api.md §8.2.
+          items: { $ref: '#/components/schemas/MiniSpeaker' }
+        will_be_recorded:
+          type: boolean
+          description: Absent means unknown.
+        cancelled:
+          type: boolean
+          description: Absent means `false`.
+        enclosures:
+          type: array
+          items: { $ref: '#/components/schemas/Enclosure' }
+        links:
+          type: array
+          items: { $ref: '#/components/schemas/Link' }
+        related_sessions:
+          type: array
+          description: Recommended sessions, most relevant first.
+          items: { $ref: '#/components/schemas/MiniSession' }
+        updatedAt: { $ref: '#/components/schemas/UpdatedAt' }
+      additionalProperties: true
+
+    Speaker:
+      type: object
+      required: [type, id, event, name, url, links, sessions]
+      properties:
+        type: { const: speaker }
+        id: { $ref: '#/components/schemas/Identifier' }
+        event: { type: string }
+        name: { type: string }
+        photo: { type: string, format: uri }
+        url:
+          type: [string, 'null']
+          description: Speaker profile page, `null` if none.
+        organization: { type: string }
+        position: { type: string, description: Job title / role. }
+        biography: { type: string }
+        biography_format: { $ref: '#/components/schemas/TextFormat' }
+        links:
+          type: array
+          items: { $ref: '#/components/schemas/Link' }
+        sessions:
+          type: array
+          items: { $ref: '#/components/schemas/MiniSession' }
+        updatedAt: { $ref: '#/components/schemas/UpdatedAt' }
+      additionalProperties: true
+
+    # ---------- maps ----------
+    Map:
+      description: |
+        A venue map. Discriminate on `provider`: absent or `static` →
+        `StaticMap`; `c3nav` → `C3NavMap`. Clients must skip maps with an
+        unknown provider.
+      oneOf:
+        - $ref: '#/components/schemas/StaticMap'
+        - $ref: '#/components/schemas/C3NavMap'
+    MapBase:
+      type: object
+      required: [type, id, event, label_en, is_indoor, is_outdoor, order_index, pois]
+      properties:
+        type: { const: map }
+        id: { $ref: '#/components/schemas/Identifier' }
+        event: { type: string }
+        label_en: { type: string }
+        label_de: { type: string }
+        is_indoor: { type: boolean }
+        is_outdoor: { type: boolean }
+        order_index:
+          type: integer
+          minimum: 0
+          description: Sort key. MUST be a non-negative integer (decoded as `UInt` by the iOS client).
+        pois:
+          type: array
+          description: IDs of `POI`s shown on this map.
+          items: { type: string }
+        updatedAt: { $ref: '#/components/schemas/UpdatedAt' }
+    StaticMap:
+      allOf:
+        - $ref: '#/components/schemas/MapBase'
+        - type: object
+          required: [floor, area, tiles]
+          properties:
+            provider: { type: string, enum: [static] }
+            floor:
+              type: integer
+              minimum: 0
+              description: |
+                Storey index, 0 = ground. MUST be a non-negative integer: the
+                iOS client decodes it as `UInt`, and a negative value makes the
+                whole maps import (and the sessions import after it) fail.
+            floor_label_en: { type: string }
+            floor_label_de: { type: string }
+            area:
+              $ref: '#/components/schemas/Size'
+              description: Logical size of the covered area in meters.
+            tiles:
+              $ref: '#/components/schemas/MapTiles'
+            map_pdf_url:
+              type: string
+              format: uri
+              description: PDF version of the map (fallback when `tiles` is empty).
+          not:
+            required: [c3nav]
+    MapTiles:
+      type: object
+      description: |
+        OpenSeadragon/Deep-Zoom compatible tile pyramid. **May be an empty
+        object** when only a PDF (`map_pdf_url`) is provided.
+      properties:
+        base_url: { type: string, format: uri }
+        large_image_url: { type: string, format: uri }
+        tile_size: { type: integer }
+        tile_file_extension: { type: string, enum: [png, jpg, jpeg] }
+        size: { $ref: '#/components/schemas/Size' }
+    Size:
+      type: object
+      required: [width, height]
+      properties:
+        width: { type: number }
+        height: { type: number }
+    C3NavMap:
+      allOf:
+        - $ref: '#/components/schemas/MapBase'
+        - type: object
+          required: [provider, c3nav]
+          properties:
+            provider: { const: c3nav }
+            c3nav: { $ref: '#/components/schemas/C3NavConnection' }
+    C3NavConnection:
+      type: object
+      required: [base_url, api_base_url, api_headers, levels_url, map_settings_url, location_url_template]
+      properties:
+        base_url:
+          type: string
+          format: uri
+          description: Web UI of the c3nav instance (always ends with `/`).
+        api_base_url: { type: string, format: uri, description: Usually `<base_url>api/v2/`. }
+        api_headers:
+          type: object
+          description: Headers to send to the c3nav API. Only the public guest key is ever published.
+          required: [X-API-Key]
+          properties:
+            X-API-Key: { const: anonymous }
+          additionalProperties: false
+        levels_url: { type: string, format: uri }
+        map_settings_url: { type: string, format: uri }
+        location_url_template:
+          type: string
+          description: URL containing exactly one `{slug}` placeholder; substitute the percent-encoded slug.
+          examples: ['https://39c3.c3nav.de/l/{slug}/']
+        floors:
+          type: array
+          description: Optional snapshot sorted by `order_index`; `levels_url` stays authoritative.
+          items: { $ref: '#/components/schemas/C3NavFloor' }
+        default_level_id:
+          type: integer
+          minimum: 1
+          description: c3nav level ID to show initially; references `floors[].id` when `floors` is present.
+        location_id_to_slug:
+          type: object
+          description: Maps this event's location IDs to c3nav slugs.
+          additionalProperties: { type: string, minLength: 1 }
+    C3NavFloor:
+      type: object
+      required: [id, slug, level_index, label_en, order_index]
+      properties:
+        id: { type: integer, minimum: 1, description: c3nav level ID (not a storey number). }
+        slug: { type: string }
+        level_index: { type: string }
+        label_en: { type: string }
+        label_de: { type: string }
+        order_index: { type: number }
+        on_top_of:
+          type: [integer, 'null']
+          description: '`null`/absent for main levels; otherwise the ID of the level this intermediate level sits on.'
+
+    # ---------- POIs ----------
+    POI:
+      type: object
+      required: [type, id, event, label_en, category, positions, links]
+      properties:
+        type: { const: poi }
+        id: { $ref: '#/components/schemas/Identifier' }
+        event: { type: string }
+        label_en: { type: string }
+        label_de: { type: string }
+        description_en: { type: string }
+        description_de: { type: string }
+        category:
+          type: string
+          enum: [session-location, workshop-location, service, info, safety, community, food, entertainment, organisation, restroom, elevator, escalator, shopping, other]
+        positions:
+          type: array
+          description: Positions on maps, in pixels of the map's original image. A map `id` MUST NOT occur twice.
+          items:
+            type: object
+            required: [map, x, y]
+            properties:
+              map: { type: string, description: Map `id`. Each map may appear at most once per POI. }
+              x: { type: number }
+              y: { type: number }
+        geo_position:
+          type: object
+          required: [lat, long]
+          properties:
+            lat: { type: number }
+            long: { type: number }
+        location:
+          $ref: '#/components/schemas/MiniLocation'
+          description: The session location this POI represents, if any.
+        links:
+          type: array
+          items: { $ref: '#/components/schemas/Link' }
+        hidden: { type: boolean, description: 'Do not show in UI; default `false`.' }
+        priority: { type: number, description: 'Relative importance; default `0`.' }
+        beacons:
+          type: array
+          items:
+            type: object
+            required: [uuid, major, minor]
+            properties:
+              uuid: { type: string }
+              major: { type: integer }
+              minor: { type: integer }
+        updatedAt: { $ref: '#/components/schemas/UpdatedAt' }
+      additionalProperties: true
