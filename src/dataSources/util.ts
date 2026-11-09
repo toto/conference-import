@@ -1,4 +1,5 @@
 import * as ent from 'ent';
+import { createHash } from 'crypto';
 
 /** Normalizes a string as a pseudo id 
  *  (lowercase, removing all non-ascii chars, etc.) */
@@ -25,4 +26,23 @@ export function colorArrayFromHex(str: string): [number, number, number, number]
     result[index] = parseInt(hex, 16);
   }
   return result;
+}
+const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+/** Generates a RFC 4122 version 5 (SHA-1, name-based) UUID,
+ *  equivalent to Python's `uuid.uuid5(namespace, name)`. */
+export function uuidv5(namespace: string, name: string): string {
+  if (!UUID_REGEX.test(namespace)) {
+    throw new Error(`Invalid UUID namespace: ${namespace}`);
+  }
+  const namespaceBytes = Buffer.from(namespace.replace(/-/g, ''), 'hex');
+  const hash = createHash('sha1')
+    .update(namespaceBytes)
+    .update(Buffer.from(name, 'utf8'))
+    .digest();
+  const bytes = hash.subarray(0, 16);
+  bytes[6] = (bytes[6] & 0x0f) | 0x50; // version 5
+  bytes[8] = (bytes[8] & 0x3f) | 0x80; // RFC 4122 variant
+  const hex = bytes.toString('hex');
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
 }

@@ -87,6 +87,7 @@
       "disabled": false,
       "timezone": "Europe/Berlin",
       "sourceUrl": "https://halfnarp.events.ccc.de/-/talkpreferences?format=json",
+      "pretalxSiteUuid": "3713663d-bf07-4773-8ca1-dd52652a7507",
       "sessionBaseUrl": "https://fahrplan.events.ccc.de/congress/2026/Fahrplan/events/",
       "speakerBaseUrl": "https://fahrplan.events.ccc.de/congress/2026/Fahrplan/speakers/",
       "defaultTrack": {

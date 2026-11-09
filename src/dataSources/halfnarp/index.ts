@@ -15,6 +15,11 @@ export interface HalfnarpSourceFormat extends DataSourceFormat {
   tracks: Track[];
   trackIdMap: Record<string, string>;
   timezone?: string;
+  /** Optional pretalx instance identifier (`instance_identifier` in pretalx's
+   *  global settings). When set, session ids are generated as
+   *  uuid5(pretalxSiteUuid, submissionCode), identical to the event GUIDs
+   *  pretalx exports in its schedule. */
+  pretalxSiteUuid?: string;
   vocSlug?: string;
   fakeVideos?: Record<string, Enclosure>;
 }

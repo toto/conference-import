@@ -94,3 +94,15 @@ it("Should parse multiple speakers sessions", () => {
 
 
 
+it("Should generate pretalx uuid5 session ids when pretalxSiteUuid is set", () => {
+  const sessions = sessionsFromJson(parsedJson, {
+    ...config,
+    pretalxSiteUuid: "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+  });
+  const [firstSession] = sessions;
+  // Python: uuid.uuid5(uuid.UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8"), "10496")
+  expect(firstSession.id).toBe("d616e0e1-9b05-53c0-b5da-df1c3169d414");
+  expect(firstSession.url).toBe(
+    "https://fahrplan.events.ccc.de/congress/2019/Fahrplan/events/10496.html"
+  );
+});

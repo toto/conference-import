@@ -2,6 +2,7 @@ import { Session, MiniTrack, Track, Language, MiniSpeaker, Speaker } from "../..
 import { HalfnarpSourceFormat } from "./index";
 import { languageFromIsoCode } from '../rp/language';
 import { dehtml, mkId } from '../rp/utils';
+import { uuidv5 } from '../util';
 
 function trackFromSessionJson(session: any, config: HalfnarpSourceFormat): Track | undefined {
   if (!session.track_id) return undefined;
@@ -91,6 +92,9 @@ function parseSession(session: any, config: HalfnarpSourceFormat): Session | und
   let id: string 
   if (session.guid) {
     id = session.guid;
+  } else if (config.pretalxSiteUuid) {
+    // Same as pretalx's TalkSlot.uuid: uuid5(instance_identifier, submission code)
+    id = uuidv5(config.pretalxSiteUuid, `${session.event_id}`);
   } else {
     id = mkId(`${config.eventId}-${session.event_id}`);
   }
